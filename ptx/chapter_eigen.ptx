@@ -1,0 +1,37 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="chapter_eigen">
+  <title>Eigenvalues and Eigenvectors</title>
+  <introduction>
+    <p>
+      We have often explored new ideas in matrix algebra by making connections to our previous algebraic experience.
+      Adding two numbers, <m>x+y</m>,
+      led us to adding vectors <m>\vec{x}+\vec{y}</m> and adding matrices <m>A+ B</m>.
+      We explored multiplication,
+      which then led us to solving the matrix equation A \vec{x} = \vec{b}, which was reminiscent of solving the algebra equation <m>ax=b</m>.
+    </p>
+    <p>
+      This chapter is motivated by another analogy.
+      Consider: when we multiply an unknown number <m>x</m> by another number such as 5, what do we know about the result?
+      Unless, <m>x=0</m>, we know that in some sense <m>5x</m> will be
+      <q>5 times bigger than <m>x</m>.</q>
+      Applying this to vectors,
+      we would readily agree that
+      <m>5\vec{x}</m> gives a vector that is
+      <q>5 times bigger than <m>\vec{x}</m>.</q>
+      Each entry in <m>\vec{x}</m> is multiplied by 5.
+    </p>
+    <p>
+      Within the matrix algebra context, though,
+      we have two types of multiplication:
+      scalar and matrix multiplication.
+      What happens to <m>\vec{x}</m> when we multiply it by a matrix A? Our first response is likely along the lines of
+      <q>You just get another vector.
+      There is no definable relationship.</q>
+      We might wonder if there is ever the case where a matrix <mdash/> vector multiplication is very similar to a scalar <mdash/> vector multiplication.
+      That is, do we ever have the case where <m>A\vec{x} = a\vec{x}</m>,
+      where <m>a</m> is some scalar?
+      That is the motivating question of this chapter.
+    </p>
+  </introduction>
+  <xi:include  href="sec_eigen.ptx"/>
+  <xi:include  href="sec_eigen_prop.ptx"/>
+</chapter>

@@ -1,0 +1,1196 @@
+<section xml:id="sec_solving_systems">
+  <title>Applications of Linear Systems</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          How do most problems appear
+          <q>in the real world?</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          The unknowns in a problem are also called what?
+        </p>
+      </li>
+      <li>
+        <p>
+          How many points are needed to determine the coefficients of a 5<m>^\text{ th }</m> degree polynomial?
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    We've started this chapter by addressing the issue of finding the solution to a system of linear equations.
+    In subsequent sections,
+    we defined matrices to store linear equation information;
+    we described how we can manipulate matrices without changing the solutions;
+    we described how to efficiently manipulate matrices so that a working solution can be easily found.
+  </p>
+  <p>
+    We shouldn't lose sight of the fact that our work in the previous sections was aimed at finding solutions to systems of linear equations.
+    In this section,
+    we'll learn how to apply what we've learned to actually solve some problems.
+  </p>
+  <p>
+    Many, many, <em>many</em> problems that are addressed by engineers,
+    businesspeople,
+    scientists and mathematicians can be solved by properly setting up systems of linear equations.
+    In this section we highlight only a few of the wide variety of problems that matrix algebra can help us solve.
+  </p>
+  <p>
+    We start with a simple example.
+  </p>
+  <example xml:id="ex_application_easy">
+    <statement>
+      <p>
+        A jar contains 100 blue, green, red and yellow marbles.
+        There are twice as many yellow marbles as blue;
+        there are 10 more blue marbles than red;
+        the sum of the red and yellow marbles is the same as the sum of the blue and green.
+        How many marbles of each color are there?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let's call the number of blue balls <m>b</m>,
+        and the number of the other balls <m>g</m>,
+        <m>r</m> and <m>y</m>, each representing the obvious.
+        Since we know that we have 100 marbles, we have the equation
+        <me>
+          b+g+r+y=100
+        </me>
+      </p>
+      <p>.
+        The next sentence in our problem statement allows us to create three more equations.
+      </p>
+      <p>
+        We are told that there are twice as many yellow marbles as blue.
+        One of the following two equations is correct,
+        based on this statement; which one is it?
+        <me>
+          2y=b  \text{ or }  \quad2b=y
+        </me>
+      </p>
+      <p>
+        The first equation says that if we take the number of yellow marbles,
+        then double it, we'll have the number of blue marbles.
+        That is not what we were told.
+        The second equation states that if we take the number of blue marbles,
+        then double it, we'll have the number of yellow marbles.
+        This <em>is</em> what we were told.
+      </p>
+      <p>
+        The next statement of
+        <q>there are 10 more blue marbles as red</q>
+        can be written as either
+        <me>
+          b=r+10  \text{ or }   r=b+10
+        </me>
+      </p>
+      <p>.
+        Which is it?
+      </p>
+      <p>
+        The first equation says that if we take the number of red marbles,
+        then add 10, we'll have the number of blue marbles.
+        This is what we were told.
+        The next equation is wrong; it implies there are more red marbles than blue.
+      </p>
+      <p>
+        The final statement tells us that the sum of the red and yellow marbles is the same as the sum of the blue and green marbles,
+        giving us the equation
+        <me>
+          r+y=b+g
+        </me>
+      </p>
+      <p>
+        We have four equations; altogether, they are
+        <md>
+          <mrow>b+g+r+y\amp = 100</mrow>
+          <mrow>2b\amp =y</mrow>
+          <mrow>b\amp =r+10</mrow>
+          <mrow>r+y\amp =b+g</mrow>
+        </md>.
+      </p>
+      <p>
+        We want to write these equations in a standard way,
+        with all the unknowns on the left and the constants on the right.
+        Let us also write them so that the variables appear in the same order in each equation
+        (we'll use alphabetical order to make it simple).
+        We now have
+        <md>
+          <mrow>b+g+r+y\amp =100</mrow>
+          <mrow>2b-y\amp =0</mrow>
+          <mrow>b-r\amp =10</mrow>
+          <mrow>-b-g+r+y\amp =0</mrow>
+        </md>
+      </p>
+      <p>
+        To find the solution,
+        let's form the appropriate augmented matrix and put it into reduced row echelon form.
+        We do so here, without showing the steps
+        <me>
+          .\left[\begin{array}{ccccc} 1\amp 1\amp 1\amp 1\amp 100\\2\amp 0\amp 0\amp -1\amp 0\\1\amp 0\amp -1\amp 0\amp 10\\-1\amp -1\amp 1\amp 1\amp 0\\ \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccccc}  1\amp 0\amp 0\amp 0\amp 20\\0\amp 1\amp 0\amp 0\amp 30\\0\amp 0\amp 1\amp 0\amp 10\\0\amp 0\amp 0\amp 1\amp 40\\ \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We interpret from the reduced row echelon form<nbsp/>of the matrix that we have 20 blue, 30 green, 10 red and 40 yellow marbles.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Even if you had a bit of difficulty with the previous example,
+    in reality,
+    this type of problem is pretty simple.
+    The unknowns were easy to identify,
+    the equations were pretty straightforward to write
+    (maybe a bit tricky for some),
+    and only the necessary information was given.
+  </p>
+  <p>
+    Most problems that we face in the world do not approach us in this way;
+    most problems do not approach us in the form of
+    <q>Here is an equation.
+    Solve it.</q>
+    Rather, most problems come in the form of:
+  </p>
+  <blockquote>
+    Here is a problem. I want the solution. To help, here is lots of information. It may be just enough; it may be too much; it may not be enough. You figure out what you need; just give me the solution.
+  </blockquote>
+  <p>
+    Faced with this type of problem, how do we proceed?
+    Like much of what we've done in the past, there isn't just one
+    <q>right</q>
+    way.
+    However, there are a few steps that can guide us.
+    You don't have to follow these steps,
+    <q>step by step,</q>
+    but if you find that you are having difficulty solving a problem,
+    working through these steps may help.
+    (Note: while the principles outlined here will help one solve any type of problem,
+    these steps are written specifically for solving problems that involve only linear equations.)
+  </p>
+  <insight xml:id="idea_problem_solving">
+    <p>
+      <term>Mathematical Problem Solving</term>
+          <idx><h>problem solving</h></idx>
+      <ol>
+        <li>
+          <p>
+            Understand the problem.
+            What exactly is being asked?
+          </p>
+        </li>
+        <li>
+          <p>
+            Identify the unknowns.
+            What are you trying to find?
+            What units are involved?
+          </p>
+        </li>
+        <li>
+          <p>
+            Give names to your unknowns
+            (these are your <em>variables</em>).
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the information given to write as many equations as you can that involve these variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the equations to form an augmented matrix;
+            use Gaussian elimination to put the matrix into reduced row echelon form.
+          </p>
+        </li>
+        <li>
+          <p>
+            Interpret the reduced row echelon form<nbsp/>of the matrix to identify the solution.
+          </p>
+        </li>
+        <li>
+          <p>
+            Ensure the solution makes sense in the context of the problem.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </insight>
+  <p>
+    Having identified some steps,
+    let us put them into practice with some examples.
+  </p>
+  <example xml:id="ex_application_1">
+    <statement>
+      <p>
+        A concert hall has seating arranged in three sections.
+        As part of a special promotion,
+        guests will recieve two of three prizes.
+        Guests seated in the first and second sections will receive Prize A, guests seated in the second and third sections will receive Prize B, and guests seated in the first and third sections will receive Prize C. Concert promoters told the concert hall managers of their plans,
+        and asked how many seats were in each section.
+        (The promoters want to store prizes for each section separately for easier distribution.)
+        The managers, thinking they were being helpful,
+        told the promoters they would need 105 A prizes, 103 B prizes,
+        and 88 C prizes, and have since been unavailable for further help.
+        How many seats are in each section?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Before we rush in and start making equations,
+        we should be clear about what is being asked.
+        The final sentence asks:
+        <q>How many seats are in each section?</q>
+        This tells us what our unknowns should be:
+        we should name our unknowns for the number of seats in each section.
+        Let <m>x_1</m>,
+        <m>x_2</m> and <m>x_3</m> denote the number of seats in the first,
+        second and third sections, respectively.
+        This covers the first two steps of our general problem solving technique.
+      </p>
+      <p>
+        (It is tempting, perhaps,
+        to name our variables for the number of prizes given away.
+        However, when we think more about this,
+        we realize that we already know this <mdash/> that information is given to us.
+        Rather, we should name our variables for the things we don't know.)
+      </p>
+      <p>
+        Having our unknowns identified and variables named,
+        we now proceed to forming equations from the information given.
+        Knowing that Prize A goes to guests in the first and second sections and that we'll need 105 of these prizes tells us
+        <me>
+          x_1+x_2 = 105
+        </me>
+      </p>
+      <p>.
+        Proceeding in a similar fashion,
+        we get two more equations,
+        <me>
+          x_2+x_3 = 103\text{ and }  x_1+x_3 = 88
+        </me>
+      </p>
+      <p>.
+        Thus our linear system is
+        <me>
+          \begin{array}{rcl}x_1+x_2\amp =\amp 105\\x_2+x_3\amp =\amp 103\\x_1+x_3\amp =\amp 88 \end{array}
+        </me>
+        and the corresponding augmented matrix is
+        <me>
+          \left[\begin{array}{cccc} 1\amp 1\amp 0\amp 105\\0\amp 1\amp 1\amp 103\\1\amp 0\amp 1\amp 88\\ \end{array} \right]
+        </me>
+      </p>
+      <p>
+        To solve our system,
+        let's put this matrix into reduced row echelon form.
+        <me>
+          \left[\begin{array}{cccc} 1\amp 1\amp 0\amp 105\\0\amp 1\amp 1\amp 103\\1\amp 0\amp 1\amp 88\\ \end{array} \right]   \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 45\\0\amp 1\amp 0\amp 60\\0\amp 0\amp 1\amp 43\\ \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We can now read off our solution.
+        The first section has 45 seats,
+        the second has 60 seats, and the third has 43 seats.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_application_2">
+    <statement>
+      <p>
+        A lady takes a 2-mile motorized boat trip down the Highwater River,
+        knowing the trip will take 30 minutes.
+        She asks the boat pilot
+        <q>How fast does this river flow?</q>
+        He replies
+        <q>I have no idea, lady.
+        I just drive the boat.</q>
+      </p>
+      <p>
+        She thinks for a moment, then asks
+        <q>How long does the return trip take?</q>
+        He replies
+        <q>The same; half an hour.</q>
+        She follows up with the statement,
+        <q>Since both legs take the same time,
+        you must not drive the boat at the same speed.</q>
+      </p>
+      <p>
+        <q>Naw,</q>
+        the pilot said.
+        <q>While I really don't know exactly how fast I go, I do know that since we don't carry any tourists, I drive the boat twice as fast.</q>
+      </p>
+      <p>
+        The lady walks away satisfied;
+        she knows how fast the river flows.
+      </p>
+      <p>
+        (How fast <em>does</em> it flow?)
+      </p>
+    </statement>
+    <solution>
+      <p>
+        This problem forces us to think about what information is given and how to use it to find what we want to know.
+        In fact, to find the solution,
+        we'll find out extra information that we weren't asked for!
+      </p>
+      <p>
+        We are asked to find how fast the river is moving
+        (step 1).
+        To find this, we should recognize that,
+        in some sense, there are three speeds at work in the boat trips:
+        the speed of the river
+        (which we want to find),
+        the speed of the boat, and the speed that they actually travel at.
+      </p>
+      <p>
+        We know that each leg of the trip takes half an hour;
+        if it takes half an hour to cover 2 miles,
+        then they must be traveling at 4 mph, each way.
+      </p>
+      <p>
+        The other two speeds are unknowns,
+        but they are related to the overall speeds.
+        Let's call the speed of the river <m>r</m> and the speed of the boat <m>b</m>.
+        (And we should be careful.
+        From the conversation,
+        we know that the boat travels at two different speeds.
+        So we'll say that <m>b</m> represents the speed of the boat when it travels downstream,
+        so <m>2b</m> represents the speed of the boat when it travels upstream.)
+        Let's let our speed be measured in the units of miles/hour (mph) as we used above
+        (steps 2 and 3).
+      </p>
+      <p>
+        What is the rate of the people on the boat?
+        When they are travelling downstream,
+        their rate is the sum of the water speed and the boat speed.
+        Since their overall speed is 4 mph,
+        we have the equation <m>r+b=4</m>.
+      </p>
+      <p>
+        When the boat returns going against the current,
+        its overall speed is the rate of the boat minus the rate of the river
+        (since the river is working against the boat).
+        The overall trip is still taken at 4 mph,
+        so we have the equation <m>2b-r=4</m>.
+        (Recall: the boat is traveling twice as fast as before.)
+      </p>
+      <p>
+        The corresponding augmented matrix is
+        <me>
+          \left[\begin{array}{ccc}  1 \amp  1 \amp  4\\ 2\amp -1\amp 4\\ \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Note that we decided to let the first column hold the coefficients of <m>b</m>.
+      </p>
+      <p>
+        Putting this matrix in reduced row echelon form<nbsp/>gives us:
+        <me>
+          \left[\begin{array}{ccc}  1 \amp  1 \amp  4\\ 2\amp -1\amp 4\\ \end{array} \right]\overrightarrow{\text{ rref } }\left[\begin{array}{ccc} 1\amp 0\amp 8/3\\0\amp 1\amp 4/3\\ \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We finish by interpreting this solution:
+        the speed of the boat
+        (going downstream)
+        is 8/3 mph, or <m>2.\overline{6}</m> mph,
+        and the speed of the river is 4/3 mph,
+        or <m>1.\overline{3}</m> mph.
+        All we really wanted to know was the speed of the river,
+        at about 1.3 mph.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_polynomial_1">
+    <statement>
+      <p>
+        Find the equation of the quadratic function that goes through the points <m>(-1,6)</m>,
+        <m>(1,2)</m> and <m>(2,3)</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        This may not seem like a
+        <q>linear</q>
+        problem since we are talking about a quadratic function,
+        but closer examination will show that it really is.
+      </p>
+      <p>
+        We normally write quadratic functions as <m>y=ax^2+bx+c</m> where <m>a</m>,
+        <m>b</m> and <m>c</m> are the coefficients;
+        in this case, they are our unknowns.
+        We have three points; consider the point <m>(-1,6)</m>.
+        This tells us directly that if <m>x=-1</m>, then <m>y=6</m>.
+        Therefore we know that <m>6=a(-1)^2+b(-1)+c</m>.
+        Writing this in a more standard form,
+        we have the linear equation
+        <me>
+          a - b+c=6
+        </me>
+      </p>
+      <p>
+        The second point tells us that <m>a(1)^2+b(1)+c = 2</m>,
+        which we can simplify as <m>a+b+c=2</m>,
+        and the last point tells us
+        <m>a(2)^2+b(2)+c = 3</m>, or <m>4a+2b+c=3</m>.
+        Thus our linear system is
+        <me>
+          \begin{array}{rcl} a-b+c\amp =\amp 6\\ a+b+c\amp =\amp 2\\ 4a+2b+c\amp =\amp 3. \end{array}
+        </me>
+      </p>
+      <p>
+        Again, to solve our system,
+        we find the reduced row echelon form<nbsp/>of the corresponding augmented matrix.
+        We don't show the steps here, just the final result.
+        <me>
+          \left[\begin{array}{cccc} 1\amp -1\amp 1\amp 6\\1\amp 1\amp 1\amp 2\\4\amp 2\amp 1\amp 3\\ \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 1\amp 0\amp -2\\0\amp 0\amp 1\amp 3\\ \end{array} \right]
+        </me>
+      </p>
+      <p>
+        This tells us that <m>a=1</m>,
+        <m>b=-2</m> and <m>c=3</m>,
+        giving us the quadratic function <m>y=x^2-2x+3</m>.
+      </p>
+    </solution>
+  </example>
+  <p>
+    One thing interesting about the previous example is that it confirms for us something that we may have known for a while
+    (but didn't know <em>why</em> it was true).
+    Why do we need two points to find the equation of the line?
+    Because in the equation of the a line, we have two unknowns,
+    and hence we'll need two equations to find values for these unknowns.
+  </p>
+  <p>
+    A quadratic has three unknowns
+    (the coefficients of the <m>x^2</m> term and the <m>x</m> term,
+    and the constant).
+    Therefore we'll need three equations,
+    and therefore we'll need three points.
+  </p>
+  <p>
+    What happens if we try to find the quadratic function that goes through 3 points that are all on the same line?
+    The fast answer is that you'll get the equation of a line;
+    there isn't a quadratic function that goes through 3 colinear points.
+    Try it and see! (Pick easy points,
+    like <m>(0,0)</m>, <m>(1,1)</m> and <m>(2,2)</m>.
+    You'll find that the coefficient of the <m>x^2</m> term is 0.)
+  </p>
+  <p>
+    Of course, we can do the same type of thing to find polynomials that go through 4, 5, etc., points.
+    In general, if you are given <m>n+1</m> points,
+    a polynomial that goes through all <m>n+1</m> points will have degree at most <m>n</m>.
+  </p>
+  <example xml:id="ex_ex_un_application_1">
+    <statement>
+      <p>
+        A woman has 32 $1, $5 and $10 bills in her purse,
+        giving her a total of $100.
+        How many bills of each denomination does she have?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let's name our unknowns <m>x</m>,
+        <m>y</m> and <m>z</m> for our ones,
+        fives and tens, respectively
+        (it is tempting to call them <m>o</m>,
+        <m>f</m> and <m>t</m>, but <m>o</m> looks too much like 0).
+        We know that there are a total of 32 bills, so we have the equation
+        <me>
+          x+y+z = 32
+        </me>
+      </p>
+      <p>.
+        We also know that we have $100, so we have the equation
+        <me>
+          x+5y+10z = 100
+        </me>
+      </p>
+      <p>.
+        We have three unknowns but only two equations,
+        so we know that we cannot expect a unique solution.
+        Let's try to solve this system anyway and see what we get.
+      </p>
+      <p>
+        Putting the system into a matrix and then finding the reduced row echelon form, we have
+        <me>
+          \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 32\\ 1\amp 5\amp 10\amp 100\\ \end{array} \right] \qquad \overrightarrow{\text{ rref } }\qquad \left[\begin{array}{cccc} 1\amp 0\amp -\frac54\amp 15\\0\amp 1\amp \frac94\amp 17\\ \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Reading from our reduced matrix,
+        we have the infinite solution set
+        <md>
+          <mrow>x \amp =15+\frac54z</mrow>
+          <mrow>y\amp =17 - \frac94z</mrow>
+          <mrow>z \amp  \text{ is free. }</mrow>
+        </md>
+      </p>
+      <p>
+        While we do have infinite solutions,
+        most of these solutions really don't make sense in the context of this problem.
+        (Setting <m>z = \frac12</m> doesn't make sense,
+        for having half a ten dollar bill doesn't give us $5.
+        Likewise, having <m>z = 8</m> doesn't make sense, for then we'd have
+        <q><m>-1</m></q>
+        $5 bills.)
+        So we must make sure that our choice of <m>z</m> doesn't give us fractions of bills or negative amounts of bills.
+      </p>
+      <p>
+        To avoid fractions, <m>z</m> must be a multiple of 4
+        (<m>-4, 0, 4, 8, \ldots</m>).
+        Of course, <m>z\geq 0</m> for a negative number wouldn't make sense.
+        If <m>z = 0</m>,
+        then we have 15 one dollar bills and 17 five dollar bills,
+        giving us $100.
+        If <m>z = 4</m>, then we have <m>x = 20</m> and <m>y = 8</m>.
+        We already mentioned that <m>z=8</m> doesn't make sense,
+        nor does any value of <m>z</m> where <m>z\geq 8</m>.
+      </p>
+      <p>
+        So it seems that we have two answers;
+        one with <m>z=0</m> and one with <m>z=4</m>.
+        Of course, by the statement of the problem,
+        we are led to believe that the lady has at least one $10 bill,
+        so probably the
+        <q>best</q>
+        answer is that we have 20 $1 bills, 8 $5 bills and 4 $10 bills.
+        The real point of this example, though,
+        is to address how infinite solutions may appear in a real world situation,
+        and how suprising things may result.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_football">
+    <statement>
+      <p>
+        In a football game,
+        teams can score points through touchdowns worth 6 points,
+        extra points
+        (that follow touchdowns)
+        worth 1 point, two point conversions
+        (that also follow touchdowns)
+        worth 2 points and field goals, worth 3 points.
+        You are told that in a football game,
+        the two competing teams scored on 7 occasions,
+        giving a total score of 24 points.
+        Each touchdown was followed by either a successful extra point or two point conversion.
+        In what ways were these points scored?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The question asks how the points were scored;
+        we can interpret this as asking how many touchdowns,
+        extra points, two point conversions and field goals were scored.
+        We'll need to assign variable names to our unknowns;
+        let <m>t</m> represent the number of
+        <em>t</em>ouchdowns scored;
+        let <m>x</m> represent the number of extra points scored,
+        let <m>w</m> represent the number of two point conversions,
+        and let <m>f</m> represent the number of \textbf field goals scored.
+      </p>
+      <p>
+        Now we address the issue of writing equations with these variables using the given information.
+        Since we have a total of 7 scoring occasions, we know that
+        <me>
+          t+x+w+f=7
+        </me>
+      </p>
+      <p>.
+        The total points scored is 24;
+        considering the value of each type of scoring opportunity,
+        we can write the equation
+        <me>
+          6t+x+2w+3f = 24
+        </me>
+      </p>
+      <p>.
+        Finally, we know that each touchdown was followed by a successful extra point or two point conversion.
+        This is subtle,
+        but it tells us that the number of touchdowns is equal to the sum of extra points and two point conversions.
+        In other words,
+        <me>
+          t = x+w
+        </me>
+      </p>
+      <p>
+        To solve our problem,
+        we put these equations into a matrix and put the matrix into reduced row echelon form.
+        Doing so, we find
+        <me>
+          \left[\begin{array}{ccccc} 1\amp 1\amp 1\amp 1\amp 7\\ 6\amp 1\amp 2\amp 3\amp 24\\1\amp -1\amp -1\amp 0\amp 0\\ \end{array} \right] \overrightarrow{\text{ rref } } \left[\begin{array}{ccccc}  1\amp 0\amp 0\amp 0.5\amp 3.5\\0\amp 1\amp 0\amp 1\amp 4\\ 0\amp 0\amp 1\amp -0.5\amp -0.5\\ \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Therefore, we know that
+        <md>
+          <mrow>t \amp =3.5-0.5f</mrow>
+          <mrow>x\amp =4-f</mrow>
+          <mrow>w\amp =-0.5+0.5f</mrow>
+        </md>.
+      </p>
+      <p>
+        We recognize that this means there are
+        <q>infinite solutions,</q>
+        but of course most of these will not make sense in the context of a real football game.
+        We must apply some logic to make sense of the situation.
+      </p>
+      <p>
+        Progressing in no particular order,
+        consider the second equation, <m>x = 4-f</m>.
+        In order for us to have a positive number of extra points,
+        we must have <m>f\leq 4</m>.
+        (And of course, we need <m>f\geq 0</m>, too.)
+        Therefore, right away we know we have a total of only 5 possibilities,
+        where <m>f = 0</m>, <m>1</m>,
+        <m>2</m>, <m>3</m> or <m>4</m>.
+      </p>
+      <p>
+        From the first and third equations,
+        we see that if <m>f</m> is an even number,
+        then <m>t</m> and <m>w</m> will both be fractions
+        (for instance, if <m>f=0</m>, then <m>t = 3.5</m>)
+        which does not make sense.
+        Therefore, we are down to two possible solutions,
+        <m>f = 1</m> and <m>f=3</m>.
+      </p>
+      <p>
+        If <m>f=1</m>, we have 3 touchdowns, 3 extra points,
+        no two point conversions, and
+        (of course),
+        1 field goal. (Check to make sure that gives 24 points!) If <m>f=3</m>,
+        then we 2 touchdowns, 1 extra point, 1 two point conversion, and
+        (of course)
+        3 field goals.
+        Again, check to make sure this gives us 24 points.
+        Also, we should check each solution to make sure that we have a total of 7 scoring occasions and that each touchdown could be followed by an extra point or a two point conversion.
+      </p>
+    </solution>
+  </example>
+  <p>
+    We have seen a variety of applications of systems of linear equations.
+    We would do well to remind ourselves of the ways in which solutions to linear systems come:
+    there can be exactly one solution,
+    infinite solutions, or no solutions.
+    While we did see a few examples where it seemed like we had only 2 solutions,
+    this was because we were restricting our solutions to
+    <q>make sense</q>
+    within a certain context.
+  </p>
+  <p>
+    We should also remind ourselves that linear equations are immensely important.
+    The examples we considered here ask fundamentally simple questions like
+    <q>How fast is the water moving?</q>
+    or
+    <q>What is the quadratic function that goes through these three points?</q>
+    or
+    <q>How were points in a football game scored?</q>
+    The real
+    <q>important</q>
+    situations ask much more difficult questions that often require <em>thousands</em>
+    of equations! (Gauss began the systematic study of solving systems of linear equations while trying to predict the next sighting of a comet;
+    he needed to solve a system of linear equations that had 17 unknowns.
+    Today, this a relatively easy situation to handle with the help of computers,
+    but to do it by hand is a real pain.) Once we understand the fundamentals of solving systems of equations,
+    we can move on to looking at solving bigger systems of equations;
+    this text focuses on getting us to understand the fundamentals.
+  </p>
+  <p>
+    In the following exercises, find the solution of the given problem by:
+    <ul>
+      <li>
+        <title>(a)</title>
+        <p>
+          creating an appropriate system of linear equations
+        </p>
+      </li>
+      <li>
+        <title>(b)</title>
+        <p>
+          forming the augmented matrix that corresponds to this system
+        </p>
+      </li>
+      <li>
+        <title>(c)</title>
+        <p>
+          putting the augmented matrix into reduced row echelon form
+        </p>
+      </li>
+      <li>
+        <title>(d)</title>
+        <p>
+          interpreting the reduced row echelon form<nbsp/>of the matrix as a solution
+        </p>
+      </li>
+    </ul>
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        A farmer looks out his window at his chickens and pigs.
+        He tells his daughter that he sees 62 heads and 190 legs.
+        How many chickens and pigs does the farmer have?
+      </p>
+    </statement>
+    <answer>
+      <p>
+        29 chickens and 33 pigs
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        A lady buys 20 trinkets at a yard sale.
+        The cost of each trinket is either $0.30 or $0.65.
+        If she spends $8.80, how many of each type of trinket does she buy?
+      </p>
+    </statement>
+    <answer>
+      <p>
+        12 $0.30 trinkets, 8 $0.65 trinkets
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        A carpenter can make two sizes of table, grande and venti.
+        The grande table requires 4 table legs and 1 table top;
+        the venti requires 6 table legs and 2 table tops.
+        After doing work,
+        he counts up spare parts in his warehouse and realizes that he has 86 table tops left over,
+        and 300 legs.
+        How many tables of each kind can he build and use up exactly all of his materials?
+      </p>
+    </statement>
+    <answer>
+      <p>
+        42 grande tables, 22 venti tables
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        A jar contains 100 marbles.
+        We know there are twice as many green marbles as red;
+        that the number of blue and yellow marbles together is the same as the number of green;
+        and that three times the number of yellow marbles together with the red marbles gives the same numbers as the blue marbles.
+        How many of each color of marble are in the jar?
+      </p>
+    </statement>
+    <answer>
+      <p>
+        35 blue, 40 green, 20 red, 5 yellow
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        A rescue mission has 85 sandwiches, 65 bags of chips and 210 cookies.
+        They know from experience that men will eat 2 sandwiches, 1 bag of chips and 4 cookies;
+        women will eat 1 sandwich, a bag of chips and 2 cookies;
+        kids will eat half a sandwhich,
+        a bag of chips and 3 cookies.
+        If they want to use all their food up,
+        how many men, women and kids can they feed?
+      </p>
+    </statement>
+    <answer>
+      <p>
+        30 men, 15 women, 20 kids
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    find the polynomial with the smallest degree that goes through the given points.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>(1,3)</m> and <m>(3,15)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = 6x-3</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(-2,14)</m> and <m>(3,4)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = -2x+10</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(1,5)</m>, <m>(-1,3)</m> and <m>(3,-1)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = -x^2+x+5</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(-4,-3)</m>, <m>(0,1)</m> and <m>(1,4.5)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = \frac12x^2+3x+1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(-1,-8)</m>, <m>(1,-2)</m> and <m>(3,4)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = 3x-5</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(-3,3)</m>, <m>(1,3)</m> and <m>(2,3)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = 3</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(-2,15)</m>, <m>(-1,4)</m>,
+        <m>(1,0)</m> and <m>(2,-5)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = -x^3+x^2-x+1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(-2,-7)</m>, <m>(1,2)</m>,
+        <m>(2,9)</m> and <m>(3,28)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = x^3+1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(-3,10)</m>, <m>(-1,2)</m>,
+        <m>(1,2)</m> and <m>(2,5)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = x^2+1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>(0,1)</m>, <m>(-3,-3.5)</m>,
+        <m>(-2,-2)</m> and <m>(4,7)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(x) = \frac32x+1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        The general exponential function has the form <m>f(x)= ae^{bx}</m>,
+        where <m>a</m> and <m>b</m> are constants and <m>e</m> is Euler's constant
+        (<m>\approx</m> 2.718).
+        We want to find the equation of the exponential function that goes through the points <m>(1,2)</m> and <m>(2,4)</m>.
+        <ol>
+          <li>
+            <p>
+              Show why we cannot simply subsitute in values for <m>x</m> and <m>y</m> in
+              <m>y = ae^{bx}</m> and solve using the techniques we used for polynomials.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show how the equality <m>y = ae^{bx}</m> leads us to the linear equation <m>\ln y = \ln a + bx</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the techniques we developed to solve for the unknowns <m>\ln a</m> and <m>b</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Knowing <m>\ln a</m>, find <m>a</m>;
+              find the exponential function
+              <m>f(x) = ae^{bx}</m> that goes through the points <m>(1,2)</m> and <m>(2,4)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            Substitution yields the equations
+            <m>2 = ae^{b}</m> and <m>4 = ae^{2b}</m>;
+            these are not linear equations.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>y = ae^{bx}</m> implies that <m>\ln y = \ln (ae^{bx}) = \ln a + \ln e^{bx} = \ln a + bx</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Plugging in the points for <m>x</m> and <m>y</m> in the equation <m>\ln y = \ln a + bx</m>,
+            we have equations
+            <me>
+              \begin{array}{ccccc} \ln a \amp  + \amp  b \amp  = \amp  \ln 2 \\ \ln a \amp  + \amp  2b \amp  = \amp  \ln 4 \end{array}
+            </me>.
+            To solve,
+            <me>
+              \left[\begin{array}{ccc}  1 \amp 1\amp \ln 2 \\ 1 \amp  2 \amp \ln 4 \\ \end{array} \right] \overrightarrow{\text{ rref } } \left[\begin{array}{ccc}  1\amp 0\amp 0\\0\amp 1\amp \ln 2\\ \end{array} \right]
+            </me>.
+            Therefore <m>\ln a = 0</m> and <m>b = \ln 2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Since <m>\ln a = 0</m>, we know that <m>a = e^0 = 1</m>.
+            Thus our exponential function is <m>f(x) = e^{x\ln 2}</m>.
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        In a football game, 24 points are scored from 8 scoring occasions.
+        The number of successful extra point kicks is equal to the number of successful two point conversions.
+        Find all ways in which the points may have been scored in this game.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        The augmented matrix from this system is <m>\left[\begin{array}{ccccc} 1\amp 1\amp 1\amp 1\amp 8\\6\amp 1\amp 2\amp 3\amp 24\\0\amp 1\amp -1\amp 0\amp 0\\ \end{array} \right]</m>.
+        From this we find the solution
+        <md>
+          <mrow>t\amp =\frac83-\frac13f</mrow>
+          <mrow>x\amp =\frac83-\frac13f</mrow>
+          <mrow>w\amp =\frac83-\frac13f</mrow>
+        </md>.
+      </p>
+      <p>
+        The only time each of these variables are nonnegative integers is when <m>f=2</m> or <m>f=8</m>.
+        If <m>f=2</m>,
+        then we have 2 touchdowns, 2 extra points and 2 two point conversions (and 2 field goals);
+        this doesn't make sense since the extra points and two point conversions follow touchdowns.
+        If <m>f=8</m>, then we have no touchdowns,
+        extra points or two point conversions
+        (just 8 field goals).
+        This is the only solution; all points were scored from field goals.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        In a football game, 29 points are scored from 8 scoring occasions.
+        There are 2 more successful extra point kicks than successful two point conversions.
+        Find all ways in which the points may have been scored in this game.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        The augmented matrix from this system is <m>\left[\begin{array}{ccccc} 1\amp 1\amp 1\amp 1\amp 8\\6\amp 1\amp 2\amp 3\amp 29\\0\amp 1\amp -1\amp 0\amp 2\\ \end{array} \right]</m>.
+        From this we find the solution
+        <md>
+          <mrow>t\amp =4-\frac13f</mrow>
+          <mrow>x\amp =3-\frac13f</mrow>
+          <mrow>w\amp =1-\frac13f</mrow>
+        </md>.
+      </p>
+      <p>
+        The only time each of these variables are nonnegative integers is when <m>f=0</m> or <m>f=3</m>.
+        If <m>f=0</m>,
+        then we have 4 touchdowns, 3 extra points and 1 two point conversions
+        (no field goals).
+        If <m>f=3</m>,
+        then we have 3 touchdowns, 2 extra points and no two point conversions
+        (and 3 field goals).
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        In a basketball game, where points are scored either by a 3 point shot,
+        a 2 point shot or a 1 point free throw, 80 points were scored from 30 successful shots.
+        Find all ways in which the points may have been scored in this game.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Let <m>x_1</m>,
+        <m>x_2</m> and <m>x_3</m> represent the number of free throws, 2 point and 3 point shots taken.
+        The augmented matrix from this system is <m>\left[\begin{array}{cccc} 1\amp 1\amp 1\amp 30\\1\amp 2\amp 3\amp 80 \end{array} \right]</m>.
+        From this we find the solution
+        <md>
+          <mrow>x_1\amp =-20+x_3</mrow>
+          <mrow>x_2\amp =50-2x_3</mrow>
+        </md>.
+      </p>
+      <p>
+        In order for <m>x_1</m> and <m>x_2</m> to be nonnegative,
+        we need <m>20\leq x_3\leq 25</m>.
+        Thus there are 6 different scenerios: the
+        <q>first</q>
+        is where 20 three point shots are taken,
+        no free throws, and 10 two point shots; the
+        <q>last</q>
+        is where 25 three point shots are taken, 5 free throws,
+        and no two point shots.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        In a basketball game, where points are scored either by a 3 point shot,
+        a 2 point shot or a 1 point free throw, 110 points were scored from 70 successful shots.
+        Find all ways in which the points may have been scored in this game.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Let <m>x_1</m>,
+        <m>x_2</m> and <m>x_3</m> represent the number of free throws, 2 point and 3 point shots taken.
+        The augmented matrix from this system is <m>\left[\begin{array}{cccc} 1\amp 1\amp 1\amp 70\\1\amp 2\amp 3\amp 110 \end{array} \right]</m>.
+        From this we find the solution
+        <md>
+          <mrow>x_1\amp =30+x_3</mrow>
+          <mrow>x_2\amp =40-2x_3</mrow>
+        </md>.
+      </p>
+      <p>
+        In order for <m>x_2</m> to be nonnegative,
+        we need <m>x_3\leq 20</m>.
+        Thus there are 21 different scenerios: the
+        <q>first</q>
+        is where 0 three point shots are taken (<m>x_3=0</m>, 30 free throws and 40 two point shots; the
+        <q>last</q>
+        is where 20 three point shots are taken, 50 free throws,
+        and no two point shots.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Describe the equations of the linear functions that go through the point (1,3).
+        Give 2 examples.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Let <m>y = ax+b</m>;
+        all linear functions through (1,3) come in the form <m>y = (3-b)x+b</m>.
+        Examples: <m>b=0</m> yields <m>y = 3x</m>;
+        <m>b=2</m> yields <m>y=x+2</m>.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Describe the equations of the linear functions that go through the point (2,5).
+        Give 2 examples.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Let <m>y = ax+b</m>;
+        all linear functions through (2,5) come in the form <m>y = (2.5-\frac12b)x+b</m>.
+        Examples: <m>b=1</m> yields <m>y = 2x+1</m>;
+        <m>b=-1</m> yields <m>y=3x-1</m>.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Describe the equations of the quadratic functions that go through the points <m>(2,-1)</m> and (1,0).
+        Give 2 examples.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Let <m>y = ax^2+bx+c</m>;
+        we find that <m>a = -\frac12+\frac12 c</m> and <m>b = \frac12-\frac32c</m>.
+        Examples: <m>c=1</m> yields <m>y = -x+1</m>;
+        <m>c=3</m> yields <m>y=x^2-4x+3</m>.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Describe the equations of the quadratic functions that go through the points <m>(-1,3)</m> and (2,6).
+        Give 2 examples.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Let <m>y = ax^2+bx+c</m>;
+        we find that <m>a = 2-\frac12 c</m> and <m>b = -1+\frac12c</m>.
+        Examples: <m>c=0</m> yields <m>y = 2x^2-x</m>;
+        <m>c=-2</m> yields <m>y=3x^2-2x-2</m>.
+      </p>
+    </answer>
+  </exercise>
+</section>

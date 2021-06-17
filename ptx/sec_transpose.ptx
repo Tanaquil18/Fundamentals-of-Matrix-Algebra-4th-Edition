@@ -1,0 +1,1016 @@
+<section xml:id="sec_transpose">
+  <title>The Matrix Transpose</title>
+  <p>
+        <idx><h>transpose</h></idx>
+  </p>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: If <m>A</m> is a <m>3\times 5</m> matrix,
+          then A^T<nbsp/>will be a <m>5\times 3</m> matrix.
+        </p>
+      </li>
+      <li>
+        <p>
+          Where are there zeros in an upper triangular matrix?
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: A matrix is symmetric if it doesn't change when you take its transpose.
+        </p>
+      </li>
+      <li>
+        <p>
+          What is the transpose of the transpose of A?
+        </p>
+      </li>
+      <li>
+        <p>
+          Give 2 other terms to describe symmetric matrices besides
+          <q>interesting.</q>
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    We jump right in with a definition.
+  </p>
+  <definition xml:id="def_transpose">
+    <statement>
+      <p>
+        <term>Transpose</term>
+      </p>
+      <p>
+            <idx><h>transpose</h><h>definition</h></idx>
+            <idx><h>matrix</h><h>transpose</h></idx>
+        Let <m>A</m> be an <m>m\times n</m> matrix.
+        The <term>transpose of A</term>, denoted <m>A^T</m>,
+        is the <m>n\times m</m> matrix whose columns are the respective rows of <m>A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+        <idx><h>transpose</h><h>definition</h></idx>
+  </p>
+  <p>
+    Examples will make this definition clear.
+  </p>
+  <example xml:id="ex_transpose_1">
+    <statement>
+      <p>
+        Find the transpose of <m>A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6 \end{array} \right]</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that <m>A</m> is a <m>2\times 3</m> matrix,
+        so A^T<nbsp/>will be a <m>3 \times 2</m> matrix.
+        By the definition,
+        the first column of A^T<nbsp/>is the first row of A; the second column of A^T<nbsp/>is the second row of <m>A</m>.
+        Therefore,
+        <me>
+          A^T = \left[\begin{array}{cc}  1\amp 4\\2\amp 5\\3\amp 6 \end{array} \right]
+        </me>.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_transpose_2">
+    <statement>
+      <p>
+        Find the transpose of the following matrices.
+        <me>
+          A = \left[\begin{array}{cccc}  7\amp 2\amp 9\amp 1\\2\amp -1\amp 3\amp 0\\-5\amp 3\amp 0\amp 11 \end{array} \right]   B = \left[\begin{array}{ccc} 1\amp 10\amp -2\\3\amp -5\amp 7\\4\amp 2\amp -3 \end{array} \right]   C = \left[\begin{array}{ccccc}  1\amp -1\amp 7\amp 8\amp 3 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We find each transpose using the definition without explanation.
+        Make note of the dimensions of the original matrix and the dimensions of its transpose.
+        <me>
+          A^T = \left[\begin{array}{ccc} 7\amp 2\amp -5\\2\amp -1\amp 3\\9\amp 3\amp 0\\1\amp 0\amp 11 \end{array} \right]   B^T = \left[\begin{array}{ccc} 1\amp 3\amp 4\\10\amp -5\amp 2\\-2\amp 7\amp -3 \end{array} \right]  = \left[\begin{array}{c} 1\\-1\\7\\8\\3 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Notice that with matrix B, when we took the transpose,
+    the <em>diagonal</em> did not change.
+    We can see what the diagonal is below where we rewrite B<nbsp/>and B^T<nbsp/>with the diagonal in bold.
+    We'll follow this by a definition of what we mean by
+    <q>the diagonal of a matrix,</q>
+    along with a few other related definitions.
+    <me>
+      B = \left[\begin{array}{ccc} \textbf{1}\amp 10\amp -2\\3\amp \textbf{--5}\amp 7\\4\amp 2\amp \textbf{--3} \end{array} \right]  B^T = \left[\begin{array}{ccc} \textbf{1}\amp 3\amp 4\\10\amp \textbf{--5}\amp 2\\-2\amp 7\amp \textbf{--3} \end{array} \right]
+    </me>
+  </p>
+  <p>
+    It is probably pretty clear why we call those entries
+    <q>the diagonal.</q>
+    Here is the formal definition.
+  </p>
+  <definition xml:id="def_diagonal">
+    <statement>
+      <p>
+        <term>The Diagonal, a Diagonal Matrix, Triangular Matrices</term>
+      </p>
+      <p>
+            <idx><h>diagonal</h><h>definition</h></idx>
+            <idx><h>triangular matrix</h><h>definition</h></idx>
+            <idx><h>matrix</h><h>diagonal</h></idx>
+            <idx><h>matrix</h><h>triangular</h></idx>
+        Let <m>A</m> be an <m>m\times n</m> matrix.
+        The <term>diagonal of A</term><nbsp/>consists of the entries <m>a_{11}</m>,
+        <m>a_{22}</m>, <m>\dots</m> of <m>A</m>.
+      </p>
+      <p>
+        A <term>diagonal matrix</term> is an
+        <m>n\times n</m> matrix in which the only nonzero entries lie on the diagonal.
+      </p>
+      <p>
+        An <term>upper (lower) triangular</term>
+        matrix is a matrix in which any nonzero entries lie on or above (below) the diagonal.
+      </p>
+    </statement>
+  </definition>
+  <example xml:id="ex_diagonal">
+    <statement>
+      <p>
+        Consider the matrices <m>A</m>, B, C<nbsp/>and <m>I_4</m>,
+        as well as their transposes, where
+        <me>
+          A = \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp 4\amp 5\\0\amp 0\amp 6 \end{array} \right]  B = \left[\begin{array}{ccc} 3\amp 0\amp 0\\0\amp 7\amp 0\\0\amp 0\amp -1 \end{array} \right]  C = \left[\begin{array}{ccc} 1\amp 2\amp 3\\0\amp 4\amp 5\\0\amp 0\amp 6\\0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Identify the diagonal of each matrix,
+        and state whether each matrix is diagonal,
+        upper triangular, lower triangular, or none of the above.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We first compute the transpose of each matrix.
+        <me>
+          A^T = \left[\begin{array}{ccc} 1\amp 0\amp 0\\2\amp 4\amp 0\\3\amp 5\amp 6 \end{array} \right]  B^T = \left[\begin{array}{ccc} 3\amp 0\amp 0\\0\amp 7\amp 0\\0\amp 0\amp -1 \end{array} \right]  = \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 0\\2\amp 4\amp 0\amp 0\\3\amp 5\amp 6\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Note that <m>\ttit_4 = I_4</m>.
+      </p>
+      <p>
+        The diagonals of <m>A</m> and A^T<nbsp/>are the same,
+        consisting of the entries 1, 4 and 6.
+        The diagonals of B<nbsp/>and B^T<nbsp/>are also the same,
+        consisting of the entries 3, 7 and <m>-1</m>.
+        Finally, the diagonals of C<nbsp/>and are the same,
+        consisting of the entries 1, 4 and 6.
+      </p>
+      <p>
+        The matrix <m>A</m> is upper triangular;
+        the only nonzero entries lie on or above the diagonal.
+        Likewise, A^T<nbsp/>is lower triangular.
+      </p>
+      <p>
+        The matrix B<nbsp/>is diagonal.
+        By their definitions,
+        we can also see that B<nbsp/>is both upper and lower triangular.
+        Likewise, <m>I_4</m> is diagonal,
+        as well as upper and lower triangular.
+      </p>
+      <p>
+        Finally, C<nbsp/>is upper triangular,
+        with being lower triangular.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Make note of the definitions of diagonal and triangular matrices.
+    We specify that a diagonal matrix must be square,
+    but triangular matrices don't have to be. (
+    <q>Most</q>
+    of the time, however, the ones we study are.) Also,
+    as we mentioned before in the example,
+    by definition a diagonal matrix is also both upper and lower triangular.
+    Finally, notice that by definition,
+    the transpose of an upper triangular matrix is a lower triangular matrix,
+    and vice-versa.
+  </p>
+  <p>
+    There are many questions to probe concerning the transpose operations.<fn>
+    Remember, this is what mathematicians do.
+    We learn something new, and then we ask lots of questions about it.
+    Often the first questions we ask are along the lines of
+    <q>How does this new thing relate to the old things I already know about?</q>
+    </fn> The first set of questions we'll investigate involve the matrix arithmetic we learned from last chapter.
+    We do this investigation by way of examples,
+    and then summarize what we have learned at the end.
+  </p>
+  <example xml:id="ex_transpose_add">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6 \end{array} \right] \ \text{ and } \  B = \left[\begin{array}{ccc} 1\amp 2\amp 1\\3\amp -1\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Find <m>A^T+ B^T</m> and <m>( A + B)^T</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We note that
+        <me>
+          A^T = \left[\begin{array}{cc} 1\amp 4\\2\amp 5\\3\amp 6 \end{array} \right]\ \text{ and } \  B^T = \left[\begin{array}{cc} 1\amp 3\\2\amp -1\\1\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Therefore
+        <md>
+          <mrow>A^T +  B^T \amp = \left[\begin{array}{cc} 1\amp 4</mrow>
+          <mrow>2\amp 5</mrow>
+          <mrow>3\amp 6\end{array}\right]+\left[\begin{array}{cc} 1\amp 3</mrow>
+          <mrow>2\amp -1</mrow>
+          <mrow>1\amp 0\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{cc} 2\amp 7</mrow>
+          <mrow>4\amp 4</mrow>
+          <mrow>4\amp 6\end{array}\right]</mrow>
+        </md>.
+      </p>
+      <p>
+        Also,
+        <md>
+          <mrow>( A+ B)^T \amp = \left(\left[\begin{array}{ccc} 1\amp 2\amp 3</mrow>
+          <mrow>4\amp 5\amp 6\end{array}\right]+\left[\begin{array}{ccc} 1\amp 2\amp 1</mrow>
+          <mrow>3\amp -1\amp 0\end{array}\right] \right)^T</mrow>
+          <mrow>\amp = \left( \left[\begin{array}{ccc} 2\amp 4\amp 4</mrow>
+          <mrow>7\amp 4\amp 6\end{array}\right]\right)^T</mrow>
+          <mrow>\amp = \left[\begin{array}{cc} 2\amp 7</mrow>
+          <mrow>4\amp 4</mrow>
+          <mrow>4\amp 6\end{array}\right]</mrow>
+        </md>.
+      </p>
+    </solution>
+  </example>
+  <p>
+    It looks like
+    <q>the sum of the transposes is the transpose of the sum.</q><fn>
+    This is kind of fun to say, especially when said fast.
+    Regardless of how fast we say it,
+    we should think about this statement.
+    The
+    <q>is</q>
+    represents
+    <q>equals.</q>
+    The stuff before
+    <q>is</q>
+    equals the stuff afterwards.
+    </fn> This should lead us to wonder how the transpose works with multiplication.
+  </p>
+  <example xml:id="ex_transpose_multiply">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right] \ \text{ and }  \  B = \left[\begin{array}{ccc} 1\amp 2\amp -1\\1\amp 0\amp 1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Find <m>( A B)^T</m>, <m>A^T B^T</m> and <m>B^T A^T</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We first note that
+        <me>
+          A^T = \left[\begin{array}{cc} 1\amp 3\\2\amp 4 \end{array} \right] \ \text{ and }  \  B^T = \left[\begin{array}{cc} 1\amp 1\\2\amp 0\\-1\amp 1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Find <m>( A B)^T</m>:
+        <md>
+          <mrow>( A B)^T \amp = \left(\left[\begin{array}{cc} 1\amp 2</mrow>
+          <mrow>3\amp 4\end{array}\right] \left[\begin{array}{ccc} 1\amp 2\amp -1</mrow>
+          <mrow>1\amp 0\amp 1\end{array}\right]\right)^T</mrow>
+          <mrow>\amp = \left(\left[\begin{array}{ccc} 3\amp 2\amp 1</mrow>
+          <mrow>7\amp 6\amp 1\end{array}\right]\right)^T</mrow>
+          <mrow>\amp = \left[\begin{array}{cc} 3\amp 7</mrow>
+          <mrow>2\amp 6</mrow>
+          <mrow>1\amp 1\end{array}\right]</mrow>
+        </md>
+      </p>
+      <p>
+        Now find <m>A^T B^T</m>:
+        <md>
+          <mrow>A^T B^T  \amp =  \left[\begin{array}{cc} 1\amp 3</mrow>
+          <mrow>2\amp 4\end{array}\right]\left[\begin{array}{cc} 1\amp 1</mrow>
+          <mrow>2\amp 0</mrow>
+          <mrow>-1\amp 1\end{array}\right]</mrow>
+          <mrow>\amp =   \text{ Not defined! }</mrow>
+        </md>
+      </p>
+      <p>
+        So we can't compute <m>A^T B^T</m>.
+        Let's finish by computing <m>B^T A^T</m>:
+        <md>
+          <mrow>B^T A^T   \amp =  \left[\begin{array}{cc} 1\amp 1</mrow>
+          <mrow>2\amp 0</mrow>
+          <mrow>-1\amp 1\end{array}\right]\left[\begin{array}{cc} 1\amp 3</mrow>
+          <mrow>2\amp 4\end{array}\right]</mrow>
+          <mrow>\amp =\left[\begin{array}{cc} 3\amp 7</mrow>
+          <mrow>2\amp 6</mrow>
+          <mrow>1\amp 1\end{array}\right]</mrow>
+        </md>
+      </p>
+    </solution>
+  </example>
+  <p>
+    We may have suspected that <m>( A B)^T =  A^T B^T</m>.
+    We saw that this wasn't the case,
+    though <mdash/> and not only was it not equal,
+    the second product wasn't even defined!
+    Oddly enough,
+    though, we saw that <m>( A B)^T =  B^T A^T</m>.<fn>
+    Then again, maybe this isn't all that
+    <q>odd.</q>
+    It is reminiscent of the fact that,
+    when invertible, <m>( A B)^{-1} =  A^{-1}</m>.
+    </fn> To help understand why this is true,
+    look back at the work above and confirm the steps of each multiplication.
+  </p>
+  <p>
+    We have one more arithmetic operation to look at: the inverse.
+  </p>
+  <example xml:id="ex_transpose_inverse">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc} 2\amp 7\\1\amp 4 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Find <m>( A^{-1})^T</m> and <m>( A^T)^{-1}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We first find <m>A^{-1}</m> and A^T:
+        <me>
+          A^{-1} = \left[\begin{array}{cc}  4\amp -7\\-1\amp 2 \end{array} \right]\ \text{ and } \  A^T = \left[\begin{array}{cc} 2\amp 1\\7\amp 4 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Finding <m>( A^{-1})^T</m>:
+        <md>
+          <mrow>( A^{-1})^T \amp = \left[\begin{array}{cc}  4\amp -7</mrow>
+          <mrow>-1\amp 2\end{array}\right] ^T</mrow>
+          <mrow>\amp =  \left[\begin{array}{cc} 4\amp -1</mrow>
+          <mrow>-7\amp 2\end{array}\right]</mrow>
+        </md>
+      </p>
+      <p>
+        Finding <m>( A^T)^{-1}</m>:
+        <md>
+          <mrow>( A^T)^{-1}  \amp =  \left[\begin{array}{cc} 2\amp 1</mrow>
+          <mrow>7\amp 4\end{array}\right]^{-1}</mrow>
+          <mrow>\amp =  \left[\begin{array}{cc} 4\amp -1</mrow>
+          <mrow>-7\amp 2\end{array}\right]</mrow>
+        </md>
+      </p>
+    </solution>
+  </example>
+  <p>
+    It seems that
+    <q>the inverse of the transpose is the transpose of the inverse.</q><fn>
+    Again, we should think about this statement.
+    The part before
+    <q>is</q>
+    states that we take the transpose of a matrix, then find the inverse.
+    The part after
+    <q>is</q>
+    states that we find the inverse of the matrix, then take the transpose.
+    Since these two statements are linked by an
+    <q>is,</q>
+    they are equal.
+    </fn>
+  </p>
+  <p>
+    We have just looked at some examples of how the transpose operation interacts with matrix arithmetic operations.<fn>
+    These examples don't <em>prove</em> anything,
+    other than it worked in specific examples.
+    </fn> We now give a theorem that tells us that what we saw wasn't a coincidence,
+    but rather is always true.
+  </p>
+  <theorem xml:id="thm_transpose">
+    <statement>
+      <p>
+        <em>Properties of the Matrix Transpose</em>
+      </p>
+      <p>
+        Let <m>A</m> and B<nbsp/>be matrices where the following operations are defined.
+        Then:
+        <ol>
+          <li>
+            <p>
+              <m>( A+ B)^T = A^T+ B^T</m> and <m>( A- B)^T = A^T- B^T</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(k A)^T = k A^T</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>( A B)^T = B^T A^T</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>( A^{-1})^T = ( A^T)^{-1}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>( A^T)^T = A</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+        <idx><h>transpose</h><h>properties</h></idx>
+    We included in the theorem two ideas we didn't discuss already.
+    First, that <m>(k A)^T = k A^T</m>.
+    This is probably obvious.
+    It doesn't matter when you multiply a matrix by a scalar when dealing with transposes.
+  </p>
+  <p>
+    The second
+    <q>new</q>
+    item is that <m>( A^T)^T = A</m>.
+    That is, if we take the transpose of a matrix,
+    then take its transpose again, what do we have?
+    The original matrix.
+  </p>
+  <p>
+    Now that we know some properties of the transpose operation,
+    we are tempted to play around with it and see what happens.
+    For instance, if <m>A</m> is an <m>m\times n</m> matrix,
+    we know that A^T<nbsp/>is an <m>n\times m</m> matrix.
+    So no matter what matrix <m>A</m> we start with,
+    we can always perform the multiplication A A^T<nbsp/>(and also A^T A) and the result is a square matrix!
+  </p>
+  <p>
+    Another thing to ask ourselves as we
+    <q>play around</q>
+    with the transpose: suppose <m>A</m> is a square matrix.
+    Is there anything special about <m>A+ A^T</m>?
+    The following example has us try out these ideas.
+  </p>
+  <example xml:id="ex_transpose_3">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{ccc} 2\amp 1\amp 3\\2\amp -1\amp 1\\1\amp 0\amp 1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Find A A^T, <m>A+ A^T</m> and <m>A - A^T</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Finding A A^T:
+        <md>
+          <mrow>A A^T \amp = \left[\begin{array}{ccc} 2\amp 1\amp 3</mrow>
+          <mrow>2\amp -1\amp 1</mrow>
+          <mrow>1\amp 0\amp 1\end{array}\right]\left[\begin{array}{ccc} 2\amp 2\amp 1</mrow>
+          <mrow>1\amp -1\amp 0</mrow>
+          <mrow>3\amp 1\amp 1\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{ccc} 14 \amp  6 \amp  5</mrow>
+          <mrow>6\amp 4\amp 3</mrow>
+          <mrow>5\amp  3\amp  2\end{array}\right]</mrow>
+        </md>
+      </p>
+      <p>
+        Finding <m>A+ A^T</m>:
+        <md>
+          <mrow>A+ A^T   \amp = \left[\begin{array}{ccc} 2\amp 1\amp 3</mrow>
+          <mrow>2\amp -1\amp 1</mrow>
+          <mrow>1\amp 0\amp 1\end{array}\right]+\left[\begin{array}{ccc} 2\amp 2\amp 1</mrow>
+          <mrow>1\amp -1\amp 0</mrow>
+          <mrow>3\amp 1\amp 1\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{ccc} 2\amp 3\amp 4</mrow>
+          <mrow>3\amp -2\amp 1</mrow>
+          <mrow>4\amp 1\amp 2\end{array}\right]</mrow>
+        </md>
+      </p>
+      <p>
+        Finding <m>A- A^T</m>:
+        <md>
+          <mrow>A- A^T   \amp =  \left[\begin{array}{ccc} 2\amp 1\amp 3</mrow>
+          <mrow>2\amp -1\amp 1</mrow>
+          <mrow>1\amp 0\amp 1\end{array}\right]-\left[\begin{array}{ccc} 2\amp 2\amp 1</mrow>
+          <mrow>1\amp -1\amp 0</mrow>
+          <mrow>3\amp 1\amp 1\end{array}\right]</mrow>
+          <mrow>\amp =  \left[\begin{array}{ccc}  0\amp -1\amp 2</mrow>
+          <mrow>1\amp 0\amp 1</mrow>
+          <mrow>-2\amp -1\amp 0\end{array}\right]</mrow>
+        </md>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Let's look at the matrices we've formed in this example.
+    First, consider A A^T. Something seems to be nice about this matrix <mdash/> look at the location of the 6's, the 5's and the 3's.
+    More precisely, let's look at the transpose of <m>A A^T</m>.
+    We should notice that if we take the transpose of this matrix,
+    we have the very same matrix.
+    That is,
+    <me>
+      \left(\left[\begin{array}{ccc} 14 \amp  6 \amp  5\\ 6\amp 4\amp 3\\ 5\amp  3\amp  2 \end{array} \right]\right)^T = \left[\begin{array}{ccc} 14 \amp  6 \amp  5\\ 6\amp 4\amp 3\\ 5\amp  3\amp  2 \end{array} \right]\ !
+    </me>
+  </p>
+  <p>
+    We'll formally define this in a moment,
+    but a matrix that is equal to its transpose is called <em>symmetric</em>.
+  </p>
+  <p>
+    Look at the next part of the example;
+    what do we notice about <m>A+ A^T</m>?
+    We should see that it, too, is symmetric.
+    Finally, consider the last part of the example:
+    do we notice anything about <m>A- A^T</m>?
+  </p>
+  <p>
+    We should immediately notice that it is not symmetric,
+    although it does seem
+    <q>close.</q>
+    Instead of it being equal to its transpose,
+    we notice that this matrix is the
+    <em>opposite</em> of its transpose.
+    We call this type of matrix <em>skew symmetric.</em><fn>
+    Some mathematicians use the term <em>antisymmetric</em>
+    </fn>
+        <idx><h>symmetric</h></idx>
+        <idx><h>skew symmetric</h></idx>
+    We formally define these matrices here.
+  </p>
+  <definition xml:id="def_symmetric">
+    <statement>
+      <p>
+        <term>Symmetric and Skew Symmetric Matrices</term>
+      </p>
+      <p>
+            <idx><h>transpose</h><h>symmetric</h></idx>
+            <idx><h>transpose</h><h>skew-symmetric</h></idx>
+            <idx><h>symmetric</h><h>definition</h></idx>
+            <idx><h>skew symmetric</h><h>definition</h></idx>
+            <idx><h>antisymmetric</h></idx>
+        A matrix <m>A</m> is <term>symmetric</term> if <m>A^T = A</m>.
+      </p>
+      <p>
+        A matrix <m>A</m> is <term>skew symmetric</term> if <m>A^T = - A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Note that in order for a matrix to be either symmetric or skew symmetric,
+    it must be square.
+  </p>
+  <p>
+    So why was A A^T<nbsp/>symmetric in our previous example?
+    Did we just luck out?<fn>
+    Of course not.
+    </fn> Let's take the transpose of A A^T<nbsp/>and see what happens.
+    <md>
+      <mrow>( A A^T)^T \amp = ( A^T)^T( A)^T \ \text{ \scriptsize transpose multiplication rule }</mrow>
+      <mrow>\amp =   A A^T    \text{ \scriptsize \(( A^T)^T =  A\) }</mrow>
+    </md>
+  </p>
+  <p>
+    We have just <em>proved</em> that no matter what matrix <m>A</m> we start with,
+    the matrix A A^T<nbsp/>will be symmetric.
+    Nothing in our string of equalities even demanded that <m>A</m> be a square matrix;
+    it is always true.
+  </p>
+  <p>
+    We can do a similar proof to show that as long as <m>A</m> is square,
+    <m>A+ A^T</m> is a symmetric matrix.<fn>
+    Why do we say that <m>A</m> has to be square?
+    </fn> We'll instead show here that if <m>A</m> is a square matrix,
+    then <m>A- A^T</m> is skew symmetric.
+    <md>
+      <mrow>( A- A^T)^T \amp =  A^T - ( A^T)^T  \ \text{ \scriptsize transpose subtraction rule }</mrow>
+      <mrow>\amp =  A^T -  A</mrow>
+      <mrow>\amp = -( A -  A^T)</mrow>
+    </md>
+  </p>
+  <p>
+    So we took the transpose of <m>A - A^T</m> and we got <m>-( A- A^T)</m>;
+    this is the definition of being skew symmetric.
+  </p>
+  <p>
+    We'll take what we learned from <xref ref="ex_transpose_3">Example</xref> and put it in a box.
+    (We've already proved most of this is true;
+    the rest we leave to solve in the Exercises.)
+  </p>
+  <theorem xml:id="thm_symmetric">
+    <statement>
+      <p>
+            <idx><h>symmetric</h><h>theorem</h></idx>
+            <idx><h>skew symmetric</h><h>theorem</h></idx>
+        <em>Symmetric and Skew Symmetric Matrices</em>
+        <ol>
+          <li>
+            <p>
+              Given any matrix <m>A</m>,
+              the matrices A A^T<nbsp/>and A^T<m>A</m> are symmetric.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>A</m> be a square matrix.
+              The matrix <m>A+ A^T</m> is symmetric.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>A</m> be a square matrix.
+              The matrix <m>A- A^T</m> is skew symmetric.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Why do we care about the transpose of a matrix?
+    Why do we care about symmetric matrices?
+  </p>
+  <p>
+    There are two answers that each answer both of these questions.
+    First, we are interested in the transpose of a matrix and symmetric matrices because they are interesting.<fn>
+    At least, interesting for some folks.
+    </fn> One particularly interesting thing about symmetric and skew symmetric matrices is this:
+    consider the sum of <m>( A+ A^T)</m> and <m>( A- A^T)</m>:
+    <me>
+      ( A+ A^T)+( A- A^T) = 2 A
+    </me>
+  </p>
+  <p>.
+    This gives us an idea:
+    if we were to multiply both sides of this equation by <m>\frac12</m>,
+    then the right hand side would just be <m>A</m>.
+    This means that
+    <me>
+      A = \underbrace{\frac12( A+ A^T)}_{\text{ \scriptsize symmetric } }\ +\ \underbrace{\frac12( A- A^T)}_{\text{ \scriptsize skew symmetric } }
+    </me>
+  </p>
+  <p>.
+    That is, any matrix <m>A</m> can be written as the sum of a symmetric and skew symmetric matrix.
+    That's interesting.
+  </p>
+  <p>
+    The second reason we care about them is that they are very useful and important in various areas of mathematics.
+    The transpose of a matrix turns out to be an important operation;
+    symmetric matrices have many nice properties that make solving certain types of problems possible.
+  </p>
+  <p>
+    Most of this text focuses on the preliminaries of matrix algebra,
+    and the actual uses are beyond our current scope.
+    One easy to describe example is curve fitting.
+    Suppose we are given a large set of data points that,
+    when plotted, look roughly quadratic.
+    How do we find the quadratic that
+    <q>best fits</q>
+    this data?
+    The solution can be found using matrix algebra,
+    and specifically a matrix called the <em>pseudoinverse</em>.
+    If <m>A</m> is a matrix, the pseudoinverse
+        <idx><h>pseudoinverse</h></idx>
+    of <m>A</m> is the matrix <m>A^\dagger = ( A^T A)^{-1} A^T</m>
+    (assuming that the inverse exists).
+    We aren't going to worry about what all the above means;
+    just notice that it has a cool sounding name and the transpose appears twice.
+  </p>
+  <p>
+    In the next section we'll learn about the trace,
+    another operation that can be performed on a matrix that is relatively simple to compute but can lead to some deep results.
+  </p>
+  <p>
+    In the following exercises, a matrix <m>A</m> is given.
+    Find A^T; make note if <m>A</m> is upper/lower triangular,
+    diagonal,
+    symmetric and/or skew symmetric.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -7\amp 4\\ 4\amp -6 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is symmetric.
+        <m>\left[\begin{array}{cc} -7\amp 4\\ 4\amp -6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 3\amp 1\\ -7\amp 8 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 3\amp -7\\ 1\amp 8 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 1\amp 0\\ 0\amp 9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is diagonal,
+        as is A^T<m>.\left[\begin{array}{cc} 1\amp 0\\ 0\amp 9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 13\amp -3\\ -3\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is symmetric.
+        <m>\left[\begin{array}{cc} 13\amp -3\\ -3\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -5\amp -9\\ 3\amp 1 \\ -10\amp -8 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} -5\amp 3\amp -10\\ -9\amp 1\amp -8 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -2\amp 10\\ 1\amp -7 \\ 9\amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} -2\amp 1\amp 9\\ 10\amp -7\amp -2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 4\amp -7\amp -4\amp -9\\ -9\amp 6\amp 3\amp -9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 4\amp -9\\ -7\amp 6 \\ -4\amp 3\\ -9\amp -9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 3\amp -10\amp 0\amp 6\\ -10\amp -2\amp -3\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 3\amp -10\\ -10\amp -2 \\ 0\amp -3\\ 6\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} -7\amp -8\amp 2\amp -3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{c} -7\\ -8\\ 2\\ -3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} -9\amp 8\amp 2\amp -7 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{c} -9\\ 8\\ 2 \\ -7 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} -9\amp 4\amp 10\\ 6\amp -3\amp -7 \\ -8\amp 1\amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} -9\amp 6\amp -8\\ 4\amp -3\amp 1 \\ 10\amp -7\amp -1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 4\amp -5\amp 2\\ 1\amp 5\amp 9 \\ 9\amp 2\amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 4\amp 1\amp 9\\ -5\amp 5\amp 2 \\ 2\amp 9\amp 3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 4\amp 0\amp -2\\ 0\amp 2\amp 3 \\ -2\amp 3\amp 6 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is symmetric.
+        <m>\left[\begin{array}{ccc} 4\amp 0\amp -2\\ 0\amp 2\amp 3\\ -2\amp 3\amp 6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp 3\amp -2\\ 3\amp -4\amp 1 \\ -2\amp 1\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is symmetric.
+        <m>\left[\begin{array}{ccc} 0\amp 3\amp -2\\ 3\amp -4\amp 1\\ -2\amp 1\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 2\amp -5\amp -3\\ 5\amp 5\amp -6 \\ 7\amp -4\amp -10 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 2\amp 5\amp 7\\ -5\amp 5\amp -4 \\ -3\amp -6\amp -10 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp -6\amp 1\\ 6\amp 0\amp 4 \\ -1\amp -4\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is skew symmetric.
+        <m>\left[\begin{array}{ccc} 0\amp -6\amp 1\\ 6\amp 0\amp 4\\ -1\amp -4\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 4\amp 2\amp -9\\ 5\amp -4\amp -10 \\ -6\amp 6\amp 9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 4\amp 5\amp -6\\ 2\amp -4\amp 6 \\ -9\amp -10\amp 9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 4\amp 0\amp 0\\ -2\amp -7\amp 0 \\ 4\amp -2\amp 5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is lower triangular and A^T<nbsp/>is upper triangular;
+        <m>\left[\begin{array}{ccc} 4\amp -2\amp 4\\ 0\amp -7\amp -2 \\ 0\amp 0\amp 5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} -3\amp -4\amp -5\\ 0\amp -3\amp 5 \\ 0\amp 0\amp -3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is upper triangular; A^T<nbsp/>is lower triangular.
+        <m>\left[\begin{array}{ccc} -3\amp 0\amp 0\\ -4\amp -3\amp 0 \\ -5\amp 5\amp -3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 6\amp -7\amp 2\amp 6\\ 0\amp -8\amp -1\amp 0 \\ 0\amp 0\amp 1\amp -7 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is upper triangular; A^T<nbsp/>is lower triangular<m>.\left[\begin{array}{ccc} 6\amp 0\amp 0\\ -7\amp -8\amp 0 \\ 2\amp -1\amp 1\\ 6\amp 0\amp -7 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp 0\amp 0\\ 0\amp 2\amp 0 \\ 0\amp 0\amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is diagonal,
+        as is A^T<m>.\left[\begin{array}{ccc} 1\amp 0\amp 0\\ 0\amp 2\amp 0 \\ 0\amp 0\amp -1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 6\amp -4\amp -5\\ -4\amp 0\amp 2 \\ -5\amp 2\amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is symmetric.
+        <m>\left[\begin{array}{ccc} 6\amp -4\amp -5\\ -4\amp 0\amp 2 \\ -5\amp 2\amp -2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp 1\amp -2\\ -1\amp 0\amp 4 \\ 2\amp -4\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is skew symmetric.
+        <m>\left[\begin{array}{ccc} 0\amp -1\amp 2\\ 1\amp 0\amp -4\\ -2\amp 4\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp 0\amp 0\\ 0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is upper and lower triangular; it is diagonal;
+        it is both symmetric and skew symmetric.
+        It's got it all.
+        <m>\left[\begin{array}{ccc} 0\amp 0\amp 0\\ 0\amp 0\amp 0\\ 0\amp 0\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+</section>

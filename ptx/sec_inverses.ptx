@@ -1,0 +1,1043 @@
+<section xml:id="sec_inverses">
+  <title>The Matrix Inverse</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: If <m>A</m> and B<nbsp/>are square matrices where <m>A B= I</m>,
+          then <m>B A= I</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: A matrix <m>A</m> has exactly one inverse,
+          infinite inverses, or no inverse.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: Everyone is special.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: If <m>A</m> is invertible,
+          then has exactly 1 solution.
+        </p>
+      </li>
+      <li>
+        <p>
+          What is a corollary?
+        </p>
+      </li>
+      <li>
+        <p>
+          Fill in the blanks: <fillin/> a matrix is invertible is useful;
+          computing the inverse is <fillin/>.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    Once again we visit the old algebra equation, <m>ax=b</m>.
+    How do we solve for <m>x</m>?
+    We know that, as long as <m>a\neq 0</m>,
+    <me>
+      x = \frac{b}{a}, \ \text{ or, stated in another way, }  \ x = a^{-1}b
+    </me>
+  </p>
+  <p>
+    What is <m>a^{-1}</m>?
+    It is the number that, when multiplied by <m>a</m>, returns 1.
+    That is,
+    <me>
+      a^{-1}a = 1
+    </me>
+  </p>
+  <p>
+    Let us now think in terms of matrices.
+    We have learned of the identity matrix I<nbsp/>that
+    <q>acts like the number 1.</q>
+    That is, if <m>A</m> is a square matrix, then
+    <me>
+      I A =  A I =  A
+    </me>
+  </p>
+  <p>.
+    If we had a matrix,
+    which we'll call <m>A^{-1}</m>, where <m>A^{-1} A= I</m>,
+    then by analogy to our algebra example above it seems like we might be able to solve the linear system
+    <m>A \vec{x} = \vec{b}</m><nbsp/>for <m>\vec{x}</m> by multiplying both sides of the equation by <m>A^{-1}</m>.
+    That is, perhaps
+    <me>
+      \vec{x} =  A^{-1}\vec{b}
+    </me>
+  </p>
+  <p>
+    Of course, there is a lot of speculation here.
+    We don't know that such a matrix like <m>A^{-1}</m> exists.
+    However, we do know how to solve the matrix equation <m>A X = B</m>,
+    so we can use that technique to solve the equation <m>A X = I</m> for X. This seems like it will get us close to what we want.
+    Let's practice this once and then study our results.
+  </p>
+  <example xml:id="ex_inverse_1">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc}  2\amp 1\\1\amp 1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Find a matrix X<nbsp/>such that <m>A X = I</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We know how to solve this from the previous section:
+        we form the proper augmented matrix,
+        put it into reduced row echelon form<nbsp/>and interpret the results.
+        <me>
+          \left[\begin{array}{cccc} 2\amp 1\amp 1\amp 0\\1\amp 1\amp 0\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc} 1\amp 0\amp 1\amp -1\\0\amp 1\amp -1\amp 2 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We read from our matrix that
+        <me>
+          X = \left[\begin{array}{cc} 1\amp -1\\-1\amp 2 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Let's check our work:
+        <md>
+          <mrow>A X \amp  = \left[\begin{array}{cc} 2\amp 1</mrow>
+          <mrow>1\amp 1\end{array}\right]\left[\begin{array}{cc} 1\amp -1</mrow>
+          <mrow>-1\amp 2\end{array}\right]</mrow>
+          <mrow>\amp  = \left[\begin{array}{cc} 1\amp 0</mrow>
+          <mrow>0\amp 1\end{array}\right]</mrow>
+          <mrow>\amp  =  I</mrow>
+        </md>
+      </p>
+      <p>
+        Sure enough, it works.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Looking at our previous example,
+    we are tempted to jump in and call the matrix X<nbsp/>that we found
+    <q><m>A^{-1}</m>.</q>
+    However, there are two obstacles in the way of us doing this.
+  </p>
+  <p>
+    First, we know that in general <m>A B \neq B A</m>.
+    So while we found that <m>A X = I</m>,
+    we can't automatically assume that <m>X A= I</m>.
+  </p>
+  <p>
+    Secondly, we have seen examples of matrices where <m>A B = A C</m>,
+    but <m>B\neq C</m>.
+    So just because <m>A X = I</m>,
+    it is possible that another matrix exists where <m>A = I</m>.
+    If this is the case,
+    using the notation <m>A^{-1}</m> would be misleading,
+    since it could refer to more than one matrix.
+  </p>
+  <p>
+    These obstacles that we face are not insurmountable.
+    The first obstacle was that we know that <m>A X= I</m> but didn't know that <m>X A= I</m>.
+    That's easy enough to check, though.
+    Let's look at <m>A</m> and X<nbsp/>from our previous example.
+    <md>
+      <mrow>X A \amp = \left[\begin{array}{cc} 1\amp -1</mrow>
+      <mrow>-1\amp 2\end{array}\right]\left[\begin{array}{cc} 2\amp 1</mrow>
+      <mrow>1\amp 1\end{array}\right]</mrow>
+      <mrow>\amp =\left[\begin{array}{cc} 1\amp 0</mrow>
+      <mrow>0\amp 1\end{array}\right]</mrow>
+      <mrow>\amp = I</mrow>
+    </md>
+  </p>
+  <p>
+    Perhaps this first obstacle isn't much of an obstacle after all.
+    Of course, we only have one example where it worked,
+    so this doesn't mean that it always works.
+    We have good news, though: it always does work.
+    The only
+    <q>bad</q>
+    news to come with this is that this is a bit harder to prove.
+    We won't worry about proving it always works,
+    but state formally that it does in the following theorem.
+  </p>
+  <theorem xml:id="thm_inverse1">
+    <statement>
+      <p>
+        <em>Special Commuting Matrix Products</em>
+      </p>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> matrix.
+        <ol>
+          <li>
+            <p>
+              If there is a matrix X<nbsp/>such that <m>A X=I_n</m>,
+              then <m>X A=I_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If there is a matrix X<nbsp/>such that <m>X A=I_n</m>,
+              then <m>A X=I_n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The second obstacle is easier to address.
+    We want to know if another matrix  exists where <m>A =  I = A</m>.
+    Let's suppose that it does.
+    Consider the expression <m>X A</m>.
+    Since matrix multiplication is associative,
+    we can group this any way we choose.
+    We could group this as <m>( X A)</m>; this results in
+    <md>
+      <mrow>( X A)  \amp =  I</mrow>
+      <mrow>\amp = </mrow>
+    </md>.
+  </p>
+  <p>
+    We could also group <m>X A</m> as <m>X( A)</m>.
+    This tells us
+    <md>
+      <mrow>X( A) \amp =  X I</mrow>
+      <mrow>\amp =  X</mrow>
+    </md>
+  </p>
+  <p>
+    Combining the two ideas above,
+    we see that <m>X = X A =</m>; that is, <m>X=</m>.
+    We conclude that there is only one matrix X<nbsp/>where <m>X A = I = A X</m>.
+    (Even if we think we have two,
+    we can do the above exercise and see that we really just have one.)
+  </p>
+  <p>
+    We have just proved the following theorem.
+  </p>
+  <theorem xml:id="thm_inverse_unique">
+    <statement>
+      <p>
+            <idx><h>inverse</h><h>uniqueness</h></idx>
+        <em>Uniqueness of Solutions to <m>A X=I_n</m></em>
+      </p>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> matrix and let X<nbsp/>be a matrix where <m>A X = I_n</m>.
+        Then X<nbsp/>is unique;
+        it is the only matrix that satisfies this equation.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    So given a square matrix <m>A</m>,
+    if we can find a matrix X<nbsp/>where <m>A X= I</m>,
+    then we know that <m>X A = I</m> and that X<nbsp/>is the only matrix that does this.
+    This makes X<nbsp/>special, so we give it a special name.
+  </p>
+  <definition xml:id="def_inverse">
+    <statement>
+      <p>
+            <idx><h>matrix</h><h>inverse</h></idx>
+            <idx><h>inverse</h><h>definition</h></idx>
+        <term>Invertible Matrices and the Inverse of A</term>
+      </p>
+      <p>
+        Let <m>A</m> and X<nbsp/>be
+        <m>n\times n</m> matrices where <m>A X = I = X A</m>.
+        Then:
+        <ol>
+          <li>
+            <p>
+              <m>A</m> is <em>invertible</em>.
+            </p>
+          </li>
+          <li>
+            <p>
+              X<nbsp/>is the <em>inverse</em>
+              of <m>A</m>, denoted by <m>A^{-1}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Let's do an example.
+  </p>
+  <example xml:id="ex_inverse_2">
+    <statement>
+      <p>
+        Find the inverse of <m>A = \left[\begin{array}{cc} 1\amp 2\\2\amp 4 \end{array} \right]</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        By solving the equation <m>A X =  I</m> for X<nbsp/>will give us the inverse of <m>A</m>.
+        Forming the appropriate augmented matrix and finding its reduced row echelon form<nbsp/>gives us
+        <me>
+          \left[\begin{array}{cccc} 1\amp 2\amp 1\amp 0\\2\amp 4\amp 0\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 1/2\\0\amp 0\amp 1\amp -1/2 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Yikes!
+        We were expecting to find that the reduced row echelon form<nbsp/>of this matrix would look like
+        <me>
+          \left[\begin{array}{cc}  I \amp   A^{-1} \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        However, we don't have the identity on the left hand side.
+        Our conclusion: <m>A</m> is not invertible.
+      </p>
+    </solution>
+  </example>
+  <p>
+    We have just seen that not all matrices are invertible.<fn xml:id="footnote_special">
+    Hence our previous definition;
+    why bother calling <m>A</m>
+    <q>invertible</q>
+    if every square matrix is?
+    If everyone is special, then no one is.
+    Then again, everyone <em>is</em> special.
+    </fn> With this thought in mind,
+    let's complete the array of boxes we started before the example.
+    We've discovered that if a matrix has an inverse, it has only one.
+    Therefore, we gave that special matrix a name,
+    <q><em>the</em> inverse.</q>
+    Finally, we describe the most general way to find the inverse of a matrix,
+    and a way to tell if it does not have one.
+  </p>
+  <insight xml:id="idea_finding_inverses">
+    <p>
+          <idx><h>inverse</h><h>computing</h></idx>
+          <idx><h>matrix</h><h>inverse</h></idx>
+      <term>Finding A^{-1}</term>
+    </p>
+    <p>
+      Let <m>A</m> be an <m>n \times n</m> matrix.
+      To find <m>A^{-1}</m>, put the augmented matrix
+      <me>
+        \left[\begin{array}{cc}   A \amp  I_n \end{array} \right]
+      </me>
+      into reduced row echelon form.
+      If the result is of the form
+      <me>
+        \left[\begin{array}{cc}  I_n \amp   X \end{array} \right]
+      </me>
+    </p>
+    <p>,
+      then <m>A^{-1} = X</m>.
+      If not, (that is,
+      if the first <m>n</m> columns of the reduced row echelon form<nbsp/>are not <m>I_n</m>),
+      then <m>A</m> is not invertible.
+    </p>
+  </insight>
+  <p>
+    Let's try again.
+  </p>
+  <example xml:id="ex_inverse_3">
+    <statement>
+      <p>
+        Find the inverse, if it exists,
+        of <m>A = \left[\begin{array}{ccc} 1\amp 1\amp -1\\1\amp -1\amp 1\\1\amp 2\amp 3 \end{array} \right]</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We'll try to solve <m>A X =  I</m> for X<nbsp/>and see what happens.
+        <me>
+          \left[\begin{array}{cccccc} 1\amp 1\amp -1\amp 1\amp 0\amp 0\\1\amp -1\amp 1\amp 0\amp 1\amp 0\\1\amp 2\amp 3\amp 0\amp 0\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{cccccc} 1\amp 0\amp 0\amp 0.5\amp 0.5\amp 0\\0\amp 1\amp 0\amp 0.2\amp -0.4\amp 0.2\\0\amp 0\amp 1\amp -0.3\amp 0.1\amp 0.2 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We have a solution, so
+        <me>
+          A = \left[\begin{array}{ccc} 0.5\amp 0.5\amp 0\\0.2\amp -0.4\amp 0.2\\-0.3\amp 0.1\amp 0.2 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Multiply A<m>A^{-1}</m> to verify that it is indeed the inverse of <m>A</m>.
+      </p>
+    </solution>
+  </example>
+  <p>
+    In general, given a matrix <m>A</m>,
+    to find <m>A^{-1}</m> we need to form the augmented matrix
+    <m>\left[\begin{array}{cc}  A\amp  I \end{array} \right]</m> and put it into reduced row echelon form<nbsp/>and interpret the result.
+    In the case of a <m>2\times 2</m> matrix,
+    though, there is a shortcut.
+    We give the shortcut in terms of a theorem.<fn>
+    We don't prove this theorem here,
+    but it really isn't hard to do.
+    Put the matrix
+    <me>
+      \left[\begin{array}{cccc} a\amp b\amp 1\amp 0\\c\amp d\amp 0\amp 1 \end{array} \right]
+    </me>
+    into \rref<nbsp/>and you'll discover the result of the theorem.
+    Alternatively,
+    multiply <m>A</m> by what we propose is the inverse and see that we indeed get  I.
+    </fn>
+  </p>
+  <theorem xml:id="thm_2by2">
+    <statement>
+      <p>
+        <em>The Inverse of a 2<times/>2 Matrix</em>
+      </p>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc} a\amp b\\c\amp d \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        <m>A</m> is invertible if and only if <m>ad-bc\neq 0</m>.
+      </p>
+      <p>
+        If <m>ad-bc \neq 0</m>, then
+        <me>
+          A^{-1} = \frac{1}{ad-bc}\left[\begin{array}{cc} d\amp -b\\-c\amp a \end{array} \right]
+        </me>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    We can't divide by 0, so if <m>ad-bc=0</m>, we don't have an inverse.
+    Recall <xref ref="ex_inverse_2">Example</xref>, where
+    <me>
+      A = \left[\begin{array}{cc} 1\amp 2\\2\amp 4 \end{array} \right]
+    </me>
+  </p>
+  <p>.
+    Here, <m>ad-bc = 1(4) - 2(2) = 0</m>,
+    which is why <m>A</m> didn't have an inverse.
+  </p>
+  <p>
+    Although this idea is simple, we should practice it.
+  </p>
+  <example xml:id="ex_inverse_4">
+    <statement>
+      <p>
+        Use <xref ref="thm_2by2">Theorem</xref> to find the inverse of
+        <me>
+          A = \left[\begin{array}{cc} 3 \amp  2\\-1 \amp  9 \end{array} \right]
+        </me>
+        if it exists.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Since <m>ad-bc = 29 \neq 0</m>, <m>A^{-1}</m> exists.
+        By the Theorem,
+        <md>
+          <mrow>A^{-1} \amp = \frac{1}{3(9)-2(-1)}\left[\begin{array}{cc} 9\amp -2</mrow>
+          <mrow>1\amp 3\end{array}\right]</mrow>
+          <mrow>\amp = \frac{1}{29}\left[\begin{array}{cc} 9\amp -2</mrow>
+          <mrow>1\amp 3\end{array}\right]</mrow>
+        </md>
+      </p>
+      <p>
+        We can leave our answer in this form, or we could
+        <q>simplify</q>
+        it as
+        <me>
+          A^{-1} = \frac{1}{29}\left[\begin{array}{cc} 9\amp -2\\1\amp 3 \end{array} \right] = \left[\begin{array}{cc}  9/29 \amp  -2/29\\1/29 \amp  3/29 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    We started this section out by speculating that just as we solved algebraic equations of the form <m>ax=b</m> by computing <m>x = a^{-1}b</m>,
+    we might be able to solve matrix equations of the form
+    <m>A \vec{x} = \vec{b}</m><nbsp/>by computing <m>\vec{x} =  A^{-1}\vec{b}</m>.
+    If <m>A^{-1}</m> does exist,
+    then we <em>can</em> solve the equation <m>A \vec{x} = \vec{b}</m><nbsp/>this way.
+    Consider:
+    <md>
+      <mrow>A \vec{x} \amp = \vec{b} \amp  \amp  \textsf{(original equation)}</mrow>
+      <mrow>A^{-1} A\vec{x} \amp =  A^{-1}\vec{b} \amp  \amp \textsf{ (multiply both sides \textit{on the left} by  A^{-1})}</mrow>
+      <mrow>I\vec{x} \amp =  A^{-1}\vec{b} \amp  \amp \textsf{ (since $ A^{-1} A= I$)}</mrow>
+      <mrow>\vec{x} \amp =  A^{-1}\vec{b} \amp  \amp \textsf{ (since $ I\vec{x} = \vec{x}$)}</mrow>
+    </md>
+  </p>
+  <p>
+    Let's step back and think about this for a moment.
+    The only thing we know about the equation
+    <m>A \vec{x} = \vec{b}</m><nbsp/>is that <m>A</m> is invertible.
+    We also know that solutions to
+    <m>A \vec{x} = \vec{b}</m><nbsp/>come in three forms:
+    exactly one solution, infinite solutions, and no solution.
+    We just showed that if <m>A</m> is invertible,
+    then <m>A \vec{x} = \vec{b}</m><nbsp/>has
+    <em>at least</em> one solution.
+    We showed that by setting <m>\vec{x}</m> equal to A^{-1}\vec{b}, we have a solution.
+    Is it possible that more solutions exist?
+  </p>
+  <p>
+    No.
+    Suppose we are told that a known vector <m>\vec{v}</m> is a solution to the equation <m>A \vec{x} = \vec{b}</m>;
+    that is, we know that <m>A\vec{v}=\vec{b}</m>.
+    We can repeat the above steps:
+    <md>
+      <mrow>A\vec{v} \amp =\vec{b}</mrow>
+      <mrow>A^{-1} A\vec{v} \amp = A^{-1}\vec{b}</mrow>
+      <mrow>I\vec{v} \amp =  A^{-1}\vec{b}</mrow>
+      <mrow>\vec{v} \amp =  A^{-1}\vec{b}</mrow>
+    </md>.
+  </p>
+  <p>
+    This shows that <em>all</em> solutions to <m>A \vec{x} = \vec{b}</m><nbsp/>are exactly
+    <m>\vec{x} = A^{-1}\vec{b}</m> when <m>A</m> is invertible.
+    We have just proved the following theorem.
+  </p>
+  <theorem xml:id="thm_inverse_solution">
+    <statement>
+      <p>
+            <idx><h>solution</h><h>unique</h></idx>
+        <em>Invertible Matrices and Solutions to <m>A \vec{x} = \vec{b}</m></em>
+      </p>
+      <p>
+        Let <m>A</m> be an invertible <m>n\times n</m> matrix,
+        and let \vec{b}<nbsp/>be any <m>n\times 1</m> column vector.
+        Then the equation <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution, namely
+        <me>
+          \vec{x} =  A^{-1}\vec{b}
+        </me>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    A corollary<fn>
+    a <em>corollary</em> is an idea that follows directly from a theorem
+    </fn> to this theorem is: If <m>A</m> is not invertible,
+    then <m>A \vec{x} = \vec{b}</m><nbsp/>does not have exactly one solution.
+    It may have infinite solutions and it may have no solution,
+    and we would need to examine the reduced row echelon form<nbsp/>of the augmented matrix
+    <m>\left[\begin{array}{cc} A \amp \vec{b} \end{array} \right]</m> to see which case applies.
+  </p>
+  <p>
+    We demonstrate our theorem with an example.
+  </p>
+  <example xml:id="ex_inverse_solution_1">
+    <statement>
+      <p>
+        Solve <m>A \vec{x} = \vec{b}</m><nbsp/>by computing <m>\vec{x} =  A^{-1}\vec{b}</m>, where
+        <me>
+          A = \left[ \begin{array}{ccc} 1\amp 0\amp -3\\  -3\amp -4\amp 10 \\  4\amp -5\amp -11 \end{array}  \right]\ \text{ and } \ \vec{b} = \left[ \begin{array}{c} -15\\   57 \\  -46 \end{array}  \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Without showing our steps, we compute
+        <me>
+          A^{-1} = \left[ \begin{array}{ccc} 94\amp 15\amp -12\\  7\amp 1\amp -1 \\  31\amp 5\amp -4 \end{array}  \right]
+        </me>
+      </p>
+      <p>.
+        We then find the solution to
+        <m>A \vec{x} = \vec{b}</m><nbsp/>by computing A^{-1}\vec{b}:
+        <md>
+          <mrow>\vec{x} \amp = A^{-1}\vec{b}</mrow>
+          <mrow>\amp = \left[ \begin{array}{ccc} 94\amp 15\amp -12</mrow>
+          <mrow>7\amp 1\amp -1</mrow>
+          <mrow>31\amp 5\amp -4\end{array} \right] \left[ \begin{array}{c} -15</mrow>
+          <mrow>57</mrow>
+          <mrow>-46\end{array} \right]</mrow>
+          <mrow>\amp = \left[ \begin{array}{c} -3</mrow>
+          <mrow>-2</mrow>
+          <mrow>4\end{array} \right]</mrow>
+        </md>.
+      </p>
+      <p>
+        We can easily check our answer:
+        <me>
+          \left[ \begin{array}{ccc} 1\amp 0\amp -3\\  -3\amp -4\amp 10 \\  4\amp -5\amp -11 \end{array}  \right]\left[ \begin{array}{c} -3\\   -2\\    4 \end{array}  \right] = \left[ \begin{array}{c} -15\\   57 \\  -46 \end{array}  \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Knowing a matrix is invertible is incredibly useful.<fn>
+    As odd as it may sound, <em>knowing</em>
+    a matrix is invertible is useful;
+    actually computing the inverse isn't.
+    This is discussed at the end of the next section.
+    </fn> Among many other reasons,
+    if you know <m>A</m> is invertible,
+    then you know for sure that A \vec{x} = \vec{b} has a solution
+    (as we just stated in <xref ref="thm_inverse_solution">Theorem</xref>).
+    In the next section we'll demonstrate many different properties of invertible matrices,
+    including stating several different ways in which we know that a matrix is invertible.
+  </p>
+  <p>
+    In the following exercises, A matrix <m>A</m> is given.
+    Find <m>A^{-1}</m> using <xref ref="thm_2by2">Theorem</xref>,
+    if it exists.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 1\amp 5\\ -5\amp -24 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} -24\amp -5\\ 5\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 1\amp -4\\ 1\amp -3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} -3\amp 4\\ -1\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 3\amp 0\\ 0\amp 7 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 1/3\amp 0\\ 0\amp 1/7 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 2\amp 5\\ 3\amp 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} -4/7\amp 5/7\\ 3/7\amp -2/7 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 1\amp -3\\ -2\amp 6 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^{-1}</m> does not exist.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 3\amp 7\\ 2\amp 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} -2\amp 7/2\\ 1\amp -3/2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 1\amp 0\\ 0\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 1\amp 0\\ 0\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 0\amp 1\\ 1\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 0\amp 1\\ 1\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises, a matrix <m>A</m> is given.
+    Find <m>A^{-1}</m> using <xref ref="idea_finding_inverses">Key Idea</xref>,
+    if it exists.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -2\amp 3\\ 1\amp 5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} -5/13\amp 3/13\\ 1/13\amp 2/13 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -5\amp -2\\ 9\amp 2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 1/4\amp 1/4\\ -9/8\amp -5/8 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 1\amp 2\\ 3\amp 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} -2\amp 1\\ 3/2\amp -1/2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 5\amp 7\\ 5/3\amp 7/3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^{-1}</m> does not exist.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 25\amp -10\amp -4\\ -18\amp 7\amp 3 \\ -6\amp 2\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp 2\amp -2\\ 0\amp 1\amp -3 \\ 6\amp 10\amp -5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 2\amp 3\amp 4\\ -3\amp 6\amp 9 \\ -1\amp 9\amp 13 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^{-1}</m> does not exist.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp 0\amp 0\\ 4\amp 1\amp -7 \\ 20\amp 7\amp -48 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp 0\amp 0\\ 52\amp -48\amp 7 \\ 8\amp -7\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} -4\amp 1\amp 5\\ -5\amp 1\amp 9 \\ -10\amp 2\amp 19 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp -9\amp 4\\ 5\amp -26\amp 11 \\ 0\amp -2\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 5\amp -1\amp 0\\ 7\amp 7\amp 1 \\ -2\amp -8\amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^{-1}</m> does not exist.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp -5\amp 0\\ -2\amp 15\amp 4 \\ 4\amp -19\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 91\amp 5\amp -20\\ 18\amp 1\amp -4 \\ -22\amp -1\amp 5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 25\amp -8\amp 0\\ -78\amp 25\amp 0 \\ 48\amp -15\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 25\amp 8\amp 0\\ 78\amp 25\amp 0 \\ -30\amp -9\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp 0\amp 0\\ 7\amp 5\amp 8 \\ -2\amp -2\amp -3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp 0\amp 0\\ 5\amp -3\amp -8 \\ -4\amp 2\amp 5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp 0\amp 1\\ 1\amp 0\amp 0 \\ 0\amp 1\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp 1\amp 0\\ 0\amp 0\amp 1 \\ 1\amp 0\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp 1\amp 0\\ 1\amp 0\amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp 1\amp 0\\ 1\amp 0\amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 0\\ -19\amp -9\amp 0\amp 4 \\ 33\amp 4\amp 1\amp -7\\ 4\amp 2\amp 0\amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 0\\ -3\amp -1\amp 0\amp -4 \\ -35\amp -10\amp 1\amp -47\\ -2\amp -2\amp 0\amp -9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 0\\ 27\amp 1\amp 0\amp 4 \\ 18\amp 0\amp 1\amp 4\\ 4\amp 0\amp 0\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 0\\ -11\amp 1\amp 0\amp -4 \\ -2\amp 0\amp 1\amp -4\\ -4\amp 0\amp 0\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} -15\amp 45\amp -3\amp 4\\ 55\amp -164\amp 15 \amp -15\\ -215\amp 640\amp -62\amp 59\\ -4\amp 12\amp 0\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cccc} 28\amp 18\amp 3\amp -19\\ 5\amp 1\amp 0\amp -5 \\ 4\amp 5\amp 1\amp 0\\ 52\amp 60\amp 12\amp -15 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 1\amp 0\amp 2\amp 8\\ 0\amp 1\amp 0\amp 0 \\ 0\amp -4\amp -29\amp -110\\ 0\amp -3\amp -5\amp -19 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cccc} 1\amp 28\amp -2\amp 12\\ 0\amp 1\amp 0\amp 0 \\ 0\amp 254\amp -19\amp 110\\ 0\amp -67\amp 5\amp -29 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 0\amp 0\amp 1\amp 0\\ 0\amp 0\amp 0\amp 1 \\ 1\amp 0\amp 0\amp 0\\ 0\amp 1\amp 0\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cccc} 0\amp 0\amp 1\amp 0\\ 0\amp 0\amp 0\amp 1 \\ 1\amp 0\amp 0\amp 0\\ 0\amp 1\amp 0\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 0\\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 3\amp 0\\ 0\amp 0\amp 0\amp -4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 0\\ 0\amp 1/2\amp 0\amp 0 \\ 0\amp 0\amp 1/3\amp 0\\ 0\amp 0\amp 0\amp -1/4 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a matrix <m>A</m> and a vector \vec{b}<nbsp/>are given.
+    Solve the equation <m>A \vec{x} = \vec{b}</m><nbsp/>using <xref ref="thm_inverse_solution">Theorem</xref>.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 3\amp 5\\ 2\amp 3 \end{array} \right]</m>,
+        <m>\vec{b} = \left[\begin{array}{c} 21\\ 13 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 2\\ 3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp -4\\ 4\amp -15 \end{array} \right]</m>,
+        <m>\vec{b} =\left[\begin{array}{c} 21\\ 77 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -7\\ -7 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 9\amp 70\\ -4\amp -31 \end{array} \right]</m>,
+        <m>\vec{b} =\left[\begin{array}{c} -2\\ 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -8\\ 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 10\amp -57\\ 3\amp -17 \end{array} \right]</m>,
+        <m>\vec{b} =\left[\begin{array}{c} -14\\ -4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 10\\ 2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 1\amp 2\amp 12\\ 0\amp 1\amp 6 \\ -3\amp 0\amp 1 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b} = \left[\begin{array}{c} -17\\ -5 \\ 20 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -7\\ 1\\ - 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 1\amp 0\amp -3\\ 8\amp -2\amp -13 \\ 12\amp -3\amp -20 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b} = \left[\begin{array}{c} -34\\ -159 \\ -243 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -7\\ -7\\ 9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 5\amp 0\amp -2\\ -8\amp 1\amp 5 \\ -2\amp 0\amp 1 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b} = \left[\begin{array}{c} 33\\ -70 \\ -15 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 3\\ -1\\ - 9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 1\amp -6\amp 0\\ 0\amp 1\amp 0 \\ 2\amp -8\amp 1 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b} = \left[\begin{array}{c} -69\\ 10 \\ -102 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -9\\ 10\\ -4 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+</section>

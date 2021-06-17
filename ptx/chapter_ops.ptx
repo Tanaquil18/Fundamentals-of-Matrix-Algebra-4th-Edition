@@ -1,0 +1,24 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="chapter_ops">
+  <title>Operations on Matrices</title>
+  <introduction>
+    <p>
+      In the previous chapter we learned about matrix arithmetic:
+      adding, subtracting, and multiplying matrices,
+      finding inverses, and multiplying by scalars.
+      In this chapter we learn about some operations that we perform <em>on</em> matrices.
+      We can think of them as functions:
+      you input a matrix, and you get something back.
+      One of these operations, the transpose,
+      will return another matrix.
+      With the other operations,
+      the trace and the determinant,
+      we input matrices and get numbers in return,
+      an idea that is different than what we have seen before.
+    </p>
+  </introduction>
+  <xi:include  href="sec_transpose.ptx"/>
+  <xi:include  href="sec_trace.ptx"/>
+  <xi:include  href="sec_determinant_1.ptx"/>
+  <xi:include  href="sec_determinant_properties.ptx"/>
+  <xi:include  href="sec_cramer.ptx"/>
+</chapter>

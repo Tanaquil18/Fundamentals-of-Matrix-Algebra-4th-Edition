@@ -1,0 +1,1769 @@
+<section xml:id="sec_vector_solutions">
+  <title>Vector Solutions to Linear Systems</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: The equation <m>A \vec{x} = \vec{b}</m><nbsp/>is just another way of writing a system of linear equations.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: In solving , if there are 3 free variables, then the solution will be
+          <q>pulled apart</q>
+          into 3 vectors.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: A homogeneous system of linear equations is one in which all of the coefficients are 0.
+        </p>
+      </li>
+      <li>
+        <p>
+          Whether or not the equation
+          <m>A \vec{x} = \vec{b}</m><nbsp/>has a solution depends on an intrinsic property of <fillin/>.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    The first chapter of this text was spent finding solutions to systems of linear equations.
+    We have spent the first two sections of this chapter learning operations that can be performed with matrices.
+    One may have wondered
+    <q>Are the ideas of the first chapter related to what we have been doing recently?</q>
+    The answer is yes, these ideas are related.
+    This section begins to show that relationship.
+  </p>
+  <p>
+    We have often hearkened back to previous algebra experience to help understand matrix algebra concepts.
+    We do that again here.
+    Consider the equation <m>ax=b</m>,
+    where <m>a=3</m> and <m>b=6</m>.
+    If we asked one to
+    <q>solve for <m>x</m>,</q>
+    what exactly would we be asking?
+    We would want to find a number,
+    which we call <m>x</m>, where <m>a</m> times <m>x</m> gives <m>b</m>;
+    in this case, it is a number,
+    when multiplied by 3, returns 6.
+  </p>
+  <p>
+    Now we consider matrix algebra expressions.
+    We'll eventually consider solving equations like <m>A X = B</m>,
+    where we know what the matrices <m>A</m> and B<nbsp/>are and we want to find the matrix X. For now,
+    we'll only consider equations of the type <m>A\vec{x}=\vec{b}</m>,
+    where we know the matrix <m>A</m> and the vector \vec{b}. We will want to find what vector <m>\vec{x}</m> satisfies this equation;
+    we want to
+    <q>solve for <m>\vec{x}</m>.</q>
+  </p>
+  <p>
+    To help understand what this is asking,
+    we'll consider an example.
+    Let
+    <me>
+      A = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp -1\amp 2\\2\amp 0\amp 1 \end{array} \right],  \vec{b} = \left[\begin{array}{c} 2\\-3\\1 \end{array} \right]  \text{ and }   \vec{x}=\left[\begin{array}{c} x_1\\x_2\\x_3 \end{array} \right]
+    </me>
+  </p>
+  <p>.
+    (We don't know what <m>\vec{x}</m> is,
+    so we have to represent it's entries with the variables <m>x_1</m>,
+    <m>x_2</m> and <m>x_3</m>.) Let's
+    <q>solve for <m>\vec{x}</m>,</q>
+    given the equation <m>A \vec{x} = \vec{b}</m>.
+  </p>
+  <p>
+    We can multiply out the left hand side of this equation.
+    We find that
+    <me>
+      A\vec{x} = \left[\begin{array}{c} x_1+x_2+x_3\\x_1-x_2+2x_3\\2x_1+x_3 \end{array} \right]
+    </me>
+  </p>
+  <p>.
+    Be sure to note that the product is just a vector;
+    it has just one column.
+  </p>
+  <p>
+    Since A<m>\vec{x}</m> is equal to \vec{b}, we have
+    <me>
+      \left[\begin{array}{c} x_1+x_2+x_3\\x_1-x_2+2x_3\\2x_1+x_3 \end{array} \right] = \left[\begin{array}{c} 2\\-3\\1 \end{array} \right]
+    </me>
+  </p>
+  <p>.
+    Knowing that two vectors are equal only when their corresponding entries are equal, we know
+    <md>
+      <mrow>x_1+x_2+x_3\amp =2</mrow>
+      <mrow>x_1-x_2+2x_3\amp =-3</mrow>
+      <mrow>2x_1+x_3\amp =1</mrow>
+    </md>.
+  </p>
+  <p>
+    This should look familiar; it is a system of linear equations!
+    Given the matrix-vector equation <m>A\vec{x}=\vec{b}</m>,
+    we can recognize <m>A</m> as the coefficient matrix from a linear system and \vec{b}<nbsp/>as the vector of the constants from the linear system.
+    To solve a matrix<ndash/>vector equation
+    (and the corresponding linear system),
+    we simply augment the matrix <m>A</m> with the vector \vec{b}, put this matrix into reduced row echelon form,
+    and interpret the results.
+  </p>
+  <p>
+    We convert the above linear system into an augmented matrix and find the reduced row echelon form:
+    <me>
+      \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 2\\1\amp -1\amp 2\amp -3\\2\amp 0\amp 1\amp 1 \end{array} \right] \overrightarrow{\text{ rref } } \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 1\amp 0\amp 2\\0\amp 0\amp 1\amp -1 \end{array} \right]
+    </me>
+  </p>
+  <p>.
+    This tells us that <m>x_1=1</m>,
+    <m>x_2=2</m> and <m>x_3 = -1</m>, so
+    <me>
+      \vec{x} = \left[\begin{array}{c} 1\\2\\-1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    We should check our work;
+    multiply out A<m>\vec{x}</m> and verify that we indeed get \vec{b}:
+    <me>
+      \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp -1\amp 2\\2\amp 0\amp 1 \end{array} \right]\left[\begin{array}{c} 1\\2\\-1 \end{array} \right] \text{ does equal }  \left[\begin{array}{c} 2\\-3\\1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    We should practice.
+  </p>
+  <example xml:id="ex_vector_solution_1">
+    <statement>
+      <p>
+        Solve the equation <m>A\vec{x}=\vec{b}</m> for <m>\vec{x}</m> where
+        <me>
+          A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\-1\amp 2\amp 1\\1\amp 1\amp 0 \end{array} \right]  \text{ and }  \left[\begin{array}{c}  5\\-1\\2 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The solution is rather straightforward,
+        even though we did a lot of work before to find the answer.
+        Form the augmented matrix <m>\left[\begin{array}{cc}   A\amp \vec{b} \end{array} \right]</m> and interpret its reduced row echelon form
+        <me>
+          .\left[\begin{array}{cccc} 1\amp 2\amp 3\amp 5\\-1\amp 2\amp 1\amp -1\\1\amp 1\amp 0\amp 2 \end{array} \right]\overrightarrow{\text{ rref } } \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 2\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 1\amp 1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        In previous sections we were fine stating that the result as
+        <me>
+          x_1=2,  x_2=0, x_3=1
+        </me>
+      </p>
+      <p>,
+        but we were asked to find \vec{x}; therefore, we state the solution as
+        <me>
+          \vec{x} = \left[\begin{array}{c} 2\\0\\1 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    This probably seems all well and good.
+    While asking one to solve the equation
+    <m>A\vec{x}=\vec{b}</m> for <m>\vec{x}</m> seems like a new problem,
+    in reality it is just asking that we solve a system of linear equations.
+    Our variables <m>x_1</m>,
+    etc., appear not individually but as the entries of our vector <m>\vec{x}</m>.
+    We are simply writing an old problem in a new way.
+  </p>
+  <p>
+    In line with this new way of writing the problem,
+    we have a new way of writing the solution.
+    Instead of listing, individually,
+    the values of the unknowns,
+    we simply list them as the elements of our vector <m>\vec{x}</m>.
+  </p>
+  <p>
+    These are important ideas, so we state the basic principle once more:
+    solving the equation <m>A\vec{x}=\vec{b}</m> for <m>\vec{x}</m> is the same thing as solving a linear system of equations.
+    Equivalently,
+    any system of linear equations can be written in the form
+    <m>A\vec{x}=\vec{b}</m> for some matrix <m>A</m> and vector \vec{b}.
+  </p>
+  <p>
+    Since these ideas are equivalent,
+    we'll refer to <m>A\vec{x}=\vec{b}</m> both as a matrix<ndash/>vector equation and as a system of linear equations:
+    they are the same thing.
+  </p>
+  <p>
+    We've seen two examples illustrating this idea so far,
+    and in both cases the linear system had exactly one solution.
+    We know from <xref ref="thm_existence_uniqueness">Theorem</xref>
+    that any linear system has either one solution,
+    infinite solutions, or no solution.
+    So how does our new method of writing a solution work with infinite solutions and no solutions?
+  </p>
+  <p>
+    Certainly, if <m>A\vec{x}=\vec{b}</m> has no solution,
+    we simply say that the linear system has no solution.
+    There isn't anything special to write.
+    So the only other option to consider is the case where we have infinite solutions.
+    We'll learn how to handle these situations through examples.
+  </p>
+  <example xml:id="ex_vector_solution_101">
+    <statement>
+      <p>
+        Solve the linear system <m>A\vec{x}=\vec{0}</m> for <m>\vec{x}</m> and write the solution in vector form, where
+        <me>
+          A = \left[\begin{array}{cc}  1\amp 2\\2\amp 4 \end{array} \right]  \text{ and }   \vec{0} = \left[\begin{array}{c} 0\\0 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        (Note: we didn't really need to specify that
+        <me>
+          \vec{0} = \left[\begin{array}{c} 0\\0 \end{array} \right]
+        </me>
+      </p>
+      <p>,
+        but we did just to eliminate any uncertainty.)
+      </p>
+      <p>
+        To solve this system,
+        put the augmented matrix into reduced row echelon form,
+        which we do below.
+        <me>
+          \left[\begin{array}{ccc}  1\amp 2\amp 0\\2\amp 4\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccc}  1\amp 2\amp 0\\0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We interpret the reduced row echelon form<nbsp/>of this matrix to write the solution as
+        <md>
+          <mrow>x_1 \amp = -2x_2</mrow>
+          <mrow>x_2 \amp \text{ is free. }</mrow>
+        </md>
+      </p>
+      <p>
+        We are not done; we need to write the solution in vector form,
+        for our solution is the vector <m>\vec{x}</m>.
+        Recall that
+        <me>
+          \vec{x} = \left[\begin{array}{c}  x_1\\x_2 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        From above we know that <m>x_1 = -2x_2</m>,
+        so we replace the <m>x_1</m> in <m>\vec{x}</m> with <m>-2x_2</m>.
+        This gives our solution as
+        <me>
+          \vec{x} = \left[\begin{array}{c}  -2x_2\\x_2 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Now we pull the <m>x_2</m> out of the vector
+        (it is just a scalar)
+        and write <m>\vec{x}</m> as
+        <me>
+          \vec{x} = x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        For reasons that will become more clear later, set
+        <me>
+          \vec{v} = \left[\begin{array}{c}  -2\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Thus our solution can be written as
+        <me>
+          \vec{x} = x_2\vec{v}
+        </me>
+      </p>
+      <p>
+        Recall that since our system was consistent and had a free variable,
+        we have infinite solutions.
+        This form of the solution highlights this fact;
+        pick any value for <m>x_2</m> and we get a different solution.
+      </p>
+      <p>
+        For instance, by setting <m>x_2 = -1</m>, <m>0</m>,
+        and <m>5</m>, we get the solutions
+        <me>
+          \vec{x} = \left[\begin{array}{c} 2\\-1 \end{array} \right],  \left[\begin{array}{c} 0\\0 \end{array} \right], \text{ and }  \left[\begin{array}{c}  -10\\5 \end{array} \right]
+        </me>
+      </p>
+      <p>,
+        respectively.
+      </p>
+      <p>
+        We should check our work;
+        multiply each of the above vectors by <m>A</m> to see if we indeed get \vec{0}.
+      </p>
+      <p>
+        We have officially solved this problem;
+        we have found the solution to
+        <m>A\vec{x}=\vec{0}</m> and written it properly.
+        One final thing we will do here is
+        <em>graph</em> the solution,
+        using our skills learned in the previous section.
+      </p>
+      <p>
+        Our solution is
+        <me>
+          \vec{x} = x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        This means that any scalar multiply of the vector <m>\vec{v} = \left[\begin{array}{c} -2\\1 \end{array} \right]</m> is a solution;
+        we know how to sketch the scalar multiples of <m>\vec{v}</m>.
+        This is done in <xref ref="fig_vect_sol_101">Figure</xref>.
+      </p>
+      <figure>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
+\drawylines{-3.5}{3.5}{-3,...,3};
+\draw [<->](-4,2)--(4,-2);
+\draw [->,thick] (0,0)--(-2,1) node [above] {\vec{v}};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        \mycaption{The solution, as a line, to <m>A\vec{x}=\vec{0}</m> in <xref ref="ex_vector_solution_101">Example</xref>.}
+      </figure>
+      <p>
+        Here vector <m>\vec{v}</m> is drawn as well as the line that goes through the origin in the direction of <m>\vec{v}</m>.
+        Any vector along this line is a solution.
+        So in some sense,
+        we can say that the solution to <m>A\vec{x}=\vec{0}</m> is <em>a line</em>.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Let's practice this again.
+  </p>
+  <example xml:id="ex_vect_sol_102">
+    <statement>
+      <p>
+        Solve the linear system <m>A\vec{x}=\vec{0}</m> and write the solution in vector form, where
+        <me>
+          A = \left[\begin{array}{cc} 2 \amp  -3 \\ -2 \amp  3 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Again, to solve this problem,
+        we form the proper augmented matrix and we put it into reduced row echelon form,
+        which we do below.
+        <me>
+          \left[\begin{array}{ccc}  2\amp -3\amp 0\\-2 \amp  3\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccc}  1 \amp  -3/2 \amp  0 \\0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We interpret the reduced row echelon form<nbsp/>of this matrix to find that
+        <md>
+          <mrow>x_1 \amp = 3/2x_2</mrow>
+          <mrow>x_2 \amp \text{ is free. }</mrow>
+        </md>
+      </p>
+      <p>
+        As before,
+        <me>
+          \vec{x} = \left[\begin{array}{c}  x_1\\x_2 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Since <m>x_1 = 3/2x_2</m>,
+        we replace <m>x_1</m> in <m>\vec{x}</m> with <m>3/2x_2</m>:
+        <me>
+          \vec{x} = \left[\begin{array}{c}  3/2x_2\\x_2 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Now we pull out the <m>x_2</m> and write the solution as
+        <me>
+          \vec{x} = x_2\left[\begin{array}{c} 3/2\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        As before, let's set
+        <me>
+          \vec{v} = \left[\begin{array}{c}  3/2\\1 \end{array} \right]
+        </me>
+        so we can write our solution as
+        <me>
+          \vec{x} = x_2\vec{v}
+        </me>
+      </p>
+      <p>
+        Again, we have infinite solutions;
+        any choice of <m>x_2</m> gives us one of these solutions.
+        For instance, picking <m>x_2=2</m> gives the solution
+        <me>
+          \vec{x} = \left[\begin{array}{c}  3\\2 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        (This is a particularly nice solution,
+        since there are no fractions<m>\ldots</m>)
+      </p>
+      <p>
+        As in the previous example,
+        our solutions are multiples of a vector,
+        and hence we can graph this,
+        as done in <xref ref="fig_vect_sol_102">Figure</xref>.
+      </p>
+      <figure>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-3.5}{6.5}{-3,...,6};
+\drawylines{-2.5}{4.5}{-2,...,4};
+\draw [<->](-3,-2)--(6,4);
+\draw [->,thick] (0,0)--(1.5,1) node [above] {\vec{v}};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        \mycaption{The solution, as a line, to <m>A\vec{x}=\vec{0}</m> in <xref ref="ex_vect_sol_102">Example</xref>.}
+      </figure>
+    </solution>
+  </example>
+  <p>
+    Let's practice some more;
+    this time, we won't solve a system of the form <m>A\vec{x}=\vec{0}</m>,
+    but instead A \vec{x} = \vec{b}, for some vector <m>\vec{b}</m>.
+  </p>
+  <example xml:id="ex_vect_sol_103">
+    <statement>
+      <p>
+        Solve the linear system A \vec{x} = \vec{b}, where
+        <me>
+          A = \left[\begin{array}{cc}  1\amp 2\\2\amp 4 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c}  3\\6 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        (Note that this is the same matrix <m>A</m> that we used in <xref ref="ex_vector_solution_101">Example</xref>.
+        This will be important later.)
+      </p>
+      <p>
+        Our methodology is the same as before;
+        we form the augmented matrix and put it into reduced row echelon form.
+        <me>
+          \left[\begin{array}{ccc}  1\amp 2\amp 3\\2\amp 4\amp 6 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Interpreting this reduced row echelon form, we find that
+        <md>
+          <mrow>x_1 \amp = 3-2x_2</mrow>
+          <mrow>x_2 \amp \text{ is free. }</mrow>
+        </md>
+      </p>
+      <p>
+        Again,
+        <me>
+          \vec{x} = \left[\begin{array}{c}  x_1\\x_2 \end{array} \right]
+        </me>
+      </p>
+      <p>,
+        and we replace <m>x_1</m> with <m>3-2x_2</m>, giving
+        <me>
+          \vec{x} = \left[\begin{array}{c}  3-2x_2\\x_2 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        This solution is different than what we've seen in the past two examples;
+        we can't simply pull out a <m>x_2</m> since there is a 3 in the first entry.
+        Using the properties of matrix addition, we can
+        <q>pull apart</q>
+        this vector and write it as the sum of two vectors:
+        one which contains only constants,
+        and one that contains only
+        <q><m>x_2</m> stuff.</q>
+        We do this below.
+        <md>
+          <mrow>\vec{x} \amp = \left[\begin{array}{c} 3-2x_2</mrow>
+          <mrow>x_2\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c}  3</mrow>
+          <mrow>0\end{array}\right] + \left[\begin{array}{c}  -2x_2</mrow>
+          <mrow>x_2\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c}  3</mrow>
+          <mrow>0\end{array}\right] + x_2\left[\begin{array}{c} -2</mrow>
+          <mrow>1\end{array}\right]</mrow>
+        </md>.
+      </p>
+      <p>
+        Once again, let's give names to the different component vectors of this solution
+        (we are getting near the explanation of why we are doing this).
+        Let
+        <me>
+          \vec{x_p} = \left[\begin{array}{c}  3\\0 \end{array} \right]  \text{ and }   \vec{v} = \left[\begin{array}{c} -2\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        We can then write our solution in the form
+        <me>
+          \vec{x} = \vec{x_p} + x_2\vec{v}
+        </me>
+      </p>
+      <p>
+        We still have infinite solutions;
+        by picking a value for <m>x_2</m> we get one of these solutions.
+        For instance, by letting <m>x_2= -1</m>, <m>0</m>,
+        or <m>2</m>, we get the solutions
+        <me>
+          \left[\begin{array}{c}  5\\-1 \end{array} \right],  \left[\begin{array}{c}  3\\0 \end{array} \right]  \text{ and }   \left[\begin{array}{c}  -1\\2 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We have officially solved the problem;
+        we have solved the equation
+        <m>A \vec{x} = \vec{b}</m><nbsp/>for <m>\vec{x}</m> and have written the solution in vector form.
+        As an additional visual aid, we will graph this solution.
+      </p>
+      <p>
+        Each vector in the solution can be written as the sum of two vectors:
+        <m>\vec{x_p}</m> and a multiple of <m>\vec{v}</m>.
+        In <xref ref="fig_vect_sol_103">Figure</xref>, \vec{x_p}<nbsp/>is graphed and <m>\vec{v}</m> is graphed with its origin starting at the tip of \vec{x_p}. Finally,
+        a line is drawn in the direction of <m>\vec{v}</m> from the tip of \vec{x_p}; any vector pointing to any point on this line is a solution to <m>A \vec{x} = \vec{b}</m>.
+      </p>
+      <figure>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-5.5}{5.5}{-5,...,5};
+\drawylines{-2.5}{5.5}{-2,...,5};
+\draw [<->](5,-1)--(-5,4);
+\draw [->,thick] (0,0)--(3,0) node [below] {\vec{x_p}};
+\draw [->,thick] (3,0) -- (1,1) node [above] {\vec{v}};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+        \mycaption{The solution, as a line, to <m>A\vec{x}=\vec{b}</m> in <xref ref="ex_vect_sol_103">Example</xref>.}
+      </figure>
+    </solution>
+  </example>
+  <p>
+    The previous examples illustrate some important concepts.
+    One is that we can
+    <q>see</q>
+    the solution to a system of linear equations in a new way.
+    Before, when we had infinite solutions,
+    we knew we could arbitrarily pick values for our free variables and get different solutions.
+    We knew this to be true,
+    and we even practiced it, but the result was not very
+    <q>tangible.</q>
+    Now, we can view our solution as a vector;
+    by picking different values for our free variables,
+    we see this as multiplying certain important vectors by a scalar which gives a different solution.
+  </p>
+  <p>
+    Another important concept that these examples demonstrate comes from the fact that <xref ref="ex_vector_solution_101">Examples</xref>
+    and <xref ref="ex_vect_sol_103"></xref> were only
+    <q>slightly different</q>
+    and hence had only
+    <q>slightly different</q>
+    answers.
+    Both solutions had
+    <me>
+      x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
+    </me>
+    in them; in <xref ref="ex_vect_sol_103">Example</xref>
+    the solution also had another vector added to this.
+    Was this coincidence, or is there a definite pattern here?
+  </p>
+  <p>
+    Of course there is a pattern!
+    Now <m>\ldots</m> what exactly is it?
+    First, we define a term.
+  </p>
+  <definition xml:id="def_homogeneous">
+    <statement>
+      <p>
+        <term>Homogeneous Linear System of Equations</term><idx><h>system of linear equations</h><h>homogeneous</h></idx>
+            <idx><h>homogeneous</h></idx>
+      </p>
+      <p>
+        A system of linear equations is <term>homogeneous</term>
+        if the constants in each equation are zero.
+      </p>
+      <p>
+        Note: a homogeneous system of equations can be written in vector form as <m>A\vec{x} = \vec{0}</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The term <em>homogeneous</em> comes from two Greek words;
+    <em>homo</em> meaning
+    <q>same</q>
+    and <em>genus</em> meaning
+    <q>type.</q>
+    A homogeneous system of equations is a system in which each equation is of the same type <mdash/> all constants are 0.
+    Notice that the system of equations in <xref ref="ex_vector_solution_101">Examples</xref>
+    and <xref ref="ex_vect_sol_103"></xref> are homogeneous.
+  </p>
+  <p>
+    Note that <m>A\vec{0} = \vec{0}</m>;
+    that is, if we set <m>\vec{x} = \vec{0}</m>,
+    we have a solution to a homogeneous set of equations.
+    This fact is important; the zero vector is <em>always</em>
+    a solution to a homogeneous linear system.
+    Therefore a homogeneous system is always consistent;
+    we need only to determine whether we have exactly one solution (just \vec{0}) or infinite solutions.
+    This idea is important so we give it it's own box.
+  </p>
+  <insight xml:id="idea_homogeneous">
+    <p>
+          <idx><h>consistent</h></idx>
+          <idx><h>system of linear equations</h><h>consistent</h></idx>
+          <idx><h>homogeneous</h></idx>
+      <term>Homogeneous Systems and Consistency</term>
+    </p>
+    <p>
+      All homogeneous linear systems are consistent.
+    </p>
+  </insight>
+  <p>
+    How do we determine if we have exactly one or infinite solutions?
+    Recall <xref ref="idea_consistent">Key Idea</xref>:
+    if the solution has any free variables,
+    then it will have infinite solutions.
+    How can we tell if the system has free variables?
+    Form the augmented matrix <m>\left[\begin{array}{cc} A \amp \vec{0} \end{array} \right]</m>,
+    put it into reduced row echelon form, and interpret the result.
+  </p>
+  <p>
+    It may seem that we've brought up a new question,
+    <q>When does <m>A\vec{x}=\vec{0}</m> have exactly one or infinite solutions?</q>
+    only to answer with
+    <q>Look at the reduced row echelon form<nbsp/>of <m>A</m> and interpret the results,
+    just as always.</q>
+    Why bring up a new question if the answer is an old one?
+  </p>
+  <p>
+    While the new question has an old solution,
+    it does lead to a great idea.
+    Let's refresh our memory; earlier we solved two linear systems,
+    <me>
+      A\vec{x} = \vec{0}  \text{ and }    A\vec{x} = \vec{b}
+    </me>
+    where
+    <me>
+      A = \left[\begin{array}{cc} 1\amp 2\\2\amp 4 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c} 3\\6 \end{array} \right]
+    </me>
+  </p>
+  <p>.
+    The solution to the first system of equations, , is
+    <me>
+      \vec{x} = x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
+    </me>
+    and the solution to the second set of equations,
+    <m>A \vec{x} = \vec{b}</m>, is
+    <me>
+      \vec{x} = \left[\begin{array}{c} 3\\0 \end{array} \right] + x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
+    </me>
+  </p>
+  <p>,
+    for all values of <m>x_2</m>.
+  </p>
+  <p>
+    Recalling our notation used earlier, set
+    <me>
+      \vec{x_p} = \left[\begin{array}{c}  3\\0 \end{array} \right]  \text{ and let }    \vec{v} = \left[\begin{array}{c} -2\\1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Thus our solution to the linear system <m>A\vec{x} = \vec{b}</m> is
+    <me>
+      \vec{x} = \vec{x_p} + x_2\vec{v}
+    </me>
+  </p>
+  <p>
+    Let us see how exactly this solution works;
+    let's see why <m>A\vec{x}</m> equals \vec{b}. Multiply <m>A\vec{x}</m>:
+    <md>
+      <mrow>A\vec{x} \amp = A(\vec{x_p}+x_2\vec{v})</mrow>
+      <mrow>\amp =  A\vec{x_p} +  A(x_2\vec{v})</mrow>
+      <mrow>\amp =  A\vec{x_p} + x_2( A\vec{v})</mrow>
+      <mrow>\amp =  A\vec{x_p} + x_2\vec{0}</mrow>
+      <mrow>\amp =  A\vec{x_p} + \vec{0}</mrow>
+      <mrow>\amp =  A\vec{x_p}</mrow>
+      <mrow>\amp =\vec{b}</mrow>
+    </md>
+  </p>
+  <p>
+    We know that the last line is true,
+    that <m>A\vec{x_p} = \vec{b}</m>,
+    since we know that <m>\vec{x}</m> was a solution to <m>A\vec{x} = \vec{b}</m>.
+    The whole point is that \vec{x_p}<nbsp/>itself is a solution to <m>A\vec{x} = \vec{b}</m>,
+    and we could find more solutions by adding vectors
+    <q>that go to zero</q>
+    when multiplied by <m>A</m>.
+    (The subscript <m>p</m> of
+    <q>\vec{x_p}</q>
+    is used to denote that this vector is a
+    <q>particular</q>
+    solution.)
+  </p>
+  <p>
+    Stated in a different way, let's say that we know two things:
+    that <m>A\vec{x_p} = \vec{b}</m> and <m>A\vec{v} = \vec{0}</m>.
+    What is <m>A(\vec{x_p}+\vec{v})</m>?
+    We can multiply it out:
+    <md>
+      <mrow>A(\vec{x_p}+\vec{v}) \amp =  A\vec{x_p} +  A\vec{v}</mrow>
+      <mrow>\amp = \vec{b} + \vec{0}</mrow>
+      <mrow>\amp = \vec{b}</mrow>
+    </md>
+    and see that <m>A(\vec{x_p}+\vec{v})</m> also equals \vec{b}.
+  </p>
+  <p>
+    So we wonder: does this mean that
+    <m>A\vec{x} = \vec{b}</m> will have infinite solutions?
+    After all, if \vec{x_p}<nbsp/>and <m>\vec{x_p}+\vec{v}</m> are both solutions,
+    don't we have infinite solutions?
+  </p>
+  <p>
+    No.
+    If <m>A\vec{x} = \vec{0}</m> has exactly one solution,
+    then <m>\vec{v} = \vec{0}</m>,
+    and <m>\vec{x_p} = \vec{x_p} +\vec{v}</m>;
+    we only have one solution.
+  </p>
+  <p>
+    So here is the culmination of all of our fun that started a few pages back.
+    If <m>\vec{v}</m> is a solution to
+    <m>A\vec{x}=\vec{0}</m> and \vec{x_p}<nbsp/>is a solution to <m>A\vec{x}=\vec{b}</m>,
+    then <m>\vec{x_p}+\vec{v}</m> is also a solution to <m>A\vec{x}=\vec{b}</m>.
+    If <m>A\vec{x}=\vec{0}</m> has infinite solutions,
+    so does <m>A\vec{x} = \vec{b}</m>;
+    if <m>A\vec{x}=\vec{0}</m> has only one solution,
+    so does <m>A\vec{x} = \vec{b}</m>.
+    This culminating idea is of course important enough to be stated again.
+  </p>
+  <insight xml:id="idea_unique_solutions">
+    <p>
+          <idx><h>homogeneous</h></idx>
+          <idx><h>consistent</h></idx>
+          <idx><h>system of linear equations</h><h>consistent</h></idx>
+          <idx><h>solution</h><h>unique</h></idx>
+          <idx><h>solution</h><h>infinite</h></idx>
+      <term>Solutions of Consistent Systems</term>
+    </p>
+    <p>
+      Let <m>A\vec{x}=\vec{b}</m> be a consistent system of linear equations.
+      <ol>
+        <li>
+          <p>
+            If <m>A\vec{x} = \vec{0}</m> has exactly one solution <m>(\vec{x} = \vec{0})</m>,
+            then <m>A\vec{x} = \vec{b}</m> has exactly one solution.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>A\vec{x} =\vec{0}</m> has infinite solutions,
+            then <m>A\vec{x}=\vec{b}</m> has infinite solutions.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </insight>
+  <p>
+    A key word in the above statement is <em>consistent</em>.
+    If <m>A\vec{x} = \vec{b}</m> is inconsistent
+    (the linear system has no solution),
+    then it doesn't matter how many solutions <m>A\vec{x} = \vec{0}</m> has;
+    <m>A\vec{x}=\vec{b}</m> has no solution.
+  </p>
+  <p>
+    Enough fun, enough theory.
+    We need to practice.
+  </p>
+  <example xml:id="ex_vector_solution_4">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cccc} 1\amp -1\amp 1\amp 3\\4\amp 2\amp 4\amp 6 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c} 1\\10 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Solve the linear systems
+        <m>A\vec{x} = \vec{0}</m> and <m>A\vec{x} = \vec{b}</m> for <m>\vec{x}</m>,
+        and write the solutions in vector form.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We'll tackle <m>A\vec{x} = \vec{0}</m> first.
+        We form the associated augmented matrix,
+        put it into reduced row echelon form, and interpret the result.
+        <me>
+          \left[\begin{array}{ccccc} 1\amp -1\amp 1\amp 3\amp 0\\4\amp 2\amp 4\amp 6\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp 2\amp 0\\0\amp 1\amp 0\amp -1\amp 0 \end{array} \right]
+        </me>
+        <md>
+          <mrow>x_1\amp =-x_3-2x_4</mrow>
+          <mrow>x_2 \amp = x_4</mrow>
+          <mrow>x_3\amp \text{ is free }</mrow>
+          <mrow>x_4\amp \text{ is free }</mrow>
+        </md>
+      </p>
+      <p>
+        To write our solution in vector form,
+        we rewrite <m>x_1</m> and <m>x_2</m> in <m>\vec{x}</m> in terms of <m>x_3</m> and <m>x_4</m>.
+        <me>
+          \vec{x} = \left[\begin{array}{c} x_1\\x_2\\x_3\\x_4 \end{array} \right] = \left[\begin{array}{c} -x_3-2x_4\\x_4\\x_3\\x_4 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Finally, we
+        <q>pull apart</q>
+        this vector into two vectors, one with the
+        <q><m>x_3</m> stuff</q>
+        and one with the
+        <q><m>x_4</m> stuff.</q>
+        <md>
+          <mrow>\vec{x} \amp = \left[\begin{array}{c} -x_3-2x_4</mrow>
+          <mrow>x_4</mrow>
+          <mrow>x_3</mrow>
+          <mrow>x_4\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c} -x_3</mrow>
+          <mrow>0</mrow>
+          <mrow>x_3</mrow>
+          <mrow>0\end{array}\right] + \left[\begin{array}{c} -2x_4</mrow>
+          <mrow>x_4</mrow>
+          <mrow>0</mrow>
+          <mrow>x_4\end{array}\right]</mrow>
+          <mrow>\amp =x_3\left[\begin{array}{c} -1</mrow>
+          <mrow>0</mrow>
+          <mrow>1</mrow>
+          <mrow>0\end{array}\right] + x_4\left[\begin{array}{c} -2</mrow>
+          <mrow>1</mrow>
+          <mrow>0</mrow>
+          <mrow>1\end{array}\right]</mrow>
+          <mrow>\amp =x_3\vec{u} + x_4\vec{v}</mrow>
+        </md>
+      </p>
+      <p>
+        We use <m>\vec{u}</m> and <m>\vec{v}</m> simply to give these vectors names
+        (and save some space).
+      </p>
+      <p>
+        It is easy to confirm that both <m>\vec{u}</m> and <m>\vec{v}</m> are solutions to the linear system <m>A\vec{x}=\vec{0}</m>.
+        (Just multiply A<m>\vec{u}</m> and A<m>\vec{v}</m> and see that both are \vec{0}.)
+        Since both are solutions to a homogeneous system of linear equations,
+        any linear combination of <m>\vec{u}</m> and <m>\vec{v}</m> will be a solution, too.
+      </p>
+      <p>
+        Now let's tackle <m>A\vec{x} = \vec{b}</m>.
+        Once again we put the associated augmented matrix into reduced row echelon form<nbsp/>and interpret the results.
+        <me>
+          \left[\begin{array}{ccccc} 1\amp -1\amp 1\amp 3\amp 1\\4\amp 2\amp 4\amp 6\amp 10 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp 2\amp 2\\0\amp 1\amp 0\amp -1\amp 1 \end{array} \right]
+        </me>
+        <md>
+          <mrow>x_1\amp =2-x_3-2x_4</mrow>
+          <mrow>x_2 \amp = 1+x_4</mrow>
+          <mrow>x_3\amp \text{ is free }</mrow>
+          <mrow>x_4\amp \text{ is free }</mrow>
+        </md>
+      </p>
+      <p>
+        Writing this solution in vector form gives
+        <me>
+          \vec{x} = \left[\begin{array}{c} x_1\\x_2\\x_3\\x_4 \end{array} \right] = \left[\begin{array}{c} 2-x_3-2x_4\\1+x_4\\x_3\\x_4 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Again, we pull apart this vector,
+        but this time we break it into three vectors: one with
+        <q><m>x_3</m></q>
+        stuff, one with
+        <q><m>x_4</m></q>
+        stuff, and one with just constants.
+        <md>
+          <mrow>\vec{x} \amp = \left[\begin{array}{c} 2-x_3-2x_4</mrow>
+          <mrow>1+x_4</mrow>
+          <mrow>x_3</mrow>
+          <mrow>x_4\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c} 2</mrow>
+          <mrow>1</mrow>
+          <mrow>0</mrow>
+          <mrow>0\end{array}\right] + \left[\begin{array}{c} -x_3</mrow>
+          <mrow>0</mrow>
+          <mrow>x_3</mrow>
+          <mrow>0\end{array}\right] + \left[\begin{array}{c} -2x_4</mrow>
+          <mrow>x_4</mrow>
+          <mrow>0</mrow>
+          <mrow>x_4\end{array}\right]</mrow>
+          <mrow>\amp =\left[\begin{array}{c} 2</mrow>
+          <mrow>1</mrow>
+          <mrow>0</mrow>
+          <mrow>0\end{array}\right]+x_3\left[\begin{array}{c} -1</mrow>
+          <mrow>0</mrow>
+          <mrow>1</mrow>
+          <mrow>0\end{array}\right] + x_4\left[\begin{array}{c} -2</mrow>
+          <mrow>1</mrow>
+          <mrow>0</mrow>
+          <mrow>1\end{array}\right]</mrow>
+          <mrow>\amp =\underbrace{\vec{x_p}}_{  \scriptsize particular solution}+\underbrace{x_3\vec{u} + x_4\vec{v}}_{  \scriptsize solution to homogeneous equations $ A\vec{x}=\vec{0}$}</mrow>
+        </md>
+      </p>
+      <p>
+        Note that <m>A\vec{x_p} = \vec{b}</m>;
+        by itself, <m>\vec{x_p}</m> is a solution.
+        To get infinite solutions, we add a bunch of stuff that
+        <q>goes to zero</q>
+        when we multiply by A; we add the solution to the homogeneous equations.
+      </p>
+      <p>
+        Why don't we graph this solution as we did in the past?
+        Before we had only two variables,
+        meaning the solution could be graphed in 2D. Here we have four variables,
+        meaning that our solution
+        <q>lives</q>
+        in 4D. You <em>can</em> draw this on paper,
+        but it is <em>very</em> confusing.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_vector_solution_5">
+    <statement>
+      <p>
+        Rewrite the linear system
+        <me>
+          \begin{array}{ccccccccccc} x_1\amp +\amp 2x_2\amp -\amp 3x_3\amp +\amp 2x_4\amp +\amp 7x_5\amp =\amp 2\\3x_1\amp +\amp 4x_2\amp +\amp 5x_3\amp +\amp 2x_4\amp +\amp 3x_5\amp =\amp -4 \end{array}
+        </me>
+        as a matrix<ndash/>vector equation,
+        solve the system using vector notation,
+        and give the solution to the related homogeneous equations.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Rewriting the linear system in the form of <m>A\vec{x}=\vec{b}</m>,
+        we have that
+        <me>
+          A = \left[\begin{array}{ccccc} 1\amp 2\amp -3\amp 2\amp 7\\3\amp 4\amp 5\amp 2\amp 3 \end{array} \right], \vec{x} = \left[\begin{array}{c} x_1\\x_2\\x_3\\x_4\\x_5 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c} 2\\-4 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        To solve the system,
+        we put the associated augmented matrix into reduced row echelon form<nbsp/>and interpret the results.
+        <me>
+          \left[\begin{array}{ccccccc} 1\amp 2\amp -3\amp 2\amp 7\amp 2\\3\amp 4\amp 5\amp 2\amp 3\amp -4 \end{array} \right] \overrightarrow{\text{ rref } }  \left[\begin{array}{ccccccc} 1\amp 0\amp 11\amp -2\amp -11\amp -8\\0\amp 1\amp -7\amp 2\amp 9\amp 5 \end{array} \right]
+        </me>
+        <md>
+          <mrow>x_1\amp =-8-11x_3+2x_4+11x_5</mrow>
+          <mrow>x_2\amp =5+7x_3-2x_4-9x_5</mrow>
+          <mrow>x_3\amp \text{ is free }</mrow>
+          <mrow>x_4\amp \text{ is free }</mrow>
+          <mrow>x_5\amp \text{ is free }</mrow>
+        </md>
+      </p>
+      <p>
+        We use this information to write <m>\vec{x}</m>, again pulling it apart.
+        Since we have three free variables and also constants,
+        we'll need to pull <m>\vec{x}</m> apart into four separate vectors.
+        <md>
+          <mrow>\vec{x} \amp = \left[\begin{array}{c} x_1</mrow>
+          <mrow>x_2</mrow>
+          <mrow>x_3</mrow>
+          <mrow>x_4</mrow>
+          <mrow>x_5\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c} -8-11x_3+2x_4+11x_5</mrow>
+          <mrow>5+7x_3-2x_4-9x_5</mrow>
+          <mrow>x_3</mrow>
+          <mrow>x_4</mrow>
+          <mrow>x_5\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c} -8</mrow>
+          <mrow>5</mrow>
+          <mrow>0</mrow>
+          <mrow>0</mrow>
+          <mrow>0\end{array}\right] + \left[\begin{array}{c} -11x_3</mrow>
+          <mrow>7x_3</mrow>
+          <mrow>x_3</mrow>
+          <mrow>0</mrow>
+          <mrow>0\end{array}\right]+ \left[\begin{array}{c} 2x_4</mrow>
+          <mrow>-2x_4</mrow>
+          <mrow>0</mrow>
+          <mrow>x_4</mrow>
+          <mrow>0\end{array}\right] + \left[\begin{array}{c} 11x_5</mrow>
+          <mrow>-9x_5</mrow>
+          <mrow>0</mrow>
+          <mrow>0</mrow>
+          <mrow>x_5\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c} -8</mrow>
+          <mrow>5</mrow>
+          <mrow>0</mrow>
+          <mrow>0</mrow>
+          <mrow>0\end{array}\right] + x_3\left[\begin{array}{c} -11</mrow>
+          <mrow>7</mrow>
+          <mrow>1</mrow>
+          <mrow>0</mrow>
+          <mrow>0\end{array}\right]+ x_4\left[\begin{array}{c} 2</mrow>
+          <mrow>-2</mrow>
+          <mrow>0</mrow>
+          <mrow>1</mrow>
+          <mrow>0\end{array}\right] + x_5\left[\begin{array}{c} 11</mrow>
+          <mrow>-9</mrow>
+          <mrow>0</mrow>
+          <mrow>0</mrow>
+          <mrow>1\end{array}\right]</mrow>
+          <mrow>\amp = \underbrace{\vec{x_p}}_{\scriptsize { } particular solution}+ \underbrace{x_3\vec{u}+x_4\vec{v}+x_5\vec{w}}_{\scriptsize { } solution to homogeneous equations $ A\vec{x}=\vec{0}$}</mrow>
+        </md>
+      </p>
+      <p>
+        So <m>\vec{x_p}</m> is a particular solution; <m>A = \vec{b}</m>.
+        (Multiply it out to verify that this is true.)
+        The other vectors, <m>\vec{u}</m>,
+        <m>\vec{v}</m> and \vec{w}, that are multiplied by our free variables <m>x_3</m>,
+        <m>x_4</m> and <m>x_5</m>,
+        are each solutions to the homogeneous equations, <m>A\vec{x}=\vec{0}</m>.
+        Any linear combination of these three vectors,
+        i.e., any vector found by choosing values for <m>x_3</m>,
+        <m>x_4</m> and <m>x_5</m> in
+        <m>x_3\vec{u}+x_4\vec{v}+x_5\vec{w}</m> is a solution to <m>A\vec{x}=\vec{0}</m>.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_vector_solution_6">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc} 1\amp 2\\4\amp 5 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c}  3\\6 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Find the solutions to <m>A\vec{x}=\vec{b}</m> and <m>A\vec{x} = \vec{0}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We go through the familiar work of finding the reduced row echelon form<nbsp/>of the appropriate augmented matrix and interpreting the solution.
+        <me>
+          \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccc} 1\amp 0\amp -1\\0\amp 1\amp 2 \end{array} \right]
+        </me>
+        <md>
+          <mrow>x_1 \amp = -1</mrow>
+          <mrow>x_2 \amp = 2</mrow>
+        </md>
+      </p>
+      <p>
+        Thus
+        <me>
+          \vec{x} = \left[\begin{array}{c} x_1\\x_2 \end{array} \right] = \left[\begin{array}{c} -1\\2 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        This may strike us as a bit odd;
+        we are used to having lots of different vectors in the solution.
+        However, in this case, the linear system
+        <m>A\vec{x} = \vec{b}</m> has exactly one solution, and we've found it.
+        What is the solution to <m>A\vec{x}=\vec{0}</m>?
+        Since we've only found one solution to <m>A\vec{x}=\vec{b}</m>,
+        we can conclude from <xref ref="idea_unique_solutions">Key Idea</xref>
+        the related homogeneous equations
+        <m>A\vec{x}=\vec{0}</m> have only one solution,
+        namely <m>\vec{x} = \vec{0}</m>.
+        We can write our solution vector <m>\vec{x}</m> in a form similar to our previous examples to highlight this:
+        <md>
+          <mrow>\vec{x} \amp = \left[\begin{array}{c} -1</mrow>
+          <mrow>2\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c} -1</mrow>
+          <mrow>2\end{array}\right] + \left[\begin{array}{c} 0</mrow>
+          <mrow>0\end{array}\right]</mrow>
+          <mrow>\amp = \underbrace{}_{\scriptsize  particular solution} + \underbrace{\zero_{  }}_{\scriptsize { } solution to $ A\vec{x}=\vec{0}$}</mrow>
+        </md>.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_vector_solution_7">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc} 1\amp 1\\2\amp 2 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c}  1\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>.
+        Find the solutions to <m>A\vec{x}=\vec{b}</m> and <m>A\vec{x} = \vec{0}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        To solve <m>A \vec{x} = \vec{b}</m>,
+        we put the appropriate augmented matrix into reduced row echelon form<nbsp/>and interpret the results.
+        <me>
+          \left[\begin{array}{ccc} 1\amp 1\amp 1\\2\amp 2\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccc} 1\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We immediately have a problem;
+        we see that the second row tells us that <m>0x_1+0x_2 = 1</m>,
+        the sign that our system does not have a solution.
+        Thus <m>A \vec{x} = \vec{b}</m><nbsp/>has no solution.
+        Of course, this does not mean that has no solution;
+        it always has a solution.
+      </p>
+      <p>
+        To find the solution to , we interpret the reduced row echelon form<nbsp/>of the appropriate augmented matrix.
+        <me>
+          \left[\begin{array}{ccc} 1\amp 1\amp 0\\2\amp 2\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccc} 1\amp 1\amp 0\\0\amp 0\amp 0 \end{array} \right]
+        </me>
+        <md>
+          <mrow>x_1 \amp =-x_2</mrow>
+          <mrow>x_2 \amp \text{ is free }</mrow>
+        </md>
+      </p>
+      <p>
+        Thus
+        <md>
+          <mrow>\vec{x} \amp = \left[\begin{array}{c}  x_1</mrow>
+          <mrow>x_2\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{c} -x_2</mrow>
+          <mrow>x_2\end{array}\right]</mrow>
+          <mrow>\amp = x_2\left[\begin{array}{c} -1</mrow>
+          <mrow>1\end{array}\right]</mrow>
+          <mrow>\amp = x_2$\vec{u}$</mrow>
+        </md>.
+      </p>
+      <p>
+        We have no solution to <m>A \vec{x} = \vec{b}</m>,
+        but infinite solutions to .
+      </p>
+    </solution>
+  </example>
+  <p>
+    The previous example may seem to violate the principle of <xref ref="idea_unique_solutions">Key Idea</xref>.
+    After all, it seems that having infinite solutions to should imply infinite solutions to <m>A \vec{x} = \vec{b}</m>.
+    However, we remind ourselves of the key word in the idea that we observed before:
+    <em>consistent</em>.
+    If <m>A \vec{x} = \vec{b}</m><nbsp/>is consistent and has infinite solutions,
+    then so will <m>A \vec{x} = \vec{b}</m>.
+    But if <m>A \vec{x} = \vec{b}</m><nbsp/>is not consistent,
+    it does not matter how many solutions has;
+    <m>A \vec{x} = \vec{b}</m><nbsp/>is still inconsistent.
+  </p>
+  <p>
+    This whole section is highlighting a very important concept that we won't fully understand until after two sections,
+    but we get a glimpse of it here.
+    When solving any system of linear equations
+    (which we can write as <m>A\vec{x} = \vec{b}</m>),
+    whether we have exactly one solution, infinite solutions,
+    or no solution depends on an intrinsic property of <m>A</m>.
+    We'll find out what that property is soon;
+    in the next section we solve a problem we introduced at the beginning of this section,
+    how to solve matrix equations <m>A X= B</m>.
+  </p>
+  <p>
+    In the following exercises,
+    a matrix <m>A</m> and vectors \vec{b}, <m>\vec{u}</m> and <m>\vec{v}</m> are given.
+    Verify that <m>\vec{u}</m> and <m>\vec{v}</m> are both solutions to the equation <m>A \vec{x} = \vec{b}</m>;
+    that is, show that <m>A\vec{u}= A\vec{v}=\vec{b}</m>.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp -2\\ -3\amp 6 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 0\\ 0 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} 2\\ 1 \end{array} \right]</m>,
+        <m>\vec{v} = \left[\begin{array}{c} -10\\ -5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m> and <m>A\vec{v}</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp -2\\ -3\amp 6 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 2\\ -6 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} 0\\ -1 \end{array} \right]</m>,
+        <m>\vec{v} = \left[\begin{array}{c} 2\\ 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m> and <m>A\vec{v}</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 0\\ 2\amp 0 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 0\\ 0 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} 0\\ -1 \end{array} \right]</m>,
+        <m>\vec{v} = \left[\begin{array}{c} 0\\ 59 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m> and <m>A\vec{v}</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 0\\ 2\amp 0 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} -3\\ -6 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} -3\\ -1 \end{array} \right]</m>,
+        <m>\vec{v} = \left[\begin{array}{c} -3\\ 59 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m> and <m>A\vec{v}</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cccc} 0 \amp -3 \amp -1 \amp -3 \\ -4 \amp 2 \amp -3 \amp 5 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 0\\ 0 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} 11 \\ 4 \\ -12 \\ 0 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{v} = \left[\begin{array}{c} 9\\ -12\\ 0 \\ 12 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m> and <m>A\vec{v}</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cccc} 0 \amp -3 \amp -1 \amp -3 \\ -4 \amp 2 \amp -3 \amp 5 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 48\\ 36 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} -17 \\ -16 \\ 0 \\ 0 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{v} = \left[\begin{array}{c} -8\\ -28\\ 0 \\ 12 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m> and <m>A\vec{v}</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a matrix <m>A</m> and vectors \vec{b}, <m>\vec{u}</m> and <m>\vec{v}</m> are given.
+    Verify that <m>A\vec{u}=\vec{0}</m>,
+    <m>A\vec{v}=\vec{b}</m> and <m>A(\vec{u}+\vec{v})=\vec{b}</m>.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 2\amp -2\amp -1 \\ -1\amp 1\amp -1\\ -2\amp 2\amp -1 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 1\\ 1 \\ 1 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} 1 \\ 1 \\ 0 \end{array} \right]</m>,
+        <m>\vec{v} = \left[\begin{array}{c} 1\\ 1 \\ -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m>,
+        <m>A\vec{v}</m> and <m>A(\vec{u}+\vec{v})</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 1 \amp -1 \amp 3 \\ 3\amp -3\amp -3\\ -1\amp 1\amp 1 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} -1\\ -3 \\ 1 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} 2 \\ 2 \\ 0 \end{array} \right]</m>,
+        <m>\vec{v} = \left[\begin{array}{c} 2\\ 3 \\ 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m>,
+        <m>A\vec{v}</m> and <m>A(\vec{u}+\vec{v})</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 2 \amp 0 \amp 0 \\ 0\amp 1\amp -3\\ 3\amp 1\amp -3 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 2\\ -4 \\ -1 \end{array} \right]</m>,
+        <m>\vec{u} = \left[\begin{array}{c} 0 \\ 6 \\ 2 \end{array} \right]</m>,
+        <m>\vec{v} = \left[\begin{array}{c} 1\\ -1 \\ 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Multiply <m>A\vec{u}</m>,
+        <m>A\vec{v}</m> and <m>A(\vec{u}+\vec{v})</m> to verify.
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a matrix <m>A</m> and vector \vec{b}<nbsp/>are given.
+    <ul>
+      {(\alph{enumi})}\usecounter{enumi} \item Solve the equation <m>A\vec{x}=\vec{0}</m>. \item Solve the equation <m>A\vec{x}=\vec{b}</m>.
+    </ul>
+  </p>
+  <p>
+    In each of the above, be sure to write your answer in vector format.
+    Also, when possible, give 2 particular solutions to each equation.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 0\amp 2\\ -1\amp 3 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} -2\\ -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 0\\0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} -2\\ -1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -4\amp -1\\ -3\amp -2 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} 1\\ 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 0\\0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 2/5\\ -13/5 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp -2\\ 0\amp 1 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} 0\\ -5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 0\\0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} -10\\ -5 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 0\\ 5\amp -4 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} -2\\ -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 0\\0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} -2\\ -9/4 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp -3\\ -4\amp 6 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} 1\\ -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_2\left[\begin{array}{c} 3/2\\1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            No solution.
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -4\amp 3\amp 2\\ -4\amp 5\amp 0 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} -4\\ -4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_3\left[\begin{array}{c} 5/4\\ 1\\ 1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 1\\ 0\\ 0 \end{array} \right]+x_3\left[\begin{array}{c} 5/4\\ 1\\ 1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 1\amp 5\amp -2\\ 1\amp 4\amp 5 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} 0\\ 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_3\left[\begin{array}{c} -33\\ 7\\ 1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 5\\ -1\\ 0 \end{array} \right]+x_3\left[\begin{array}{c} -33\\ 7\\ 1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -1\amp -2\amp -2\\ 3\amp 4\amp -2 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} -4\\ -4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_3\left[\begin{array}{c} 14\\ -10\\ 0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} -4\\ 2 \end{array} \right]+x_3\left[\begin{array}{c} 14\\ -10\\ 0 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 2\amp 2\amp 2\\ 5\amp 5\amp -3 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} 3\\ -3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_2\left[\begin{array}{c} -1\\ 1\\ 0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 3/16\\ 0\\ {21/16} \end{array} \right]+x_2\left[\begin{array}{c} -1\\ 1\\ 0 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cccc} 1\amp 5\amp -4\amp -1\\ 1\amp 0\amp -2\amp 1 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 0\\ -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_3\left[\begin{array}{c} 2\\2/5\\1\\0 \end{array} \right]+x_4\left[\begin{array}{c} -1\\2/5\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} -2\\2/5\\0\\0 \end{array} \right] + x_3\left[\begin{array}{c} 2\\2/5\\1\\0 \end{array} \right] +x_4\left[\begin{array}{c} -1\\2/5\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cccc} -4\amp 2\amp -5\amp 4\\ 0\amp 1\amp -1\amp 5 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} -3\\ -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_3\left[\begin{array}{c} -3/4\\1\\1\\0 \end{array} \right]+x_4\left[\begin{array}{c} -3/2\\-5\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} -1/4\\-2\\0\\0 \end{array} \right] + x_3\left[\begin{array}{c} -3/4\\1\\1\\0 \end{array} \right]+x_4\left[\begin{array}{c} -3/2\\-5\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccccc} 0\amp 0\amp 2\amp 1\amp 4\\ -2\amp -1\amp -4\amp -1 \amp 5 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 3\\ 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_2\left[\begin{array}{c} -1/2\\1\\0\\0\\0 \end{array} \right]+x_4\left[\begin{array}{c} 1/2\\0\\-1/2\\1\\0 \end{array} \right]+x_5\left[\begin{array}{c} 13/2\\0\\-2\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} -5\\0\\ 3/2 \\0\\0 \end{array} \right] + x_2\left[\begin{array}{c} -1/2\\1\\0\\0\\0 \end{array} \right]+x_4\left[\begin{array}{c} 1/2 \\0\\-1/2\\1\\0 \end{array} \right]+x_5\left[\begin{array}{c} 13/2\\0\\-2\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccccc} 3\amp 0\amp -2\amp -4\amp 5\\ 2\amp 3\amp 2\amp 0\amp 2 \\ -5\amp 0\amp 4\amp 0\amp 5 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} -1\\ -5\\ 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_4\left[\begin{array}{c} 8\\-12\\10\\1\\0 \end{array} \right]+x_5\left[\begin{array}{c} -15\\ 68/3 \\-20\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 2\\ -16/3\\ 7/2 \\ 0\\ 0 \end{array} \right] + x_4\left[\begin{array}{c} 8\\-12\\10\\1\\0 \end{array} \right]+x_5\left[\begin{array}{c} -15\\ 68/3 \\-20\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccccc} -1\amp 3\amp 1\amp -3\amp 4\\ 3\amp -3\amp -1\amp 1 \amp -4\\ -2\amp 3\amp -2\amp -3\amp 1 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 1\\ 1\\ -5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_4\left[\begin{array}{c} 1\\ 13/9 \\-1/3 \\1\\0 \end{array} \right]+x_5\left[\begin{array}{c} 0\\ -1 \\-1\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 1\\ 1/9 \\ 5/3 \\ 0\\ 0 \end{array} \right] + x_4\left[\begin{array}{c} 1\\ 13/9 \\ -1/3 \\1\\0 \end{array} \right]+x_5\left[\begin{array}{c} 0\\ -1 \\-1\\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccccc} -4\amp -2\amp -1\amp 4\amp 0\\ 5\amp -4\amp 3\amp -1 \amp 1\\ 4\amp -5\amp 3\amp 1\amp -4 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>\vec{b}=\left[\begin{array}{c} 3\\ 2\\ 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{x}=x_4\left[\begin{array}{c} 3\\ -1 \\-6 \\1\\0 \end{array} \right] + x_5\left[\begin{array}{c} -17\\ 12 \\ 44 \\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{x}=\left[\begin{array}{c} 7\\ -6 \\ -19 \\ 0\\ 0 \end{array} \right] + x_4\left[\begin{array}{c} 3\\ -1 \\-6 \\1\\0 \end{array} \right] + x_5\left[\begin{array}{c} -17\\ 12 \\ 44 \\0\\1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a matrix <m>A</m> and vector \vec{b}<nbsp/>are given.
+    Solve the equation <m>A \vec{x} = \vec{b}</m>,
+    write the solution in vector format,
+    and sketch the solution as the appropriate line on the Cartesian plane.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp 4\\ -1\amp -2 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} 0\\ 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = x_2\left[\begin{array}{c} -2\\1 \end{array} \right] = x_2\vec{v}</m>
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
+\drawylines{-2.5}{2.5}{-2,...,2};
+\draw [<->](-4,2)--(4,-2);
+\draw [->,thick] (0,0)--(-2,1) node [above] {\vec{v}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp 4\\ -1\amp -2 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} -6\\ 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -3\\0 \end{array} \right] + x_2\left[\begin{array}{c} -2\\1 \end{array} \right] = \vec{x_p} + x_2\vec{v}</m>
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
+\drawylines{-4.5}{2.5}{-4,...,2};
+\draw [<->](-4,.5)--(4,-3.5);
+\draw [->,thick] (0,0)--(-3,0) node [below] {\vec{x_p}};
+\draw [->,thick] (-3,0)--(-5,1) node [above] {\vec{v}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp -5\\ -4\amp -10 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} 1\\ 2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 0.5\\0 \end{array} \right] + x_2\left[\begin{array}{c} 2.5\\1 \end{array} \right] = \vec{x_p} + x_2\vec{v}</m>
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
+\drawylines{-2.5}{2.5}{-2,...,2};
+\draw [<->](-4,-1.8)--(4,1.4);
+\draw [->,thick] (0,0)--(0.5,0) node [below] {\vec{x_p}};
+\draw [->,thick] (0.5,0)--(3,1) node [above] {\vec{v}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp -5\\ -4\amp -10 \end{array} \right]</m>,
+        <m>\vec{b}=\left[\begin{array}{c} 0\\ 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = x_2\left[\begin{array}{c} 2.5\\1 \end{array} \right] = x_2\vec{v}</m>
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
+\drawylines{-2.5}{2.5}{-2,...,2};
+\draw [<->](-4,-1.6)--(4,1.6);
+\draw [->,thick] (0,0)--(2.5,1) node [above] {\vec{v}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+</section>

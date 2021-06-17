@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+  <docinfo>
+<!-- <xi:include href="../macros.ptx" /> -->
+<!--
+<xi:include href="../latex-image-preamble.ptx" />
+-->
+    <rename element="insight" lang="en-US">Key Idea</rename>
+  </docinfo>
+  <book>
+    <title>\textsc{Fundamentals of Matrix Algebra}\\
+    {\small Version 2.1011}</title>
+    <frontmatter>
+      <titlepage>
+        <author>
+          <personname>Gregory N. Hartman, Ph.D.</personname>
+        </author>
+      </titlepage>
+    </frontmatter>
+    <xi:include href="./chapter_linear.ptx"/>
+    <xi:include href="./chapter_arithmetic.ptx"/>
+    <xi:include href="./chapter_ops.ptx"/>
+    <xi:include href="./chapter_eigen.ptx"/>
+    <xi:include href="./chapter_graph.ptx"/>
+    <backmatter>
+      <xi:include href="./bibliography.ptx"/>
+      <index>
+        <title>Index</title>
+        <index-list/>
+      </index>
+    </backmatter>
+  </book>
+</pretext>
