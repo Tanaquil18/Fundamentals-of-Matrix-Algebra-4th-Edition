@@ -48,12 +48,12 @@
     </statement>
     <solution>
       <p>
-        To find the eigenvalues, we compute <m>\det{ A- I}</m>:
+        To find the eigenvalues, we compute <m>\det{ A-\lambd I}</m>:
         <md>
-          <mrow>\det{ A- I}  \amp =  \left| \begin{array}{ccc}  1- \amp  2\amp 3</mrow>
-          <mrow>0\amp 4-\amp 5</mrow>
-          <mrow>0\amp 0\amp 6- \end{array} \right|</mrow>
-          <mrow>\amp = (1-)(4-)(6-)</mrow>
+          <mrow>\det{ A-\lambd I}  \amp =  \left| \begin{array}{ccc}  1-\lambd \amp  2\amp 3</mrow>
+          <mrow>0\amp 4-\lambd\amp 5</mrow>
+          <mrow>0\amp 0\amp 6-\lambd \end{array} \right|</mrow>
+          <mrow>\amp = (1-\lambd)(4-\lambd)(6-\lambd)</mrow>
         </md>
       </p>
       <p>
@@ -63,7 +63,7 @@
         Therefore, we found
         (and factored)
         our characteristic polynomial very easily,
-        and we see that we have eigenvalues of <m>= 1, 4</m>, and 6.
+        and we see that we have eigenvalues of <m>\lambd = 1, 4</m>, and 6.
       </p>
     </solution>
   </example>
@@ -121,12 +121,12 @@
             <p>
               We already know the answer to these for we did this work in previous examples.
               Therefore we just list the answers.
-              For <m>A</m>,
-              we have eigenvalues <m>= -6</m> and  <m>12</m>, with eigenvectors
+              For <m>A</m>, we have eigenvalues
+              <m>\lambd = -6</m> and  <m>12</m>, with eigenvectors
               <me>
                 \vec{x} = x_2\left[\begin{array}{c}  -5\\1 \end{array} \right] \ \text{ and } \  x_2\left[\begin{array}{c} 1\\1 \end{array} \right]\text{ , respectively. }
               </me>
-              For  B, we have eigenvalues <m>= -1,\ 2</m>,
+              For  B, we have eigenvalues <m>\lambd = -1,\ 2</m>,
               and <m>3</m> with eigenvectors
               <me>
                 \vec{x} = x_3 \left[\begin{array}{c} 3\\1\\2 \end{array} \right],\ x_3 \left[\begin{array}{c}  2\\1\\2 \end{array} \right]\ \text{ and } \ x_3 \left[\begin{array}{c}  1\\0\\1 \end{array} \right] \text{ , respectively. }
@@ -144,12 +144,12 @@
               <q>easy,</q>
               either.
               Therefore, we omit showing the intermediate steps and go right to the conclusions.
-              For <m>A^{-1}</m>,
-              we have eigenvalues <m>= -1/6</m> and <m>1/12</m>, with eigenvectors
+              For <m>A^{-1}</m>, we have eigenvalues
+              <m>\lambd = -1/6</m> and <m>1/12</m>, with eigenvectors
               <me>
                 \vec{x} = x_2 \left[\begin{array}{c}  -5\\1 \end{array} \right]\ \text{ and } \  x_2 \left[\begin{array}{c} 1\\1 \end{array} \right]\text{ , respectively. }
               </me>
-              For , we have eigenvalues <m>= -1</m>,
+              For , we have eigenvalues <m>\lambd = -1</m>,
               <m>1/2</m> and <m>1/3</m> with eigenvectors
               <me>
                 \vec{x} = x_3\left[\begin{array}{c}  3\\1\\2 \end{array} \right],\ x_3\left[\begin{array}{c}  2\\1\\2 \end{array} \right] \ \text{ and } \  x_3 \left[\begin{array}{c}  1\\0\\1 \end{array} \right]\text{ , respectively. }
@@ -161,12 +161,13 @@
               Of course, computing the transpose of <m>A</m> and  B<nbsp/>is easy;
               computing their eigenvalues and eigenvectors takes more work.
               Again, we omit the intermediate steps.
-              For  A^T, we have eigenvalues <m>= -6</m> and <m>12</m> with eigenvectors
+              For  A^T, we have eigenvalues
+              <m>\lambd = -6</m> and <m>12</m> with eigenvectors
               <me>
                 \vec{x} = x_2 \left[\begin{array}{c}  -1\\1 \end{array} \right]\ \text{ and } \  x_2 \left[\begin{array}{c}  5\\1 \end{array} \right] \text{ , respectively. }
               </me>
               For  B^T, we have eigenvalues
-              <m>= -1,\ 2</m> and <m>3</m> with eigenvectors
+              <m>\lambd = -1,\ 2</m> and <m>3</m> with eigenvectors
               <me>
                 \vec{x} = x_3 \left[\begin{array}{c}  -1\\0\\1 \end{array} \right],\ x_3 \left[\begin{array}{c}  -1\\1\\1 \end{array} \right]\ \text{ and } \ x_3\left[\begin{array}{c}  0\\-2\\1 \end{array} \right]\text{ , respectively. }
               </me>
@@ -200,26 +201,30 @@
     In our example,
     we found that the eigenvalues of <m>A</m> are <m>-6</m> and 12;
     the eigenvalues of <m>A^{-1}</m> are <m>-1/6</m> and <m>1/12</m>.
-    Also, the eigenvalues of B<nbsp/>are <m>-1</m>, 2 and 3, whereas the eigenvalues of  are <m>-1</m>,
+    Also, the eigenvalues of B<nbsp/>are <m>-1</m>, 2 and 3, whereas the eigenvalues of are <m>-1</m>,
     <m>1/2</m> and <m>1/3</m>.
-    There is an obvious relationship here; it seems that if
-    <me>
-      is an eigenvalue of $A$, then $1/$ will be an eigenvalue of $A^{-1}$. We can also note that the corresponding eigenvectors matched, too.  Why is this the case? Consider an invertible matrix $A$ with eigenvalue
-    </me>
-    and eigenvector <m>\vec{x}</m>.
-    Then, by definition, we know that <m>A\vec{x} = \vec{x}</m>.
+    There is an obvious relationship here;
+    it seems that if <m>\lambd</m> is an eigenvalue of <m>A</m>,
+    then <m>1/\lambd</m> will be an eigenvalue of <m>A^{-1}</m>.
+    We can also note that the corresponding eigenvectors matched, too.
+  </p>
+  <p>
+    Why is this the case?
+    Consider an invertible matrix <m>A</m> with eigenvalue <m>\lambd</m> and eigenvector <m>\vec{x}</m>.
+    Then, by definition, we know that <m>A\vec{x} = \lambd\vec{x}</m>.
     Now multiply both sides by A^{-1}:
     <md>
-      <mrow>A\vec{x} \amp  = \vec{x}</mrow>
-      <mrow>A^{-1} A\vec{x} \amp  =  A^{-1}\vec{x}</mrow>
-      <mrow>\vec{x} \amp  =  A^{-1}\vec{x}</mrow>
-      <mrow>\frac{1}{}\vec{x} \amp  =  A^{-1}\vec{x}</mrow>
+      <mrow>A\vec{x} \amp  = \lambd\vec{x}</mrow>
+      <mrow>A^{-1} A\vec{x} \amp  =  A^{-1}\lambd\vec{x}</mrow>
+      <mrow>\vec{x} \amp  = \lambd A^{-1}\vec{x}</mrow>
+      <mrow>\frac{1}{\lambd}\vec{x} \amp  =  A^{-1}\vec{x}</mrow>
     </md>
   </p>
   <p>
-    We have just shown that <m>A^{-1}\vec{x} = 1/\vec{x}</m>;
+    We have just shown that <m>A^{-1}\vec{x} = 1/\lambd\vec{x}</m>;
     this, by definition,
-    shows that <m>\vec{x}</m> is an eigenvector of <m>A^{-1}</m> with eigenvalue 1/. This explains the result we saw above.
+    shows that <m>\vec{x}</m> is an eigenvector of <m>A^{-1}</m> with eigenvalue 1/\lambd.
+    This explains the result we saw above.
   </p>
   <p>
     <em><em>The eigenvalues and eigenvectors of <m>A</m> and A^T.</em></em>
@@ -253,12 +258,12 @@
   </p>
   <p>
     We find the eigenvalues of a matrix by computing the characteristic polynomial;
-    that is, we find <m>\det{ A -  I}</m>.
+    that is, we find <m>\det{ A - \lambd I}</m>.
     What is the characteristic polynomial of A^T? Consider:
     <md>
-      <mrow>\det{ A^T -  I} \amp  = \det{ A^T -  I^T} \textsf{ since $ I =  I^T$}</mrow>
-      <mrow>\amp  = \det{( A -  I)^T}  \textsf{ <xref ref="thm_transpose">Theorem</xref>}</mrow>
-      <mrow>\amp  = \det{ A- I}   \textsf{ <xref ref="thm_determinant_properties">Theorem</xref>}</mrow>
+      <mrow>\det{ A^T - \lambd I} \amp  = \det{ A^T - \lambd I^T} \textsf{ since $ I =  I^T$}</mrow>
+      <mrow>\amp  = \det{( A - \lambd I)^T}  \textsf{ <xref ref="thm_transpose">Theorem</xref>}</mrow>
+      <mrow>\amp  = \det{ A-\lambd I}   \textsf{ <xref ref="thm_determinant_properties">Theorem</xref>}</mrow>
     </md>
   </p>
   <p>
@@ -273,10 +278,10 @@
     We have defined an eigenvector to be a column vector.
     Some mathematicians prefer to use row vectors instead;
     in that case,
-    the typical eigenvalue/eigenvector equation looks like <m>\vec{x} A=\vec{x}</m>.
+    the typical eigenvalue/eigenvector equation looks like <m>\vec{x} A=\lambd\vec{x}</m>.
     It turns out that doing things this way will give you the same eigenvalues as our method.
     What is more, take the transpose of the above equation:
-    you get <m>(\vec{x} A)^T = (\vec{x})^T</m> which is also <m>A^T\vec{x}^T = \vec{x}^T</m>.
+    you get <m>(\vec{x} A)^T = (\lambd\vec{x})^T</m> which is also <m>A^T\vec{x}^T = \lambd\vec{x}^T</m>.
     The transpose of a row vector is a column vector,
     so this equation is actually the kind we are used to,
     and we can say that <m>\vec{x}^T</m> is an eigenvector of A^T. In short,
@@ -355,11 +360,13 @@
           </li>
           <li>
             <p>
-              If
-              <me>
-                is an eigenvalue of $A$ with eigenvector $\vec{x}$, then $\frac{1}{}$ is an eigenvalue of $A^{-1}$ with eigenvector $\vec{x}$. \item    If
-              </me>
-              is an eigenvalue of  A  then  is an eigenvalue of  A^T.
+              If <m>\lambd</m> is an eigenvalue of <m>A</m> with eigenvector <m>\vec{x}</m>,
+              then <m>\frac{1}{\lambd}</m> is an eigenvalue of <m>A^{-1}</m> with eigenvector <m>\vec{x}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>\lambd</m> is an eigenvalue of A then <m>\lambd</m> is an eigenvalue of A^T.
             </p>
           </li>
           <li>
@@ -389,20 +396,20 @@
     </statement>
     <solution>
       <p>
-        To find the eigenvalues, we compute <m>\det{ A- I}</m>:
+        To find the eigenvalues, we compute <m>\det{ A-\lambd I}</m>:
         <md>
-          <mrow>\det{ A- I} \amp = \left| \begin{array}{cc} 1- \amp  2</mrow>
-          <mrow>1\amp 2- \end{array} \right|</mrow>
-          <mrow>\amp = (1-)(2-)-2</mrow>
-          <mrow>\amp = ^2-3</mrow>
-          <mrow>\amp = (-3)</mrow>
+          <mrow>\det{ A-\lambd I} \amp = \left| \begin{array}{cc} 1-\lambd \amp  2</mrow>
+          <mrow>1\amp 2-\lambd \end{array} \right|</mrow>
+          <mrow>\amp = (1-\lambd)(2-\lambd)-2</mrow>
+          <mrow>\amp = \lambd^2-3\lambd</mrow>
+          <mrow>\amp = \lambd(\lambd-3)</mrow>
         </md>
       </p>
       <p>
-        Our eigenvalues are therefore <m>= 0, 3</m>.
+        Our eigenvalues are therefore <m>\lambd = 0, 3</m>.
       </p>
       <p>
-        For <m>= 0</m>, we find the eigenvectors:
+        For <m>\lambd = 0</m>, we find the eigenvectors:
         <me>
           \left[\begin{array}{ccc}  1\amp 2\amp 0\\1\amp 2\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{ccc} 1\amp 2\amp 0\\0\amp 0\amp 0 \end{array} \right]
         </me>
@@ -415,7 +422,7 @@
         </me>
       </p>
       <p>
-        For <m>= 3</m>, we find the eigenvectors:
+        For <m>\lambd = 3</m>, we find the eigenvectors:
         <me>
           \left[\begin{array}{ccc} -2\amp 2\amp 0\\ 1\amp -1\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{ccc} 1\amp -1\amp 0\\0\amp 0\amp 0 \end{array} \right]
         </me>
@@ -486,7 +493,7 @@
       A = \left[\begin{array}{cc} 1\amp 4\\2\amp 3 \end{array} \right]
     </me>
     that we used in <xref ref="ex_find_el">Example</xref>.
-    It's characteristic polynomial is <m>p()=^2-4-5</m>.
+    It's characteristic polynomial is <m>p(\lambd)=\lambd^2-4\lambd-5</m>.
     Compute <m>p( A)</m>; that is,
     compute <m>A^2-4 A-5 I</m>.
     You should get something
@@ -507,20 +514,20 @@
     </me>
     are
     <q>1 and 1;</q>
-    that is, the eigenvalue <m>= 1</m> appears twice.
-    What does that mean when we consider the eigenvectors of <m>= 1</m>?
+    that is, the eigenvalue <m>\lambd = 1</m> appears twice.
+    What does that mean when we consider the eigenvectors of <m>\lambd = 1</m>?
     Compare the result of this to the matrix
     <me>
       A = \left[\begin{array}{cc} 1\amp 0\\0\amp 1 \end{array} \right]
     </me>
   </p>
   <p>,
-    which also has the eigenvalue <m>=1</m> appearing twice.<fn>
+    which also has the eigenvalue <m>\lambd =1</m> appearing twice.<fn>
     To direct further study,
     it helps to know that mathematicians refer to this as the
     <em>duplicity</em> of an \el.
     In each of these two examples,
-    <m>A</m> has the eigenvalue <m>=1</m> with duplicity of 2.
+    <m>A</m> has the eigenvalue <m>\lambd=1</m> with duplicity of 2.
     </fn>
   </p>
   <p>
@@ -532,7 +539,7 @@
   <p>.
     What are the eigenvalues?<fn>
     Be careful; this matrix is <em>not</em> triangular.
-    </fn> We quickly compute the characteristic polynomial to be <m>p() = ^2 + 1</m>.
+    </fn> We quickly compute the characteristic polynomial to be <m>p(\lambd) = \lambd^2 + 1</m>.
     Therefore the eigenvalues are <m>\pm \sqrt{-1} = \pm i</m>.
     What does this mean?
   </p>

@@ -88,12 +88,13 @@
         <m>\vec{x}</m> a nonzero <m>n\times 1</m> column vector and <m>\lambda</m> a scalar.
         If
         <me>
-          A\vec{x} = \vec{x}
+          A\vec{x} = \lambd\vec{x}
         </me>
       </p>
       <p>,
         then <m>\vec{x}</m> is an <term>eigenvector</term>
-        of <m>A</m> and is an <term>eigenvalue</term> of <m>A</m>.
+        of <m>A</m> and <m>\lambd</m> is an
+        <term>eigenvalue</term> of <m>A</m>.
       </p>
     </statement>
   </definition>
@@ -109,17 +110,25 @@
     This vector tells us something about <m>A</m>.
   </p>
   <p>
-    Why do we use the Greek letter
-    <me>
-      (lambda)? It is pure tradition. Above, we used $a$ to represent the unknown scalar, since we are used to that notation. We now switch to
-    </me>
-    because that is how everyone else does it.<fn>
+    Why do we use the Greek letter <m>\lambd</m> (lambda)?
+    It is pure tradition.
+    Above, we used <m>a</m> to represent the unknown scalar,
+    since we are used to that notation.
+    We now switch to <m>\lambd</m> because that is how everyone else does it.<fn>
     An example of mathematical peer pressure.
     </fn> Don't get hung up on this;
-    <me>
-      is just a number.  Note that our definition requires that $A$ be a square matrix. If $A$ isn't square then $ A\vec{x}$ and $\lambda\vec{x}$ will have different sizes, and so they cannot be equal. Also note that $\vec{x}$ must be nonzero. Why? What if $\vec{x} = \vec{0}$? Then \textit{no matter what}
-    </me>
-    is, <m>A\vec{x} = \vec{x}</m>.
+    <m>\lambd</m> is just a number.
+  </p>
+  <p>
+    Note that our definition requires that <m>A</m> be a square matrix.
+    If <m>A</m> isn't square then <m>A\vec{x}</m> and
+    <m>\lambda\vec{x}</m> will have different sizes,
+    and so they cannot be equal.
+    Also note that <m>\vec{x}</m> must be nonzero.
+    Why?
+    What if <m>\vec{x} = \vec{0}</m>?
+    Then <em>no matter what</em> <m>\lambd</m> is,
+    <m>A\vec{x} = \lambd\vec{x}</m>.
     This would then imply that <em>every number</em> is an eigenvalue;
     if every number is an eigenvalue,
     then we wouldn't need a definition for it.<fn>
@@ -152,94 +161,119 @@
   <p>
     Back to our math.
     Given a square matrix <m>A</m>,
-    we want to find a nonzero vector <m>\vec{x}</m> and a scalar
+    we want to find a nonzero vector <m>\vec{x}</m> and a scalar <m>\lambd</m> such that <m>A\vec{x} = \lambd\vec{x}</m>.
+    We will solve this using the skills we developed in <xref ref="chapter_arithmetic">Chapter</xref>.
     <me>
-      such that $ A\vec{x} = \vec{x}$. We will solve this using the skills we developed in <xref ref="chapter_arithmetic">Chapter</xref>
-    </me>.
-  </p>
-  \begin{array}{rclcc}
-  A\vec{x} \amp  = \amp  \vec{x} \amp  \amp \scriptsize original equation\\
-  A\vec{x} - \vec{x} \amp  = \amp  \vec{0} \amp  \amp  \scriptsize subtract <m>\vec{x}</m> from both sides\\
-  ( A- I)\vec{x} \amp  = \amp  \vec{0} \amp  \amp  \scriptsize factor out \vec{x}
-  \end{array}
-  <me>
-    Think about this last factorization. We are likely tempted to say
-  </me>
-  <p>
-    A\vec{x}-\vec{x} = ( A-)\vec{x}
-    <me>,
-      but this really doesn't make sense. After all, what does ``a matrix minus a number'' mean? We need the identity matrix in order for this to be logical.  Let us now think about the equation $( A- I)\vec{x}=\vec{0}$. While it looks complicated, it really is just a matrix equation of the type we solved in <xref ref="sec_vector_solutions">Section</xref>. We are just trying to solve $ B\vec{x}=\vec{0}$, where $ B = ( A- I)$.  We know from our previous work that this type of equation\footnote{Recall this is a \textit{homogeneous} system of equations.} always has a solution, namely, $\vec{x} = \vec{0}$. However, we want $\vec{x}$ to be an eigenvector and, by the definition, eigenvectors cannot be \vec{0}.  This means that we want solutions to $( A- I)\vec{x}=\vec{0}$ other than $\vec{x}=\vec{0}$. Recall that <xref ref="thm_inverse_solution">Theorem</xref> says that if the matrix $( A- I)$ is invertible, then the \textit{only} solution to $( A- I)\vec{x}=\vec{0}$ is $\vec{x}=\vec{0}$. Therefore, in order to have other solutions, we need $( A- I)$ to not be invertible.  Finally, recall from <xref ref="thm_determinant_properties">Theorem</xref> that noninvertible matrices all have a determinant of 0. Therefore, if we want to find eigenvalues
+      \begin{array}{rclcc} A\vec{x} \amp  = \amp  \lambd\vec{x} \amp  \amp \scriptsize original equation\\ A\vec{x} - \lambd\vec{x} \amp  = \amp  \vec{0} \amp  \amp  \scriptsize subtract \(\lambd\vec{x}\) from both sides\\ ( A-\lambd I)\vec{x} \amp  = \amp  \vec{0} \amp  \amp  \scriptsize factor out \vec{x} \end{array}
     </me>
-    and eigenvectors <m>\vec{x}</m>,
-    we need <m>\det{ A- I} = 0</m>.
   </p>
   <p>
-    Let's start our practice of this theory by finding
+    Think about this last factorization.
+    We are likely tempted to say
     <me>
-    such that $\det{ A- I} = 0$; that is,
-    let's find the eigenvalues of a matrix.
-    <example xml:id="ex_find_el">
-      <statement>
-        <p>
-          Find the eigenvalues of \(A\), that is, find
-          <me>
-            such that $\det{ A- I} = 0$, where
-          </me>
-        </p>
-      </p>
+      A\vec{x}-\lambd\vec{x} = ( A-\lambd)\vec{x}
+    </me>
+  </p>
+  <p>,
+    but this really doesn't make sense.
+    After all, what does
+    <q>a matrix minus a number</q>
+    mean?
+    We need the identity matrix in order for this to be logical.
+  </p>
+  <p>
+    Let us now think about the equation <m>( A-\lambd I)\vec{x}=\vec{0}</m>.
+    While it looks complicated,
+    it really is just a matrix equation of the type we solved in <xref ref="sec_vector_solutions">Section</xref>.
+    We are just trying to solve <m>B\vec{x}=\vec{0}</m>,
+    where <m>B = ( A-\lambd I)</m>.
+  </p>
+  <p>
+    We know from our previous work that this type of equation<fn>
+    Recall this is a <em>homogeneous</em> system of equations.
+    </fn> always has a solution,
+    namely, <m>\vec{x} = \vec{0}</m>.
+    However, we want <m>\vec{x}</m> to be an eigenvector and,
+    by the definition,
+    eigenvectors cannot be \vec{0}.
+  </p>
+  <p>
+    This means that we want solutions to
+    <m>( A-\lambd I)\vec{x}=\vec{0}</m> other than <m>\vec{x}=\vec{0}</m>.
+    Recall that <xref ref="thm_inverse_solution">Theorem</xref>
+    says that if the matrix <m>( A-\lambd I)</m> is invertible,
+    then the <em>only</em> solution to
+    <m>( A-\lambd I)\vec{x}=\vec{0}</m> is <m>\vec{x}=\vec{0}</m>.
+    Therefore, in order to have other solutions,
+    we need <m>( A-\lambd I)</m> to not be invertible.
+  </p>
+  <p>
+    Finally, recall from <xref ref="thm_determinant_properties">Theorem</xref>
+    that noninvertible matrices all have a determinant of 0.
+    Therefore, if we want to find eigenvalues <m>\lambd</m> and eigenvectors <m>\vec{x}</m>,
+    we need <m>\det{ A-\lambd I} = 0</m>.
+  </p>
+  <p>
+    Let's start our practice of this theory by finding <m>\lambd</m> such that <m>\det{ A-\lambd I} = 0</m>;
+    that is, let's find the eigenvalues of a matrix.
+  </p>
+  <example xml:id="ex_find_el">
+    <statement>
       <p>
-        A = \left[
-      </p>
-      \begin{array}{cc} 1\amp 4\\2\amp 3
-      \end{array}
-      <p>
-        \right].
+        Find the eigenvalues of <m>A</m>, that is,
+        find <m>\lambd</m> such that <m>\det{ A-\lambd I} = 0</m>, where
+        <me>
+          A = \left[\begin{array}{cc} 1\amp 4\\2\amp 3 \end{array} \right]
+        </me>
       </p>
     </statement>
     <solution>
       <p>
         (Note that this is the matrix we used at the beginning of this section.) First,
-        we write out what <m>A- I</m> is:
+        we write out what <m>A-\lambd I</m> is:
         <md>
-          <mrow>A- I \amp = \left[\begin{array}{cc} 1\amp 4</mrow>
-          <mrow>2\amp 3\end{array}\right] -</mrow>
+          <mrow>A-\lambd I \amp = \left[\begin{array}{cc} 1\amp 4</mrow>
+          <mrow>2\amp 3\end{array}\right] - \lambd</mrow>
           <mrow>\amp = \left[\begin{array}{cc} 1\amp 4</mrow>
-          <mrow>2\amp 3\end{array}\right] - \left[\begin{array}{cc} \amp 0</mrow>
-          <mrow>0\amp \end{array}\right]</mrow>
-          <mrow>\amp = \left[\begin{array}{cc} 1- \amp  4</mrow>
-          <mrow>2\amp 3-\end{array}\right]</mrow>
+          <mrow>2\amp 3\end{array}\right] - \left[\begin{array}{cc} \lambd\amp 0</mrow>
+          <mrow>0\amp \lambd\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{cc} 1-\lambd \amp  4</mrow>
+          <mrow>2\amp 3-\lambd\end{array}\right]</mrow>
         </md>
       </p>
       <p>
         Therefore,
         <md>
-          <mrow>\det{ A- I} \amp = \left| \begin{array}{cc} 1- \amp  4</mrow>
-          <mrow>2\amp 3-\end{array} \right|</mrow>
-          <mrow>\amp = (1-)(3-)-8</mrow>
-          <mrow>\amp = ^2-4-5</mrow>
+          <mrow>\det{ A-\lambd I} \amp = \left| \begin{array}{cc} 1-\lambd \amp  4</mrow>
+          <mrow>2\amp 3-\lambd\end{array} \right|</mrow>
+          <mrow>\amp = (1-\lambd)(3-\lambd)-8</mrow>
+          <mrow>\amp = \lambd^2-4\lambd-5</mrow>
         </md>
       </p>
       <p>
-        Since we want <m>\det{ A- I}=0</m>, we want <m>^2-4-5=0</m>.
+        Since we want <m>\det{ A-\lambd I}=0</m>,
+        we want <m>\lambd^2-4\lambd-5=0</m>.
         This is a simple quadratic equation that is easy to factor:
         <md>
-          <mrow>^2-4-5 \amp = 0</mrow>
-          <mrow>(-5)(+1) \amp  = 0</mrow>
-          <mrow>\amp = -1,\ 5</mrow>
+          <mrow>\lambd^2-4\lambd-5 \amp = 0</mrow>
+          <mrow>(\lambd-5)(\lambd+1) \amp  = 0</mrow>
+          <mrow>\lambd \amp = -1,\ 5</mrow>
         </md>
       </p>
       <p>
         According to our above work,
-        <m>\det{ A- I}=0</m> when <m>= -1,\ 5</m>.
+        <m>\det{ A-\lambd I}=0</m> when <m>\lambd = -1,\ 5</m>.
         Thus, the eigenvalues of <m>A</m> are <m>-1</m> and 5.
       </p>
     </solution>
   </example>
-  \\
-  Earlier, when looking at the same matrix as used in our example, we wondered if we could find a vector $\vec{x}$ such that $ A\vec{x}=3\vec{x}$. According to this example, the answer is ``No.'' With this matrix $A$, the only values of
-  </me>
   <p>
-    that work are <m>-1</m> and <m>5</m>.
+    Earlier, when looking at the same matrix as used in our example,
+    we wondered if we could find a vector <m>\vec{x}</m> such that <m>A\vec{x}=3\vec{x}</m>.
+    According to this example, the answer is
+    <q>No.</q>
+    With this matrix <m>A</m>,
+    the only values of <m>\lambd</m> that work are <m>-1</m> and <m>5</m>.
   </p>
   <p>
     Let's restate the above in a different way: It is pointless to try to find <m>\vec{x}</m> where <m>A\vec{x}=3\vec{x}</m>,
@@ -269,12 +303,12 @@
       <p>
         Recall that our algebra from before showed that if
         <me>
-          A\vec{x}=\vec{x}  \text{ then }   ( A- I)\vec{x}=\vec{0}
+          A\vec{x}=\lambd\vec{x}  \text{ then }   ( A-\lambd I)\vec{x}=\vec{0}
         </me>
       </p>
       <p>.
         Therefore, we need to solve the equation
-        <m>( A- I)\vec{x}=\vec{0}</m> for <m>\vec{x}</m> when <m>\lambda = 5</m>.
+        <m>( A-\lambd I)\vec{x}=\vec{0}</m> for <m>\vec{x}</m> when <m>\lambda = 5</m>.
         <md>
           <mrow>A - 5 I \amp = \left[\begin{array}{cc}  1\amp 4</mrow>
           <mrow>2\amp 3\end{array}\right] - 5\left[\begin{array}{cc} 1\amp 0</mrow>
@@ -595,26 +629,26 @@
     <solution>
       <p>
         We first compute the characteristic polynomial,
-        set it equal to 0, then solve for . A warning:
-        this process is rather long.
+        set it equal to 0, then solve for \lambd.
+        A warning: this process is rather long.
         We'll use cofactor expansion along the first row;
         don't get bogged down with the arithmetic that comes from each step;
         just try to get the basic idea of what was done from step to step.
         <md>
-          <mrow>\det{ A- I} \amp = \left| \begin{array}{ccc}  -7- \amp  -2 \amp  10</mrow>
-          <mrow>-3 \amp  2- \amp  3</mrow>
-          <mrow>-6 \amp  -2 \amp  9- \end{array} \right|</mrow>
-          <mrow>\amp = (-7-)\left| \begin{array}{cc} 2- \amp  3</mrow>
-          <mrow>-2 \amp  9-\end{array} \right|\ -\ (-2)\left| \begin{array}{cc}  -3\amp 3</mrow>
-          <mrow>-6 \amp  9- \end{array} \right|\ +\ 10\left| \begin{array}{cc}  -3\amp 2-</mrow>
+          <mrow>\det{ A-\lambd I} \amp = \left| \begin{array}{ccc}  -7-\lambd \amp  -2 \amp  10</mrow>
+          <mrow>-3 \amp  2-\lambd \amp  3</mrow>
+          <mrow>-6 \amp  -2 \amp  9-\lambd \end{array} \right|</mrow>
+          <mrow>\amp = (-7-\lambd)\left| \begin{array}{cc} 2-\lambd \amp  3</mrow>
+          <mrow>-2 \amp  9-\lambd\end{array} \right|\ -\ (-2)\left| \begin{array}{cc}  -3\amp 3</mrow>
+          <mrow>-6 \amp  9-\lambd \end{array} \right|\ +\ 10\left| \begin{array}{cc}  -3\amp 2-\lambd</mrow>
           <mrow>-6 \amp  -2 \end{array} \right|</mrow>
-          <mrow>\amp = (-7-)(^2-11 + 24) + 2(3-9)+10(-6+18)</mrow>
-          <mrow>\amp = -^3+4^2- -6</mrow>
-          <mrow>\amp = -( + 1)(-2)(-3)</mrow>
+          <mrow>\amp = (-7-\lambd)(\lambd^2-11\lambd + 24) + 2(3\lambd-9)+10(-6\lambd+18)</mrow>
+          <mrow>\amp = -\lambd^3+4\lambd^2-\lambd -6</mrow>
+          <mrow>\amp = -(\lambd + 1)(\lambd-2)(\lambd-3)</mrow>
         </md>
       </p>
       <p>
-        In the last step we factored the characteristic polynomial <m>-^3+4^2- -6</m>.
+        In the last step we factored the characteristic polynomial <m>-\lambd^3+4\lambd^2-\lambd -6</m>.
         Factoring polynomials of degree <m>>2</m> is not trivial;
         we'll assume the reader has access to methods for doing this accurately.<fn>
         You probably learned how to do this in an algebra course.
@@ -625,7 +659,7 @@
         That is, the roots of this equation could be <m>\pm 1, \pm 2, \pm 3</m> and <m>\pm 6</m>.
         That's 12 things to check.
         One could also graph this polynomial to find the roots.
-        Graphing will show us that <m>= 3</m>
+        Graphing will show us that <m>\lambd = 3</m>
         <em>looks</em> like a root,
         and a simple calculation will confirm that it is.
         </fn>
@@ -730,22 +764,23 @@
     <solution>
       <p>
         We first compute the characteristic polynomial,
-        set it equal to 0, then solve for . We'll use cofactor expansion down the first column
+        set it equal to 0, then solve for \lambd.
+        We'll use cofactor expansion down the first column
         (since it has lots of zeros).
         <md>
-          <mrow>\det{ A- I} \amp = \left| \begin{array}{ccc}  2- \amp  -1 \amp  1</mrow>
-          <mrow>0\amp 1- \amp  6</mrow>
-          <mrow>0 \amp  3 \amp  4- \end{array} \right|</mrow>
-          <mrow>\amp = (2-)\left| \begin{array}{cc} 1- \amp  6</mrow>
-          <mrow>3\amp 4-\end{array} \right|</mrow>
-          <mrow>\amp = (2-)(^2-5-14)</mrow>
-          <mrow>\amp = (2-)(-7)(+2)</mrow>
+          <mrow>\det{ A-\lambd I} \amp = \left| \begin{array}{ccc}  2-\lambd \amp  -1 \amp  1</mrow>
+          <mrow>0\amp 1-\lambd \amp  6</mrow>
+          <mrow>0 \amp  3 \amp  4-\lambd \end{array} \right|</mrow>
+          <mrow>\amp = (2-\lambd)\left| \begin{array}{cc} 1-\lambd \amp  6</mrow>
+          <mrow>3\amp 4-\lambd\end{array} \right|</mrow>
+          <mrow>\amp = (2-\lambd)(\lambd^2-5\lambd-14)</mrow>
+          <mrow>\amp = (2-\lambd)(\lambd-7)(\lambd+2)</mrow>
         </md>
       </p>
       <p>
         Notice that while the characteristic polynomial is cubic,
         we never actually saw a cubic;
-        we never distributed the <m>(2-)</m> across the quadratic.
+        we never distributed the <m>(2-\lambd)</m> across the quadratic.
         Instead, we realized that this was a factor of the cubic,
         and just factored the remaining quadratic.
         (This makes this example quite a bit simpler than the previous example.)
@@ -840,7 +875,7 @@
   </example>
   <p>
     In this section we have learned about a new concept:
-    given a matrix <m>A</m> we can find certain values and vectors <m>\vec{x}</m> where <m>A\vec{x} =\vec{x}</m>.
+    given a matrix <m>A</m> we can find certain values <m>\lambd</m> and vectors <m>\vec{x}</m> where <m>A\vec{x} =\lambd\vec{x}</m>.
     In the next section we will continue to the pattern we have established in this text:
     after learning a new concept,
     we see how it interacts with other concepts we know about.
