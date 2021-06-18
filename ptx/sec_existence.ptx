@@ -44,9 +44,7 @@
     Consider the following linear system:
     <me>
       x-y=0
-    </me>
-  </p>
-  <p>.
+    </me>.
     There are obviously infinite solutions to this system;
     as long as <m>x=y</m>, we have a solution.
     We can picture all of these solutions by thinking of the graph of the equation <m>y=x</m> on the traditional <m>x,y</m> coordinate plane.
@@ -547,9 +545,7 @@
         The reduced row echelon form<nbsp/>of the corresponding augmented matrix is
         <me>
           \left[\begin{array}{ccc}  1\amp 1\amp 0\\0\amp 0\amp 1\\ \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         We have a leading 1 in the last column,
         so therefore the system is inconsistent.
       </p>

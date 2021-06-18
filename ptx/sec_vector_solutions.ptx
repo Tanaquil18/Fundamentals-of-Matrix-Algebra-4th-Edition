@@ -63,9 +63,7 @@
     Let
     <me>
       A = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp -1\amp 2\\2\amp 0\amp 1 \end{array} \right],  \vec{b} = \left[\begin{array}{c} 2\\-3\\1 \end{array} \right]  \text{ and }   \vec{x}=\left[\begin{array}{c} x_1\\x_2\\x_3 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     (We don't know what <m>\vec{x}</m> is,
     so we have to represent it's entries with the variables <m>x_1</m>,
     <m>x_2</m> and <m>x_3</m>.) Let's
@@ -77,9 +75,7 @@
     We find that
     <me>
       A\vec{x} = \left[\begin{array}{c} x_1+x_2+x_3\\x_1-x_2+2x_3\\2x_1+x_3 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Be sure to note that the product is just a vector;
     it has just one column.
   </p>
@@ -87,9 +83,7 @@
     Since A<m>\vec{x}</m> is equal to \vec{b}, we have
     <me>
       \left[\begin{array}{c} x_1+x_2+x_3\\x_1-x_2+2x_3\\2x_1+x_3 \end{array} \right] = \left[\begin{array}{c} 2\\-3\\1 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Knowing that two vectors are equal only when their corresponding entries are equal, we know
     <md>
       <mrow>x_1+x_2+x_3\amp =2</mrow>
@@ -110,9 +104,7 @@
     We convert the above linear system into an augmented matrix and find the reduced row echelon form:
     <me>
       \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 2\\1\amp -1\amp 2\amp -3\\2\amp 0\amp 1\amp 1 \end{array} \right] \overrightarrow{\text{ rref } } \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 1\amp 0\amp 2\\0\amp 0\amp 1\amp -1 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     This tells us that <m>x_1=1</m>,
     <m>x_2=2</m> and <m>x_3 = -1</m>, so
     <me>
@@ -151,9 +143,7 @@
         In previous sections we were fine stating that the result as
         <me>
           x_1=2,  x_2=0, x_3=1
-        </me>
-      </p>
-      <p>,
+        </me>,
         but we were asked to find \vec{x}; therefore, we state the solution as
         <me>
           \vec{x} = \left[\begin{array}{c} 2\\0\\1 \end{array} \right]
@@ -218,9 +208,7 @@
         (Note: we didn't really need to specify that
         <me>
           \vec{0} = \left[\begin{array}{c} 0\\0 \end{array} \right]
-        </me>
-      </p>
-      <p>,
+        </me>,
         but we did just to eliminate any uncertainty.)
       </p>
       <p>
@@ -244,31 +232,23 @@
         Recall that
         <me>
           \vec{x} = \left[\begin{array}{c}  x_1\\x_2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         From above we know that <m>x_1 = -2x_2</m>,
         so we replace the <m>x_1</m> in <m>\vec{x}</m> with <m>-2x_2</m>.
         This gives our solution as
         <me>
           \vec{x} = \left[\begin{array}{c}  -2x_2\\x_2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Now we pull the <m>x_2</m> out of the vector
         (it is just a scalar)
         and write <m>\vec{x}</m> as
         <me>
           \vec{x} = x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         For reasons that will become more clear later, set
         <me>
           \vec{v} = \left[\begin{array}{c}  -2\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Thus our solution can be written as
         <me>
           \vec{x} = x_2\vec{v}
@@ -285,9 +265,7 @@
         and <m>5</m>, we get the solutions
         <me>
           \vec{x} = \left[\begin{array}{c} 2\\-1 \end{array} \right],  \left[\begin{array}{c} 0\\0 \end{array} \right], \text{ and }  \left[\begin{array}{c}  -10\\5 \end{array} \right]
-        </me>
-      </p>
-      <p>,
+        </me>,
         respectively.
       </p>
       <p>
@@ -306,10 +284,8 @@
         Our solution is
         <me>
           \vec{x} = x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        This means that any scalar multiply of the vector <m>\vec{v} = \left[\begin{array}{c} -2\\1 \end{array} \right]</m> is a solution;
+        </me>.
+        This means that any scalar multiply of the vector <m>\vec{v} = \left[\begin{array}{c}  -2\\1 \end{array} \right]</m> is a solution;
         we know how to sketch the scalar multiples of <m>\vec{v}</m>.
         This is done in <xref ref="fig_vect_sol_101">Figure</xref>.
       </p>
@@ -364,22 +340,16 @@
         As before,
         <me>
           \vec{x} = \left[\begin{array}{c}  x_1\\x_2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Since <m>x_1 = 3/2x_2</m>,
         we replace <m>x_1</m> in <m>\vec{x}</m> with <m>3/2x_2</m>:
         <me>
           \vec{x} = \left[\begin{array}{c}  3/2x_2\\x_2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Now we pull out the <m>x_2</m> and write the solution as
         <me>
           \vec{x} = x_2\left[\begin{array}{c} 3/2\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         As before, let's set
         <me>
           \vec{v} = \left[\begin{array}{c}  3/2\\1 \end{array} \right]
@@ -395,9 +365,7 @@
         For instance, picking <m>x_2=2</m> gives the solution
         <me>
           \vec{x} = \left[\begin{array}{c}  3\\2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         (This is a particularly nice solution,
         since there are no fractions<m>\ldots</m>)
       </p>
@@ -457,9 +425,7 @@
         Again,
         <me>
           \vec{x} = \left[\begin{array}{c}  x_1\\x_2 \end{array} \right]
-        </me>
-      </p>
-      <p>,
+        </me>,
         and we replace <m>x_1</m> with <m>3-2x_2</m>, giving
         <me>
           \vec{x} = \left[\begin{array}{c}  3-2x_2\\x_2 \end{array} \right]
@@ -492,9 +458,7 @@
         Let
         <me>
           \vec{x_p} = \left[\begin{array}{c}  3\\0 \end{array} \right]  \text{ and }   \vec{v} = \left[\begin{array}{c} -2\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         We can then write our solution in the form
         <me>
           \vec{x} = \vec{x_p} + x_2\vec{v}
@@ -642,9 +606,7 @@
     where
     <me>
       A = \left[\begin{array}{cc} 1\amp 2\\2\amp 4 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c} 3\\6 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     The solution to the first system of equations, , is
     <me>
       \vec{x} = x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
@@ -653,9 +615,7 @@
     <m>A \vec{x} = \vec{b}</m>, is
     <me>
       \vec{x} = \left[\begin{array}{c} 3\\0 \end{array} \right] + x_2\left[\begin{array}{c} -2\\1 \end{array} \right]
-    </me>
-  </p>
-  <p>,
+    </me>,
     for all values of <m>x_2</m>.
   </p>
   <p>
@@ -777,11 +737,8 @@
         Let
         <me>
           A = \left[\begin{array}{cccc} 1\amp -1\amp 1\amp 3\\4\amp 2\amp 4\amp 6 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c} 1\\10 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        Solve the linear systems
-        <m>A\vec{x} = \vec{0}</m> and <m>A\vec{x} = \vec{b}</m> for <m>\vec{x}</m>,
+        </me>.
+        Solve the linear systems <m>A\vec{x} = \vec{0}</m> and <m>A\vec{x} = \vec{b}</m> for <m>\vec{x}</m>,
         and write the solutions in vector form.
       </p>
     </statement>
@@ -863,9 +820,7 @@
         Writing this solution in vector form gives
         <me>
           \vec{x} = \left[\begin{array}{c} x_1\\x_2\\x_3\\x_4 \end{array} \right] = \left[\begin{array}{c} 2-x_3-2x_4\\1+x_4\\x_3\\x_4 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Again, we pull apart this vector,
         but this time we break it into three vectors: one with
         <q><m>x_3</m></q>
@@ -936,9 +891,7 @@
         we have that
         <me>
           A = \left[\begin{array}{ccccc} 1\amp 2\amp -3\amp 2\amp 7\\3\amp 4\amp 5\amp 2\amp 3 \end{array} \right], \vec{x} = \left[\begin{array}{c} x_1\\x_2\\x_3\\x_4\\x_5 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c} 2\\-4 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         To solve the system,
         we put the associated augmented matrix into reduced row echelon form<nbsp/>and interpret the results.
         <me>
@@ -1024,9 +977,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc} 1\amp 2\\4\amp 5 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c}  3\\6 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find the solutions to <m>A\vec{x}=\vec{b}</m> and <m>A\vec{x} = \vec{0}</m>.
       </p>
     </statement>
@@ -1076,9 +1027,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc} 1\amp 1\\2\amp 2 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c}  1\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find the solutions to <m>A\vec{x}=\vec{b}</m> and <m>A\vec{x} = \vec{0}</m>.
       </p>
     </statement>

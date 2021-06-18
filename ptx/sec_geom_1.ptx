@@ -62,9 +62,7 @@
     Given the vector
     <me>
       \vec{x} = \left[\begin{array}{c} 1\\2 \end{array} \right]
-    </me>
-  </p>
-  <p>,
+    </me>,
     we draw <m>\vec{x}</m> by drawing an arrow whose tip is 1 unit to the right and 2 units up from its origin.<fn>
     To help reduce clutter, in all figures each tick mark represents one unit.
     </fn>
@@ -106,12 +104,10 @@
         Let
         <me>
           \vec{x} = \left[\begin{array}{c} 1\\-1 \end{array} \right]  \vec{y} = \left[\begin{array}{c}  2\\3 \end{array} \right]  \text{ and }    = \left[\begin{array}{c}  -3\\2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Draw <m>\vec{x}</m> starting from the point <m>(0,-1)</m>;
         draw <m>\vec{y}</m> starting from the point <m>(-1,-1)</m>,
-        and draw starting from the point <m>(2,-1)</m>.
+        and draw  starting from the point <m>(2,-1)</m>.
       </p>
     </statement>
     <solution>
@@ -189,9 +185,7 @@
         Let
         <me>
           \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]  \text{ and }   \vec{y} = \left[\begin{array}{c} 3\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Sketch <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{x}+\vec{y}</m>.
       </p>
     </statement>
@@ -349,9 +343,7 @@
         Let
         <me>
           \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]  \text{ and }   \vec{y} = \left[\begin{array}{c} -2\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Sketch <m>\vec{x}</m>,
         <m>\vec{y}</m>, 3<m>\vec{x}</m> and <m>-1\vec{y}</m>.
       </p>
@@ -643,9 +635,7 @@
     In other words, we can write
     <me>
       \vec{x} = \left[\begin{array}{c}  4\\3 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     We learned above that the length of <m>\vec{x}</m> is <m>\sqrt{4^2+3^2}</m>.<fn>
     Remember that <m>\sqrt{4^2+3^2} \neq 4+3</m>!
     </fn> This hints at a basic calculation that works for all vectors <m>\vec{x}</m>,
@@ -661,9 +651,7 @@
         Let
         <me>
           \vec{x} = \left[\begin{array}{c} x_1\\x_2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         The <term>length</term> of <m>\vec{x}</m>,
         denoted <m>||\vec{x}||</m>, is
         <me>
@@ -824,9 +812,7 @@
         It is straightforward to compute:
         <me>
           A\vec{x} = \left[\begin{array}{c}  5\\5 \end{array} \right],  A\vec{y} = \left[\begin{array}{c}  3\\1 \end{array} \right],  \text{ and }    A = \left[\begin{array}{c}  -1\\3 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         The vectors are sketched in <xref ref="fig_mv_1">Figure</xref>
       </p>
     </solution>
@@ -1000,9 +986,7 @@
         It is straightforward to compute:
         <me>
           A\vec{x} = \left[\begin{array}{c}  0\\0 \end{array} \right],  A\vec{y} = \left[\begin{array}{c}  -2\\-2 \end{array} \right],  \text{ and }    A = \left[\begin{array}{c}  3\\3 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         The vectors are sketched in <xref ref="fig_mv_23">Figure</xref>.
       </p>
       <p>

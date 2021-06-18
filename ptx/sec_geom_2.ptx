@@ -228,9 +228,7 @@
     As in 2D, we don't usually draw the zero vector,
     <me>
       \vec{0} = \left[\begin{array}{c} 0\\0\\0 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     It doesn't point anywhere.
     It is a conceptually important vector that does not have a terribly interesting visualization.
   </p>
@@ -731,9 +729,7 @@
         It is easy to compute
         <me>
           2\vec{v} = \left[\begin{array}{c} 2\\4\\6 \end{array} \right]  \text{ and }   -\vec{v} = \left[\begin{array}{c}  -1\\-2\\-3 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         These are drawn in <xref ref="fig_3D_scalar_1">Figure</xref>.
         This figure is, in many ways, a mess,
         with all the dashed and dotted lines.
@@ -862,9 +858,7 @@
         Let
         <me>
           \vec{v} = \left[\begin{array}{c} x_1\\x_2\\x_3 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         The <term>length</term> of <m>\vec{v}</m>,
         denoted <m>||\vec{v}||</m>, is
         <me>

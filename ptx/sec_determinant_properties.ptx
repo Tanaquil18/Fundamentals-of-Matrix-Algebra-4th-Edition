@@ -201,9 +201,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Let B<nbsp/>be formed from <m>A</m> by doing one of the following elementary row operations:
         <ol>
           <li>
@@ -235,18 +233,14 @@
         Let B<nbsp/>be formed by performing the row operation in 1) on A; thus
         <me>
           B = \left[\begin{array}{cc}  1\amp 2\\5\amp 8 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        It is clear that <m>\det{ B} = -2</m>, the same as det .
+        </me>.
+        It is clear that <m>\det{ B} = -2</m>, the same as  det .
       </p>
       <p>
         Now let B<nbsp/>be formed by performing the elementary row operation in 2) on A; that is,
         <me>
           B = \left[\begin{array}{cc} 5\amp 10\\3\amp 4 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         We can see that <m>\det{ B} = -10</m>,
         which is <m>5\cdot\det{ A}</m>.
       </p>
@@ -311,9 +305,7 @@
         Let
         <me>
           A = \left[\begin{array}{ccc} 1\amp 2\amp 1\\0\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Compute  det , then find the determinants of the following matrices by inspection using <xref ref="thm_determinant_row_operations">Theorem</xref>.
         <me>
           B = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 2\amp 1\\0\amp 1\amp 1 \end{array} \right]  C = \left[\begin{array}{ccc} 1\amp 2\amp 1\\0\amp 1\amp 1\\7\amp 7\amp 7 \end{array} \right]  = \left[\begin{array}{ccc} 1\amp -1\amp -2\\0\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]
@@ -533,9 +525,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right] \ \text{ and }  \  B = \left[\begin{array}{cc}  2\amp 1\\ 3\amp 5 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find the determinants of the matrices <m>A</m>, B, <m>A+ B</m>,
         <m>3 A</m>, A B, A^T, <m>A^{-1}</m>,
         and compare the determinant of these matrices to their trace.
@@ -698,9 +688,7 @@
     Consider the matrix A:
     <me>
       \left[\begin{array}{ccc}  1\amp 2\amp 3 \\ 4 \amp  5 \amp  6\\7\amp 8\amp 9 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     We can compute its determinant using cofactor expansion as we did in <xref ref="ex_determinant_2">Example</xref>.
     Once one becomes proficient at this method,
     computing the determinant of a <m>3\times3</m> isn't all that hard.

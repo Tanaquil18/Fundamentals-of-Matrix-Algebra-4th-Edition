@@ -519,9 +519,7 @@
     Compare the result of this to the matrix
     <me>
       A = \left[\begin{array}{cc} 1\amp 0\\0\amp 1 \end{array} \right]
-    </me>
-  </p>
-  <p>,
+    </me>,
     which also has the eigenvalue <m>\lambd =1</m> appearing twice.<fn>
     To direct further study,
     it helps to know that mathematicians refer to this as the
@@ -534,9 +532,7 @@
     Third, consider the matrix
     <me>
       A = \left[\begin{array}{cc} 0\amp -1\\1\amp 0 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     What are the eigenvalues?<fn>
     Be careful; this matrix is <em>not</em> triangular.
     </fn> We quickly compute the characteristic polynomial to be <m>p(\lambd) = \lambd^2 + 1</m>.

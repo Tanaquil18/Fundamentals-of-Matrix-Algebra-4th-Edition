@@ -61,9 +61,7 @@
     That is, if <m>A</m> is a square matrix, then
     <me>
       I A =  A I =  A
-    </me>
-  </p>
-  <p>.
+    </me>.
     If we had a matrix,
     which we'll call <m>A^{-1}</m>, where <m>A^{-1} A= I</m>,
     then by analogy to our algebra example above it seems like we might be able to solve the linear system
@@ -86,10 +84,8 @@
         Let
         <me>
           A = \left[\begin{array}{cc}  2\amp 1\\1\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        Find a matrix X<nbsp/>such that <m>A X = I</m>.
+        </me>.
+        Find a matrix X<nbsp/>such that <m>A X =  I</m>.
       </p>
     </statement>
     <solution>
@@ -105,9 +101,7 @@
         We read from our matrix that
         <me>
           X = \left[\begin{array}{cc} 1\amp -1\\-1\amp 2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Let's check our work:
         <md>
           <mrow>A X \amp  = \left[\begin{array}{cc} 2\amp 1</mrow>
@@ -291,9 +285,7 @@
         We were expecting to find that the reduced row echelon form<nbsp/>of this matrix would look like
         <me>
           \left[\begin{array}{cc}  I \amp   A^{-1} \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         However, we don't have the identity on the left hand side.
         Our conclusion: <m>A</m> is not invertible.
       </p>
@@ -331,10 +323,8 @@
       If the result is of the form
       <me>
         \left[\begin{array}{cc}  I_n \amp   X \end{array} \right]
-      </me>
-    </p>
-    <p>,
-      then <m>A^{-1} = X</m>.
+      </me>,
+      then <m>A^{-1} =  X</m>.
       If not, (that is,
       if the first <m>n</m> columns of the reduced row echelon form<nbsp/>are not <m>I_n</m>),
       then <m>A</m> is not invertible.
@@ -361,9 +351,7 @@
         We have a solution, so
         <me>
           A = \left[\begin{array}{ccc} 0.5\amp 0.5\amp 0\\0.2\amp -0.4\amp 0.2\\-0.3\amp 0.1\amp 0.2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Multiply A<m>A^{-1}</m> to verify that it is indeed the inverse of <m>A</m>.
       </p>
     </solution>
@@ -395,9 +383,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc} a\amp b\\c\amp d \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         <m>A</m> is invertible if and only if <m>ad-bc\neq 0</m>.
       </p>
       <p>
@@ -413,9 +399,7 @@
     Recall <xref ref="ex_inverse_2">Example</xref>, where
     <me>
       A = \left[\begin{array}{cc} 1\amp 2\\2\amp 4 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Here, <m>ad-bc = 1(4) - 2(2) = 0</m>,
     which is why <m>A</m> didn't have an inverse.
   </p>
@@ -539,9 +523,7 @@
         Without showing our steps, we compute
         <me>
           A^{-1} = \left[ \begin{array}{ccc} 94\amp 15\amp -12\\  7\amp 1\amp -1 \\  31\amp 5\amp -4 \end{array}  \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         We then find the solution to
         <m>A \vec{x} = \vec{b}</m><nbsp/>by computing A^{-1}\vec{b}:
         <md>

@@ -57,15 +57,11 @@
         Let
         <me>
           A = \left[\begin{array}{cc} a\amp b\\c\amp d \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         The <term>determinant of A</term>, denoted by
         <me>
           \det{ A} \ \text{ or } \ \left| \begin{array}{cc} a\amp b\\c\amp d \end{array}  \right|
-        </me>
-      </p>
-      <p>,
+        </me>,
         is <m>ad-bc</m>.
       </p>
     </statement>
@@ -173,9 +169,7 @@
         Let
         <me>
           A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]\ \text{ and } \  B = \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 8\\-3\amp 5\amp 7\amp 2\\-1\amp 9\amp -4\amp 6\\1\amp 1\amp 1\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find <m>A_{1,3}</m>, <m>A_{3,2}</m>,
         <m>\ttb_{2,1}</m>, <m>\ttb_{4,3}</m> and their respective cofactors.
       </p>
@@ -204,9 +198,7 @@
         </me>
         <me>
           A_{3,2} = \left| \begin{array}{cc} 1\amp 3\\4\amp 6 \end{array}  \right| = 6-12 = -6
-        </me>
-      </p>
-      <p>.
+        </me>.
         The corresponding cofactor, <m>C_{3,2}</m>, is
         <me>
           C_{3,2} = (-1)^{3+2}A_{3,2} = (-1)^5(-6) = 6
@@ -228,9 +220,7 @@
         The corresponding cofactor is
         <me>
           C_{2,1} = (-1)^{2+1}\ttb_{2,1} = -\ttb_{2,1}
-        </me>
-      </p>
-      <p>,
+        </me>,
         whatever this number happens to be.
       </p>
       <p>
@@ -248,9 +238,7 @@
         all we know so far is that
         <me>
           C_{4,3} = (-1)^{4+3}\ttb_{4,3} = (-1)\ttb_{4,3}
-        </me>
-      </p>
-      <p>.
+        </me>.
         Once we learn how to compute determinants for matrices larger than
         <m>2\times 2</m> we can come back and finish this exercise.
       </p>
@@ -302,9 +290,7 @@
         Let
         <me>
           A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find the cofactor expansions along the second row and down the first column.
       </p>
     </statement>
@@ -314,9 +300,7 @@
         the cofactor expansion along the second row is the sum
         <me>
           a_{2,1}C_{2,1} + a_{2,2}C_{2,2} + a_{2,3}C_{2,3}
-        </me>
-      </p>
-      <p>.
+        </me>.
         (Be sure to compare the above line to the definition of cofactor expansion,
         and see how the
         <q><m>i</m></q>
@@ -354,9 +338,7 @@
         By the definition, this sum is
         <me>
           a_{1,1}C_{1,1} + a_{2,1}C_{2,1} + a_{3,1}C_{3,1}
-        </me>
-      </p>
-      <p>.
+        </me>.
         (Again, compare this to the above definition and see how we replaced the
         <q><m>j</m></q>
         with
@@ -458,9 +440,7 @@
         The cofactor expansion along the first row is
         <me>
           \det{ A} = a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3}
-        </me>
-      </p>
-      <p>.
+        </me>.
         We'll compute each cofactor first then take the appropriate sum.
       </p>
       <md>
@@ -1050,9 +1030,7 @@
         Let <m>A</m> be a <m>2\times 2</m> matrix;
         <me>
           A = \left[\begin{array}{cc} a\amp b\\c\amp d \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Show why det<m>( A)=ad-bc</m> by computing the cofactor expansion of <m>A</m> along the first row.
       </p>
     </statement>

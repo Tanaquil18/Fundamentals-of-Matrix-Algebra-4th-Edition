@@ -233,9 +233,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc} 3\amp 2\\0\amp 1 \end{array} \right] \text{ and }   B = \left[\begin{array}{cc} -2 \amp  0\\1\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find:
       </p>
       <ol cols="3">
@@ -769,9 +767,7 @@
         Use a calculator or computer to compute <m>A A^{-1}</m>, where
         <me>
           A = \left[\begin{array}{cccc}  1\amp 2\amp 3\amp 4\\1\amp 4\amp 9\amp 16\\1\amp 8\amp 27\amp 64\\1\amp 16\amp 81\amp 256 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Was the identity matrix returned exactly?
         Comment on your results.
       </p>

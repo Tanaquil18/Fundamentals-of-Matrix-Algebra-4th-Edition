@@ -42,9 +42,7 @@
         Then the linear system <m>A \vec{x} = \vec{b}</m> has solution
         <me>
           x_i = \frac{\det{A_i(\vec{b})}}{\det{ A}}
-        </me>
-      </p>
-      <p>,
+        </me>,
         where <m>A_i(\vec{b})</m> is the matrix formed by replacing the
         <m>i^\text{ th }</m> column of <m>A</m> with \vec{b}.
       </p>
@@ -75,9 +73,7 @@
         we compute  det ,  det  and  det .
         <me>
           \det{A_1(\vec{b})} = \left| \begin{array}{ccc}  \textbf{-36}\amp 5\amp -3\\\textbf{-11}\amp 4\amp 2\\\textbf{7}\amp -1\amp 0 \end{array}  \right| = 49
-        </me>
-      </p>
-      <p>.
+        </me>.
         (We used a bold font to show where \vec{b}<nbsp/>replaced the first column of <m>A</m>.)
         <me>
           \det{A_2(\vec{b})} = \left| \begin{array}{ccc}  1\amp \textbf{-36}\amp -3\\1\amp \textbf{-11}\amp 2\\2\amp \textbf{7}\amp 0 \end{array}  \right| = -245

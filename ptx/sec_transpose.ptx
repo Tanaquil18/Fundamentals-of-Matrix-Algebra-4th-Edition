@@ -142,9 +142,7 @@
         as well as their transposes, where
         <me>
           A = \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp 4\amp 5\\0\amp 0\amp 6 \end{array} \right]  B = \left[\begin{array}{ccc} 3\amp 0\amp 0\\0\amp 7\amp 0\\0\amp 0\amp -1 \end{array} \right]  C = \left[\begin{array}{ccc} 1\amp 2\amp 3\\0\amp 4\amp 5\\0\amp 0\amp 6\\0\amp 0\amp 0 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Identify the diagonal of each matrix,
         and state whether each matrix is diagonal,
         upper triangular, lower triangular, or none of the above.
@@ -214,10 +212,8 @@
         Let
         <me>
           A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6 \end{array} \right] \ \text{ and } \  B = \left[\begin{array}{ccc} 1\amp 2\amp 1\\3\amp -1\amp 0 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        Find <m>A^T+ B^T</m> and <m>( A + B)^T</m>.
+        </me>.
+        Find <m>A^T+ B^T</m> and <m>( A +  B)^T</m>.
       </p>
     </statement>
     <solution>
@@ -225,9 +221,7 @@
         We note that
         <me>
           A^T = \left[\begin{array}{cc} 1\amp 4\\2\amp 5\\3\amp 6 \end{array} \right]\ \text{ and } \  B^T = \left[\begin{array}{cc} 1\amp 3\\2\amp -1\\1\amp 0 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Therefore
         <md>
           <mrow>A^T +  B^T \amp = \left[\begin{array}{cc} 1\amp 4</mrow>
@@ -276,9 +270,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right] \ \text{ and }  \  B = \left[\begin{array}{ccc} 1\amp 2\amp -1\\1\amp 0\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find <m>( A B)^T</m>, <m>A^T B^T</m> and <m>B^T A^T</m>.
       </p>
     </statement>
@@ -287,9 +279,7 @@
         We first note that
         <me>
           A^T = \left[\begin{array}{cc} 1\amp 3\\2\amp 4 \end{array} \right] \ \text{ and }  \  B^T = \left[\begin{array}{cc} 1\amp 1\\2\amp 0\\-1\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find <m>( A B)^T</m>:
         <md>
           <mrow>( A B)^T \amp = \left(\left[\begin{array}{cc} 1\amp 2</mrow>
@@ -350,9 +340,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc} 2\amp 7\\1\amp 4 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find <m>( A^{-1})^T</m> and <m>( A^T)^{-1}</m>.
       </p>
     </statement>
@@ -479,10 +467,8 @@
         Let
         <me>
           A = \left[\begin{array}{ccc} 2\amp 1\amp 3\\2\amp -1\amp 1\\1\amp 0\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        Find A A^T, <m>A+ A^T</m> and <m>A - A^T</m>.
+        </me>.
+        Find A A^T, <m>A+ A^T</m> and <m>A -  A^T</m>.
       </p>
     </statement>
     <solution>
@@ -663,18 +649,14 @@
     consider the sum of <m>( A+ A^T)</m> and <m>( A- A^T)</m>:
     <me>
       ( A+ A^T)+( A- A^T) = 2 A
-    </me>
-  </p>
-  <p>.
+    </me>.
     This gives us an idea:
     if we were to multiply both sides of this equation by <m>\frac12</m>,
     then the right hand side would just be <m>A</m>.
     This means that
     <me>
       A = \underbrace{\frac12( A+ A^T)}_{\text{ \scriptsize symmetric } }\ +\ \underbrace{\frac12( A- A^T)}_{\text{ \scriptsize skew symmetric } }
-    </me>
-  </p>
-  <p>.
+    </me>.
     That is, any matrix <m>A</m> can be written as the sum of a symmetric and skew symmetric matrix.
     That's interesting.
   </p>

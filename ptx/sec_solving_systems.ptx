@@ -59,9 +59,7 @@
         Since we know that we have 100 marbles, we have the equation
         <me>
           b+g+r+y=100
-        </me>
-      </p>
-      <p>.
+        </me>.
         The next sentence in our problem statement allows us to create three more equations.
       </p>
       <p>
@@ -86,9 +84,7 @@
         can be written as either
         <me>
           b=r+10  \text{ or }   r=b+10
-        </me>
-      </p>
-      <p>.
+        </me>.
         Which is it?
       </p>
       <p>
@@ -264,16 +260,12 @@
         Knowing that Prize A goes to guests in the first and second sections and that we'll need 105 of these prizes tells us
         <me>
           x_1+x_2 = 105
-        </me>
-      </p>
-      <p>.
+        </me>.
         Proceeding in a similar fashion,
         we get two more equations,
         <me>
           x_2+x_3 = 103\text{ and }  x_1+x_3 = 88
-        </me>
-      </p>
-      <p>.
+        </me>.
         Thus our linear system is
         <me>
           \begin{array}{rcl}x_1+x_2\amp =\amp 105\\x_2+x_3\amp =\amp 103\\x_1+x_3\amp =\amp 88 \end{array}
@@ -381,9 +373,7 @@
         The corresponding augmented matrix is
         <me>
           \left[\begin{array}{ccc}  1 \amp  1 \amp  4\\ 2\amp -1\amp 4\\ \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Note that we decided to let the first column hold the coefficients of <m>b</m>.
       </p>
       <p>
@@ -501,15 +491,11 @@
         We know that there are a total of 32 bills, so we have the equation
         <me>
           x+y+z = 32
-        </me>
-      </p>
-      <p>.
+        </me>.
         We also know that we have $100, so we have the equation
         <me>
           x+5y+10z = 100
-        </me>
-      </p>
-      <p>.
+        </me>.
         We have three unknowns but only two equations,
         so we know that we cannot expect a unique solution.
         Let's try to solve this system anyway and see what we get.
@@ -598,17 +584,13 @@
         Since we have a total of 7 scoring occasions, we know that
         <me>
           t+x+w+f=7
-        </me>
-      </p>
-      <p>.
+        </me>.
         The total points scored is 24;
         considering the value of each type of scoring opportunity,
         we can write the equation
         <me>
           6t+x+2w+3f = 24
-        </me>
-      </p>
-      <p>.
+        </me>.
         Finally, we know that each touchdown was followed by a successful extra point or two point conversion.
         This is subtle,
         but it tells us that the number of touchdowns is equal to the sum of extra points and two point conversions.

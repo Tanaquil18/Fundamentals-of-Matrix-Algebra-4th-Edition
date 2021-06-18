@@ -76,15 +76,11 @@
         The four corners of the unit square can be represented by the vectors
         <me>
           \left[\begin{array}{c} 0\\0 \end{array} \right],  \left[\begin{array}{c} 1\\0 \end{array} \right], \left[\begin{array}{c} 1\\1 \end{array} \right], \left[\begin{array}{c} 0\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Multiplying each by <m>A</m> gives the vectors
         <me>
           \left[\begin{array}{c} 0\\0 \end{array} \right], \left[\begin{array}{c}  1\\2 \end{array} \right],\left[\begin{array}{c} 5\\5 \end{array} \right], \left[\begin{array}{c} 4\\3 \end{array} \right]
-        </me>
-      </p>
-      <p>,
+        </me>,
         respectively.
       </p>
       <p>
@@ -93,15 +89,11 @@
         In this case, create a matrix
         <me>
           B = \left[\begin{array}{cccc} 0\amp 1\amp 1\amp 0\\0\amp 0\amp 1\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Then multiply B<nbsp/>by <m>A</m> and read off the transformed vectors from the respective columns:
         <me>
           A B = \left[\begin{array}{cccc} 0\amp 1\amp 5\amp 4\\0\amp 2\amp 5\amp 3 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         This saves time,
         especially if you do a similar procedure for multiple matrices <m>A</m>.
         Of course, we can save more time by skipping the first column;
@@ -335,9 +327,7 @@
     Let
     <me>
       A = \left[\begin{array}{cc} a\amp b\\c\amp d \end{array} \right],   = \left[\begin{array}{c} 1\\0 \end{array} \right]  \text{ and }    = \left[\begin{array}{c} 0\\1 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     What are A<nbsp/>and A?
     <md>
       <mrow>A \amp = \left[\begin{array}{cc} a\amp b</mrow>
@@ -399,11 +389,8 @@
         Putting this together gives
         <me>
           A = \left[\begin{array}{cc} 2\amp 0\\0\amp -1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        To help visualize this,
-        consider <xref ref="fig_transf_1">Figure</xref>
+        </me>.
+        To help visualize this, consider <xref ref="fig_transf_1">Figure</xref>
         where a shape is transformed under this matrix.
         Notice how it is turned upside down and is stretched horizontally by a factor of two.
         (The gridlines are given as a visual aid.)
@@ -550,9 +537,7 @@
         We can also check this multiplicatively:
         <me>
           \left[\begin{array}{cc}  0 \amp  3/2 \\ -1/2 \amp  0 \end{array} \right] \left[\begin{array}{c} -1\\2 \end{array} \right] = \left[\begin{array}{c}  3\\1/2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         <xref ref="fig_transf_2_2">Figure</xref>
         shows the effects of the transformation on another shape.
       </p>
@@ -858,17 +843,12 @@
         The matrix that performs this is
         <me>
           A_1 = \left[\begin{array}{cc} 1\amp 0\\0.5\amp 1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        After that,
-        we want to rotate everything clockwise by <m>30^\circ</m>.
+        </me>.
+        After that, we want to rotate everything clockwise by <m>30^\circ</m>.
         To do this, we use
         <me>
           A_2 = \left[\begin{array}{cc}  \cos 30^\circ \amp  -\sin 30^\circ\\ \sin 30^\circ \amp  \cos 30^\circ \end{array} \right] = \left[\begin{array}{cc}  \sqrt{3}/2 \amp  -1/2 \\ 1/2 \amp  \sqrt{3}/2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         In order to do both of these operations,
         in order, we multiply <m>A_2A_1</m>.<fn>
         The reader might ask,

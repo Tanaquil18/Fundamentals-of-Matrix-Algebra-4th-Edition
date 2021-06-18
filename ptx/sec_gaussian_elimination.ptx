@@ -789,18 +789,14 @@
         the second equation turns into
         <me>
           x_2 - (5/3)(7) = -20/3
-        </me>
-      </p>
-      <p>,
+        </me>,
         telling us that <m>x_2 = 5</m>.
       </p>
       <p>
         Finally, knowing values for <m>x_2</m> and <m>x_3</m> lets us substitute in the first equation and find
         <me>
           x_1 +(1/2)(5)-(1/2)(7) = 2
-        </me>
-      </p>
-      <p>,
+        </me>,
         so <m>x_1 = 3</m>.
       </p>
       <p>

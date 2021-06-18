@@ -159,9 +159,7 @@
     We compute <m>A^{-1}</m> and find that
     <me>
       A^{-1} = \left[\begin{array}{ccc}  1/17 \amp  6/17 \amp  1/17\\9/17 \amp  3/17 \amp  -8/17\\ 2/17 \amp  -5/17 \amp  2/17 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Therefore tr( A^{-1}) = 6/17.
     Again, the relationship isn't clear.<fn>
     Something to think about:

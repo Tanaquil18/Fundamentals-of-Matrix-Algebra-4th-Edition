@@ -60,9 +60,7 @@
     This gives us:
     <me>
       \begin{array}{ccccccc} b\amp +\amp g\amp +\amp r\amp =\amp 30\\ \amp -\amp 2g\amp +\amp r\amp =\amp 0\\ \amp  \amp 2g\amp +\amp 2r\amp =\amp 30 \end{array}
-    </me>
-  </p>
-  <p>.
+    </me>.
     A nice feature of this is that the only equation with a <m>b</m> in it is the first equation.
   </p>
   <p>
@@ -105,9 +103,7 @@
     This gives us:
     <me>
       \begin{array}{ccccccc} b\amp  \amp  \amp  \amp  \amp =\amp 15\\ \amp  \amp g\amp  \amp  \amp =\amp 5\\ \amp  \amp  \amp  \amp r\amp =\amp 10 \end{array}
-    </me>
-  </p>
-  <p>.
+    </me>.
     Clearly we have discovered the same result as when we solved this problem in <xref ref="sec_intro">Section</xref>.
   </p>
   <p>

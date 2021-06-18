@@ -73,9 +73,7 @@
     If you guessed
     <me>
       \left[\begin{array}{cc} 3\amp 1\\8\amp 11 \end{array} \right]
-    </me>
-  </p>
-  <p>,
+    </me>,
     you guessed correctly.
     That wasn't so hard, was it?
   </p>
@@ -91,9 +89,7 @@
     If you guessed
     <me>
       \left[\begin{array}{cc} 3\amp 6\\9\amp 12 \end{array} \right]
-    </me>
-  </p>
-  <p>,
+    </me>,
     you guessed correctly!
   </p>
   <p>
@@ -106,9 +102,7 @@
     then we can write <m>A</m> as
     <me>
       A =\left[\begin{array}{cccc} a_{11}\amp a_{12}\amp \cdots\amp a_{1n}\\a_{21}\amp a_{22}\amp \cdots\amp a_{2n}\\\vdots\amp \vdots\amp \ddots\amp \vdots\\a_{m1}\amp a_{m2}\amp \cdots\amp a_{mn} \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Secondly, we should define what we mean by the word <em>scalar</em>.
     A scalar is any number that we multiply a matrix by.
     (In some sense, we use that number to
@@ -155,9 +149,7 @@
         Let
         <me>
           A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\-1\amp 2\amp 1\\5\amp 5\amp 5 \end{array} \right],  B = \left[\begin{array}{ccc} 2\amp 4\amp 6\\1\amp 2\amp 2\\-1\amp 0\amp 4 \end{array} \right],  C = \left[\begin{array}{ccc}  1\amp 2\amp 3\\9\amp 8\amp 7 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Simplify the following matrix expressions.
       </p>
       <ol cols="4">
@@ -282,9 +274,7 @@
     Another interesting thing that came from our previous example is that
     <me>
       A -  A = \left[\begin{array}{ccc} 0\amp 0\amp 0\\0\amp 0\amp 0\\0\amp 0\amp 0 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     It seems like this should be a special matrix;
     after all, every entry is 0 and 0 is a special number.
   </p>
@@ -398,9 +388,7 @@
         Let
         <me>
           A = \left[\begin{array}{cc}  2\amp -1\\3\amp 6 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find the matrix X<nbsp/>such that
         <me>
           2 A + 3 X = -4 A
@@ -414,15 +402,11 @@
         This gives us
         <me>
           3 X = -6 A
-        </me>
-      </p>
-      <p>.
+        </me>.
         Now divide both sides by 3 to get
         <me>
           X = -2 A
-        </me>
-      </p>
-      <p>.
+        </me>.
         Now we just need to compute <m>-2 A</m>; we find that
         <me>
           X = \left[\begin{array}{cc}  -4\amp 2\\ -6\amp -12 \end{array} \right]

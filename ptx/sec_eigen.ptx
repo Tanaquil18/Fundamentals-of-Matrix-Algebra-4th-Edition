@@ -89,9 +89,7 @@
         If
         <me>
           A\vec{x} = \lambd\vec{x}
-        </me>
-      </p>
-      <p>,
+        </me>,
         then <m>\vec{x}</m> is an <term>eigenvector</term>
         of <m>A</m> and <m>\lambd</m> is an
         <term>eigenvalue</term> of <m>A</m>.
@@ -172,9 +170,7 @@
     We are likely tempted to say
     <me>
       A\vec{x}-\lambd\vec{x} = ( A-\lambd)\vec{x}
-    </me>
-  </p>
-  <p>,
+    </me>,
     but this really doesn't make sense.
     After all, what does
     <q>a matrix minus a number</q>
@@ -304,9 +300,7 @@
         Recall that our algebra from before showed that if
         <me>
           A\vec{x}=\lambd\vec{x}  \text{ then }   ( A-\lambd I)\vec{x}=\vec{0}
-        </me>
-      </p>
-      <p>.
+        </me>.
         Therefore, we need to solve the equation
         <m>( A-\lambd I)\vec{x}=\vec{0}</m> for <m>\vec{x}</m> when <m>\lambda = 5</m>.
         <md>
@@ -322,9 +316,7 @@
         we form the augmented matrix and put it into reduced row echelon form:
         <me>
           \left[\begin{array}{ccc} -4\amp 4\amp 0\\2\amp -2\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccc} 1\amp -1\amp 0\\0\amp 0\amp 0 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Thus
         <md>
           <mrow>x_1 \amp = x_2</mrow>
@@ -333,9 +325,7 @@
         and
         <me>
           \vec{x} = \left[\begin{array}{c} x_1\\x_2 \end{array} \right] = x_2\left[\begin{array}{c} 1\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         We have infinite solutions to the equation <m>A\vec{x} = 5\vec{x}</m>;
         any nonzero scalar multiple of the vector <m>\left[\begin{array}{c} 1\\1 \end{array} \right]</m> is a solution.
         We can do a few examples to confirm this:
@@ -460,17 +450,13 @@
         in vector form, we have
         <me>
           \vec{x} = x_2\left[\begin{array}{c} -5\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         We may pick any nonzero value for <m>x_2</m> to get an eigenvector;
         a simple option is <m>x_2 = 1</m>.
         Thus we have the eigenvector
         <me>
           \vec{x}= \left[\begin{array}{c} -5\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         (We used the notation <m>\vec{x}</m> to associate this eigenvector with the eigenvalue <m>\lambda_1</m>.)
       </p>
       <p>
@@ -486,9 +472,7 @@
         In vector form, we have
         <me>
           \vec{x} = x_2\left[\begin{array}{c} 1\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Again, we may pick any nonzero value for <m>x_2</m>,
         and so we choose <m>x_2 = 1</m>.
         Thus an eigenvector for <m>\lambda_2</m> is
@@ -562,9 +546,7 @@
         Our solution, in vector form, is
         <me>
           \vec{x} = x_2\left[\begin{array}{c} -5/4\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Again, we can pick any nonzero value for <m>x_2</m>;
         a nice choice would eliminate the fraction.
         Therefore we pick <m>x_2 = 4</m>, and find
@@ -592,9 +574,7 @@
         Therefore, our solution, in vector form, is
         <me>
           \vec{x} = x_2\left[\begin{array}{c} 0\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         We pick <m>x_2 = 1</m>, and find
         <me>
           \vec{x}= \left[\begin{array}{c}  0\\1 \end{array} \right]

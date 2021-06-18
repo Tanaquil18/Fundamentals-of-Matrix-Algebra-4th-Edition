@@ -34,9 +34,7 @@
     suppose we want to solve <m>A \vec{x} = \vec{b}</m><nbsp/>where
     <me>
       A = \left[\begin{array}{cc} 1\amp 1\\2\amp 1 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c}  0\\1 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     We know how to solve this;
     put the appropriate matrix into reduced row echelon form<nbsp/>and interpret the result.
     <me>
@@ -68,9 +66,7 @@
     We apply the same general technique to solving the matrix equation <m>A X= B</m> for X. We'll assume that <m>A</m> is a square matrix ( B<nbsp/>need not be) and we'll form the augmented matrix
     <me>
       \left[\begin{array}{cc}  A\amp  B \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Putting this matrix into reduced row echelon form<nbsp/>will give us X, much like we found <m>\vec{x}</m> before.
     <me>
       \left[\begin{array}{cc}  A\amp  B \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cc}  I \amp   X \end{array} \right]
@@ -106,9 +102,7 @@
         We read from the reduced row echelon form<nbsp/>of the matrix that
         <me>
           X = \left[\begin{array}{ccc} 1\amp -7\amp 3\\9\amp 6\amp 2 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         We can easily check to see if our answer is correct by multiplying <m>A X</m>.
       </p>
     </solution>
@@ -127,9 +121,7 @@
         To solve, let's again form the augmented matrix
         <me>
           \left[\begin{array}{cc}   A \amp   B \end{array} \right]
-        </me>
-      </p>
-      <p>,
+        </me>,
         put it into reduced row echelon form, and interpret the result.
         <me>
           \left[\begin{array}{ccccc} 1\amp 0\amp 2\amp -1\amp 2\\0\amp -1\amp -2\amp 2\amp -6\\2\amp -1\amp 0\amp 2\amp -4 \end{array} \right]\overrightarrow{\text{ rref } } \left[\begin{array}{ccccc} 1\amp 0\amp 0\amp 1\amp 0\\0\amp 1\amp 0\amp 0\amp 4\\0\amp 0\amp 1\amp -1\amp 1 \end{array} \right]
@@ -193,9 +185,7 @@
     <m>\vec{v}</m> and ; that is, we can write
     <me>
       X = \left[\begin{array}{ccc} \vec{u} \amp  \vec{v}\amp \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Notice also that the columns of <m>A X</m> are <m>A\vec{u}</m>,
     <m>A\vec{v}</m> and A, respectively.
     Thus we can write

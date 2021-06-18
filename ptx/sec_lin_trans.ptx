@@ -106,9 +106,7 @@
     If we wanted to be complete, we should have stated
     <me>
       f:\mathbb{R}^{}\rightarrow\mathbb{R}^{}  \text{ where }   f(x)=x^2
-    </me>
-  </p>
-  <p>.
+    </me>.
     The first part of that line told us that the input was a real number
     (that was the first )
     and the output was also a real number
@@ -119,9 +117,7 @@
     <m>2\times 2</m> matrix <m>A</m>, we should write
     <me>
       T:\mathbb{R}^{2}\rightarrow\mathbb{R}^{2}  \text{ where }   T(\vec{x}) =  A\vec{x}
-    </me>
-  </p>
-  <p>.
+    </me>.
     Here, the first means that we are using 2D vectors as our input,
     and the second means that a 2D vector is the output.
   </p>
@@ -129,9 +125,7 @@
     Consider a quick example:
     <me>
       T:\mathbb{R}^{2}\rightarrow\mathbb{R}^{3}  \text{ where }   T\left(\left[\begin{array}{c} x_1\\x_2 \end{array} \right]\right) = \left[\begin{array}{c} x_1^2\\2x_1\\x_1x_2 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Notice that this takes 2D vectors as input and returns 3D vectors as output.
     For instance,
     <me>
@@ -188,9 +182,7 @@
         We'll arbitrarily pick two vectors <m>\vec{x}</m> and \vec{y}:
         <me>
           \vec{x} = \left[\begin{array}{c} 3\\-2 \end{array} \right]  \text{ and }   \vec{y} = \left[\begin{array}{c}  1\\5 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Let's check to see if <m>T</m> is linear by using the definition.
         <ol>
           <li>
@@ -268,9 +260,7 @@
         Let's choose the same <m>\vec{x}</m> and <m>\vec{y}</m> from <xref ref="ex_lin_trans_1">Example</xref>.
         <me>
           \vec{x} = \left[\begin{array}{c} 3\\-2 \end{array} \right]  \text{ and }   \vec{y} = \left[\begin{array}{c}  1\\5 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         If the lineararity properties hold for these vectors,
         then <em>maybe</em> it is actually linear
         (and we'll do more work).
@@ -340,9 +330,7 @@
         By the definition of <m>T</m>, we have
         <me>
           T(\vec{x}+\vec{y}) =  A(\vec{x}+\vec{y})
-        </me>
-      </p>
-      <p>.
+        </me>.
         By <xref ref="thm_matrix_multiplication">Theorem</xref>,
         <xref ref="thm_mat_mult_dist">part</xref>
         (on <xref ref="thm_matrix_multiplication">page</xref>)
@@ -503,10 +491,8 @@
       Then:
       <me>
         T(\zero_n) = \zero_m
-      </me>
-    </p>
-    <p>.
-      That is, the zero vector in gets sent to the zero vector in .
+      </me>.
+      That is, the zero vector in  gets sent to the zero vector in .
     </p>
   </insight>
   <p>
@@ -554,9 +540,7 @@
     In , we identified
     <me>
       = \left[\begin{array}{c} 1\\0 \end{array} \right]  \text{ and }    = \left[\begin{array}{c} 0\\1 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     In , there are 4 standard unit vectors:
     <me>
       = \left[\begin{array}{c} 1\\0\\0\\0 \end{array} \right],   = \left[\begin{array}{c} 0\\1\\0\\0 \end{array} \right],   = \left[\begin{array}{c} 0\\0\\1\\0 \end{array} \right],  \text{ and }    = \left[\begin{array}{c} 0\\0\\0\\1 \end{array} \right]
@@ -570,11 +554,9 @@
     One could represent this with:
     <me>
       A = \left[\begin{array}{cc}  T() \amp  T() \end{array} \right] = [\, T\, ]
-    </me>
-  </p>
-  <p>.
-    That is, <m>T()</m> is the vector where ends up,
-    and <m>T()</m> is the vector where ends up.
+    </me>.
+    That is, <m>T()</m> is the vector where  ends up,
+    and <m>T()</m> is the vector where  ends up.
   </p>
   <p>
     The same holds true in general.
@@ -608,9 +590,7 @@
         Define <m>T:\mathbb{R}^{3}\rightarrow\mathbb{R}^{4}</m> to be the linear transformation where
         <me>
           T\left(\left[\begin{array}{c}  x_1\\x_2\\x_3 \end{array} \right]\right) = \left[\begin{array}{c}  x_1+x_2\\ 3x_1-x_3 \\ 2x_2+5x_3 \\ 4x_1+3x_2+2x_3 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Find <m>[\, T\, ]</m>.
       </p>
     </statement>
@@ -621,10 +601,8 @@
         Note that
         <me>
           = \left[\begin{array}{c} 1\\0\\0 \end{array} \right],   = \left[\begin{array}{c} 0\\1\\0 \end{array} \right]  \text{ and }    = \left[\begin{array}{c} 0\\0\\1 \end{array} \right]
-        </me>
-      </p>
-      <p>.
-        We find the columns of by finding where , and are sent,
+        </me>.
+        We find the columns of  by finding where ,  and  are sent,
         that is, we find <m>T()</m>, <m>T()</m> and <m>T()</m>.
       </p>
       <p>
@@ -673,9 +651,7 @@
         Consider the vector
         <me>
           \vec{x} = \left[\begin{array}{c} 1\\2\\3 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         Strictly from the original definition, we can compute that
         <me>
           T(\vec{x}) = T\left(\left[\begin{array}{c} 1\\2\\3 \end{array} \right]\right) = \left[\begin{array}{c}  1+2\\3-3\\4+15\\4+6+6 \end{array} \right] = \left[\begin{array}{c}  3\\0\\19\\16 \end{array} \right]
@@ -685,9 +661,7 @@
         Now compute <m>T(\vec{x})</m> by computing \vec{x} = A<m>\vec{x}</m>.
         <me>
           A\vec{x} = \left[\begin{array}{ccc}  1\amp 1\amp 0 \\ 3 \amp  0\amp -1\\ 0\amp 2\amp 5\\ 4\amp 3\amp 2 \end{array} \right]\left[\begin{array}{c} 1\\2\\3 \end{array} \right] = \left[\begin{array}{c}  3\\0\\19\\16 \end{array} \right]
-        </me>
-      </p>
-      <p>.
+        </me>.
         They match!<fn>
         Of course they do.
         That was the whole point.
@@ -736,9 +710,7 @@
         <m>T:\mathbb{R}^{4}\rightarrow\mathbb{R}^{2}</m> where each vector in can be interpreted as
         <me>
           \left[\begin{array}{c}  \text{ \#\ of singles }  \\\text{ \#\ of doubles }  \\ \text{ \#\ of triples }  \\ \text{ \#\ of home runs } \end{array} \right]
-        </me>
-      </p>
-      <p>,
+        </me>,
         and each vector in can be interpreted as
         <me>
           \left[\begin{array}{c}  \text{ \#\ of hits }  \\\text{ \#\ of bases } \end{array} \right]
@@ -795,9 +767,7 @@
         By using <m>A</m>, we find that
         <me>
           \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 1\\1\amp 2\amp 3\amp 4 \end{array} \right]\left[\begin{array}{c} 102\\30\\8\\14 \end{array} \right] = \left[\begin{array}{c}  154\\242 \end{array} \right]
-        </me>
-      </p>
-      <p>,
+        </me>,
         meaning the player had 154 hits and 242 total bases.
       </p>
     </solution>
@@ -816,9 +786,7 @@
     and from <xref ref="ex_stand_mat1">Example</xref>
     <me>
       T_{\text{ \<xref ref="ex_stand_mat1">scriptsize</xref> } }\left(\left[\begin{array}{c}  x_1\\x_2\\x_3 \end{array} \right]\right) = \left[\begin{array}{c}  x_1+x_2\\ 3x_1-x_3 \\ 2x_2+5x_3 \\ 4x_1+3x_2+2x_3 \end{array} \right]
-    </me>
-  </p>
-  <p>,
+    </me>,
     where we use the subscripts for <m>T</m> to remind us which example they came from.
   </p>
   <p>
@@ -850,9 +818,7 @@
       Let <m>T:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}</m> be a transformation and consider the entries of
       <me>
         T(\vec{x}) = T\left(\left[\begin{array}{c} x_1\\x_2\\ \vdots \\ x_n \end{array} \right]\right)
-      </me>
-    </p>
-    <p>.
+      </me>.
       <m>T</m> is linear if and only if each entry of
       <m>T(\vec{x})</m> is of the form <m>a_1x_1 + a_2x_2+\cdots a_nx_n</m>.
     </p>
@@ -862,11 +828,9 @@
     the manager could have defined his transformation as
     <me>
       T\left(\left[\begin{array}{c} x_1\\x_2\\x_3\\x_4 \end{array} \right]\right) = \left[\begin{array}{c} x_1+x_2+x_3+x_4 \\ x_1+2x_2+3x_3+4x_4 \end{array} \right]
-    </me>
-  </p>
-  <p>.
+    </me>.
     Since that fits the model shown in <xref ref="idea_when_linear">Key Idea</xref>,
-    the transformation <m>T</m> is indeed linear and hence we can find a matrix that represents it.
+    the transformation <m>T</m> is indeed linear and hence we can find a matrix  that represents it.
   </p>
   <p>
     Let's practice this concept further in an example.
