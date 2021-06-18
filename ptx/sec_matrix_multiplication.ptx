@@ -221,7 +221,7 @@
         </li>
         <li>
           <p>
-            \vec{u}\vec{y}<nbsp/>is not defined;
+            \vec{u}<m>\vec{y}</m> is not defined;
             <xref ref="def_vector_multiply">Definition</xref>
             specifies that in order to multiply a row vector and column vector,
             they must have the same number of entries.

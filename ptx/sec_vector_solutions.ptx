@@ -313,7 +313,8 @@
         we know how to sketch the scalar multiples of <m>\vec{v}</m>.
         This is done in <xref ref="fig_vect_sol_101">Figure</xref>.
       </p>
-      <figure>
+      <figure xml:id="fig_vect_sol_101">
+        <caption>The solution, as a line, to <m>A\vec{x}=\vec{0}</m> in <xref ref="ex_vector_solution_101">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
@@ -322,7 +323,6 @@
 \draw [->,thick] (0,0)--(-2,1) node [above] {\vec{v}};\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{The solution, as a line, to <m>A\vec{x}=\vec{0}</m> in <xref ref="ex_vector_solution_101">Example</xref>.}
       </figure>
       <p>
         Here vector <m>\vec{v}</m> is drawn as well as the line that goes through the origin in the direction of <m>\vec{v}</m>.
@@ -407,7 +407,8 @@
         and hence we can graph this,
         as done in <xref ref="fig_vect_sol_102">Figure</xref>.
       </p>
-      <figure>
+      <figure xml:id="fig_vect_sol_102">
+        <caption>The solution, as a line, to <m>A\vec{x}=\vec{0}</m> in <xref ref="ex_vect_sol_102">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-3.5}{6.5}{-3,...,6};
@@ -416,7 +417,6 @@
 \draw [->,thick] (0,0)--(1.5,1) node [above] {\vec{v}};\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{The solution, as a line, to <m>A\vec{x}=\vec{0}</m> in <xref ref="ex_vect_sol_102">Example</xref>.}
       </figure>
     </solution>
   </example>
@@ -521,7 +521,8 @@
         In <xref ref="fig_vect_sol_103">Figure</xref>, \vec{x_p}<nbsp/>is graphed and <m>\vec{v}</m> is graphed with its origin starting at the tip of \vec{x_p}. Finally,
         a line is drawn in the direction of <m>\vec{v}</m> from the tip of \vec{x_p}; any vector pointing to any point on this line is a solution to <m>A \vec{x} = \vec{b}</m>.
       </p>
-      <figure>
+      <figure xml:id="fig_vect_sol_103">
+        <caption>The solution, as a line, to <m>A\vec{x}=\vec{b}</m> in <xref ref="ex_vect_sol_103">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-5.5}{5.5}{-5,...,5};
@@ -531,7 +532,6 @@
 \draw [->,thick] (3,0) -- (1,1) node [above] {\vec{v}};\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{The solution, as a line, to <m>A\vec{x}=\vec{b}</m> in <xref ref="ex_vect_sol_103">Example</xref>.}
       </figure>
     </solution>
   </example>

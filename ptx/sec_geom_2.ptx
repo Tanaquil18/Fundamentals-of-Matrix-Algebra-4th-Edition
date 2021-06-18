@@ -32,7 +32,8 @@
     Without any additional vectors,
     a generic 3D coordinate system can be seen in <xref ref="fig_empty_3D">Figure</xref>.
   </p>
-  <figure>
+  <figure xml:id="fig_empty_3D">
+    <caption>The 3D coordinate system</caption>
     <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -45,7 +46,6 @@
 };\end{tikzpicture}]]>
 </latex-image>
     </image>
-    \mycaption{The 3D coordinate system}
   </figure>
   <p>
     In 2D, the point <m>(2,1)</m> refers to going 2 units in the <m>x</m> direction followed by 1 unit in the <m>y</m> direction.
@@ -100,7 +100,8 @@
         in (c) we move up in the <m>z</m> direction,
         and finally in (d) the arrow is drawn.
       </p>
-      <figure>
+      <figure xml:id="fig_draw_3D_vx">
+        <caption>Stages of sketching the vector <m>\vec{v}</m>  for <xref ref="ex_draw_3D_1">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -177,7 +178,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Stages of sketching the vector <m>\vec{v}</m>  for <xref ref="ex_draw_3D_1">Example</xref>.}
       </figure>
       <p>
         Drawing the dashed lines help us find our way in our representation of three dimensional space.
@@ -197,7 +197,8 @@
         Notice that this time we had to go in the negative <m>z</m> direction;
         this just means we moved down one unit instead of up a unit.
       </p>
-      <figure>
+      <figure xml:id="fig_draw_3D_vx_vy">
+        <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_1">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -220,7 +221,6 @@
 \draw[thick,->] (0,0,0) -- (1,3,-1);\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_1">Example</xref>.}
       </figure>
     </solution>
   </example>
@@ -262,7 +262,8 @@
         once with the helpful dashed lines, and once without.
         The second drawing makes it pretty clear that the dashed lines truly are helpful.
       </p>
-      <figure>
+      <figure xml:id="fig_draw_3D_2">
+        <caption>Vector <m>\vec{v}</m> in <xref ref="ex_draw_3D_2">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -298,7 +299,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Vector <m>\vec{v}</m> in <xref ref="ex_draw_3D_2">Example</xref>.}
       </figure>
     </solution>
   </example>
@@ -318,7 +318,8 @@
         but without these,
         it is very difficult to tell which vector is which!
       </p>
-      <figure>
+      <figure xml:id="fig_draw_3D_3">
+        <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_3">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -357,7 +358,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_3">Example</xref>.}
       </figure>
     </solution>
   </example>
@@ -401,7 +401,8 @@
     Looking at 3D objects on paper is a bit like viewing the world with one eye closed.
     </fn>
   </p>
-  <figure>
+  <figure xml:id="fig_viewpoint_1">
+    <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_3">Example</xref> with a different viewpoint (a) and <m>x</m> axis scale (b).</caption>
     <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -445,7 +446,6 @@
 \node at (0,0,-3) [below] {(b)};\end{tikzpicture}]]>
 </latex-image>
     </image>
-    \mycaption{Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_3">Example</xref> with a different viewpoint (a) and <m>x</m> axis scale (b).}
   </figure>
   <p>
     We now investigate properties of vector arithmetic:
@@ -481,7 +481,8 @@
         (without all the dotted lines),
         which seems to affirm the fact that the Parallelogram Law does indeed hold.
       </p>
-      <figure>
+      <figure xml:id="fig_add_3D">
+        <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, and <m>\vec{v} + \vec{u}</m> <xref ref="ex_add_3D">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -527,7 +528,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, and <m>\vec{v} + \vec{u}</m> <xref ref="ex_add_3D">Example</xref>.}
       </figure>
     </solution>
   </example>
@@ -560,7 +560,8 @@
         and sure enough, it looks like it works.
         (And in fact, it really does.)
       </p>
-      <figure>
+      <figure xml:id="fig_draw_3D_4">
+        <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, and <m>\vec{v} - \vec{u}</m> from <xref ref="ex_draw_3D_4">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -605,7 +606,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, and <m>\vec{v} - \vec{u}</m> from <xref ref="ex_draw_3D_4">Example</xref>.}
       </figure>
     </solution>
   </example>
@@ -620,7 +620,8 @@
         Using this drawing, sketch the vectors
         <m>\vec{v}+\vec{u}</m> and <m>\vec{v}-\vec{u}</m>.
       </p>
-      <figure>
+      <figure xml:id="fig_draw_3D_5a">
+        <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> for <xref ref="ex_draw_3D_5">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(2,0,0) node [below left] {\(x\)};
@@ -639,7 +640,6 @@
 \draw[thick,->] (0,0,0) -- (2,2,2)  node [above] {\vec{u}};\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Vectors <m>\vec{v}</m> and <m>\vec{u}</m> for <xref ref="ex_draw_3D_5">Example</xref>.}
       </figure>
     </statement>
     <solution>
@@ -652,7 +652,8 @@
         To draw <m>\vec{v}-\vec{u}</m>,
         we draw a dotted arrow from the tip of \vec{u} to the tip of <m>\vec{v}</m>.
       </p>
-      <figure>
+      <figure xml:id="fig_draw_3D_5b">
+        <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, <m>\vec{v} + \vec{u}</m> and <m>\vec{v} - \vec{u}</m> for <xref ref="ex_draw_3D_5">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(2,0,0) node [below left] {\(x\)};
@@ -674,7 +675,6 @@
 \draw[thick,->,dotted] (2,2,2) -- (0,-2,1);\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, <m>\vec{v} + \vec{u}</m> and <m>\vec{v} - \vec{u}</m> for <xref ref="ex_draw_3D_5">Example</xref>.}
       </figure>
     </solution>
   </example>
@@ -702,7 +702,8 @@
       </p>
     </statement>
     <solution>
-      <figure>
+      <figure xml:id="fig_3D_scalar_1">
+        <caption>Sketching scalar multiples of <m>\vec{v}</m> in <xref ref="ex_3D_scalar_1">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -725,7 +726,6 @@
 \draw [->] (0,0,0)--(0,0,3) node [above] {\(z\)};\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Sketching scalar multiples of <m>\vec{v}</m> in <xref ref="ex_3D_scalar_1">Example</xref>.}
       </figure>
       <p>
         It is easy to compute
@@ -762,7 +762,8 @@
     Note how two lengths of the dashed lines have now been drawn gray,
     and another dotted line has been added.
   </p>
-  <figure>
+  <figure xml:id="fig_3D_vect_length">
+    <caption>Computing the length of <m>\vec{v}</m></caption>
     <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -803,7 +804,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
     </image>
-    \mycaption{Computing the length of <m>\vec{v}</m>}
   </figure>
   <p>
     These gray dashed and dotted lines form a right triangle with the dotted line forming the hypotenuse.
@@ -910,9 +910,10 @@
   </p>
   <p>
     In the following exercises,
-    vectors <m>\vec{x}</m> and \vec{y}<nbsp/>are given.
-    Sketch <m>\vec{x}</m>, \vec{y}, <m>\vec{x}+\vec{y}</m>,
-    and <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.
+    vectors <m>\vec{x}</m> and <m>\vec{y}</m> are given.
+    Sketch <m>\vec{x}</m>, <m>\vec{y}</m>,
+    <m>\vec{x}+\vec{y}</m>, and
+    <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.
   </p>
   <exercise>
     <statement>
@@ -1028,7 +1029,7 @@
   </exercise>
   <p>
     In the following exercises,
-    vectors <m>\vec{x}</m> and \vec{y}<nbsp/>are drawn.
+    vectors <m>\vec{x}</m> and <m>\vec{y}</m> are drawn.
     Sketch <m>2\vec{x}</m>, <m>-\vec{y}</m>,
     <m>\vec{x}+\vec{y}</m>, and
     <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.

@@ -23,7 +23,8 @@
     (see <xref ref="fig_translation">Figure</xref>).
     This is called a <em>translation</em>.
   </p>
-  <figure>
+  <figure xml:id="fig_translation">
+    <caption>Translating the unit square one unit to the right.</caption>
     <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{2.5}{1,2};
@@ -36,7 +37,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
     </image>
-    \mycaption{Translating the unit square one unit to the right.}
   </figure>
   <p>
     Our work from the previous section allows us to find the matrix quickly.
@@ -55,7 +55,8 @@
     the unit square was not translated,
     but rather stretched/sheared in some way.
   </p>
-  <figure>
+  <figure xml:id="fig_translation2">
+    <caption>Actual transformation of the unit square by matrix <m>A</m>.</caption>
     <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{2.5}{1,2};
@@ -68,7 +69,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
     </image>
-    \mycaption{Actual transformation of the unit square by matrix <m>A</m>.}
   </figure>
   <p>
     What did we do wrong?
@@ -264,7 +264,8 @@
     </statement>
     <solution>
       <p>
-        Let's start by again considering arbitrary <m>\vec{x}</m> and \vec{y}. Let's choose the same <m>\vec{x}</m> and \vec{y}<nbsp/>from <xref ref="ex_lin_trans_1">Example</xref>.
+        Let's start by again considering arbitrary <m>\vec{x}</m> and <m>\vec{y}</m>.
+        Let's choose the same <m>\vec{x}</m> and <m>\vec{y}</m> from <xref ref="ex_lin_trans_1">Example</xref>.
         <me>
           \vec{x} = \left[\begin{array}{c} 3\\-2 \end{array} \right]  \text{ and }   \vec{y} = \left[\begin{array}{c}  1\\5 \end{array} \right]
         </me>
@@ -358,7 +359,7 @@
         </md>
       </p>
       <p>
-        Therefore, no matter what <m>\vec{x}</m> and \vec{y}<nbsp/>are chosen,
+        Therefore, no matter what <m>\vec{x}</m> and <m>\vec{y}</m> are chosen,
         <m>T(\vec{x}+\vec{y}) = T(\vec{x}) + T(\vec{y})</m>.
         Thus the first part of the lineararity definition is satisfied.
       </p>

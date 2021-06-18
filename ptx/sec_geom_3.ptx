@@ -116,7 +116,8 @@
         A really interesting thing is how the triangular and square vertices seem to have changed places <mdash/> it is as though the square,
         in addition to being stretched out of shape, was flipped.
       </p>
-      <figure>
+      <figure xml:id="fig_mv_3">
+        <caption>Transforming the unit square by matrix multiplication in <xref ref="ex_mv_3">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -135,9 +136,9 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Transforming the unit square by matrix multiplication in <xref ref="ex_mv_3">Example</xref>.}
       </figure>
-      <figure>
+      <figure xml:id="fig_mv_3b">
+        <caption>Emphasizing straight lines going to straight lines in <xref ref="ex_mv_3">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -162,7 +163,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Emphasizing straight lines going to straight lines in <xref ref="ex_mv_3">Example</xref>.}
       </figure>
       <p>
         To stress how
@@ -205,7 +205,8 @@
         In <xref ref="fig_mv_4">Figure</xref>
         the unit square is again drawn along with its transformation by <m>A</m>.
       </p>
-      <figure>
+      <figure xml:id="fig_mv_4">
+        <caption>Transforming the unit square by matrix multiplication in <xref ref="ex_mv_4">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -223,7 +224,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Transforming the unit square by matrix multiplication in <xref ref="ex_mv_4">Example</xref>.}
       </figure>
       <p>
         Make note of how the square moved.
@@ -408,7 +408,8 @@
         Notice how it is turned upside down and is stretched horizontally by a factor of two.
         (The gridlines are given as a visual aid.)
       </p>
-      <figure>
+      <figure xml:id="fig_transf_1">
+        <caption>Transforming the Cartesian plane in <xref ref="ex_transf_1">Example</xref></caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -425,7 +426,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Transforming the Cartesian plane in <xref ref="ex_transf_1">Example</xref>}
       </figure>
     </solution>
   </example>
@@ -446,7 +446,8 @@
     For instance,
     how can we use this picture to figure out how the point <m>(2,3)</m> will be transformed?
   </p>
-  <figure>
+  <figure xml:id="fig_trans">
+    <caption>The unit square under an unknown transformation.</caption>
     <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-2}{2}{-1,1};
@@ -454,7 +455,6 @@
 \unitsquare[thick,cm={1,1,-1,2,(0,0)}];\end{tikzpicture}]]>
 </latex-image>
     </image>
-    \mycaption{The unit square under an unknown transformation.}
   </figure>
   <p>
     There are two ways to consider the solution to this question.
@@ -495,7 +495,8 @@
     direction and <m>3</m> units in the <em>new</em> direction.
     This is demonstrated in <xref ref="fig_trans2">Figure</xref>.
   </p>
-  <figure>
+  <figure xml:id="fig_trans2">
+    <caption>Finding the new location of the point <m>(2,3)</m>.</caption>
     <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-2}{2}{-1,1};
@@ -505,7 +506,6 @@
 \filldraw (-1,8) circle (2pt);\end{tikzpicture}]]>
 </latex-image>
     </image>
-    \mycaption{Finding the new location of the point <m>(2,3)</m>.}
   </figure>
   <p>
     We are coming to grips with how matrix transformations work.
@@ -556,7 +556,8 @@
         <xref ref="fig_transf_2_2">Figure</xref>
         shows the effects of the transformation on another shape.
       </p>
-      <figure>
+      <figure xml:id="fig_transf_2_1">
+        <caption>Understanding the transformation in <xref ref="ex_transf_2">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{3.5}{-1,1,2,3};
@@ -566,9 +567,9 @@
 \filldraw (3,.5) circle (2pt);\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Understanding the transformation in <xref ref="ex_transf_2">Example</xref>.}
       </figure>
-      <figure>
+      <figure xml:id="fig_transf_2_2">
+        <caption>Transforming the Cartesian plane in <xref ref="ex_transf_2">Example</xref></caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -585,7 +586,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{Transforming the Cartesian plane in <xref ref="ex_transf_2">Example</xref>}
       </figure>
     </solution>
   </example>
@@ -930,7 +930,8 @@
         in <xref ref="fig_trans_3_2">Figure</xref>
         we sketch a shape and its transformation.
       </p>
-      <figure>
+      <figure xml:id="fig_trans_3_1">
+        <caption>The transformed unit square in <xref ref="ex_transf_3">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-.5}{2.5}{1,2};
@@ -939,9 +940,9 @@
 \unitsquare[thick,cm={0.933,1.232,0.866,-1,(0,0)}];\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{The transformed unit square in <xref ref="ex_transf_3">Example</xref>.}
       </figure>
-      <figure>
+      <figure xml:id="fig_trans_3_2">
+        <caption>A transformed shape in <xref ref="ex_transf_3">Example</xref>.</caption>
         <image>
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
@@ -958,7 +959,6 @@
 \end{scope}\end{tikzpicture}]]>
 </latex-image>
         </image>
-        \mycaption{A transformed shape in <xref ref="ex_transf_3">Example</xref>.}
       </figure>
     </solution>
   </example>
