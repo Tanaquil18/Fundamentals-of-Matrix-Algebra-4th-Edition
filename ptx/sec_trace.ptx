@@ -1,0 +1,608 @@
+<section xml:id="sec_trace">
+  <title>The Matrix Trace</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: We only compute the trace of square matrices.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: One can tell if a matrix is invertible by computing the trace.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    In the previous section,
+    we learned about an operation we can peform on matrices,
+    namely the transpose.
+    Given a matrix <m>A</m>, we can
+    <q>find the transpose of <m>A</m>,</q>
+    which is another matrix.
+    In this section we learn about a new operation called the <em>trace</em>.
+    It is a different type of operation than the transpose.
+    Given a matrix <m>A</m>, we can
+    <q>find the trace of <m>A</m>,</q>
+    which is not a matrix but rather a number.
+    We formally define it here.
+  </p>
+  <definition xml:id="def_trace">
+    <statement>
+      <p>
+        <term>The Trace</term>
+      </p>
+      <p>
+            <idx><h>trace</h><h>definition</h></idx>
+        Let <m>A</m> be an <m>n\times n</m> matrix.
+        The <term>trace of A</term>,
+        denoted tr( A), is the sum of the diagonal elements of <m>A</m>.
+        That is,
+        <me>
+          \text{ tr } ( A) = a_{11}+a_{22}+\cdots+a_{nn}
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    This seems like a simple definition, and it really is.
+    Just to make sure it is clear, let's practice.
+  </p>
+  <example xml:id="ex_trace_1">
+    <statement>
+      <p>
+        Find the trace of <m>A</m>, B, C<nbsp/>and I<m>_4</m>, where
+        <me>
+          A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right],\  B = \left[\begin{array}{ccc} 1\amp 2\amp 0\\3\amp 8\amp 1\\-2\amp 7\amp -5 \end{array} \right] \ \text{ and } \  C=\left[\begin{array}{ccc}  1\amp 2\amp 3\\4\amp 5\amp 6 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        To find the trace of <m>A</m>,
+        note that the diagonal elements of <m>A</m> are 1 and 4.
+        Therefore, tr(<m>A) = 1+4 = 5</m>.
+      </p>
+      <p>
+        We see that the diagonal elements of B<nbsp/>are 1, 8 and -5, so tr( B)<m>= 1+8-5 = 4</m>.
+      </p>
+      <p>
+        The matrix C<nbsp/>is not a square matrix,
+        and our definition states that we must start with a square matrix.
+        Therefore tr( C) is not defined.
+      </p>
+      <p>
+        Finally, the diagonal of <m>I_4</m> consists of four 1s.
+        Therefore tr( I<m>_4</m>) = 4.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Now that we have defined the trace of a matrix,
+    we should think like mathematicians and ask some questions.
+    The first questions that should pop into our minds should be along the lines of
+    <q>How does the trace work with other matrix operations?</q><fn>
+    Recall that we asked a similar question once we learned about the transpose.
+    </fn> We should think about how the trace works with matrix addition,
+    scalar multiplication,
+    matrix multiplication, matrix inverses, and the transpose.
+  </p>
+  <p>
+    We'll give a theorem that will formally tell us what is true in a moment,
+    but first let's play with two sample matrices and see if we can see what will happen.
+    Let
+    <me>
+      A = \left[\begin{array}{ccc}  2\amp 1\amp 3\\2\amp 0\amp -1\\3\amp -1\amp 3 \end{array} \right] \ \text{ and }  \  B = \left[\begin{array}{ccc} 2\amp 0\amp 1\\-1\amp 2\amp 0\\0\amp 2\amp -1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    It should be clear that tr( A) = 5 and tr( B) = 3.
+    What is tr(<m>A+ B)</m>?
+    <md>
+      <mrow>\text{ tr } ( A+ B) \amp =  \text{ tr } \left(\left[\begin{array}{ccc}  2\amp 1\amp 3</mrow>
+      <mrow>2\amp 0\amp -1</mrow>
+      <mrow>3\amp -1\amp 3\end{array}\right] + \left[\begin{array}{ccc} 2\amp 0\amp 1</mrow>
+      <mrow>-1\amp 2\amp 0</mrow>
+      <mrow>0\amp 2\amp -1\end{array}\right]\right)</mrow>
+      <mrow>\amp =  \text{ tr } \left(\left[\begin{array}{ccc}  4\amp 1\amp 4</mrow>
+      <mrow>1\amp 2\amp -1</mrow>
+      <mrow>3\amp 1\amp 2\end{array}\right]\right)</mrow>
+      <mrow>\amp = 8</mrow>
+    </md>
+  </p>
+  <p>
+    So we notice that tr(<m>A+ B</m>) = tr( A) + tr( B).
+    This probably isn't a coincidence.
+  </p>
+  <p>
+    How does the trace work with scalar multiplication?
+    If we multiply <m>A</m> by 4, then the diagonal elements will be 8, 0 and 12, so tr(4 A) = 20.
+    Is it a coincidence that this is 4 times the trace of A?
+  </p>
+  <p>
+    Let's move on to matrix multiplication.
+    How will the trace of A B<nbsp/>relate to the traces of <m>A</m> and B? Let's see:
+    <md>
+      <mrow>\text{ tr } ( A B) \amp =\text{ tr } \left(\left[\begin{array}{ccc}  2\amp 1\amp 3</mrow>
+      <mrow>2\amp 0\amp -1</mrow>
+      <mrow>3\amp -1\amp 3\end{array}\right] \left[\begin{array}{ccc} 2\amp 0\amp 1</mrow>
+      <mrow>-1\amp 2\amp 0</mrow>
+      <mrow>0\amp 2\amp -1\end{array}\right]\right)</mrow>
+      <mrow>\amp =  \text{ tr } \left(\left[\begin{array}{ccc}  3\amp 8\amp -1</mrow>
+      <mrow>4\amp -2\amp 3</mrow>
+      <mrow>7\amp 4\amp 0\end{array}\right]\right)</mrow>
+      <mrow>\amp =  1</mrow>
+    </md>
+  </p>
+  <p>
+    It isn't exactly clear what the relationship is among tr( A), tr( B) and tr( A B).
+    Before moving on, let's find tr( B A):
+    <md>
+      <mrow>\text{ tr } ( B A) \amp = \text{ tr } \left(\left[\begin{array}{ccc} 2\amp 0\amp 1</mrow>
+      <mrow>-1\amp 2\amp 0</mrow>
+      <mrow>0\amp 2\amp -1\end{array}\right]\left[\begin{array}{ccc}  2\amp 1\amp 3</mrow>
+      <mrow>2\amp 0\amp -1</mrow>
+      <mrow>3\amp -1\amp 3\end{array}\right]\right)</mrow>
+      <mrow>\amp = \text{ tr }  \left(\left[\begin{array}{ccc}  7 \amp  1 \amp  9</mrow>
+      <mrow>2 \amp  -1 \amp  -5</mrow>
+      <mrow>1 \amp  1 \amp  -5 \end{array}\right]\right)</mrow>
+      <mrow>\amp = 1</mrow>
+    </md>
+  </p>
+  <p>
+    We notice that tr<m>( A B) =</m> tr<m>( B A)</m>.
+    Is this coincidental?
+  </p>
+  <p>
+    How are the traces of <m>A</m> and <m>A^{-1}</m> related?
+    We compute <m>A^{-1}</m> and find that
+    <me>
+      A^{-1} = \left[\begin{array}{ccc}  1/17 \amp  6/17 \amp  1/17\\9/17 \amp  3/17 \amp  -8/17\\ 2/17 \amp  -5/17 \amp  2/17 \end{array} \right]
+    </me>.
+    Therefore tr( A^{-1}) = 6/17.
+    Again, the relationship isn't clear.<fn>
+    Something to think about:
+    we know that not all square matrices are invertible.
+    Would we be able to tell just by the trace?
+    That seems unlikely.
+    </fn>
+  </p>
+  <p>
+    Finally, let's see how the trace is related to the transpose.
+    We actually don't have to formally compute anything.
+    Recall from the previous section that the diagonals of <m>A</m> and A^T<nbsp/>are identical;
+    therefore, tr( A) = tr( A^T).
+    That, we know for sure, isn't a coincidence.
+  </p>
+  <p>
+    We now formally state what equalities are true when considering the interaction of the trace with other matrix operations.
+  </p>
+  <theorem xml:id="thm_trace">
+    <statement>
+      <p>
+            <idx><h>trace</h><h>properties</h></idx>
+        <em>Properties of the Matrix Trace</em>
+      </p>
+      <p>
+        Let <m>A</m> and B<nbsp/>be <m>n\times n</m> matrices.
+        Then:
+        <ol>
+          <li>
+            <p>
+              tr(<m>A+ B</m>) = tr( A) + tr( B)
+            </p>
+          </li>
+          <li>
+            <p>
+              tr(<m>A- B</m>) = tr( A) <m>-</m> tr( B)
+            </p>
+          </li>
+          <li>
+            <p>
+              tr(<m>k A</m>) = <m>k\cdot</m>tr( A)
+            </p>
+          </li>
+          <li>
+            <p>
+              tr( A B) = tr( B A)
+            </p>
+          </li>
+          <li>
+            <p>
+              tr( A^T) = tr( A)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    One of the key things to note here is what this theorem does <em>not</em> say.
+    It says nothing about how the trace relates to inverses.
+    The reason for the silence in these areas is that there simply is not a relationship.
+  </p>
+  <p>
+    We end this section by again wondering why anyone would care about the trace of matrix.
+    One reason mathematicians are interested in it is that it can give a measurement of the
+    <q>size</q><fn>
+    There are many different measurements of a matrix size.
+    In this text, we just refer to its dimensions.
+    Some measurements of size refer the magnitude of the elements in the matrix.
+    The next section describes yet another measurement of matrix size.
+    </fn> of a matrix.
+  </p>
+  <p>
+    Consider the following <m>2 \times 2</m> matrices:
+    <me>
+      A = \left[\begin{array}{cc}  1\amp -2\\1\amp 1 \end{array} \right] \ \text{ and } \  B = \left[\begin{array}{cc}  6\amp 7\\11\amp -4 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    These matrices have the same trace,
+    yet B<nbsp/>clearly has bigger elements in it.
+    So how can we use the trace to determine a
+    <q>size</q>
+    of these matrices?
+    We can consider tr( A^T A) and tr( B^T B).
+    <md>
+      <mrow>\text{ tr } ( A^T A) \amp = \text{ tr } \left(\left[\begin{array}{cc} 1\amp 1</mrow>
+      <mrow>-2\amp 1\end{array}\right]\left[\begin{array}{cc} 1\amp -2</mrow>
+      <mrow>1\amp 1\end{array}\right]\right)</mrow>
+      <mrow>\amp =  \text{ tr } \left( \left[\begin{array}{cc} 2\amp -1</mrow>
+      <mrow>-1\amp 5\end{array}\right]\right)</mrow>
+      <mrow>\amp = 7</mrow>
+    </md>
+    <md>
+      <mrow>\text{ tr } ( B^T B) \amp = \text{ tr } \left(\left[\begin{array}{cc}  6\amp 11</mrow>
+      <mrow>7\amp -4\end{array}\right]\left[\begin{array}{cc} 6\amp 7</mrow>
+      <mrow>11\amp -4\end{array}\right]\right)</mrow>
+      <mrow>\amp = \text{ tr } \left(\left[\begin{array}{cc}  157 \amp  -2</mrow>
+      <mrow>-2 \amp  65\end{array}\right] \right)</mrow>
+      <mrow>\amp = 222</mrow>
+    </md>
+  </p>
+  <p>
+    Our concern is not how to interpret what this
+    <q>size</q>
+    measurement means, but rather to demonstrate that the trace
+    (along with the transpose)
+    can be used to give
+    (perhaps useful)
+    information about a matrix.<fn>
+    This example brings to light many interesting ideas that we'll flesh out just a little bit here.
+    <ol>
+      <li>
+        <p>
+          Notice that the elements of <m>A</m> are 1, <m>-2</m>, 1 and 1.
+          Add the squares of these numbers:
+          <m>1^2 + (-2)^2 + 1^2 + 1^2 = 7 =</m> tr( A^T A).
+          Notice that the elements of B<nbsp/>are 6, 7, 11 and -4.
+          Add the squares of these numbers:
+          <m>6^2 + 7^2 + 11^2 + (-4)^2 = 222 =</m> tr( B^T B).
+          Can you see why this is true?
+          When looking at multiplying A^T<m>A</m>,
+          focus only on where the elements on the diagonal come from since they are the only ones that matter when taking the trace.
+        </p>
+      </li>
+      <li>
+        <p>
+          You can confirm on your own that regardless of the dimensions of <m>A</m>,
+          tr( A^T A) = tr( A A^T).
+          To see why this is true, consider the previous point.
+          (Recall also that A^T<m>A</m> and A A^T<nbsp/>are always square,
+          regardless of the dimensions of <m>A</m>.)
+        </p>
+      </li>
+      <li>
+        <p>
+          Mathematicians are actually more interested in
+          <m>\sqrt{\text{ tr } ( A^T A)}</m> than just tr( A^T A).
+          The reason for this is a bit complicated;
+          the short answer is that
+          <q>it works better.</q>
+          The reason
+          <q>it works better</q>
+          is related to the Pythagorean Theorem, all of all things.
+          If we know that the legs of a right triangle have length <m>a</m> and <m>b</m>,
+          we are more interested in <m>\sqrt{a^2+b^2}</m> than just <m>a^2+b^2</m>.
+          Of course, this explanation raises more questions than it answers;
+          our goal here is just to whet your appetite and get you to do some more reading.
+          A Numerical Linear Algebra book would be a good place to start.
+        </p>
+      </li>
+    </ol>
+    </fn>
+  </p>
+  <p>
+    In the following exercises, find the trace of the given matrix.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 1\amp -5\\ 9\amp 5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>6</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -3\amp -10\\ -6\amp 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 7\amp 5\\ -5\amp -4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>3</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -6\amp 0\\ -10\amp 9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>3</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} -4\amp 1\amp 1\\ -2\amp 0\amp 0 \\ -1\amp -2\amp -5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>-9</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 0\amp -3\amp 1\\ 5\amp -5\amp 5 \\ -4\amp 1\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>-5</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} -2\amp -3\amp 5\\ 5\amp 2\amp 0 \\ -1\amp -3\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 4\amp 2\amp -1\\ -4\amp 1\amp 4 \\ 0\amp -5\amp 5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>10</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 2\amp 6\amp 4\\ -1\amp 8\amp -10 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Not defined; the matrix must be square.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 6\amp 5\\ 2\amp 10 \\ 3\amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Not defined; the matrix must be square.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} -10\amp 6\amp -7\amp -9\\ -2\amp 1\amp 6\amp -9 \\ 0\amp 4\amp -4\amp 0\\ -3\amp -9\amp 3\amp -10 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>-23</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cccc} 5\amp 2\amp 2\amp 2\\ -7\amp 4\amp -7\amp -3 \\ 9\amp -9\amp -7\amp 2\\ -4\amp 8\amp -8\amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>0</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>I_4</m>
+      </p>
+    </statement>
+    <answer>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>I_n</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>n</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        A matrix <m>A</m> that is skew symmetric.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>0</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises, verify <xref ref="thm_trace">Theorem</xref> by:
+    <ol>
+      <li>
+        <p>
+          Showing that tr( A)<m>+</m>tr( B) = tr(<m>A+ B</m>) and
+        </p>
+      </li>
+      <li>
+        <p>
+          Showing that tr( A B) = tr( B A).
+        </p>
+      </li>
+    </ol>
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp -1\\ 9\amp -6 \end{array} \right]</m>,
+        <m>B = \left[\begin{array}{cc} -1\amp 0\\ -6\amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            tr( A)=<m>-5</m>; tr( B)=<m>-4</m>;
+            tr(<m>A+ B</m>)=<m>-9</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            tr( A B) = 23 = tr( B A)
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 0\amp -8\\ 1\amp 8 \end{array} \right]</m>,
+        <m>B = \left[\begin{array}{cc} -4\amp 5\\ -4\amp 2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            tr( A)=<m>8</m>; tr( B)=<m>-2</m>;
+            tr(<m>A+ B</m>)=<m>6</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            tr( A B) = 53 = tr( B A)
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -8\amp -10\amp 10\\ 10\amp 5\amp -6 \\ -10\amp 1\amp 3 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} -10\amp -4\amp -3\\ -4\amp -5\amp 4 \\ 3\amp 7\amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            tr( A)=0; tr( B)=<m>-12</m>;
+            tr(<m>A+ B</m>)=<m>-12</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            tr( A B) = 86 = tr( B A)
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -10\amp 7\amp 5\\ 7\amp 7\amp -5 \\ 8\amp -9\amp 2 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} -3\amp -4\amp 9\\ 4\amp -1\amp -9 \\ -7\amp -8\amp 10 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            tr( A)=<m>-1</m>; tr( B)=<m>6</m>;
+            tr(<m>A+ B</m>)=<m>5</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            tr( A B) = 201 = tr( B A)
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+</section>

@@ -1,0 +1,1734 @@
+<section xml:id="sec_matrix_multiplication">
+  <title>Matrix Multiplication</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: Column vectors are used more in this text than row vectors,
+          although some other texts do the opposite.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: To multiply <m>A\times B</m>,
+          the number of rows of <m>A</m> and B<nbsp/>need to be the same.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: The entry in the 2<m>^\text{ nd }</m> row and 3<m>^\text{ rd }</m> column of the product A B<nbsp/>comes from multipling the 2<m>^\text{ nd }</m> row of <m>A</m> with the 3<m>^\text{ rd }</m> column of B.
+        </p>
+      </li>
+      <li>
+        <p>
+          Name two properties of matrix multiplication that also hold for
+          <q>regular multiplication</q>
+          of numbers.
+        </p>
+      </li>
+      <li>
+        <p>
+          Name a property of
+          <q>regular multiplication</q>
+          of numbers that does not hold for matrix multiplication.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: <m>A^3 = A\cdot A\cdot A</m>
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    In the previous section we found that the definition of matrix addition was very intuitive,
+    and we ended that section discussing the fact that eventually we'd like to know what it means to multiply matrices together.
+  </p>
+  <p>
+    In the spirit of the last section,
+    take another wild stab: what do you think
+    <me>
+      \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right] \times \left[\begin{array}{cc}  1\amp -1\\2\amp 2 \end{array} \right]
+    </me>
+    means?
+  </p>
+  <p>
+    You are likely to have guessed
+    <me>
+      \left[\begin{array}{cc}  1\amp -2\\6\amp 8 \end{array} \right]
+    </me>
+    but this is, in fact, <em>not</em> right.<fn>
+    I guess you <em>could</em> define multiplication this way.
+    If you'd prefer this type of multiplication, write your own book.
+    </fn> The actual answer is
+    <me>
+      \left[\begin{array}{cc} 5\amp 3\\11\amp 5 \end{array} \right]
+    </me>.
+    If you can look at this one example and suddenly understand exactly how matrix multiplication works,
+    then you are probably smarter than the author.
+    While matrix multiplication isn't hard,
+    it isn't nearly as intuitive as matrix addition is.
+  </p>
+  <p>
+    To further muddy the waters
+    (before we clear them),
+    consider
+    <me>
+      \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right] \times \left[\begin{array}{ccc}  1\amp -1\amp 0\\2\amp 2\amp -1 \end{array} \right]
+    </me>.
+    Our experience from the last section would lend us to believe that this is not defined,
+    but our confidence is probably a bit shaken by now.
+    In fact, this multiplication <em>is</em> defined, and it is
+    <me>
+      \left[\begin{array}{ccc} 5\amp 3\amp -2\\11\amp 5\amp -4 \end{array} \right]
+    </me>.
+    You may see some similarity in this answer to what we got before,
+    but again, probably not enough to really figure things out.
+  </p>
+  <p>
+    So let's take a step back and progress slowly.
+    The first thing we'd like to do is define a special type of matrix called a vector.
+  </p>
+  <definition xml:id="def_vector">
+    <statement>
+      <p>
+        <term>Column and Row Vectors</term>
+      </p>
+      <p>
+            <idx><h>vector</h><h>column</h></idx>
+            <idx><h>vector</h><h>row</h></idx>
+        A <m>m\times 1</m> matrix is called a
+        <term>column vector</term>.
+      </p>
+      <p>
+        A <m>1\times n</m> matrix is called a <term>row vector</term>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    While it isn't obvious right now,
+    column vectors are going to become far more useful to us than row vectors.
+    Therefore, we often omit the word
+    <q>column</q>
+    when refering to column vectors, and we just call them
+    <q>vectors.</q><fn>
+    In this text,
+    row vectors are only used in this section when we discuss matrix multiplication,
+    whereas we'll make extensive use of column vectors.
+    Other texts make great use of row vectors,
+    but little use of column vectors.
+    It is a matter of preference and tradition:
+    <q>most</q>
+    texts use column vectors more.
+    </fn>
+  </p>
+  <p>
+    We have been using upper case letters to denote matrices;
+    we use lower case letters with an arrow overtop to denote row and column vectors.
+    An example of a row vector is
+    <me>
+      \vec{u} = \left[\begin{array}{cccc} 1\amp 2\amp -1\amp 0 \end{array} \right]
+    </me>
+    and an example of a column vector is
+    <me>
+      \vec{v} = \left[\begin{array}{c}  1\\7\\8 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Before we learn how to multiply matrices in general,
+    we will learn what it means to multiply a row vector by a column vector.
+  </p>
+  <definition xml:id="def_vector_multiply">
+    <statement>
+      <p>
+        <term>Multiplying a row vector by a column vector</term>
+      </p>
+      <p>
+        Let <m>\vec{u}</m> be an <m>1\times n</m> row vector with entries <m>u_1</m>,
+        <m>u_2</m>, <m>\cdots</m>,
+        <m>u_n</m> and let <m>\vec{v}</m> be an
+        <m>n\times 1</m> column vector with entries <m>v_1</m>,
+        <m>v_2</m>, <m>\cdots</m>, <m>v_n</m>.
+        The <term>product of <m>\vec{u}</m> and \vec{v}</term>,
+        denoted <m>\vec{u}\cdot\vec{v}</m> or <m>\vec{u}\vec{v}</m>, is
+        <me>
+          \sum_{i=1}^n  u_iv_i = u_1v_1 + u_2v_2 + \cdots + u_nv_n
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Don't worry if this definition doesn't make immediate sense.
+    It is really an easy concept;
+    an example will make things more clear.
+  </p>
+  <example xml:id="ex_vector_multiplication">
+    <statement>
+      <p>
+        Let
+        <me>
+          \vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right],\ \vec{v} = \left[\begin{array}{cccc} 2\amp 0\amp 1\amp -1 \end{array} \right],\ \vec{x} = \left[\begin{array}{c} -2\\4\\3 \end{array} \right],\ \vec{y} = \left[\begin{array}{c}  1\\2\\5\\0 \end{array} \right]
+        </me>.
+        Find the following products.
+      </p>
+      <ol cols="3">
+        <li>
+          <p>
+            \vec{u}\vec{x}
+          </p>
+        </li>
+        <li>
+          <p>
+            \vec{v}\vec{y}
+          </p>
+        </li>
+        <li>
+          <p>
+            \vec{u}\vec{y}
+          </p>
+        </li>
+        <li>
+          <p>
+            \vec{u}\vec{v}
+          </p>
+        </li>
+        <li>
+          <p>
+            \vec{x}\vec{u}
+          </p>
+        </li>
+      </ol>
+    </statement>
+    <solution>
+      <ol>
+        <li>
+          <p>
+            <m>\vec{u}\vec{x} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right]\left[\begin{array}{c} -2\\4\\3 \end{array} \right] = 1(-2)+2(4)+3(3) = 15</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vec{v}\vec{y} = \left[\begin{array}{cccc} 2\amp 0\amp 1\amp -1 \end{array} \right]\left[\begin{array}{c} 1\\2\\5\\0 \end{array} \right] = 2(1)+0(2)+1(5)-1(0) = 7</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            \vec{u}<m>\vec{y}</m> is not defined;
+            <xref ref="def_vector_multiply">Definition</xref>
+            specifies that in order to multiply a row vector and column vector,
+            they must have the same number of entries.
+          </p>
+        </li>
+        <li>
+          <p>
+            \vec{u}<m>\vec{v}</m> is not defined;
+            we only know how to multipy row vectors by column vectors.
+            We haven't defined how to multiply two row vectors
+            (in general, it can't be done).
+          </p>
+        </li>
+        <li>
+          <p>
+            The product \vec{x}<m>\vec{u}</m> <em>is</em> defined,
+            but we don't know how to do it yet.
+            Right now, we only know how to multiply a row vector times a column vector;
+            we don't know how to multiply a column vector times a row vector. (That's right:
+            <m>\vec{u}\vec{x} \neq \vec{x}\vec{u}!</m>)
+          </p>
+        </li>
+      </ol>
+      <p>
+        \vskip -\topsep
+      </p>
+    </solution>
+  </example>
+  <p>
+    Now that we understand how to multiply a row vector by a column vector,
+    we are ready to define matrix multiplication.
+  </p>
+  <definition xml:id="def_matrix_multiply">
+    <statement>
+      <p>
+            <idx><h>matrix</h><h>multiplication</h></idx>
+        <term>Matrix Multiplication</term>
+      </p>
+      <p>
+        Let <m>A</m> be an <m>m\times r</m> matrix,
+        and let B<nbsp/>be an <m>r\times n</m> matrix.
+        The <term>matrix product of <m>A</m> and B</term>, denoted <m>A\cdot B</m>,
+        or simply A B, is the <m>m\times n</m> matrix whose entry in the <m>i^{\text{ th } }</m> row and
+        <m>j^{\text{ th } }</m> column is the product of the
+        <m>i^{\text{ th } }</m> row of <m>A</m> and the <m>j^{\text{ th } }</m> column of B.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    It may help to illustrate it in this way.
+    Let matrix <m>A</m> have rows <m>\vec{a_1}</m>,
+    <m>\vec{a_2}</m>, <m>\cdots</m>,
+    <m>\vec{a_m}</m> and let B<nbsp/>have columns <m>\vec{b_1}</m>,
+    <m>\vec{b_2}</m>,
+    <m>\cdots</m>, <m>\vec{b_n}</m>.
+    Thus <m>A</m> looks like
+    <me>
+      \left[\begin{array}{ccc} -\amp \vec{a_1}\amp -\\-\amp \vec{a_2}\amp -\\ \amp  \vdots \amp  \\ -\amp \vec{a_m}\amp - \end{array} \right]
+    </me>
+    where the
+    <q><m>-</m></q>
+    symbols just serve as reminders that the
+    <m>\vec{a_i}</m> represent rows, and B<nbsp/>looks like
+    <me>
+      \left[\begin{array}{cccc} |\amp |\amp  \amp |\\\vec{b_1}\amp \vec{b_2}\amp \cdots\amp \vec{b_n}\\|\amp |\amp  \amp | \end{array} \right]
+    </me>
+    where again, the
+    <q><m>|</m></q>
+    symbols just remind us that the \vec{b_i}<nbsp/>represent column vectors.
+    Then
+    <me>
+      A B = \left[\begin{array}{cccc} \vec{a_1}\vec{b_1} \amp  \vec{a_1}\vec{b_2} \amp  \cdots \amp  \vec{a_1}\vec{b_n}\\ \vec{a_2}\vec{b_1} \amp  \vec{a_2}\vec{b_2} \amp  \cdots \amp  \vec{a_2}\vec{b_n}\\ \vdots \amp  \vdots \amp  \ddots \amp  \vdots \\ \vec{a_m}\vec{b_1} \amp  \vec{a_m}\vec{b_2} \amp  \cdots \amp  \vec{a_m}\vec{b_n} \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Two quick notes about this definition.
+    First, notice that in order to multiply <m>A</m> and B, the number of <em>columns</em>
+    of <m>A</m> must be the same as the number of <em>rows</em>
+    of B<nbsp/>(we refer to these as the
+    <q>inner dimensions</q>).
+    Secondly,
+    the resulting matrix has the same number of <em>rows</em>
+    as <m>A</m> and the same number of <em>columns</em>
+    as B<nbsp/>(we refer to these as the
+    <q>outer dimensions</q>).
+    <me>
+      \overbrace{(m\times {}\underbrace{r) \times (r}_\text{ these inner dimensions must match } {}\times n)}^\text{ final dimensions are the outer dimensions }
+    </me>
+  </p>
+  <p>
+    Of course, this will make much more sense when we see an example.
+  </p>
+  <example xml:id="ex_matrix_multiply_1">
+    <statement>
+      <p>
+        Revisit the matrix product we saw at the beginning of this section; multiply
+        <me>
+          \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right]\left[\begin{array}{ccc} 1\amp -1\amp 0\\2\amp 2\amp -1 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let's call our first matrix <m>A</m> and the second B. We should first check to see that we can actually perform this multiplication.
+        Matrix <m>A</m> is <m>2\times 2</m> and B<nbsp/>is <m>2\times 3</m>.
+        The
+        <q>inner</q>
+        dimensions match up, so we can compute the product; the
+        <q>outer</q>
+        dimensions tell us that the product will be <m>2\times 3</m>.
+        Let
+        <me>
+          A B = \left[\begin{array}{ccc} m_{11} \amp  m_{12} \amp  m_{13}\\m_{21} \amp  m_{22} \amp  m_{23} \end{array} \right]
+        </me>.
+        Let's find the value of each of the entries.
+      </p>
+      <p>
+        The entry <m>m_{11}</m> is in the first row and first column;
+        therefore to find its value,
+        we need to multiply the first row of <m>A</m> by the first column of B. Thus
+        <me>
+          m_{11} = \left[\begin{array}{cc}  1\amp 2 \end{array} \right]\left[\begin{array}{c} 1\\2 \end{array} \right] = 1(1)+2(2) = 5
+        </me>.
+        So now we know that
+        <me>
+          A B = \left[\begin{array}{ccc} 5 \amp  m_{12} \amp  m_{13}\\m_{21} \amp  m_{22} \amp  m_{23} \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Finishing out the first row, we have
+        <me>
+          m_{12} = \left[\begin{array}{cc} 1\amp 2 \end{array} \right]\left[\begin{array}{c} -1\\2 \end{array} \right] = 1(-1)+2(2) = 3
+        </me>
+        using the first row of <m>A</m> and the second column of B, and
+        <me>
+          m_{13} = \left[\begin{array}{cc} 1\amp 2 \end{array} \right]\left[\begin{array}{c} 0\\-1 \end{array} \right] = 1(0)+2(-1) = -2
+        </me>
+        using the first row of <m>A</m> and the third column of B. Thus we have
+        <me>
+          A B = \left[\begin{array}{ccc} 5 \amp  3 \amp  -2\\m_{21} \amp  m_{22} \amp  m_{23} \end{array} \right]
+        </me>
+      </p>
+      <p>
+        To compute the second row of A B, we multiply with the second row of <m>A</m>.
+        We find
+        <me>
+          m_{21} = \left[\begin{array}{cc} 3\amp 4 \end{array} \right]\left[\begin{array}{c} 1\\2 \end{array} \right] = 11
+        </me>
+        <me>
+          m_{22} = \left[\begin{array}{cc} 3\amp 4 \end{array} \right]\left[\begin{array}{c} -1\\2 \end{array} \right] = 5
+        </me>,
+        and
+        <me>
+          m_{23} = \left[\begin{array}{cc} 3\amp 4 \end{array} \right]\left[\begin{array}{c} 0\\-1 \end{array} \right] = -4
+        </me>.
+        Thus
+        <me>
+          A B = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right]\left[\begin{array}{ccc} 1\amp -1\amp 0\\2\amp 2\amp -1 \end{array} \right] = \left[\begin{array}{ccc} 5 \amp  3 \amp  -2\\11 \amp  5 \amp  -4 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_matrix_multiply_2">
+    <statement>
+      <p>
+        Multiply
+        <me>
+          \left[\begin{array}{cc}  1\amp -1\\5\amp 2\\-2\amp 3 \end{array} \right]\left[\begin{array}{cccc} 1\amp 1\amp 1\amp 1\\2\amp 6\amp 7\amp 9 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let's first check to make sure this product is defined.
+        Again calling the first matrix <m>A</m> and the second B, we see that <m>A</m> is a
+        <m>3\times 2</m> matrix and B<nbsp/>is a <m>2\times4</m> matrix;
+        the inner dimensions match so the product is defined,
+        and the product will be a <m>3\times 4</m> matrix,
+        <me>
+          A B = \left[\begin{array}{cccc} m_{11}\amp m_{12}\amp m_{13}\amp m_{14}\\ m_{21}\amp m_{22}\amp m_{23}\amp m_{24}\\m_{31}\amp m_{32}\amp m_{33}\amp m_{34} \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We will demonstrate how to compute some of the entries,
+        then give the final answer.
+        The reader can fill in the details of how each entry was computed.
+        <me>
+          m_{11} = \left[\begin{array}{cc} 1\amp -1 \end{array} \right]\left[\begin{array}{c} 1\\2 \end{array} \right] = -1
+        </me>
+        <me>
+          m_{13} = \left[\begin{array}{cc} 1\amp -1 \end{array} \right]\left[\begin{array}{c} 1\\7 \end{array} \right] = -6
+        </me>
+        <me>
+          m_{23} = \left[\begin{array}{cc} 5\amp 2 \end{array} \right]\left[\begin{array}{c} 1\\7 \end{array} \right] = 19
+        </me>
+        <me>
+          m_{24} = \left[\begin{array}{cc} 5\amp 2 \end{array} \right]\left[\begin{array}{c} 1\\9 \end{array} \right] = 23
+        </me>
+      </p>
+      <me>
+        m_{32} = \left[\begin{array}{cc} -2\amp 3
+        \end{array} \right]\left[\begin{array}{c} 1\\6
+        \end{array} \right] = 16
+      </me>
+      <me>
+        m_{34} = \left[\begin{array}{cc} -2\amp 3
+        \end{array} \right]\left[\begin{array}{c} 1\\9
+        \end{array} \right] = 25
+      </me>
+      <p>
+        So far, we've computed this much of A B:
+        <me>
+          A B = \left[\begin{array}{cccc} -1\amp m_{12}\amp -6\amp m_{14}\\ m_{21}\amp m_{22}\amp 19\amp 23\\m_{31}\amp 16\amp m_{33}\amp 25 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        The final product is
+        <me>
+          A B = \left[\begin{array}{cccc} -1\amp -5\amp -6\amp -8\\ 9\amp 17\amp 19\amp 23\\4\amp 16\amp 19\amp 25 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_matrix_multiply_3">
+    <statement>
+      <p>
+        Multiply, if possible,
+        <me>
+          \left[\begin{array}{ccc} 2\amp 3\amp 4\\9\amp 8\amp 7 \end{array} \right]\left[\begin{array}{cc} 3\amp 6\\5\amp -1 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Again, we'll call the first matrix <m>A</m> and the second B. Checking the dimensions of each matrix,
+        we see that <m>A</m> is a <m>2\times 3</m> matrix,
+        whereas B<nbsp/>is a <m>2\times2</m> matrix.
+        The inner dimensions do not match,
+        therefore this multiplication is not defined.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_matrix_multiply_4">
+    <statement>
+      <p>
+        In <xref ref="ex_vector_multiplication">Example</xref>,
+        we were told that the product \vec{x}<m>\vec{u}</m> was defined, where
+        <me>
+          \vec{x} =\left[\begin{array}{c} -2\\4\\3 \end{array} \right]  \text{ and }   \vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right]
+        </me>,
+        although we were not shown what that product was.
+        Find \vec{x}<m>\vec{u}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Again, we need to check to make sure the dimensions work correctly
+        (remember that even though we are referring to <m>\vec{u}</m> and <m>\vec{x}</m> as vectors,
+        they are, in fact, just matrices).
+      </p>
+      <p>
+        The column vector <m>\vec{x}</m> has dimensions <m>3\times1</m>,
+        whereas the row vector <m>\vec{u}</m> has dimensions <m>1\times 3</m>.
+        Since the inner dimensions do match,
+        the matrix product is defined;
+        the outer dimensions tell us that the product will be a
+        <m>3\times3</m> matrix, as shown below:
+        <me>
+          \vec{x}\vec{u} = \left[\begin{array}{ccc} m_{11}\amp m_{12}\amp m_{13}\\ m_{21}\amp m_{22}\amp m_{23}\\m_{31}\amp m_{32}\amp m_{33} \end{array} \right]
+        </me>
+      </p>
+      <p>
+        To compute the entry <m>m_{11}</m>,
+        we multiply the first row of <m>\vec{x}</m> by the first column of <m>\vec{u}</m>.
+        What is the first row of \vec{x}? Simply the number <m>-2</m>.
+        What is the first column of \vec{u}? Just the number 1.
+        Thus <m>m_{11} = -2</m>.
+        (This does seem odd, but through checking,
+        you can see that we are indeed following the rules.)
+      </p>
+      <p>
+        What about the entry <m>m_{12}</m>?
+        Again, we multiply the first row of <m>\vec{x}</m> by the first column of \vec{u}; that is,
+        we multiply <m>-2(2)</m>.
+        So <m>m_{12} = -4</m>.
+      </p>
+      <p>
+        What about <m>m_{23}</m>?
+        Multiply the second row of <m>\vec{x}</m> by the third column of \vec{u}; multiply <m>4(3)</m>,
+        so <m>m_{23} = 12</m>.
+      </p>
+      <p>
+        One final example:
+        <m>m_{31}</m> comes from multiplying the third row of <m>\vec{x}</m>,
+        which is 3, by the first column of <m>\vec{u}</m>, which is 1.
+        Therefore <m>m_{31} = 3</m>.
+      </p>
+      <p>
+        So far we have computed
+        <me>
+          \vec{x}\vec{u} = \left[\begin{array}{ccc} -2\amp -4\amp m_{13}\\ m_{21}\amp m_{22}\amp 12\\3\amp m_{32}\amp m_{33} \end{array} \right]
+        </me>
+      </p>
+      <p>
+        After performing all 9 multiplications, we find
+        <me>
+          \vec{x}\vec{u} = \left[\begin{array}{ccc} -2\amp -4\amp -6\\ 4\amp 8\amp 12\\3\amp 6\amp 9 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    In this last example, we saw a
+    <q>nonstandard</q>
+    multiplication
+    (at least, it felt nonstandard).
+    Studying the entries of this matrix,
+    it seems that there are several different patterns that can be seen amongst the entries.
+    (Remember that mathematicians like to look for patterns.
+    Also remember that we often guess wrong at first;
+    don't be scared and try to identify some patterns.)
+  </p>
+  <p>
+    In <xref ref="sec_matrix_arithmetic_1">Section</xref>,
+    we identified the zero matrix O<nbsp/>that had a nice property in relation to matrix addition (i.e., <m>A+ O = A</m> for any matrix A).
+    In the following example we'll identify a matrix that works well with multiplication as well as some multiplicative properties.
+    For instance, we've learned how <m>1\cdot A = A</m>;
+    is there a <em>matrix</em> that acts like the number 1?
+    That is, can we find a matrix <m>X</m> where <m>X\cdot A= A</m>?<fn>
+    We made a guess in <xref ref="sec_matrix_arithmetic_1">Section</xref>
+    that maybe a matrix of all 1s would work.
+    </fn>
+  </p>
+  <example xml:id="ex_identity">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right],   B = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]
+        </me>
+        <me>
+          C = \left[\begin{array}{ccc} 1\amp 0\amp 2\\2\amp 1\amp 0\\0\amp 2\amp 1 \end{array} \right],   I = \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]
+        </me>.
+        Find the following products.
+      </p>
+      <ol cols="4">
+        <li>
+          <p>
+            A B
+          </p>
+        </li>
+        <li>
+          <p>
+            B A
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A\tto_{3\times4}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A I</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            I A
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>I^2</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            B C
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>B^2</m>
+          </p>
+        </li>
+      </ol>
+    </statement>
+    <solution>
+      <p>
+        We will find each product,
+        but we leave the details of each computation to the reader.
+        <ol>
+          <li>
+            <p>
+              <m>A B = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right]\left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right] = \left[\begin{array}{ccc} 6\amp 6\amp 6\\0\amp 0\amp 0\\-7\amp -7\amp -7 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>B A = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]\left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right] = \left[\begin{array}{ccc} 1\amp -13\amp 11\\1\amp -13\amp 11\\1\amp -13\amp 11 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A\tto_{3\times4} = \tto_{3\times4}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A I = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right] = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>I A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right] = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              We haven't formally defined what <m>I^2</m> means,
+              but we could probably make the reasonable guess that <m>I^2= I\cdot I</m>.
+              Thus
+              <me>
+                I^2 =  =
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>B C = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right] \left[\begin{array}{ccc} 1\amp 0\amp 2\\2\amp 1\amp 0\\0\amp 2\amp 1 \end{array} \right] = \left[\begin{array}{ccc} 3\amp 3\amp 3\\3\amp 3\amp 3\\3\amp 3\amp 3 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>B^2 = B B = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]\left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]=\left[\begin{array}{ccc} 3\amp 3\amp 3\\3\amp 3\amp 3\\3\amp 3\amp 3 \end{array} \right]</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        \vskip -\topsep
+      </p>
+    </solution>
+  </example>
+  <p>
+    This example is simply chock full of interesting ideas;
+    it is almost hard to think about where to start.
+  </p>
+  <p>
+    <em><em>Interesting Idea #1:</em></em>
+    Notice that in our example, <m>A B \neq B A</m>!
+    When dealing with numbers, we were used to the idea that <m>ab = ba</m>.
+    With matrices, multiplication is
+    <em>not</em> commutative.
+    (Of course, we can find special situations where it does work.
+    In general, though, it doesn't.)
+  </p>
+  <p>
+    <em><em>Interesting Idea #2:</em></em>
+    Right before this example we wondered if there was a matrix that
+    <q>acted like the number 1,</q>
+    and guessed it may be a matrix of all 1s.
+    However, we found out that such a matrix does not work in that way;
+    in our example, <m>A B \neq A</m>.
+    We did find that <m>A I = I A = A</m>.
+    There is a Multiplicative Identity;
+    it just isn't what we thought it would be.
+    And just as <m>1^2 = 1</m>, <m>I^2 = I</m>.
+  </p>
+  <p>
+    <em><em>Interesting Idea #3:</em></em>
+    When dealing with numbers,
+    we are very familiar with the notion that
+    <q>If <m>ax = bx</m>, then <m>a=b</m>.</q>
+    (As long as <m>x\neq 0</m>.) Notice that,
+    in our example, <m>B B = B C</m>, yet <m>B\neq C</m>.
+    In general, just because <m>A X = B X</m>,
+    we <em>cannot</em> conclude that <m>A = B</m>.
+  </p>
+  <p>
+    Matrix multiplication is turning out to be a very strange operation.
+    We are very used to multiplying numbers,
+    and we know a bunch of properties that hold when using this type of multiplication.
+    When multiplying matrices,
+    though, we probably find ourselves asking two questions,
+    <q>What <em>does</em> work?</q>
+    and
+    <q>What <em>doesn't</em> work?</q>
+    We'll answer these questions;
+    first we'll do an example that demonstrates some of the things that do work.
+  </p>
+  <example xml:id="ex_dist_and_assoc">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right],  B = \left[\begin{array}{cc} 1\amp 1\\1\amp -1 \end{array} \right]  \text{ and }    C=\left[\begin{array}{cc} 2\amp 1\\1\amp 2 \end{array} \right]
+        </me>.
+        Find the following:
+      </p>
+      <ol cols="2">
+        <li>
+          <p>
+            <m>A( B+ C)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A B+ A C</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A( B C)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>( A B) C</m>
+          </p>
+        </li>
+      </ol>
+    </statement>
+    <solution>
+      <p>
+        We'll compute each of these without showing all the intermediate steps.
+        Keep in mind order of operations:
+        things that appear inside of parentheses are computed first.
+        <ol>
+          <li>
+            <p>
+              <md>
+                <mrow>A( B+ C) \amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+                <mrow>3\amp 4\end{array}\right]\left(\left[\begin{array}{cc} 1\amp 1</mrow>
+                <mrow>1\amp -1\end{array}\right]+\left[\begin{array}{cc} 2\amp 1</mrow>
+                <mrow>1\amp 2\end{array}\right]\right)</mrow>
+                <mrow>\amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+                <mrow>3\amp 4\end{array}\right]\left[\begin{array}{cc} 3\amp 2</mrow>
+                <mrow>2\amp 1\end{array}\right]</mrow>
+                <mrow>\amp = \left[\begin{array}{cc} 7\amp 4</mrow>
+                <mrow>17\amp 10\end{array}\right]</mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <md>
+                <mrow>A B+ A C \amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+                <mrow>3\amp 4\end{array}\right]\left[\begin{array}{cc} 1\amp 1</mrow>
+                <mrow>1\amp -1\end{array}\right]+\left[\begin{array}{cc} 1\amp 2</mrow>
+                <mrow>3\amp 4\end{array}\right]\left[\begin{array}{cc} 2\amp 1</mrow>
+                <mrow>1\amp 2\end{array}\right]</mrow>
+                <mrow>\amp = \left[\begin{array}{cc} 3\amp -1</mrow>
+                <mrow>7\amp -1\end{array}\right] + \left[\begin{array}{cc} 4\amp 5</mrow>
+                <mrow>10\amp 11\end{array}\right]</mrow>
+                <mrow>\amp = \left[\begin{array}{cc} 7\amp 4</mrow>
+                <mrow>17\amp 10\end{array}\right]</mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <md>
+                <mrow>A( B C) \amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+                <mrow>3\amp 4\end{array}\right]\left(\left[\begin{array}{cc} 1\amp 1</mrow>
+                <mrow>1\amp -1\end{array}\right]\left[\begin{array}{cc} 2\amp 1</mrow>
+                <mrow>1\amp 2\end{array}\right]\right)</mrow>
+                <mrow>\amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+                <mrow>3\amp 4\end{array}\right]\left[\begin{array}{cc} 3\amp 3</mrow>
+                <mrow>1\amp -1\end{array}\right]</mrow>
+                <mrow>\amp = \left[\begin{array}{cc}  5\amp 1</mrow>
+                <mrow>13\amp 5\end{array}\right]</mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <md>
+                <mrow>\left( A B\right) C \amp = \left(\left[\begin{array}{cc} 1\amp 2</mrow>
+                <mrow>3\amp 4\end{array}\right]\left[\begin{array}{cc} 1\amp 1</mrow>
+                <mrow>1\amp -1\end{array}\right]\right)\left[\begin{array}{cc} 2\amp 1</mrow>
+                <mrow>1\amp 2\end{array}\right]</mrow>
+                <mrow>\amp = \left[\begin{array}{cc} 3\amp -1</mrow>
+                <mrow>7\amp -1\end{array}\right]\left[\begin{array}{cc} 2\amp 1</mrow>
+                <mrow>1\amp 2\end{array}\right]</mrow>
+                <mrow>\amp = \left[\begin{array}{cc}  5\amp 1</mrow>
+                <mrow>13\amp 5\end{array}\right]</mrow>
+              </md>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </example>
+  <p>
+    In looking at our example, we should notice two things.
+    First, it looks like the
+    <q>distributive property</q>
+    holds; that is, <m>A( B+ C) = A B + A C</m>.
+    This is nice as many algebraic techniques we have learned about in the past
+    (when doing
+    <q>ordinary algebra</q>
+    )
+    will still work.
+    Secondly, it looks like the
+    <q>associative property</q>
+    holds; that is, <m>A( B C) = ( A B) C</m>.
+    This is nice,
+    for it tells us that when we are multiplying several matrices together,
+    we don't have to be particularly careful in what order we multiply certain pairs of matrices together.<fn>
+    Be careful: in computing <m>A B C</m> together,
+    we can first multiply <m>A B</m> or <m>B C</m>,
+    but we cannot change the <em>order</em>
+    in which these matrices appear.
+    We cannot multiply <m>B A</m> or <m>A C</m>, for instance.
+    </fn>
+  </p>
+  <p>
+    In leading to an important theorem,
+    let's define a matrix we saw in an earlier example.<fn>
+    The following definition uses a term we won't define until <xref ref="def_diagonal">Definition</xref>
+    on <xref ref="def_diagonal">page</xref>: <em>diagonal</em>.
+    In short, a
+    <q>diagonal matrix</q>
+    is one in which the only nonzero entries are the
+    <q>diagonal entries.</q>
+    The examples given here and in the exercises should suffice until we meet the full definition later.
+    </fn>
+  </p>
+  <definition xml:id="def_identity">
+    <statement>
+      <p>
+            <idx><h>identity matrix</h></idx>
+            <idx><h>matrix</h><h>identity matrix</h></idx>
+        <term>Identity Matrix</term>
+      </p>
+      <p>
+        The <m>n\times n</m> matrix with 1's on the diagonal and zeros elsewhere is the
+        <term><m>n\times n</m> identity matrix</term>, denoted <m>I_n</m>.
+        When the context makes the dimension of the identity clear,
+        the subscript is generally omitted.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Note that while the zero matrix can come in all different shapes and sizes,
+    the identity matrix is always a square matrix.
+    We show a few identity matrices below.
+    <me>
+      I_2=  , I_3 =  ,  I_4 =
+    </me>
+  </p>
+  <p>
+    In our examples above,
+    we have seen examples of things that do and do not work.
+    We should be careful about what examples <em>prove</em>, though.
+    If someone were to claim that <m>A B = B A</m> is always true,
+    one would only need to show them one example where they were false,
+    and we would know the person was wrong.
+    However, if someone claims that <m>A( B+ C) = A B+ A C</m> is always true,
+    we can't prove this with just one example.
+    We need something more powerful;
+    we need a true proof.
+  </p>
+  <p>
+    In this text, we forgo most proofs.
+    The reader should know, though,
+    that when we state something in a theorem,
+    there is a proof that backs up what we state.
+    Our justification comes from something stronger than just examples.
+  </p>
+  <p>
+    Now we give the good news of what does work when dealing with matrix multiplication.
+  </p>
+  <theorem xml:id="thm_matrix_multiplication">
+    <statement>
+      <p>
+            <idx><h>matrix</h><h>multiplication!properties</h></idx>
+        <em>Properties of Matrix Multiplication</em>
+      </p>
+      <p>
+        Let <m>A</m>, B<nbsp/>and C<nbsp/>be matrices with dimensions so that the following operations make sense,
+        and let <m>k</m> be a scalar.
+        The following equalities hold:
+        <ol>
+          <li>
+            <p>
+              <m>A( B C) = ( A B) C</m><nbsp/>(Associative Property)
+            </p>
+          </li>
+          <li xml:id="thm_mat_mult_dist">
+            <p>
+              <m>A( B+ C) = A B + A B</m><nbsp/>and
+              <m>( B+ C) A = B A + C A</m><nbsp/>(Distributive Property)
+            </p>
+          </li>
+          <li xml:id="thm_mat_mult_scalar">
+            <p>
+              <m>k( A B) = (k A) B = A(k B)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A I = I A = A</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The above box contains some very good news,
+    and probably some very surprising news.
+    Matrix multiplication probably seems to us like a very odd operation,
+    so we probably wouldn't have been surprised if we were told that <m>A( B C)\neq( A B) C</m>.
+    It is a very nice thing that the Associative Property does hold.
+  </p>
+  <p>
+    As we near the end of this section,
+    we raise one more issue of notation.
+    We define <m>A^0 =  I</m>.
+    If <m>n</m> is a positive integer, we define
+    <me>
+      A^n = \underbrace{ A\cdot A\cdot \ \cdots\ \cdot A}_\text{ \(n\) times }
+    </me>
+  </p>
+  <p>
+    With numbers, we are used to <m>a^{-n} = \frac{1}{a^n}</m>.
+    Do negative exponents work with matrices, too?
+    The answer is yes, sort of.
+    We'll have to be careful,
+    and we'll cover the topic in detail once we define the inverse of a matrix.
+    For now, though,
+    we recognize the fact that <m>A^{-1} \neq \frac{1}{ A}</m>,
+    for <m>\frac{1}{ A}</m> makes no sense; we don't know how to
+    <q>divide</q>
+    by a matrix.
+  </p>
+  <p>
+    We end this section with a reminder of some of the things that do not work with matrix multiplication.
+    The good news is that there are really only two things on this list.
+    <ol>
+      <li>
+        <p>
+          Matrix multiplication is not commutative;
+          that is, <m>A B \neq B A</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          In general, just because <m>A X = B X</m>,
+          we cannot conclude that <m>A= B</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    The bad news is that these ideas pop up in many places where we don't expect them.
+    For instance, we are used to
+    <me>
+      (a+b)^2 = a^2+2ab+b^2
+    </me>.
+    What about <m>( A+ B)^2</m>?
+    All we'll say here is that
+    <me>
+      ( A+ B)^2 \neq  A^2+2 A B+ B^2;
+    </me>
+    we leave it to the reader to figure out why.
+  </p>
+  <p>
+    The next section is devoted to visualizing column vectors and
+    <q>seeing</q>
+    how some of these arithmetic properties work together.
+  </p>
+  <p>
+    In the following exercises,
+    row and column vectors <m>\vec{u}</m> and <m>\vec{v}</m> are defined.
+    Find the product \vec{u}<m>\vec{v}</m>, where possible.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{cc} 1\amp -4 \end{array} \right] \vec{v} = \left[\begin{array}{c} -2\\5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>-22</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{cc} 2\amp 3 \end{array} \right] \vec{v} = \left[\begin{array}{c} 7\\-4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>2</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{cc} 1\amp -1 \end{array} \right] \vec{v} = \left[\begin{array}{c} 3\\3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>0</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{cc} 0.6\amp 0.8 \end{array} \right] \vec{v} = \left[\begin{array}{c} 0.6\\0.8 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp -1 \end{array} \right] \ \vec{v} = \left[\begin{array}{c} 2\\1\\-1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>5</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{ccc} 3\amp 2\amp -2 \end{array} \right] \ \vec{v} = \left[\begin{array}{c} -1\\0\\9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>-21</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{ccc} 8\amp -4\amp 3 \end{array} \right] \ \vec{v} = \left[\begin{array}{c} 2\\4\\5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>15</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{ccc} -3\amp 6\amp 1 \end{array} \right]</m> <m>\vec{v} = \left[\begin{array}{c} 1\\-1\\1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>-8</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{cccc} 1\amp 2\amp 3\amp 4 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\vec{v} = \left[\begin{array}{c} 1\\-1\\1\\-1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>-2</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{cccc} 6\amp 2\amp -1\amp 2 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\vec{v} = \left[\begin{array}{c} 3\\2\\9\\5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>23</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right] \vec{v} = \left[\begin{array}{c} 3\\2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Not possible.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{u} = \left[\begin{array}{cc} 2\amp -5 \end{array} \right] \vec{v} = \left[\begin{array}{c} 1\\1\\1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Not possible.
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises, matrices <m>A</m> and B<nbsp/>are defined.
+    <ul>
+      {(\alph{enumi})}\usecounter{enumi} \item Give the dimensions of <m>A</m> and B. If the dimensions properly match, give the dimensions of A B<nbsp/>and B<m>A</m>. \item Find the products A B<nbsp/>and B<m>A</m>, if possible.
+    </ul>
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 2\\-1\amp 4 \end{array} \right]</m><nbsp/><m>B = \left[\begin{array}{cc} 2\amp 5\\3\amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B=\left[\begin{array}{cc} 8\amp 3\\10\amp -9 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A=\left[\begin{array}{cc} -3\amp 24\\4\amp 2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 3\amp 7\\2\amp 5 \end{array} \right]</m><nbsp/><m>B = \left[\begin{array}{cc} 1\amp -1\\3\amp -3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B=\left[\begin{array}{cc} 24\amp -24\\17\amp -17 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A=\left[\begin{array}{cc} 1\amp 2\\3\amp 6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 3\amp -1\\2\amp 2 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} 1\amp 0\amp 7\\4\amp 2\amp 9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B=\left[\begin{array}{ccc} -1\amp -2\amp 12\\10\amp 4\amp 32 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A</m> is not possible.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 0\amp 1\\1\amp -1\\-2\amp -4 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{cc} -2\amp 0\\3\amp 8 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B=\left[\begin{array}{cc} 3\amp 8\\-5\amp -8\\-8\amp -32 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A</m> is not possible.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 9\amp 4\amp 3\\9\amp -5\amp 9 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{cc} -2\amp 5\\-2\amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B</m> is not possible.
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{ccc} 27\amp -33\amp 39\\-27\amp -3\amp -15 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -2\amp -1\\9\amp -5\\3\amp -1 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} -5\amp 6\amp -4\\0\amp 6\amp -3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B =\left[\begin{array}{ccc} 10\amp -18\amp 11\\-45\amp 24\amp -21\\-15\amp 12\amp -9 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{cc} 52 \amp -21\\45\amp -27 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp 6\\6\amp 2\\5\amp -1 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} -4\amp 5\amp 0\\-4\amp 4\amp -4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B =\left[\begin{array}{ccc} -32\amp 34\amp -24\\-32\amp 38\amp -8\\-16\amp 21\amp 4 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{cc} 22\amp -14\\-4\amp -12 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -5\amp 2\\ -5\amp -2 \\ -5\amp -4 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} 0\amp -5\amp 6\\ -5\amp -3\amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B = \left[\begin{array}{ccc} -10\amp 19\amp -32\\ 10\amp 31\amp -28 \\ 20\amp 37\amp -26 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{cc} -5\amp -14\\ 45\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 8\amp -2\\ 4\amp 5 \\ 2\amp -5 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} -5\amp 1\amp -5\\ 8\amp 3\amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B = \left[\begin{array}{ccc} -56\amp 2\amp -36\\ 20\amp 19\amp -30 \\ -50\amp -13\amp 0 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{cc} -46\amp 40\\ 72\amp 9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 4\\ 7\amp 6 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{cccc} 1\amp -1\amp -5\amp 5\\ -2\amp 1\amp 3\amp -5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B = \left[\begin{array}{cccc} -7\amp 3\amp 7\amp -15\\ -5\amp -1\amp -17\amp 5 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A</m> is not possible.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -1\amp 5\\ 6\amp 7 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{cccc} 5\amp -3\amp -4\amp -4\\ -2\amp -5\amp -5\amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B = \left[\begin{array}{cccc} -15\amp -22\amp -21\amp -1\\ 16\amp -53\amp -59\amp -31 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A</m> is not possible.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -1\amp 2\amp 1\\ -1\amp 2\amp -1 \\ 0\amp 0\amp -2 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} 0\amp 0\amp -2\\ 1\amp 2\amp -1 \\ 1\amp 0\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B = \left[\begin{array}{ccc} 3\amp 4\amp 0\\ 1\amp 4\amp 0 \\ -2\amp 0\amp 0 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{ccc} 0\amp 0\amp 4\\ -3\amp 6\amp 1 \\ -1\amp 2\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -1\amp 1\amp 1\\ -1\amp -1\amp -2 \\ 1\amp 1\amp -2 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} -2\amp -2\amp -2\\ 0\amp -2\amp 0 \\ -2\amp 0\amp 2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B = \left[\begin{array}{ccc} 0\amp 0\amp 4\\ 6\amp 4\amp -2 \\ 2\amp -4\amp -6 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{ccc} 2\amp -2\amp 6\\ 2\amp 2\amp 4 \\ 4\amp 0\amp -6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -4\amp 3\amp 3\\ -5\amp -1\amp -5 \\ -5\amp 0\amp -1 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} 0\amp 5\amp 0\\ -5\amp -4\amp 3 \\ 5\amp -4\amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B = \left[\begin{array}{ccc} 0\amp -44\amp 18\\ -20\amp -1\amp -18 \\ -5\amp -21\amp -3 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{ccc} -25\amp -5\amp -25\\ 25\amp -11\amp 2 \\ -15\amp 19\amp 32 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -4\amp -1\amp 3\\ 2\amp -3\amp 5 \\ 1\amp 5\amp 3 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B = \left[\begin{array}{ccc} -2\amp 4\amp 3\\ -1\amp 1\amp -1 \\ 4\amp 0\amp 2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A B = \left[\begin{array}{ccc} 21\amp -17\amp -5\\ 19\amp 5\amp 19 \\ 5\amp 9\amp 4 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>B A = \left[\begin{array}{ccc} 19\amp 5\amp 23\\ 5\amp -7\amp -1 \\ -14\amp 6\amp 18 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a <em>diagonal</em> matrix and a matrix <m>A</m> are given.
+    Find the products <m>A</m> and A, where possible.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>= \left[\begin{array}{cc} 3\amp 0\\ 0\amp -1 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp 4\\ 6\amp 8 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A= \left[\begin{array}{cc} 6\amp -4\\ 18\amp -8 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>A = \left[\begin{array}{cc} 6\amp 12\\ -6\amp -8 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>= \left[\begin{array}{cc} 4\amp 0\\ 0\amp -3 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 2\\ 1\amp 2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A= \left[\begin{array}{cc} 4\amp -6\\ 4\amp -6 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>A = \left[\begin{array}{cc} 4\amp 8\\ -3\amp -6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>= \left[\begin{array}{ccc} -1\amp 0\amp 0\\ 0\amp 2\amp 0 \\ 0\amp 0\amp 3 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\ 4\amp 5\amp 6 \\ 7\amp 8\amp 9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A= \left[\begin{array}{ccc} -1\amp 4\amp 9\\ -4\amp 10\amp 18 \\ -7\amp 16\amp 27 \end{array} \right]</m>\ <m>A = \left[\begin{array}{ccc} -1\amp -2\amp -3\\ 8\amp 10\amp 12 \\ 21\amp 24\amp 27 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 1\amp 1\amp 1\\ 2\amp 2\amp 2 \\ -3\amp -3\amp -3 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>= \left[\begin{array}{ccc} 2\amp 0\amp 0\\ 0\amp -3\amp 0 \\ 0\amp 0\amp 5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A= \left[\begin{array}{ccc} 2\amp 2\amp 2\\ -6\amp -6\amp -6 \\ -15\amp -15\amp -15 \end{array} \right]</m>\ <m>A = \left[\begin{array}{ccc} 2\amp -3\amp 5\\ 4\amp -6\amp 10 \\ -6\amp 9\amp -15 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>= \left[\begin{array}{cc} d_1\amp 0\\ 0\amp d_2 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>A = \left[\begin{array}{cc} a\amp b\\ c\amp d \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A= \left[\begin{array}{cc} d_1a\amp d_1b\\ d_2c\amp d_2d \end{array} \right]</m>
+      </p>
+      <p>
+        <m>A = \left[\begin{array}{cc} d_1a\amp d_2b\\ d_1c\amp d_2d \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>= \left[\begin{array}{ccc} d_1\amp 0\amp 0\\ 0\amp d_2\amp 0 \\ 0\amp 0\amp d_3 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>A = \left[\begin{array}{ccc} a\amp b\amp c\\ d\amp e\amp f \\ g\amp h\amp i \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A= \left[\begin{array}{ccc} d_1a\amp d_1b\amp d_1c\\ d_2d\amp d_2e\amp d_2f \\ d_3g\amp d_3h\amp d_3i \end{array} \right]</m>\ <m>A = \left[\begin{array}{ccc} d_1a\amp d_2b\amp d_3c\\ d_1d\amp d_2e\amp d_3f \\ d_1g\amp d_2h\amp d_3i \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a matrix <m>A</m> and a vector <m>\vec{x}</m> are given.
+    Find the product A<m>\vec{x}</m>.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp 3\\ 1\amp -1 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} 4\\ 9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A\vec{x}= \left[\begin{array}{c} 35\\ -5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -1\amp 4\\ 7\amp 3 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} 2\\ -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A\vec{x}= \left[\begin{array}{c} -6\\ 11 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 2\amp 0\amp 3\\ 1\amp 1\amp 1 \\ 3\amp -1\amp 2 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} 1\\ 4\\ 2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A\vec{x}= \left[\begin{array}{c} 8\\ 7\\ 3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -2\amp 0\amp 3\\ 1\amp 1\amp -2 \\ 4\amp 2\amp -1 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} 4\\ 3\\ 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A\vec{x}= \left[\begin{array}{c} -5\\ 5\\ 21 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp -1\\ 4\amp 3 \end{array} \right]</m> ,<m>\vec{x} = \left[\begin{array}{c} x_1\\ x_2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A\vec{x}= \left[\begin{array}{c}2x_1-x_2\\ 4x_1+3x_2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\ 1\amp 0\amp 2 \\ 2\amp 3\amp 1 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} x_1\\ x_2\\ x_3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A\vec{x}= \left[\begin{array}{c} x_1+2x_2+3x_3\\ x_1+2x_3\\ 2x_1+3x_2+x_3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>A = \left[\begin{array}{cc} 0\amp 1\\1\amp 0 \end{array} \right]</m>.
+        Find <m>A^2</m> and <m>A^3</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^2 = \left[\begin{array}{cc} 1\amp 0\\0\amp 1 \end{array} \right]</m>;
+        <m>A^3 = \left[\begin{array}{cc} 0\amp 1\\1\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>A = \left[\begin{array}{cc} 2\amp 0\\0\amp 3 \end{array} \right]</m>.
+        Find <m>A^2</m> and <m>A^3</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^2 = \left[\begin{array}{cc} 4\amp 0\\0\amp 9 \end{array} \right]</m>;
+        <m>A^3 = \left[\begin{array}{cc} 8\amp 0\\0\amp 27 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>A = \left[\begin{array}{ccc} -1\amp 0\amp 0\\0\amp 3\amp 0\\0\amp 0\amp 5 \end{array} \right]</m>.
+        Find <m>A^2</m> and <m>A^3</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^2 = \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 9\amp 0\\0\amp 0\amp 25 \end{array} \right]</m>;
+        <m>A^3 = \left[\begin{array}{ccc} -1\amp 0\amp 0\\0\amp 27\amp 0\\0\amp 0\amp 125 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>A = \left[\begin{array}{ccc} 0\amp 1\amp 0\\0\amp 0\amp 1\\1\amp 0\amp 0 \end{array} \right]</m>.
+        Find <m>A^2</m> and <m>A^3</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^2 = \left[\begin{array}{ccc} 0\amp 0\amp 1\\1\amp 0\amp 0\\0\amp 1\amp 0 \end{array} \right]</m>;
+        <m>A^3 = \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>A = \left[\begin{array}{ccc} 0\amp 0\amp 1\\0\amp 0\amp 0\\0\amp 1\amp 0 \end{array} \right]</m>.
+        Find <m>A^2</m> and <m>A^3</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^2 = \left[\begin{array}{ccc} 0\amp 1\amp 0\\0\amp 0\amp 0\\0\amp 0\amp 0 \end{array} \right]</m>;
+        <m>A^3 = \left[\begin{array}{ccc} 0\amp 0\amp 0\\0\amp 0\amp 0\\0\amp 0\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        In the text we state that <m>( A+ B)^2 \neq A^2+2 A B+ B^2</m>.
+        We investigate that claim here.
+        <ol>
+          <li>
+            <p>
+              Let <m>A = \left[\begin{array}{cc} 5\amp 3\\ -3\amp -2 \end{array} \right]</m> and let <m>B = \left[\begin{array}{cc} -5\amp -5\\ -2\amp 1 \end{array} \right]</m>.
+              Compute <m>A+ B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find <m>( A+ B)^2</m> by using your answer from (a).
+            </p>
+          </li>
+          <li>
+            <p>
+              Compute <m>A^2+2 A B+ B^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Are the results from (a) and (b) the same?
+            </p>
+          </li>
+          <li>
+            <p>
+              Carefully expand the expression
+              <m>( A+ B)^2 = ( A+ B)( A+ B)</m> and show why this is not equal to <m>A^2+2 A B+ B^2</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>\left[\begin{array}{cc} 0\amp -2\\-5\amp -1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left[\begin{array}{cc} 10\amp 2\\ 5\amp 11 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left[\begin{array}{cc} -11\amp -15\\ 37\amp 32 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            No.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>( A+ B)( A + B) = A A + A B + B A + B B = A^2+ A B+ B A+ B^2</m>.
+          </p>
+        </li>
+      </ol>
+    </answer>
+  </exercise>
+</section>

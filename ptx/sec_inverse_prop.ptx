@@ -1,0 +1,781 @@
+<section xml:id="sec_inverse_prop">
+  <title>Properties of the Matrix Inverse</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          What does it mean to say that two statements are
+          <q>equivalent?</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: If <m>A</m> is not invertible,
+          then could have no solutions.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: If <m>A</m> is not invertible,
+          then <m>A \vec{x} = \vec{b}</m><nbsp/>could have infinite solutions.
+        </p>
+      </li>
+      <li>
+        <p>
+          What is the inverse of the inverse of A?
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: Solving <m>A \vec{x} = \vec{b}</m><nbsp/>using Gaussian elimination is faster than using the inverse of <m>A</m>.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    We ended the previous section by stating that invertible matrices are important.
+    Since they are,
+    in this section we study invertible matrices in two ways.
+    First, we look at ways to tell whether or not a matrix is invertible,
+    and second, we study properties of invertible matrices
+    (that is, how they interact with other matrix operations).
+  </p>
+  <p>
+    We start with collecting ways in which we know that a matrix is invertible.
+    We actually already know the truth of this theorem from our work in the previous section,
+    but it is good to list the following statements in one place.
+    As we move through other sections,
+    we'll add on to this theorem.
+  </p>
+  <theorem xml:id="thm_IMT">
+    <statement>
+      <p>
+            <idx><h>Invertible Matrix Theorem</h></idx>
+            <idx><h>inverse</h><h>properties</h></idx>
+            <idx><h>inverse</h><h>Invertible Matrix Theorem</h></idx>
+        <em>Invertible Matrix Theorem</em>
+      </p>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> matrix.
+        The following statements are equivalent.
+        <ul>
+          {(\alph{IMTcount})}\usecounter{IMTcount} \item <m>A</m> is invertible. \item There exists a matrix B<nbsp/>such that <m>B A = I</m>. \item There exists a matrix C<nbsp/>such that <m>A C = I</m>. \item The \rref<nbsp/>of <m>A</m> is I. \item The equation <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution for every <m>n\times 1</m> vector \vec{b}. \item The equation has exactly one solution (namely, <m>\vec{x} = \vec{0}</m>).
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Let's make note of a few things about the Invertible Matrix Theorem.
+  </p>
+  <ol>
+    <li>
+      <p>
+        First, note that the theorem uses the phrase
+        <q>the following statements are
+        <em>equivalent.</em></q>
+        When two or more statements are equivalent,
+        it means that the truth of any one of them implies that the rest are also true;
+        if any one of the statements is false, then they are all false.
+        So, for example,
+        if we determined that the equation had exactly one solution
+        (and <m>A</m> was an <m>n\times n</m> matrix)
+        then we would know that <m>A</m> was invertible,
+        that <m>A \vec{x} = \vec{b}</m><nbsp/>had only one solution,
+        that the reduced row echelon form<nbsp/>of <m>A</m> was I, etc.
+      </p>
+    </li>
+    <li>
+      <p>
+        Let's go through each of the statements and see why we already knew they all said essentially the same thing.
+      </p>
+      <ol>
+        <li>
+          <p>
+            This simply states that <m>A</m> is invertible <mdash/> that is,
+            that there exists a matrix <m>A^{-1}</m> such that <m>A^{-1} A =  A A^{-1} =  I</m>.
+            We'll go on to show why all the other statements basically tell us
+            <q><m>A</m> is invertible.</q>
+          </p>
+        </li>
+        <li>
+          <p>
+            If we know that <m>A</m> is invertible,
+            then we already know that there is a matrix B<nbsp/>where <m>B A= I</m>.
+            That is part of the definition of invertible.
+            However, we can also
+            <q>go the other way.</q>
+            Recall from <xref ref="thm_inverse1">Theorem</xref>
+            that even if all we know is that there is a matrix B<nbsp/>where <m>B A= I</m>,
+            then we also know that <m>A B= I</m>.
+            That is, we know that B<nbsp/>is the inverse of <m>A</m>
+            (and hence <m>A</m> is invertible).
+          </p>
+        </li>
+        <li>
+          <p>
+            We use the same logic as in the previous statement to show why this is the same as
+            <q><m>A</m> is invertible.</q>
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>A</m> is invertible,
+            we can find the inverse by using <xref ref="idea_finding_inverses">Key Idea</xref>
+            (which in turn depends on <xref ref="thm_inverse1">Theorem</xref>).
+            The crux of <xref ref="idea_finding_inverses">Key Idea</xref>
+            is that the reduced row echelon form<nbsp/>of <m>A</m> is I; if it is something else,
+            we can't find <m>A^{-1}</m>
+            (it doesn't exist).
+            Knowing that <m>A</m> is invertible means that the reduced row echelon form<nbsp/>of <m>A</m> is I. We can go the other way;
+            if we know that the reduced row echelon form<nbsp/>of <m>A</m> is I, then we can employ <xref ref="idea_finding_inverses">Key Idea</xref> to find <m>A^{-1}</m>,
+            so <m>A</m> is invertible.
+          </p>
+        </li>
+        <li>
+          <p>
+            We know from <xref ref="thm_inverse_solution">Theorem</xref>
+            that if <m>A</m> is invertible,
+            then given any vector <m>\vec{b}</m>,
+            <m>A \vec{x} = \vec{b}</m><nbsp/>has always has exactly one solution,
+            namely <m>\vec{x}= A^{-1}\vec{b}</m>.
+            However, we can go the other way;
+            let's say we know that <m>A \vec{x} = \vec{b}</m><nbsp/>always has exactly solution.
+            How can we conclude that <m>A</m> is invertible?
+            Think about how we, up to this point,
+            determined the solution to <m>A \vec{x} = \vec{b}</m>.
+            We set up the augmented matrix
+            <m>\left[\begin{array}{cc} A \amp \vec{b} \end{array} \right]</m> and put it into reduced row echelon form.
+            We know that getting the identity matrix on the left means that we had a unique solution
+            (and not getting the identity means we either have no solution or infinite solutions).
+            So getting I<nbsp/>on the left means having a unique solution;
+            having I<nbsp/>on the left means that the reduced row echelon form<nbsp/>of <m>A</m> is I, which we know from above is the same as <m>A</m> being invertible.
+          </p>
+        </li>
+        <li>
+          <p>
+            This is the same as the above;
+            simply replace the vector \vec{b}<nbsp/>with the vector \vec{0}.
+          </p>
+        </li>
+      </ol>
+      So we came up with a list of statements that are all
+      <em>equivalent</em> to the statement
+      <q><m>A</m> is invertible.</q>
+      Again, if we know that if any one of them is true
+      (or false),
+      then they are all true
+      (or all false).
+    </li>
+  </ol>
+  <p>
+    <xref ref="thm_IMT">Theorem</xref>
+    states formally that if <m>A</m> is invertible,
+    then <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution,
+    namely <m>A^{-1}\vec{b}</m>.
+    What if <m>A</m> is not invertible?
+    What are the possibilities for solutions to <m>A \vec{x} = \vec{b}</m>?
+  </p>
+  <p>
+    We know that <m>A \vec{x} = \vec{b}</m><nbsp/><em>cannot</em>
+    have exactly one solution;
+    if it did, then by our theorem it would be invertible.
+    Recalling that linear equations have either one solution,
+    infinite solutions, or no solution,
+    we are left with the latter options when <m>A</m> is not invertible.
+    This idea is important and so we'll state it again as a Key Idea.
+  </p>
+  <insight xml:id="idea_solutions_invert">
+    <p>
+      <term>Solutions to <m>A \vec{x} = \vec{b}</m><nbsp/>and the Invertibility of A</term>
+    </p>
+    <p>
+      Consider the system of linear equations <m>A \vec{x} = \vec{b}</m>.
+      <ol>
+        <li>
+          <p>
+            If <m>A</m> is invertible,
+            then <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution,
+            namely <m>A^{-1}\vec{b}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>A</m> is not invertible,
+            then <m>A \vec{x} = \vec{b}</m><nbsp/>has either infinite solutions or no solution.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </insight>
+  <p>
+    In <xref ref="thm_IMT">Theorem</xref>
+    we've come up with a list of ways in which we can tell whether or not a matrix is invertible.
+    At the same time,
+    we have come up with a list of properties of invertible matrices <mdash/> things we know that are true about them.
+    (For instance, if we know that <m>A</m> is invertible,
+    then we know that <m>A \vec{x} = \vec{b}</m><nbsp/>has only one solution.)
+  </p>
+  <p>
+    We now go on to discover other properties of invertible matrices.
+    Specifically,
+    we want to find out how invertibility interacts with other matrix operations.
+    For instance,
+    if we know that <m>A</m> and B<nbsp/>are invertible,
+    what is the inverse of <m>A+ B</m>?
+    What is the inverse of <m>A B</m>?
+    What is
+    <q>the inverse of the inverse?</q>
+    We'll explore these questions through an example.
+  </p>
+  <example xml:id="ex_inv_prop">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc} 3\amp 2\\0\amp 1 \end{array} \right] \text{ and }   B = \left[\begin{array}{cc} -2 \amp  0\\1\amp 1 \end{array} \right]
+        </me>.
+        Find:
+      </p>
+      <ol cols="3">
+        <li>
+          <p>
+            <m>A^{-1}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>( A B)^{-1}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>( A^{-1})^{-1}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>( A+ B)^{-1}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(5 A)^{-1}</m>
+          </p>
+        </li>
+      </ol>
+      <p>
+        In addition, try to find connections between each of the above.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <ol>
+          <li>
+            <p>
+              Computing <m>A^{-1}</m> is straightforward;
+              we'll use <xref ref="thm_2by2">Theorem</xref>.
+              <me>
+                A^{-1} = \frac{1}{3}\left[\begin{array}{cc} 1\amp -2\\0\amp 3 \end{array} \right] = \left[\begin{array}{cc}  1/3 \amp  -2/3\\ 0 \amp  1 \end{array} \right]
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              We compute  in the same way as above.
+              <me>
+                = \frac{1}{-2}\left[\begin{array}{cc} 1\amp 0\\-1\amp -2 \end{array} \right] = \left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right]
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              To compute <m>( A B)^{-1}</m>, we first compute  A B:
+              <me>
+                A B = \left[\begin{array}{cc} 3\amp 2\\0\amp 1 \end{array} \right]\left[\begin{array}{cc} -2 \amp  0\\1\amp 1 \end{array} \right] = \left[\begin{array}{cc}  -4\amp 2\\1\amp 1 \end{array} \right]
+              </me>
+              We now apply <xref ref="thm_2by2">Theorem</xref> to find <m>( A B)^{-1}</m>.
+              <me>
+                ( A B)^{-1} = \frac{1}{-6}\left[\begin{array}{cc} 1\amp -2\\-1\amp -4 \end{array} \right] = \left[\begin{array}{cc}  -1/6 \amp  1/3\\1/6 \amp  2/3 \end{array} \right]
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              To compute <m>( A^{-1})^{-1}</m>,
+              we simply apply <xref ref="thm_2by2">Theorem</xref> to  A^{-1}:
+              <me>
+                ( A^{-1})^{-1} = \frac{1}{1/3}\left[\begin{array}{cc} 1 \amp  2/3\\0 \amp  1/3 \end{array} \right] = \left[\begin{array}{cc}  3 \amp  2\\0 \amp  1 \end{array} \right]
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              To compute <m>( A +  B)^{-1}</m>,
+              we first compute <m>A+ B</m> then apply <xref ref="thm_2by2">Theorem</xref>:
+              <me>
+                A+ B = \left[\begin{array}{cc} 3\amp 2\\0\amp 1 \end{array} \right]+\left[\begin{array}{cc} -2 \amp  0\\1\amp 1 \end{array} \right] = \left[\begin{array}{cc} 1\amp 2\\1\amp 2 \end{array} \right]
+              </me>.
+              Hence
+              <me>
+                ( A+ B)^{-1} = \frac{1}{0}\left[\begin{array}{cc} 2\amp -2\\-1\amp 1 \end{array} \right] =\ !
+              </me>
+              Our last expression is really nonsense;
+              we know that if <m>ad-bc=0</m>,
+              then the given matrix is not invertible.
+              That is the case with <m>A+ B</m>,
+              so we conclude that <m>A+ B</m> is not invertible.
+            </p>
+          </li>
+          <li>
+            <p>
+              To compute <m>(5 A)^{-1}</m>,
+              we compute 5<m>A</m> and then apply <xref ref="thm_2by2">Theorem</xref>.
+              <me>
+                (5 A)^{-1} = \left(\left[\begin{array}{cc}  15 \amp  10\\0\amp 5 \end{array} \right]\right)^{-1} = \frac{1}{75}\left[\begin{array}{cc} 5\amp -10\\0\amp 15 \end{array} \right] = \left[\begin{array}{cc}  1/15 \amp  -2/15\\ 0 \amp  1/5 \end{array} \right]
+              </me>
+            </p>
+          </li>
+        </ol>
+        <p>
+          \vskip .1in
+        </p>
+        <p>
+          We now look for connections between <m>A^{-1}</m>, , <m>( A B)^{-1}</m>,
+          <m>( A^{-1})^{-1}</m> and <m>( A+ B)^{-1}</m>.
+          <ol>
+            <li>
+              <p>
+                Is there some sort of relationship between
+                <m>( A B)^{-1}</m> and <m>A^{-1}</m> and ? A first guess that seems plausible is <m>( A B)^{-1} =  A^{-1}</m>.
+                Is this true?
+                Using our work from above, we have
+                <me>
+                  A^{-1} = \left[\begin{array}{cc}  1/3 \amp  -2/3\\ 0 \amp  1 \end{array} \right]\left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right] = \left[\begin{array}{cc}  -1/2 \amp  -2/3 \\ 1/2 \amp  1 \end{array} \right]
+                </me>.
+                Obviously, this is not equal to <m>( A B)^{-1}</m>.
+                Before we do some further guessing,
+                let's think about what the inverse of  A B<nbsp/>is supposed to do.
+                The inverse <mdash/> let's call it  C<nbsp/><ndash/> is supposed to be a matrix such that
+                <me>
+                  ( A B) C =  C( A B) =  I
+                </me>.
+                In examining the expression <m>( A B) C</m>,
+                we see that we want  B<nbsp/>to somehow
+                <q>cancel</q>
+                with  C. What
+                <q>cancels</q>
+                B? An obvious answer is . This gives us a thought:
+                perhaps we got the order of <m>A^{-1}</m> and  wrong before.
+                After all, we were hoping to find that
+                <me>
+                  A B A^{-1} \overset{\text{?} }{=}  I
+                </me>,
+                but algebraically speaking, it is hard to cancel out these terms.<fn>
+                Recall that matrix multiplication is not commutative.
+                </fn> However,
+                switching the order of <m>A^{-1}</m> and  gives us some hope.
+                Is <m>( A B)^{-1} =  A^{-1}</m>?
+                Let's see.
+                <md>
+                  <mrow>( A B)( A^{-1}) \amp =  A( B) A^{-1} \textsf{(regrouping by the associative property)}</mrow>
+                  <mrow>\amp =  A I A^{-1} \textsf{($ B =  I$)}</mrow>
+                  <mrow>\amp =  A A^{-1} \textsf{($ A I =  A$)}</mrow>
+                  <mrow>\amp =  I \textsf{($ A A^{-1}= I$)}</mrow>
+                </md>
+                Thus it seems that <m>( A B)^{-1} =  A^{-1}</m>.
+                Let's confirm this with our example matrices.
+                <me>
+                  A^{-1} = \left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right]\left[\begin{array}{cc}  1/3 \amp  -2/3\\ 0 \amp  1 \end{array} \right] = \left[\begin{array}{cc}  -1/6 \amp  1/3\\ 1/6 \amp  2/3 \end{array} \right] = ( A B)^{-1}
+                </me>.
+                It worked!
+              </p>
+            </li>
+            <li>
+              <p>
+                Is there some sort of connection between
+                <m>( A^{-1})^{-1}</m> and A? The answer is pretty obvious:
+                they are equal.
+                The
+                <q>inverse of the inverse</q>
+                returns one to the original matrix.
+              </p>
+            </li>
+            <li>
+              <p>
+                Is there some sort of relationship between <m>( A+ B)^{-1}</m>,
+                <m>A^{-1}</m> and ? Certainly,
+                if we were forced to make a guess without working any examples,
+                we would guess that
+                <me>
+                  ( A+ B)^{-1} \overset{\text{?} }{=}  A^{-1}+
+                </me>.
+                However, we saw that in our example,
+                the matrix <m>( A+ B)</m> isn't even invertible.
+                This pretty much kills any hope of a connection.
+              </p>
+            </li>
+            <li>
+              <p>
+                Is there a connection between
+                <m>(5 A)^{-1}</m> and  A^{-1}? Consider:
+                <md>
+                  <mrow>(5 A)^{-1} \amp = \left[\begin{array}{cc}  1/15 \amp  -2/15</mrow>
+                  <mrow>0 \amp  1/5\end{array}\right]</mrow>
+                  <mrow>\amp = \frac{1}{5} \left[\begin{array}{cc}  1/3 \amp  -2/3</mrow>
+                  <mrow>0\amp 1/5\end{array}\right]</mrow>
+                  <mrow>\amp = \frac 15  A^{-1}</mrow>
+                </md>
+                Yes, there is a connection!
+              </p>
+            </li>
+          </ol>
+        </p>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Let's summarize the results of this example.
+    If <m>A</m> and B<nbsp/>are both invertible matrices,
+    then so is their product, A B. We demonstrated this with our example,
+    and there is more to be said.
+    Let's suppose that <m>A</m> and B<nbsp/>are <m>n\times n</m> matrices,
+    but we don't yet know if they are invertible.
+    If A B<nbsp/>is invertible, then each of <m>A</m> and B<nbsp/>are;
+    if A B<nbsp/>is not invertible,
+    then <m>A</m> or B<nbsp/>is also not invertible.
+  </p>
+  <p>
+    In short, invertibility
+    <q>works well</q>
+    with matrix multiplication.
+    However, we saw that it doesn't work well with matrix addition.
+    Knowing that <m>A</m> and B<nbsp/>are invertible does not help us find the inverse of <m>( A+ B)</m>;
+    in fact, the latter matrix may not even be invertible.<fn>
+    The fact that invertibility works well with matrix multiplication should not come as a surprise.
+    After all, saying that <m>A</m> is invertible makes a statement about the mulitiplicative properties of <m>A</m>.
+    It says that I can multiply <m>A</m> with a special matrix to get I. Invertibility,
+    in and of itself, says nothing about matrix addition,
+    therefore we should not be too surprised that it doesn't work well with it.
+    </fn>
+  </p>
+  <p>
+    Let's do one more example,
+    then we'll summarize the results of this section in a theorem.
+  </p>
+  <example xml:id="ex_diagonal_inverse">
+    <statement>
+      <p>
+        Find the inverse of <m>A = \left[\begin{array}{ccc} 2\amp 0\amp 0\\0\amp 3\amp 0\\0\amp 0\amp -7 \end{array} \right]</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We'll find <m>A^{-1}</m> using <xref ref="idea_finding_inverses">Key Idea</xref>.
+        <me>
+          \left[\begin{array}{cccccc}  2\amp 0\amp 0\amp 1\amp 0\amp 0\\0\amp 3\amp 0\amp 0\amp 1\amp 0\\0\amp 0\amp -7\amp 0\amp 0\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{cccccc}  1\amp 0\amp 0\amp 1/2\amp 0\amp 0\\0\amp 1\amp 0\amp 0\amp 1/3\amp 0\\0\amp 0\amp 1\amp 0\amp 0\amp -1/7 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Therefore
+        <me>
+          A^{-1} = \left[\begin{array}{ccc}  1/2 \amp  0 \amp  0 \\ 0 \amp  1/3 \amp  0 \\ 0 \amp  0 \amp  -1/7 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    The matrix <m>A</m> in the previous example is a
+    <em>diagonal</em> matrix:
+    the only nonzero entries of <m>A</m> lie on the <em>diagonal</em>.<fn>
+    We still haven't formally defined <em>diagonal</em>,
+    but the definition is rather visual so we risk it.
+        <idx><h>diagonal</h></idx>
+    See <xref ref="def_diagonal">Definition</xref>
+    on <xref ref="def_diagonal">page</xref> for more details.
+    </fn> The relationship between <m>A</m> and <m>A^{-1}</m> in the above example seems pretty strong,
+    and it holds true in general.
+    We'll state this and summarize the results of this section with the following theorem.
+  </p>
+  <theorem xml:id="thm_inv_prop">
+    <statement>
+      <p>
+            <idx><h>inverse</h><h>properties</h></idx>
+        <em>Properties of Invertible Matrices</em>
+      </p>
+      <p>
+        Let <m>A</m> and B<nbsp/>be <m>n\times n</m> invertible matrices.
+        Then:
+        <ol>
+          <li>
+            <p>
+              A B<nbsp/>is invertible; <m>( A B)^{-1} = A^{-1}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A^{-1}</m> is invertible;
+              <m>( A^{-1})^{-1} = A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>n A</m> is invertible for any nonzero scalar <m>n</m>;
+              <m>(n A)^{-1} = \frac 1n A^{-1}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> is a diagonal matrix,
+              with diagonal entries <m>d_1, d_2, \cdots , d_n</m>,
+              where none of the diagonal entries are 0, then <m>A^{-1}</m> exists and is a diagonal matrix.
+              Furthermore,
+              the diagonal entries of <m>A^{-1}</m> are <m>1/d_1, 1/d_2, \cdots, 1/d_n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        Furthermore,
+        <ol>
+          <li>
+            <p>
+              If a product A B<nbsp/>is not invertible,
+              then <m>A</m> or B<nbsp/>is not invertible.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> or B<nbsp/>are not invertible,
+              then A B<nbsp/>is not invertible.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    We end this section with a comment about solving systems of equations
+    <q>in real life.</q><fn>
+    Yes, real people do solve linear equations in real life.
+    Not just mathematicians, but economists, engineers,
+    and scientists of all flavors regularly need to solve linear equations,
+    and the matrices they use are often <em>huge.</em>
+    Most people see matrices at work without thinking about it.
+    Digital pictures are simply
+    <q>rectangular arrays</q>
+    of numbers representing colors <mdash/> they are matrices of colors.
+    Many of the standard image processing operations involve matrix operations.
+    The author's wife has a
+    <q>7 megapixel</q>
+    camera which creates pictures that are <m>3072\times 2304</m> in size,
+    giving over 7 million pixels,
+    and that isn't even considered a
+    <q>large</q>
+    picture these days.
+    </fn> Solving a system
+    <m>A \vec{x} = \vec{b}</m><nbsp/>by computing A^{-1}\vec{b}<nbsp/>seems pretty slick,
+    so it would make sense that this is the way it is normally done.
+    However, in practice, this is rarely done.
+    There are two main reasons why this is the case.
+  </p>
+  <p>
+    First, computing <m>A^{-1}</m> and A^{-1}\vec{b}<nbsp/>is
+    <q>expensive</q>
+    in the sense that it takes up a lot of computing time.
+    Certainly, our calculators have no trouble dealing with the
+    <m>3 \times 3</m> cases we often consider in this textbook,
+    but in real life the matrices being considered are very large
+    (as in, hundreds of thousand rows and columns).
+    Computing <m>A^{-1}</m> alone is rather impractical,
+    and we waste a lot of time if we come to find out that <m>A^{-1}</m> does not exist.
+    Even if we already know what <m>A^{-1}</m> is,
+    computing <m>A^{-1}\vec{b}</m> is computationally expensive <mdash/> Gaussian elimination is faster.
+  </p>
+  <p>
+    Secondly, computing <m>A^{-1}</m> using the method we've described often gives rise to numerical roundoff errors.
+    Even though computers often do computations with an accuracy to more than 8 decimal places,
+    after thousands of computations,
+    roundoffs can cause big errors. (A
+    <q>small</q>
+    <m>1,000 \times 1,000</m> matrix has <m>1,000,000</m> entries!
+    That's a lot of places to have roundoff errors accumulate!) It is not unheard of to have a computer compute <m>A^{-1}</m> for a large matrix,
+    and then immediately have it compute A<m>A^{-1}</m> and <em>not</em>
+    get the identity matrix.<fn>
+    The result is usually very close,
+    with the numbers on the diagonal close to 1 and the other entries near 0.
+    But it isn't exactly the identity matrix.
+    </fn>
+  </p>
+  <p>
+    Therefore, in real life,
+    solutions to <m>A \vec{x} = \vec{b}</m><nbsp/>are usually found using the methods we learned in <xref ref="sec_vector_solutions">Section</xref>.
+    It turns out that even with all of our advances in mathematics,
+    it is hard to beat the basic method that Gauss introduced a long time ago.
+  </p>
+  <p>
+    In the following exercises, matrices <m>A</m> and B<nbsp/>are given.
+    Compute <m>( A B)^{-1}</m> and <m>B^{-1} A^{-1}</m>.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[ \begin{array}{cc} 1 \amp 2 \\ 1 \amp 1 \end{array} \right]</m>,
+        <m>B = \left[ \begin{array}{cc} 3 \amp 5 \\ 2 \amp 5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>( A B)^{-1} = \left[ \begin{array}{cc} -2 \amp 3 \\ 1 \amp -1.4 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[ \begin{array}{cc} 1 \amp 2 \\ 3 \amp 4 \end{array} \right]</m>,
+        <m>B = \left[ \begin{array}{cc} 7 \amp 1 \\ 2 \amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>( A B)^{-1} = \left[ \begin{array}{cc} -7/10 \amp 3/10 \\ 29/10 \amp -11/10 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[ \begin{array}{cc} 2 \amp 5 \\ 3 \amp 8 \end{array} \right]</m>,
+        <m>B = \left[ \begin{array}{cc} 1 \amp -1 \\ 1 \amp 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>( A B)^{-1} = \left[ \begin{array}{cc} 29/5 \amp -18/5 \\ -11/5 \amp 7/5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[ \begin{array}{cc} 2 \amp 4 \\ 2 \amp 5 \end{array} \right]</m>,
+        <m>B = \left[ \begin{array}{cc} 2 \amp 2 \\ 6 \amp 5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>( A B)^{-1} = \left[ \begin{array}{cc} -29/4 \amp 6\\ 17/2 \amp -7 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises, a
+    <m>2\times 2</m> matrix <m>A</m> is given.
+    Compute <m>A^{-1}</m> and <m>( A^{-1})^{-1}</m> using <xref ref="thm_2by2">Theorem</xref>.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[ \begin{array}{cc} -3 \amp 5 \\ 1 \amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^{-1} = \left[ \begin{array}{cc} -2 \amp -5\\ -1 \amp -3 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>( A^{-1})^{-1} = \left[ \begin{array}{cc} -3 \amp 5 \\ 1 \amp -2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[ \begin{array}{cc} 3 \amp 5\\ 2 \amp 4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^{-1} = \left[ \begin{array}{cc} 2 \amp -5/2\\ -1 \amp 3/2 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>( A^{-1})^{-1} = \left[ \begin{array}{cc} 3 \amp 5\\ 2 \amp 4 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[ \begin{array}{cc} 2 \amp 7\\ 1 \amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^{-1} = \left[ \begin{array}{cc} -3 \amp 7\\ 1 \amp -2 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>( A^{-1})^{-1} = \left[ \begin{array}{cc} 2 \amp 7\\ 1 \amp 3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[ \begin{array}{cc} 9 \amp 0 \\ 7 \amp 9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A^{-1} = \left[ \begin{array}{cc} 1/9 \amp 0 \\ -7/81 \amp 1/9 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>( A^{-1})^{-1} = \left[ \begin{array}{cc} 9 \amp 0 \\ 7 \amp 9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Find <m>2\times 2</m> matrices <m>A</m> and B<nbsp/>that are each invertible,
+        but <m>A+ B</m> is not.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Solutions will vary.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Create a random <m>6\times 6</m> matrix <m>A</m>,
+        then have a calculator or computer compute <m>A A^{-1}</m>.
+        Was the identity matrix returned exactly?
+        Comment on your results.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Likely some entries that should be 0 will not be exaclty 0, but rather very small values.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Use a calculator or computer to compute <m>A A^{-1}</m>, where
+        <me>
+          A = \left[\begin{array}{cccc}  1\amp 2\amp 3\amp 4\\1\amp 4\amp 9\amp 16\\1\amp 8\amp 27\amp 64\\1\amp 16\amp 81\amp 256 \end{array} \right]
+        </me>.
+        Was the identity matrix returned exactly?
+        Comment on your results.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Likely some entries that should be 0 will not be exactly 0, but rather very small values.
+      </p>
+    </answer>
+  </exercise>
+</section>

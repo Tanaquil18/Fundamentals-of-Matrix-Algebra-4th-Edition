@@ -1,0 +1,707 @@
+<section xml:id="sec_matrix_arithmetic_1">
+  <title>Matrix Addition and Scalar Multiplication</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          When are two matrices equal?
+        </p>
+      </li>
+      <li>
+        <p>
+          Write an explanation of how to add matrices as though writing to someone who knows what a matrix is but not much more.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: There is only 1 zero matrix.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: To multiply a matrix by 2 means to multiply each entry in the matrix by 2.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    In the past, when we dealt with expressions that used
+    <q><m>x</m>,</q>
+    we didn't just add and multiply <m>x</m>'s together for the fun of it,
+    but rather because we were usually given some sort of <em>equation</em>
+    that had <m>x</m> in it and we had to
+    <q>solve for <m>x</m>.</q>
+  </p>
+  <p>
+    This begs the question,
+    <q>What does it mean to be equal?</q>
+    Two numbers are equal, when, <m>\ldots</m>,
+    uh, <m>\ldots</m>, nevermind.
+    What does it mean for two matrices to be equal?
+    We say that matrices <m>A</m> and B<nbsp/>are equal when their corresponding entries are equal.
+    This seems like a very simple definition,
+    but it is rather important, so we give it a box.
+  </p>
+  <definition xml:id="def_matrix_equality">
+    <statement>
+      <p>
+        <term>Matrix Equality</term>
+      </p>
+      <p>
+        Two <m>m\times n</m> matrices <m>A</m> and B<nbsp/>are <term>equal</term>
+        if their corresponding entries are equal.
+      </p>
+    </statement>
+  </definition>
+  <p>
+        <idx><h>matrix</h><h>equality</h></idx>
+  </p>
+  <p>
+    Notice that our more formal definition specifies that if matrices are equal,
+    they have the same dimensions.
+    This should make sense.
+  </p>
+  <p>
+    Now we move on to describing how to add two matrices together.
+    To start off, take a wild stab:
+    what do you think the following sum is equal to?
+    <me>
+      \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right] + \left[\begin{array}{cc} 2\amp -1\\5\amp 7 \end{array} \right] = \text{?}
+    </me>
+  </p>
+  <p>
+    If you guessed
+    <me>
+      \left[\begin{array}{cc} 3\amp 1\\8\amp 11 \end{array} \right]
+    </me>,
+    you guessed correctly.
+    That wasn't so hard, was it?
+  </p>
+  <p>
+    Let's keep going, hoping that we are starting to get on a roll.
+    Make another wild guess:
+    what do you think the following expression is equal to?
+    <me>
+      3\cdot\left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right]=\text{?}
+    </me>
+  </p>
+  <p>
+    If you guessed
+    <me>
+      \left[\begin{array}{cc} 3\amp 6\\9\amp 12 \end{array} \right]
+    </me>,
+    you guessed correctly!
+  </p>
+  <p>
+    Even if you guessed wrong both times,
+    you probably have seen enough in these two examples to have a fair idea now what matrix addition and scalar multiplication are all about.
+  </p>
+  <p>
+    Before we formally define how to perform the above operations,
+    let us first recall that if <m>A</m> is an <m>m\times n</m> matrix,
+    then we can write <m>A</m> as
+    <me>
+      A =\left[\begin{array}{cccc} a_{11}\amp a_{12}\amp \cdots\amp a_{1n}\\a_{21}\amp a_{22}\amp \cdots\amp a_{2n}\\\vdots\amp \vdots\amp \ddots\amp \vdots\\a_{m1}\amp a_{m2}\amp \cdots\amp a_{mn} \end{array} \right]
+    </me>.
+    Secondly, we should define what we mean by the word <em>scalar</em>.
+    A scalar is any number that we multiply a matrix by.
+    (In some sense, we use that number to
+    <em>scale</em> the matrix.)
+    We are now ready to define our first arithmetic operations.
+  </p>
+  <definition xml:id="def_addition">
+    <statement>
+      <p>
+            <idx><h>matrix</h><h>addition</h></idx>
+        <term>Matrix Addition</term>
+      </p>
+      <p>
+        Let <m>A</m> and B<nbsp/>be <m>m\times n</m> matrices.
+        The <term>sum</term> of <m>A</m> and B, denoted <m>A+ B</m>, is
+        <me>
+          \left[\begin{array}{cccc}  a_{11}+b_{11}\amp a_{12}+b_{12}\amp \cdots\amp a_{1n}+b_{1n}\\ a_{21}+b_{21}\amp a_{22}+b_{22}\amp \cdots\amp a_{2n}+b_{2n}\\\vdots\amp \vdots\amp \ddots\amp \vdots\\ a_{m1}+b_{m1}\amp a_{m2}+b_{m2}\amp \cdots\amp a_{mn}+b_{mn} \end{array} \right]
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <definition xml:id="def_scalar_multiplication">
+    <statement>
+      <p>
+            <idx><h>matrix</h><h>scalar multiplication</h></idx>
+        <term>Scalar Multiplication</term>
+      </p>
+      <p>
+        Let <m>A</m> be an <m>m\times n</m> matrix and let <m>k</m> be a scalar.
+        The <term>scalar multiplication</term>
+        of <m>k</m> and <m>A</m>, denoted <m>k A</m>, is
+        <me>
+          \left[\begin{array}{cccc} ka_{11}\amp ka_{12}\amp \cdots\amp ka_{1n}\\ka_{21}\amp ka_{22}\amp \cdots\amp ka_{2n}\\\vdots\amp \vdots\amp \ddots\amp \vdots\\ka_{m1}\amp ka_{m2}\amp \cdots\amp ka_{mn} \end{array} \right]
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We are now ready for an example.
+  </p>
+  <example xml:id="ex_mat_add_1">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\-1\amp 2\amp 1\\5\amp 5\amp 5 \end{array} \right],  B = \left[\begin{array}{ccc} 2\amp 4\amp 6\\1\amp 2\amp 2\\-1\amp 0\amp 4 \end{array} \right],  C = \left[\begin{array}{ccc}  1\amp 2\amp 3\\9\amp 8\amp 7 \end{array} \right]
+        </me>.
+        Simplify the following matrix expressions.
+      </p>
+      <ol cols="4">
+        <li>
+          <p>
+            <m>A+ B</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>B+ A</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A- B</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A + C</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>-3 A +2 B</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A - A</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>5 A + 5 B</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>5( A+ B)</m>
+          </p>
+        </li>
+      </ol>
+    </statement>
+    <solution>
+      <p>
+        <ol>
+          <li>
+            <p>
+              <m>A + B = \left[\begin{array}{ccc} 3\amp 6\amp 9\\0\amp 4\amp 3\\4\amp 5\amp 9 \end{array} \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>B + A = \left[\begin{array}{ccc} 3\amp 6\amp 9\\0\amp 4\amp 3\\4\amp 5\amp 9 \end{array} \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A - B = \left[\begin{array}{ccc} -1\amp -2\amp -3\\-2\amp 0\amp -1\\6\amp 5\amp 1 \end{array} \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A + C</m> is not defined.
+              If we look at our definition of matrix addition,
+              we see that the two matrices need to be the same size.
+              Since <m>A</m> and C<nbsp/>have different dimensions,
+              we don't even try to create something as an addition;
+              we simply say that the sum is not defined.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-3 A + 2 B = \left[\begin{array}{ccc} 1\amp 2\amp 3\\5\amp -2\amp 1\\-17\amp -15\amp -7 \end{array} \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A - A = \left[\begin{array}{ccc} 0\amp 0\amp 0\\0\amp 0\amp 0\\0\amp 0\amp 0 \end{array} \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Strictly speaking,
+              this is <m>\left[\begin{array}{ccc} 5\amp 10\amp 15\\-5\amp 10\amp 5\\25\amp 25\amp 25 \end{array} \right] +\left[\begin{array}{ccc} 10\amp 20\amp 30\\5\amp 10\amp 10\\-5\amp 0\amp 20 \end{array} \right] = \left[\begin{array}{ccc} 15\amp 30\amp 45\\0\amp 20\amp 15\\20\amp 25\amp 45 \end{array} \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Strictly speaking, this is
+              <md>
+                <mrow>5\left(\left[\begin{array}{ccc} 1\amp 2\amp 3</mrow>
+                <mrow>-1\amp 2\amp 1</mrow>
+                <mrow>5\amp 5\amp 5\end{array}\right] + \left[\begin{array}{ccc} 2\amp 4\amp 6</mrow>
+                <mrow>1\amp 2\amp 2</mrow>
+                <mrow>-1\amp 0\amp 4\end{array}\right]\right) \amp = 5\cdot\left[\begin{array}{ccc} 3\amp 6\amp 9</mrow>
+                <mrow>0\amp 4\amp 3</mrow>
+                <mrow>4\amp 5\amp 9\end{array}\right]</mrow>
+                <mrow>\amp = \left[\begin{array}{ccc} 15\amp 30\amp 45</mrow>
+                <mrow>0\amp 20\amp 15</mrow>
+                <mrow>20\amp 25\amp 45\end{array}\right]</mrow>
+              </md>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Our example raised a few interesting points.
+    Notice how <m>A + B = B + A</m>.
+    We probably aren't suprised by this,
+    since we know that when dealing with numbers, <m>a+b = b+a</m>.
+    Also, notice that <m>5 A+5 B = 5( A+ B)</m>.
+    In our example,
+    we were careful to compute each of these expressions following the proper order of operations;
+    knowing these are equal allows us to compute similar expressions in the most convenient way.
+  </p>
+  <p>
+    Another interesting thing that came from our previous example is that
+    <me>
+      A -  A = \left[\begin{array}{ccc} 0\amp 0\amp 0\\0\amp 0\amp 0\\0\amp 0\amp 0 \end{array} \right]
+    </me>.
+    It seems like this should be a special matrix;
+    after all, every entry is 0 and 0 is a special number.
+  </p>
+  <p>
+    In fact, this is a special matrix.
+    We define O, which we read as
+    <q>the zero matrix,</q>
+    to be the matrix of all zeros.<fn>
+    We use the bold face to distinguish the zero matrix, O, from the number zero, 0.
+    </fn> We should be careful; this previous
+    <q>definition</q>
+    is a bit ambiguous,
+    for we have not stated what size the zero matrix should be.
+    Is <m>\left[\begin{array}{cc} 0\amp 0\\0\amp 0\\ \end{array} \right]</m> the zero matrix?
+    How about <m>\left[\begin{array}{cc} 0\amp 0 \end{array} \right]</m>?
+  </p>
+  <p>
+    Let's not get bogged down in semantics.
+    If we ever see O<nbsp/>in an expression,
+    we will usually know right away what size O<nbsp/>should be;
+    it will be the size that allows the expression to make sense.
+    If <m>A</m> is a <m>3\times 5</m> matrix,
+    and we write <m>A + O</m>,
+    we'll simply assume that O<nbsp/>is also a <m>3\times 5</m> matrix.
+    If we are ever in doubt, we can add a subscript;
+    for instance,
+    <m>\tto_{2\times 7}</m> is the <m>2\times7</m> matrix of all zeros.
+  </p>
+  <p>
+    Since the zero matrix is an important concept,
+    we give it it's own definition box.
+  </p>
+  <definition xml:id="def_zero_matrix">
+    <statement>
+      <p>
+        <term>The Zero Matrix</term>
+      </p>
+      <p>
+            <idx><h>zero matrix</h></idx>
+            <idx><h>matrix</h><h>the zero matrix</h></idx>
+        The <m>m\times n</m> matrix of all zeros,
+        denoted <m>\tto_{m\times n}</m>,
+        is the <term>zero matrix</term>.
+      </p>
+      <p>
+        When the dimensions of the zero matrix are clear from the context,
+        the subscript is generally omitted.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The following presents some of the properties of matrix addition and scalar multiplication that we discovered above,
+    plus a few more.
+  </p>
+  <theorem xml:id="thm_addition_properties">
+    <statement>
+      <p>
+            <idx><h>matrix</h><h>arithmetic properties</h></idx>
+        <em>Properties of Matrix Addition and Scalar Multiplication</em>
+      </p>
+      <p>
+        The following equalities hold for all
+        <m>m\times n</m> matrices <m>A</m>, B<nbsp/>and C<nbsp/>and scalars <m>k</m>.
+        <ol>
+          <li>
+            <p>
+              <m>A+ B = B + A</m> (Commutative Property)
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>( A+ B)+ C = A + ( B+ C)</m> (Associative Property)
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k( A + B) = k A + k B</m> (Scalar Multiplication Distributive Property)
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k A = A k</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A + O = O+ A = A</m> (Additive Identity)
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>0 A = O</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Be sure that this last property makes sense;
+    it says that if we multiply any matrix by the <em>number</em>
+    0, the result is the <em>zero matrix</em>, or O.
+  </p>
+  <p>
+    We began this section with the concept of matrix equality.
+    Let's put our matrix addition properties to use and solve a matrix equation.
+  </p>
+  <example xml:id="ex_equal">
+    <statement>
+      <p>
+        Let
+        <me>
+          A = \left[\begin{array}{cc}  2\amp -1\\3\amp 6 \end{array} \right]
+        </me>.
+        Find the matrix X<nbsp/>such that
+        <me>
+          2 A + 3 X = -4 A
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We can use basic algebra techniques to manipulate this equation for X; first,
+        let's subtract <m>2 A</m> from both sides.
+        This gives us
+        <me>
+          3 X = -6 A
+        </me>.
+        Now divide both sides by 3 to get
+        <me>
+          X = -2 A
+        </me>.
+        Now we just need to compute <m>-2 A</m>; we find that
+        <me>
+          X = \left[\begin{array}{cc}  -4\amp 2\\ -6\amp -12 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Our matrix properties identified O<nbsp/>as the Additive Identity;
+    i.e., if you add O<nbsp/>to any matrix <m>A</m>, you simply get <m>A</m>.
+    This is similar in notion to the fact that for all numbers <m>a</m>,
+    <m>a+0 = a</m>.
+    A <em>Multiplicative Identity</em>
+    would be a matrix I<nbsp/>where
+    <m>I\times A = A</m> for all matrices <m>A</m>. (What would such a matrix look like?
+    A matrix of all 1s, perhaps?) However,
+    in order for this to make sense,
+    we'll need to learn to multiply matrices together,
+    which we'll do in the next section.
+  </p>
+  <p>
+    Matrices <m>A</m> and B<nbsp/>are given below.
+    In the following exercises, simplify the given expression.
+    <me>
+      A = \left[\begin{array}{cc}  1 \amp  -1\\ 7 \amp  4 \end{array} \right]   B = \left[\begin{array}{cc}  -3 \amp  2\\5 \amp  9 \end{array} \right]
+    </me>
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A + B</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} -2\amp -1\\12 \amp 13 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>2 A - 3 B</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 11\amp -8\\-1 \amp -19 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>3 A - A</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 2 \amp -2\\14 \amp 8 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>4 B - 2 A</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{c} -14\\-5 \\ -9 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>3( A - B)+ B</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} 9\amp -7\\11 \amp -6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>2( A - B)-( A - 3 B)</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{cc} -2\amp 1\\12\amp 13 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    Matrices <m>A</m> and B<nbsp/>are given below.
+    In the following exercises, simplify the given expression.
+    <me>
+      A = \left[\begin{array}{c}  3\\ 5 \end{array} \right]   B = \left[\begin{array}{c}  -2\\4 \end{array} \right]
+    </me>
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>4 B - 2 A</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{c} -14\\6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>-2 A + 3 A</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{c} -12\\2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>-2 A - 3 A</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{c} -15\\-25 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>- B + 3 B-2 B</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\left[\begin{array}{c} 0\\0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    Matrices <m>A</m> and B<nbsp/>are given below.
+    In the following exercises, find X<nbsp/>that satisfies the equation.
+    <me>
+      A = \left[\begin{array}{cc}  3 \amp  -1\\ 2 \amp  5 \end{array} \right]   B = \left[\begin{array}{cc}  1 \amp  7\\3 \amp  -4 \end{array} \right]
+    </me>
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>2 A + X = B</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X = \left[\begin{array}{cc} -5 \amp 9 \\-1 \amp -14 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A - X = 3 B</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X = \left[\begin{array}{cc} 0 \amp -22 \\-7 \amp 17 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>3 A + 2 X = -1 B</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X = \left[\begin{array}{cc} -5 \amp -2 \\-9/2 \amp -19/2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A - \frac12 X = - B</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X = \left[\begin{array}{cc} 8 \amp 12 \\10 \amp 2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    find values for the scalars <m>a</m> and <m>b</m> that satisfy the given equation.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>a\left[\begin{array}{c} 1\\2 \end{array} \right] + b\left[\begin{array}{c} -1\\5 \end{array} \right] = \left[\begin{array}{c} 1\\9 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>a = 2</m>, <m>b = 1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>a\left[\begin{array}{c} -3\\1 \end{array} \right] + b\left[\begin{array}{c} 8\\4 \end{array} \right] = \left[\begin{array}{c} 7\\1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>a = -1</m>, <m>b = 1/2</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>a\left[\begin{array}{c} 4\\-2 \end{array} \right] + b\left[\begin{array}{c} -6\\3 \end{array} \right] = \left[\begin{array}{c} 10\\-5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>a = 5/2 + 3/2b</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>a\left[\begin{array}{c} 1\\1 \end{array} \right] + b\left[\begin{array}{c} -1\\3 \end{array} \right] = \left[\begin{array}{c} 5\\5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>a = 5</m>, <m>b = 0</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>a\left[\begin{array}{c} 1\\3 \end{array} \right] + b\left[\begin{array}{c} -3\\-9 \end{array} \right] = \left[\begin{array}{c} 4\\-12 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        No solution.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>a\left[\begin{array}{c} 1\\2\\3 \end{array} \right] + b\left[\begin{array}{c} 1\\1\\2 \end{array} \right] = \left[\begin{array}{c} 0\\ -1\\-1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>a=-1</m>, <m>b=1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>a\left[\begin{array}{c} 1\\0\\1 \end{array} \right] + b\left[\begin{array}{c} 5\\1\\2 \end{array} \right] = \left[\begin{array}{c} 3\\ 4\\7 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        No solution.
+      </p>
+    </answer>
+  </exercise>
+</section>

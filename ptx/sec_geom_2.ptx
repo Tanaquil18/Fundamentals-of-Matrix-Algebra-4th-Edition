@@ -1,0 +1,1213 @@
+<section xml:id="sec_geom_2">
+  <title>Visualizing Vectors: Vectors in Three Dimensions</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: The viewpoint of the reader makes a difference in how vectors in 3D look.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: If two vectors are not near each other,
+          then they will not appear to be near each other when graphed.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: The parallelogram law only applies to adding vectors in 2D.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    We ended the last section by stating we could extend the ideas of drawing 2D vectors to drawing 3D vectors.
+    Once we understand how to properly draw these vectors,
+    addition and subtraction is relatively easy.
+    We'll also discuss how to find the length of a vector in 3D.
+  </p>
+  <p>
+    We start with the basics of drawing a vector in 3D. Instead of having just the traditional <m>x</m> and <m>y</m> axes,
+    we now add a third axis, the <m>z</m> axis.
+    Without any additional vectors,
+    a generic 3D coordinate system can be seen in <xref ref="fig_empty_3D">Figure</xref>.
+  </p>
+  <figure xml:id="fig_empty_3D">
+    <caption>The 3D coordinate system</caption>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+\draw  (0,\x,-.1)--(0,\x,.1);
+\draw  (0,-.1,\x)--(0,.1,\x);
+};\end{tikzpicture}]]>
+</latex-image>
+    </image>
+  </figure>
+  <p>
+    In 2D, the point <m>(2,1)</m> refers to going 2 units in the <m>x</m> direction followed by 1 unit in the <m>y</m> direction.
+    In 3D, each point is referenced by 3 coordinates.
+    The point <m>(4,2,3)</m> is found by going 4 units in the <m>x</m> direction,
+    <m>2</m> units in the <m>y</m> direction,
+    and 3 units in the <m>z</m> direction.
+  </p>
+  <p>
+    How does one sketch a vector on this coordinate system?
+    As one might expect, we can sketch the vector
+    <m>\vec{v} = \left[\begin{array}{c} 1\\2\\3 \end{array} \right]</m> by drawing an arrow from the origin (the point (0,0,0)) to the point <m>(1,2,3)</m>.<fn>
+    Of course, we don't have to start at the origin;
+    all that really matters is that the tip of the arrow is 1 unit in the <m>x</m> direction, 2 units in the <m>y</m> direction,
+    and 3 units in the <m>z</m> direction from the origin of the arrow.
+    </fn> The only
+    <q>tricky</q>
+    part comes from the fact that we are trying to represent three dimensional space on a two dimensional sheet of paper.
+    However, it isn't really hard.
+    We'll discover a good way of approaching this in the context of an example.
+  </p>
+  <example xml:id="ex_draw_3D_1">
+    <statement>
+      <p>
+        Sketch the following vectors with their origin at the origin.
+        <me>
+          \vec{v} = \left[\begin{array}{c} 2\\1\\3 \end{array} \right]  \text{ and }   \vec{u} = \left[\begin{array}{c}  1\\3\\-1 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We'll start with <m>\vec{v}</m> first.
+        Starting at the origin, move 2 units in the <m>x</m> direction.
+        This puts us at the point <m>(2,0,0)</m> on the <m>x</m> axis.
+        Then, move 1 unit in the <m>y</m> direction.
+        (In our method of drawing, this means moving 1 unit directly to the right.
+        Of course, we don't have a grid to follow,
+        so we have to make a good approximation of this distance.)
+        Finally, we move 3 units in the <m>z</m> direction.
+        (Again, in our drawing, this means going straight
+        <q>up</q>
+        3 units, and we must use our best judgment in a sketch to measure this.)
+      </p>
+      <p>
+        This allows us to locate the point <m>(2,1,3)</m>;
+        now we draw an arrow from the origin to this point.
+        In <xref ref="fig_draw_3D_vx">Figure</xref>
+        we have all 4 stages of this sketch.
+        The dashed lines show us moving down the <m>x</m> axis in (a);
+        in (b) we move over in the <m>y</m> direction;
+        in (c) we move up in the <m>z</m> direction,
+        and finally in (d) the arrow is drawn.
+      </p>
+      <figure xml:id="fig_draw_3D_vx">
+        <caption>Stages of sketching the vector <m>\vec{v}</m>  for <xref ref="ex_draw_3D_1">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{scope}
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,4) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,3}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0);
+\node at (0,0,-3) {(a)};
+\end{scope}
+\begin{scope}[shift={(0,8,0)}]
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,4) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,3}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0);
+\draw[dashed,ultra thick] (2,0,0) -- (2,1,0);
+\node at (0,0,-3) {(b)};
+\end{scope}
+\begin{scope}[shift={(0,0,-9)}]
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,4) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,3}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0);
+\draw[dashed,ultra thick] (2,0,0) -- (2,1,0);
+\draw[dashed,ultra thick] (2,1,0) -- (2,1,3);
+\filldraw [black] (2,1,3) circle (2pt);
+\node at (2,1,3) [above left] {(2,1,3)};
+\node at (0,0,-3) {(c)};
+\end{scope}
+\begin{scope}[shift={(0,8,-9)}]
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,4) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,3}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0);
+\draw[dashed,ultra thick] (2,0,0) -- (2,1,0);
+\draw[dashed,ultra thick] (2,1,0) -- (2,1,3);
+\draw[thick,->] (0,0,0) -- (2,1,3);
+\node at (0,0,-3) {(d)};
+\end{scope}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+      <p>
+        Drawing the dashed lines help us find our way in our representation of three dimensional space.
+        Without them,
+        it is hard to see how far in each direction the vector is supposed to have gone.
+      </p>
+      <p>
+        To draw <m>\vec{u}</m>,
+        we follow the same procedure we used to draw <m>\vec{v}</m>.
+        We first locate the point <m>(1,3,-1)</m>,
+        then draw the appropriate arrow.
+        In <xref ref="fig_draw_3D_vx_vy">Figure</xref>
+        we have <m>\vec{u}</m> drawn along with <m>\vec{v}</m>.
+        We have used different dashed and dotted lines for each vector to help distinguish them.
+      </p>
+      <p>
+        Notice that this time we had to go in the negative <m>z</m> direction;
+        this just means we moved down one unit instead of up a unit.
+      </p>
+      <figure xml:id="fig_draw_3D_vx_vy">
+        <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_1">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,4) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,3}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0);
+\draw[dashed,ultra thick] (2,0,0) -- (2,1,0);
+\draw[dashed,ultra thick] (2,1,0) -- (2,1,3);
+\draw[thick,->] (0,0,0) -- (2,1,3);
+\draw[dotted,ultra thick] (0,0,0) -- (1,0,0) -- (1,3,0) -- (1,3,-1);
+\draw[thick,->] (0,0,0) -- (1,3,-1);\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    As in 2D, we don't usually draw the zero vector,
+    <me>
+      \vec{0} = \left[\begin{array}{c} 0\\0\\0 \end{array} \right]
+    </me>.
+    It doesn't point anywhere.
+    It is a conceptually important vector that does not have a terribly interesting visualization.
+  </p>
+  <p>
+    Our method of drawing 3D objects on a flat surface <mdash/> a 2D surface <mdash/> is pretty clever.
+    It isn't perfect, though; visually,
+    drawing vectors with negative components
+    (especially negative <m>x</m> coordinates)
+    can look a bit odd.
+    Also, two very different vectors can point to the same place.
+    We'll highlight this with our next two examples.
+  </p>
+  <example xml:id="ex_draw_3D_2">
+    <statement>
+      <p>
+        Sketch the vector <m>\vec{v} = \left[\begin{array}{c} -3\\-1\\2 \end{array} \right]</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We use the same procedure we used in <xref ref="ex_draw_3D_1">Example</xref>.
+        Starting at the origin,
+        we move in the negative <m>x</m> direction 3 units,
+        then 1 unit in the negative <m>y</m> direction,
+        and then finally up 2 units in the <m>z</m> direction to find the point <m>(-3,-1,2)</m>.
+        We follow by drawing an arrow.
+        Our sketch is found in <xref ref="fig_draw_3D_2">Figure</xref>;
+        <m>\vec{v}</m> is drawn in two coordinate systems,
+        once with the helpful dashed lines, and once without.
+        The second drawing makes it pretty clear that the dashed lines truly are helpful.
+      </p>
+      <figure xml:id="fig_draw_3D_2">
+        <caption>Vector <m>\vec{v}</m> in <xref ref="ex_draw_3D_2">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{scope}
+\draw [->] (-3,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,-1,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {-2,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (-3,0,0) -- (-3,-1,0) -- (-3,-1,2);
+\draw[thick,->] (0,0,0) -- (-3,-1,2);
+\end{scope}
+\begin{scope}[shift={(0,6,0)}]
+\draw [->] (-3,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,-1,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {-2,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[thick,->] (0,0,0) -- (-3,-1,2);
+\end{scope}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <example xml:id="ex_draw_3D_3">
+    <statement>
+      <p>
+        Draw the vectors <m>\vec{v} = \left[\begin{array}{c} 2\\4\\2 \end{array} \right]</m> and
+        <m>\vec{u} = \left[\begin{array}{c} -2\\1\\-1 \end{array} \right]</m> on the same coordinate system.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We follow the steps we've taken before to sketch these vectors,
+        shown in <xref ref="fig_draw_3D_3">Figure</xref>.
+        The dashed lines are aides for <m>\vec{v}</m> and the dotted lines are aids for <m>\vec{u}</m>.
+        We again include the vectors without the dashed and dotted lines;
+        but without these,
+        it is very difficult to tell which vector is which!
+      </p>
+      <figure xml:id="fig_draw_3D_3">
+        <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_3">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{scope}
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0) -- (2,4,0) -- (2,4,2);
+\draw[thick,->] (0,0,0) -- (2,4,2);
+\draw[dotted,ultra thick] (0,0,0) -- (-2,0,0) -- (-2,1,0) -- (-2,1,-1);
+\draw[thick,->] (0,0,0) -- (-2,1,-1);
+\end{scope}
+\begin{scope}[shift={(0,6,0)}]
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[thick,->] (0,0,0) -- (2,4,2);
+\draw[thick,->] (0,0,0) -- (-2,1,-1);
+\end{scope}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    Our three examples have demonstrated that we have a pretty clever,
+    albeit imperfect, method for drawing 3D vectors.
+    The vectors in <xref ref="ex_draw_3D_3">Example</xref>
+    look similar because of our <em>viewpoint</em>.
+    In <xref ref="fig_viewpoint_1">Figure</xref> (a),
+    we have rotated the coordinate axes,
+    giving the vectors a different appearance.
+    (Vector <m>\vec{v}</m> now looks like it lies on the <m>y</m> axis.)
+  </p>
+  <p>
+    Another important factor in how things look is the scale we use for the <m>x</m>,
+    <m>y</m>, and <m>z</m> axes.
+    In 2D, it is easy to make the scale uniform for both axes;
+    in 3D, it can be a bit tricky to make the scale the same on the axes that are
+    <q>slanted.</q>
+    <xref ref="fig_viewpoint_1">Figure</xref>
+    (b) again shows the same 2 vectors found in <xref ref="ex_draw_3D_3">Example</xref>,
+    but this time the scale of the <m>x</m> axis is a bit different.
+    The end result is that again the vectors appear a bit different than they did before.
+    These facts do not necessarily pose a big problem;
+    we must merely be aware of these facts and not make judgments about 3D objects based on one 2D image.<fn>
+    The human brain uses both eyes to convey 3D, or depth,
+    information.
+    With one eye closed
+    (or missing),
+    we can have a very hard time with
+    <q>depth perception.</q>
+    Two objects that are far apart can seem very close together.
+    A simple example of this problem is this:
+    close one eye,
+    and place your index finger about a foot above this text,
+    directly above this <em>WORD</em>.
+    See if you were correct by dropping your finger straight down.
+    Did you actually hit the proper spot?
+    Try it again with both eyes,
+    and you should see a noticable difference in your accuracy.
+    Looking at 3D objects on paper is a bit like viewing the world with one eye closed.
+    </fn>
+  </p>
+  <figure xml:id="fig_viewpoint_1">
+    <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_3">Example</xref> with a different viewpoint (a) and <m>x</m> axis scale (b).</caption>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0) -- (2,4,0) -- (2,4,2);
+\draw[thick,->] (0,0,0) -- (2,4,2);
+\draw[dotted,ultra thick] (0,0,0) -- (-2,0,0) -- (-2,1,0) -- (-2,1,-1);
+\draw[thick,->] (0,0,0) -- (-2,1,-1);
+\node at (0,0,-3) [below] {(a)};\end{tikzpicture}]]>
+</latex-image>
+    </image>
+    <m></m>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0) -- (2,4,0) -- (2,4,2);
+\draw[thick,->] (0,0,0) -- (2,4,2);
+\draw[dotted,ultra thick] (0,0,0) -- (-2,0,0) -- (-2,1,0) -- (-2,1,-1);
+\draw[thick,->] (0,0,0) -- (-2,1,-1);
+\node at (0,0,-3) [below] {(b)};\end{tikzpicture}]]>
+</latex-image>
+    </image>
+  </figure>
+  <p>
+    We now investigate properties of vector arithmetic:
+    what happens (i.e., how do we draw) when we add 3D vectors and multiply by a scalar?
+    How do we compute the length of a 3D vector?
+  </p>
+  <p>
+    <em><em>Vector Addition and Subtraction</em></em>
+  </p>
+  <p>
+    In 2D, we saw that we could add vectors together graphically using the Parallelogram Law.
+    Does the same apply for adding vectors in 3D? We investigate in an example.
+  </p>
+  <example xml:id="ex_add_3D">
+    <statement>
+      <p>
+        Let <m>\vec{v} = \left[\begin{array}{c} 2\\1\\3 \end{array} \right]</m> and <m>\vec{u} = \left[\begin{array}{c} 1\\3\\-1 \end{array} \right]</m>.
+        Sketch <m>\vec{v} + \vec{u}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We sketched each of these vectors previously in <xref ref="ex_draw_3D_1">Example</xref>.
+        We sketch them,
+        along with <m>\vec{v}+\vec{u} = \left[\begin{array}{c} 3\\4\\2 \end{array} \right]</m>,
+        in <xref ref="fig_add_3D">Figure</xref>
+        (a). (We use loosely dashed lines for <m>\vec{v}+\vec{u}</m>.)
+      </p>
+      <p>
+        Does the Parallelogram Law still hold?
+        In <xref ref="fig_add_3D">Figure</xref> (b),
+        we draw additional representations of <m>\vec{v}</m> and <m>\vec{u}</m> to form a parallelogram
+        (without all the dotted lines),
+        which seems to affirm the fact that the Parallelogram Law does indeed hold.
+      </p>
+      <figure xml:id="fig_add_3D">
+        <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, and <m>\vec{v} + \vec{u}</m> <xref ref="ex_add_3D">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{scope}
+\draw [->] (0,0,0)--(3.5,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,3}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0) -- (2,1,0) -- (2,1,3);
+\draw[thick,->] (0,0,0) -- (2,1,3);
+\draw[dotted,ultra thick] (0,0,0) -- (1,0,0) -- (1,3,0) -- (1,3,-1);
+\draw[thick,->] (0,0,0) -- (1,3,-1);
+\draw[loosely dashed,ultra thick] (0,0,0) -- (3,0,0) -- (3,4,0) -- (3,4,2);
+\draw[thick,->] (0,0,0) -- (3,4,2);
+\node at (0,0,-3) {(b)};
+\end{scope}
+\begin{scope}[shift={(0,6,0)}]
+\draw [->] (0,0,0)--(3.5,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,3}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[thick,->] (0,0,0) -- (2,1,3);
+\draw[thick,->] (0,0,0) -- (1,3,-1);
+\draw[thick,->,gray] (2,1,3) -- (3,4,2);
+\draw[thick,->,gray] (1,3,-1) -- (3,4,2);
+\draw[thick,->] (0,0,0) -- (3,4,2);
+\node at (0,0,-3) {(b)};
+\end{scope}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    We also learned that in 2D, we could subtract vectors by drawing a vector from the tip of one vector to the other.<fn>
+    Recall that it is important which vector we used for the origin and which was used for the tip.
+    </fn> Does this also work in 3D? We'll investigate again with an example,
+    using the familiar vectors <m>\vec{v}</m> and <m>\vec{u}</m> from before.
+  </p>
+  <example xml:id="ex_draw_3D_4">
+    <statement>
+      <p>
+        Let <m>\vec{v} = \left[\begin{array}{c} 2\\1\\3 \end{array} \right]</m> and <m>\vec{u} = \left[\begin{array}{c} 1\\3\\-1 \end{array} \right]</m>.
+        Sketch <m>\vec{v} - \vec{u}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        It is simple to compute that <m>\vec{v}-\vec{u} = \left[\begin{array}{c} 1\\-2\\4 \end{array} \right]</m>.
+        All three of these vectors are sketched in <xref ref="fig_draw_3D_4">Figure</xref> (a),
+        where again <m>\vec{v}</m> is guided by the dashed,
+        <m>\vec{u}</m> by the dotted,
+        and <m>\vec{v}-\vec{u}</m> by the loosely dashed lines.
+      </p>
+      <p>
+        Does the 2D subtraction rule still hold?
+        That is, can we draw <m>\vec{v} - \vec{u}</m> by drawing an arrow from the tip of <m>\vec{u}</m> to the tip of \vec{v}? In <xref ref="fig_draw_3D_4">Figure</xref> (b),
+        we translate the drawing of
+        <m>\vec{v}-\vec{u}</m> to the tip of <m>\vec{u}</m>,
+        and sure enough, it looks like it works.
+        (And in fact, it really does.)
+      </p>
+      <figure xml:id="fig_draw_3D_4">
+        <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, and <m>\vec{v} - \vec{u}</m> from <xref ref="ex_draw_3D_4">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{scope}
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,4) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,3}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (2,0,0) -- (2,1,0) -- (2,1,3);
+\draw[thick,->] (0,0,0) -- (2,1,3);
+\draw[dotted,ultra thick] (0,0,0) -- (1,0,0) -- (1,3,0) -- (1,3,-1);
+\draw[thick,->] (0,0,0) -- (1,3,-1);
+\draw[loosely dashed,ultra thick] (0,0,0) -- (1,0,0) -- (1,-2,0) -- (1,-2,4);
+\draw[thick,->] (0,0,0) -- (1,-2,4);
+\node at (0,0,-3) {(a)};
+\end{scope}
+\begin{scope}[shift={(0,6,0)}]
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,-1)--(0,0,4) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,3}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[thick,->] (0,0,0) -- (2,1,3);
+\draw[thick,->] (0,0,0) -- (1,3,-1);
+\draw[thick,->,gray] (1,3,-1) -- (2,1,3);
+\draw[thick,->] (0,0,0) -- (1,-2,4);
+\node at (0,0,-3) {(b)};
+\end{scope}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    The previous two examples highlight the fact that even in 3D, we can sketch vectors without explicitly knowing what they are.
+    We practice this one more time in the following example.
+  </p>
+  <example xml:id="ex_draw_3D_5">
+    <statement>
+      <p>
+        Vectors <m>\vec{v}</m> and <m>\vec{u}</m> are drawn in <xref ref="fig_draw_3D_5a">Figure</xref>.
+        Using this drawing, sketch the vectors
+        <m>\vec{v}+\vec{u}</m> and <m>\vec{v}-\vec{u}</m>.
+      </p>
+      <figure xml:id="fig_draw_3D_5a">
+        <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> for <xref ref="ex_draw_3D_5">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(2,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[thick,->] (0,0,0) -- (0,-2,1) node [above] {\vec{v}};
+\draw[thick,->] (0,0,0) -- (2,2,2)  node [above] {\vec{u}};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </statement>
+    <solution>
+      <p>
+        Using the Parallelogram Law,
+        we draw <m>\vec{v}+\vec{u}</m> by first drawing a gray version of <m>\vec{u}</m> coming from the tip of \vec{v};
+        <m>\vec{v}+\vec{u}</m> is drawn dashed in <xref ref="fig_draw_3D_5b">Figure</xref>.
+      </p>
+      <p>
+        To draw <m>\vec{v}-\vec{u}</m>,
+        we draw a dotted arrow from the tip of \vec{u} to the tip of <m>\vec{v}</m>.
+      </p>
+      <figure xml:id="fig_draw_3D_5b">
+        <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, <m>\vec{v} + \vec{u}</m> and <m>\vec{v} - \vec{u}</m> for <xref ref="ex_draw_3D_5">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(2,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[thick,->] (0,0,0) -- (0,-2,1);
+\draw[thick,->] (0,0,0) -- (2,2,2);
+\draw[thick,->,gray] (0,-2,1) -- (2,0,3);
+\draw[thick,->,dashed] (0,0,0) -- (2,0,3);
+\draw[thick,->,dotted] (2,2,2) -- (0,-2,1);\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    <em><em>Scalar Multiplication</em></em>
+  </p>
+  <p>
+    Given a vector <m>\vec{v}</m> in 3D, what does the vector 2<m>\vec{v}</m> look like?
+    How about <m>-\vec{v}</m>?
+    After learning about vector addition and subtraction in 3D, we are probably gaining confidence in working in 3D and are tempted to say that 2<m>\vec{v}</m> is a vector twice as long as <m>\vec{v}</m>,
+    pointing in the same direction,
+    and <m>-\vec{v}</m> is a vector of the same length as <m>\vec{v}</m>,
+    pointing in the opposite direction.
+    We would be right.
+    We demonstrate this in the following example.
+  </p>
+  <example xml:id="ex_3D_scalar_1">
+    <statement>
+      <p>
+        Sketch <m>\vec{v}</m>, 2<m>\vec{v}</m>,
+        and <m>-\vec{v}</m>, where
+        <me>
+          \vec{v} = \left[\begin{array}{c}  1\\2\\3 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <figure xml:id="fig_3D_scalar_1">
+        <caption>Sketching scalar multiples of <m>\vec{v}</m> in <xref ref="ex_3D_scalar_1">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dotted,ultra thick] (0,0,0) -- (2,0,0) -- (2,4,0) -- (2,4,6);
+\draw[dashed,ultra thick] (0,0,0) -- (1,0,0) -- (1,2,0) -- (1,2,3);
+\draw[loosely dotted,ultra thick] (0,0,0) -- (-1,0,0) -- (-1,-2,0) -- (-1,-2,-3);
+\draw[thick,->] (0,0,0) -- (-1,-2,-3);
+\draw[thick,->] (0,0,0) -- (2,4,6);
+\draw[thick,->] (0,0,0) -- (1,2,3);
+\draw [->] (0,0,0)--(0,0,3) node [above] {\(z\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+      <p>
+        It is easy to compute
+        <me>
+          2\vec{v} = \left[\begin{array}{c} 2\\4\\6 \end{array} \right]  \text{ and }   -\vec{v} = \left[\begin{array}{c}  -1\\-2\\-3 \end{array} \right]
+        </me>.
+        These are drawn in <xref ref="fig_3D_scalar_1">Figure</xref>.
+        This figure is, in many ways, a mess,
+        with all the dashed and dotted lines.
+        They are useful though.
+        Use them to see how each vector was formed,
+        and note that 2<m>\vec{v}</m> at least looks twice as long as <m>\vec{v}</m>,
+        and it looks like <m>-\vec{v}</m> points in the opposite direction.<fn>
+        Our previous work showed that looks can be deceiving,
+        but it is indeed true in this case.
+        </fn>
+      </p>
+    </solution>
+  </example>
+  <p>
+    <em><em>Vector Length</em></em>
+  </p>
+  <p>
+    How do we measure the length of a vector in 3D? In 2D, we were able to answer this question by using the Pythagorean Theorem.
+    Does the Pythagorean Theorem apply in 3D? In a sense, it does.
+  </p>
+  <p>
+    Consider the vector <m>\vec{v} = \left[\begin{array}{c} 1\\2\\3 \end{array} \right]</m>,
+    as drawn in <xref ref="fig_3D_vect_length">Figure</xref> (a),
+    with guiding dashed lines.
+    Now look at part (b) of the same figure.
+    Note how two lengths of the dashed lines have now been drawn gray,
+    and another dotted line has been added.
+  </p>
+  <figure xml:id="fig_3D_vect_length">
+    <caption>Computing the length of <m>\vec{v}</m></caption>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{scope}
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,ultra thick] (0,0,0) -- (1,0,0) -- (1,2,0) -- (1,2,3);
+\draw[thick,->] (0,0,0) -- (1,2,3);
+\node at (0,0,-3) {(a)};
+\end{scope}
+\begin{scope}[shift={(0,6,0)}]
+\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
+\draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
+\draw [->] (0,0,0)--(0,0,3) node [above] {\(z\)};
+\foreach \x in {1,...,2}
+{\draw  (\x,-.1,0)--(\x,.1,0);
+};
+\foreach \y in {1,...,2}
+{\draw  (0,\y,-.1)--(0,\y,.1);
+};
+\foreach \z in {1,...,2}
+{\draw  (0,-.1,\z)--(0,.1,\z);
+};
+\draw[dashed,gray,ultra thick] (0,0,0) -- (1,0,0) -- (1,2,0);
+\draw[dotted,gray,ultra thick] (0,0,0) -- (1,2,0);
+\draw[dashed,ultra thick]  (1,2,0) -- (1,2,3);
+\draw[thick,->] (0,0,0) -- (1,2,3);
+\node at (0,0,-3) {(b)};
+\end{scope}\end{tikzpicture}]]>
+</latex-image>
+    </image>
+  </figure>
+  <p>
+    These gray dashed and dotted lines form a right triangle with the dotted line forming the hypotenuse.
+    We can find the length of the dotted line using the Pythagorean Theorem.
+    <me>
+      \text{ length of the dotted line }  = \sqrt{ \text{ sum of the squares of the dashed line lengths } }
+    </me>
+  </p>
+  <p>
+    That is, the length of the dotted line = <m>\sqrt{1^2 + 2^2} = \sqrt{5}</m>.
+  </p>
+  <p>
+    Now consider this:
+    the vector <m>\vec{v}</m> is the hypotenuse of another right triangle:
+    the one formed by the dotted line and the vertical dashed line.
+    Again, we employ the Pythagorean Theorem to find its length.
+    <me>
+      \text{ length of }  \vec{v} = \sqrt{ \text{ (length of dashed gray line) } ^2 + \text{ (length of black dashed line) } ^2}
+    </me>
+  </p>
+  <p>
+    Thus, the length of <m>\vec{v}</m> is (recall,
+    we denote the length of <m>\vec{v}</m> with <m>||\vec{v}||</m>):
+    <md>
+      <mrow>||\vec{v}|| \amp = \sqrt{\text{ (length of gray line) } ^2 + \text{ (length of black line) } ^2}</mrow>
+      <mrow>\amp = \sqrt{ \sqrt{5}^2 + 3^2}</mrow>
+      <mrow>\amp = \sqrt{ 5 + 3^2}</mrow>
+    </md>
+  </p>
+  <p>
+    Let's stop for a moment and think:
+    where did this 5 come from in the previous equation?
+    It came from finding the length of the gray dashed line <mdash/> it came from <m>1^2+2^2</m>.
+    Let's substitute that into the previous equation:
+    <md>
+      <mrow>||\vec{v}||  \amp = \sqrt{5+ 3^2}</mrow>
+      <mrow>\amp = \sqrt{1^2+2^2+3^2}</mrow>
+      <mrow>\amp = \sqrt{14}</mrow>
+    </md>
+  </p>
+  <p>
+    The key comes from the middle equation:
+    <m>||\vec{v}|| = \sqrt{1^2+2^2+3^2}</m>.
+    Do those numbers 1, 2, and 3 look familiar?
+    They are the component values of \vec{v}! This is very similar to the definition of the length of a 2D vector.
+    After formally defining this,
+    we'll practice with an example.
+  </p>
+  <definition xml:id="def_3D_length">
+    <statement>
+      <p>
+        <term>3D Vector Length</term>
+            <idx><h>vector</h><h>length</h></idx>
+      </p>
+      <p>
+        Let
+        <me>
+          \vec{v} = \left[\begin{array}{c} x_1\\x_2\\x_3 \end{array} \right]
+        </me>.
+        The <term>length</term> of <m>\vec{v}</m>,
+        denoted <m>||\vec{v}||</m>, is
+        <me>
+          ||\vec{v}|| = \sqrt{x_1^2+x_2^2+x_3^2}
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <example xml:id="ex_3D_vect_length">
+    <statement>
+      <p>
+        Find the lengths of vectors <m>\vec{v}</m> and <m>\vec{u}</m>, where
+        <me>
+          \vec{v} = \left[\begin{array}{c}  2\\-3\\5 \end{array} \right]  \text{ and }   \vec{u} = \left[\begin{array}{c}  -4\\7\\0 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We apply <xref ref="def_3D_length">Definition</xref> to each vector:
+        <md>
+          <mrow>||\vec{v}||   \amp = \sqrt{2^2 + (-3)^2 + 5^2}</mrow>
+          <mrow>\amp = \sqrt{4 + 9 + 25}</mrow>
+          <mrow>\amp = \sqrt{38}</mrow>
+          <mrow>||\vec{u}|| \amp = \sqrt{(-4)^2 + 7^2 + 0^2}</mrow>
+          <mrow>\amp = \sqrt{16+49}</mrow>
+          <mrow>\amp = \sqrt{65}</mrow>
+        </md>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Here we end our investigation into the world of graphing vectors.
+    Extensions into graphing 4D vectors and beyond <em>can</em> be done,
+    but they truly are confusing and not really done except for abstract purposes.
+  </p>
+  <p>
+    There are further things to explore, though.
+    Just as in 2D, we can transform 3D space by matrix multiplication.
+    Doing this properly <mdash/> rotating,
+    stretching, shearing, etc.
+    <mdash/> allows one to manipulate 3D space and create incredible computer graphics.
+  </p>
+  <p>
+    In the following exercises,
+    vectors <m>\vec{x}</m> and <m>\vec{y}</m> are given.
+    Sketch <m>\vec{x}</m>, <m>\vec{y}</m>,
+    <m>\vec{x}+\vec{y}</m>, and
+    <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 1\\-1\\2 \end{array} \right]</m>,
+        <m>\vec{y} = \left[\begin{array}{c} 2\\3\\2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 3\\2\\4 \end{array} \right]</m>,
+        <m>\vec{x}-\vec{y} = \left[\begin{array}{c} -1\\-4\\0 \end{array} \right]</m>
+      </p>
+      <p>
+        Sketches will vary slightly depending on orientation.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{-1}{3}{1}{2};
+\drawyaxis{-2}{2}{-1}{1};
+\drawzaxis{0}{2.5}{1}{2};
+\drawvect{2}{3}{4}{dotted}{->,thick}{above right}{\vec{y}};
+\drawvect{1}{-1}{2}{dotted}{->,thick}{above left}{\vec{x}};
+\drawvect{3}{2}{4}{dotted}{->,thick}{left}{\(\vec{x}+\vec{y}\)};
+\drawvect{-1}{-4}{0}{dotted}{->,thick}{below left}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 2\\4\\-1 \end{array} \right]</m>,
+        <m>\vec{y} = \left[\begin{array}{c} -1\\-3\\-1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 1\\1\\-2 \end{array} \right]</m>,
+        <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 3\\7\\0 \end{array} \right]</m>
+      </p>
+      <p>
+        Sketches will vary slightly depending on orientation.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{-1}{3}{1}{2};
+\drawyaxis{-3}{4}{-2}{3};
+\drawzaxis{-2}{1}{-1}{-1};
+\drawvect{2}{4}{-1}{dotted}{->,thick}{below right}{\vec{x}};
+\drawvect{-1}{-3}{-1}{dotted}{->,thick}{below left}{\vec{y}};
+\drawvect{1}{1}{-2}{dotted}{->,thick}{below}{\(\vec{x}+\vec{y}\)};
+\drawvect{3}{7}{0}{dotted}{->,thick}{below }{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 1\\1\\2 \end{array} \right]</m>,
+        <m>\vec{y} = \left[\begin{array}{c} 3\\3\\6 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 4\\4\\8 \end{array} \right]</m>,
+        <m>\vec{x}-\vec{y} = \left[\begin{array}{c} -2\\-2\\-4 \end{array} \right]</m>
+      </p>
+      <p>
+        Sketches will vary slightly depending on orientation.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{-2}{4}{-1}{3};
+\drawyaxis{-2}{2.5}{-1}{2};
+\drawzaxis{-2}{4}{-1}{3};
+\drawvect{1}{1}{2}{dotted}{->,thick}{right}{\vec{x}};
+\drawvect{3}{3}{6}{dotted}{->,thick}{left}{\vec{y}};
+\drawvect{4}{4}{8}{dotted}{->,thick}{right}{\(\vec{x}+\vec{y}\)};
+\drawvect{-2}{-2}{-4}{dotted}{->,thick}{left}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 0\\1\\1 \end{array} \right]</m>,
+        <m>\vec{y} = \left[\begin{array}{c} 0\\-1\\1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 0\\0\\2 \end{array} \right]</m>,
+        <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 0\\2\\0 \end{array} \right]</m>
+      </p>
+      <p>
+        Sketches may vary slightly.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{-1}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawvect{0}{1}{1}{dotted}{->,thick}{above right}{\vec{x}};
+\drawvect{0}{-1}{1}{dotted}{->,thick}{above left}{\vec{y}};
+\drawvect{0}{0}{2}{dotted}{->,thick}{right}{\(\vec{x}+\vec{y}\)};
+\drawvect{0}{2}{0}{dotted}{->,thick}{below}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    vectors <m>\vec{x}</m> and <m>\vec{y}</m> are drawn.
+    Sketch <m>2\vec{x}</m>, <m>-\vec{y}</m>,
+    <m>\vec{x}+\vec{y}</m>, and
+    <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.
+  </p>
+  <exercise>
+    <statement>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{0}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawjustvect{0}{2}{3}{}{->,thick}{above}{\vec{x}};
+\drawjustvect{2}{-1}{1}{}{->,thick}{above}{\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </statement>
+    <answer>
+      <p>
+        Sketches may vary slightly.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{0}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawjustvect{0}{4}{6}{}{->,thick}{above}{2\vec{x}};
+\drawjustvect{-2}{1}{-1}{}{->,thick}{above}{-\vec{y}};
+\drawjustvect{2}{1}{4}{}{->,thick}{above}{\(\vec{x}+\vec{y}\)};
+\drawjustvect{-2}{3}{2}{}{->,thick}{above}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{0}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawjustvect{1}{2}{-1}{}{->,thick}{below}{\vec{x}};
+\drawjustvect{0}{3}{2}{}{->,thick}{above}{\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </statement>
+    <answer>
+      <p>
+        Sketches may vary slightly.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{0}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawjustvect{2}{4}{-2}{}{->,thick}{below}{2\vec{x}};
+\drawjustvect{0}{-3}{-2}{}{->,thick}{above}{-\vec{y}};
+\drawjustvect{1}{5}{1}{}{->,thick}{above}{\(\vec{x}+\vec{y}\)};
+\drawjustvect{1}{-1}{-3}{}{->,thick}{below}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{0}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawjustvect{2}{2}{0}{}{->,thick}{below}{\vec{x}};
+\drawjustvect{2}{0}{2}{}{->,thick}{above}{\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </statement>
+    <answer>
+      <p>
+        Sketches may vary slightly.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{0}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawjustvect{4}{4}{0}{}{->,thick}{below}{2\vec{x}};
+\drawjustvect{-2}{0}{-2}{}{->,thick}{above}{-\vec{y}};
+\drawjustvect{4}{2}{2}{}{->,thick}{above}{\(\vec{x}+\vec{y}\)};
+\drawjustvect{0}{2}{-2}{}{->,thick}{right}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{0}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawjustvect{0}{1.5}{0}{}{->,thick}{above}{\vec{x}};
+\drawjustvect{0}{0}{1.5}{}{->,thick}{right}{\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </statement>
+    <answer>
+      <p>
+        Sketches may vary slightly.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
+\drawyaxis{0}{2}{1}{1};
+\drawzaxis{0}{2}{1}{1};
+\drawjustvect{0}{3}{0}{}{->,thick}{above}{2\vec{x}};
+\drawjustvect{0}{0}{-1.5}{}{->,thick}{below}{-\vec{y}};
+\drawjustvect{0}{1.5}{1.5}{}{->,thick}{above}{\(\vec{x}+\vec{y}\)};
+\drawjustvect{0}{1.5}{-1.5}{}{->,thick}{below}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a vector <m>\vec{x}</m> and a scalar <m>a</m> are given.
+    Using <xref ref="def_3D_length">Definition</xref>,
+    compute the lengths of <m>\vec{x}</m> and <m>a\vec{x}</m>,
+    then compare these lengths.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 1\\-2\\5 \end{array} \right]</m>,
+        <m>a = 2</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>||\vec{x}|| = \sqrt{30}</m>,
+        <m>||a\vec{x}|| = \sqrt{120} = 2\sqrt{30}</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -3\\4\\3 \end{array} \right]</m>,
+        <m>a = -1</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>||\vec{x}|| = \sqrt{34}</m>,
+        <m>||a\vec{x}|| = \sqrt{34}</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 7\\2\\1 \end{array} \right]</m>,
+        <m>a = 5</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>||\vec{x}|| = \sqrt{54} = 3\sqrt{6}</m>,
+        <m>||a\vec{x}|| = \sqrt{270} = 15\sqrt{6}</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 1\\2\\-2 \end{array} \right]</m>,
+        <m>a = 3</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>||\vec{x}|| = 3</m>, <m>||a\vec{x}|| = 27</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    \appendix \write\answrite{\noexpand \noexpand} \closeout\answrite \chapter{Solutions To Selected Problems} \openin\exsetread=\jobname.answers \read\exsetread to \exsettemp \read\exsetread to \exsettemp {\loop \read\exsetread to \exsettemp \ifeof \exsetread \exsetmorefalse \else \exsetmoretrue \fi \ifexsetmore \repeat} \closein\exsetread \openin\exsetread=\jobname.answers \read\exsetread to \exsettemp \makebox[60pt][l]{\printexercisename \jobname.answers } \noin<em>\exsettemp\theenumi {<ndash/> }\theenumi \read\exsetread to \exsettemp \exsettemp</em>
+    {\loop \read\exsetread to \exsettemp \ifeof \exsetread \exsetmorefalse \else \exsetmoretrue \fi \ifexsetmore \exsettemp \repeat} \closein\exsetread
+  </p>
+</section>

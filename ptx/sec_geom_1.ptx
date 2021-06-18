@@ -1,0 +1,1575 @@
+<section xml:id="sec_geom_1">
+  <title>Visualizing Matrix Arithmetic in 2D</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: Two vectors with the same length and direction are equal even if they start from different places.
+        </p>
+      </li>
+      <li>
+        <p>
+          One can visualize vector addition using what law?
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: Multiplying a vector by 2 doubles its length.
+        </p>
+      </li>
+      <li>
+        <p>
+          What do mathematicians do?
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: Multiplying a vector by a matrix always changes its length and direction.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    When we first learned about adding numbers together,
+    it was useful to picture a number line:
+    <m>2+3=5</m> could be pictured by starting at 0, going out 2 tick marks,
+    then another 3, and then realizing that we moved 5 tick marks from 0.
+    Similar visualizations helped us understand what <m>2-3</m> meant and what <m>2\times 3</m> meant.
+  </p>
+  <p>
+    We now investigate a way to picture matrix arithmetic <mdash/> in particular,
+    operations involving column vectors.
+    This not only will help us better understand the arithmetic operations,
+    it will open the door to a great wealth of interesting study.
+    Visualizing matrix arithmetic has a wide variety of applications,
+    the most common being computer graphics.
+    While we often think of these graphics in terms of video games,
+    there are numerous other important applications.
+    For example,
+    chemists and biologists often use computer models to
+    <q>visualize</q>
+    complex molecules to
+    <q>see</q>
+    how they interact with other molecules.
+  </p>
+  <p>
+    We will start with vectors in two dimensions (2D) <mdash/> that is,
+    vectors with only two entries.
+    We assume the reader is familiar with the Cartesian plane, that is,
+    plotting points and graphing functions on
+    <q>the <m>x</m><ndash/><m>y</m> plane.</q>
+    We graph vectors in a manner very similar to plotting points.
+    Given the vector
+    <me>
+      \vec{x} = \left[\begin{array}{c} 1\\2 \end{array} \right]
+    </me>,
+    we draw <m>\vec{x}</m> by drawing an arrow whose tip is 1 unit to the right and 2 units up from its origin.<fn>
+    To help reduce clutter, in all figures each tick mark represents one unit.
+    </fn>
+  </p>
+  <figure xml:id="fig_draw_vectors">
+    <caption>Various drawings of <m>\vec{x}</m></caption>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3,0);
+\draw (0,-2.5)--(0,2.5);
+\foreach \x in {-2,...,2}
+{\draw  (\x,-.1)--(\x,.1);
+\draw  (-.1,\x)--(.1,\x);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw [->,thick,>=latex] (0,0)--(1,2);
+\draw [->,thick,>=latex] (-2,-2)--(-1,0);
+\draw [->,thick,>=latex] (1,-1)--(2,1);\end{tikzpicture}]]>
+</latex-image>
+    </image>
+  </figure>
+  <p>
+    When drawing vectors, we do not specify where you start drawing;
+    all we specify is where the tip lies based on where we started.
+    <xref ref="fig_draw_vectors">Figure</xref>
+    shows vector <m>\vec{x}</m> drawn 3 ways.
+    In some ways, the
+    <q>most common</q>
+    way to draw a vector has the arrow start at the origin,
+    but this is by no means the only way of drawing the vector.
+  </p>
+  <p>
+    Let's practice this concept by drawing various vectors from given starting points.
+  </p>
+  <example xml:id="ex_draw_vectors_1">
+    <statement>
+      <p>
+        Let
+        <me>
+          \vec{x} = \left[\begin{array}{c} 1\\-1 \end{array} \right]  \vec{y} = \left[\begin{array}{c}  2\\3 \end{array} \right]  \text{ and }    = \left[\begin{array}{c}  -3\\2 \end{array} \right]
+        </me>.
+        Draw <m>\vec{x}</m> starting from the point <m>(0,-1)</m>;
+        draw <m>\vec{y}</m> starting from the point <m>(-1,-1)</m>,
+        and draw  starting from the point <m>(2,-1)</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        To draw <m>\vec{x}</m>, start at the point <m>(0,-1)</m> as directed,
+        then move to the right one unit and down one unit and draw the tip.
+        Thus the arrow
+        <q>points</q>
+        from <m>(0,-1)</m> to <m>(1,-2)</m>.
+      </p>
+      <p>
+        To draw <m>\vec{y}</m>, we are told to start and the point <m>(-1,-1)</m>.
+        We draw the tip by moving to the right 2 units and up 3 units;
+        hence <m>\vec{y}</m> points from <m>(-1,-1)</m> to (1,2).
+      </p>
+      <p>
+        To draw , we start at <m>(2,-1)</m> and draw the tip 3 units to the left and 2 units up;
+        points from <m>(2,-1)</m> to <m>(-1,1)</m>.
+      </p>
+      <p>
+        Each vector is drawn as shown in <xref ref="fig_xyz">Figure</xref>.
+      </p>
+      <figure xml:id="fig_xyz">
+        <caption>Drawing vectors <m>\vec{x}</m>, <m>\vec{y}</m> and  in <xref ref="ex_draw_vectors_1">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3,0);
+\draw (0,-3)--(0,3);
+\foreach \x in {-2,...,2}
+{\draw (\x,-.1)--(\x,.1);
+\draw (-.1,\x)--(.1,\x);
+};
+\node[below] at (2,-0.1) {2};
+\node[left] at (0,1) {1};
+\draw [->,thick] (0,-1)--(1,-2) node [below right] {\vec{x}};
+\draw [->,thick] (-1,-1) -- (1,2) node [above right] {\vec{y}};
+\draw [->,thick] (2,-1) -- (-1,1) node [above left] {};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    How does one draw the zero vector,
+    <m>\vec{0} =\left[\begin{array}{c} 0\\0 \end{array} \right]</m>?<fn>
+    Vectors are just special types of matrices.
+    The zero vector, \vec{0}, is a special type of zero matrix, O. It helps to distinguish the two by using different notation.
+    </fn> Following our basic procedure,
+    we start by going 0 units in the <m>x</m> direction,
+    followed by 0 units in the <m>y</m> direction.
+    In other words, we don't go anywhere.
+    In general, we don't actually draw \vec{0}. At best,
+    one can draw a dark circle at the origin to convey the idea that \vec{0}, when starting at the origin,
+    points to the origin.
+  </p>
+  <p>
+    In <xref ref="sec_matrix_arithmetic_1">section</xref>
+    we learned about matrix arithmetic operations:
+    matrix addition and scalar multiplication.
+    Let's investigate how we can
+    <q>draw</q>
+    these operations.
+  </p>
+  <p>
+    <em><em> Vector Addition</em></em>
+  </p>
+  <p>
+    Given two vectors <m>\vec{x}</m> and <m>\vec{y}</m>,
+    how do we draw the vector <m>\vec{x}+\vec{y}</m>?
+    Let's look at this in the context of an example, then study the result.
+  </p>
+  <example xml:id="ex_add_vectors_1">
+    <statement>
+      <p>
+        Let
+        <me>
+          \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]  \text{ and }   \vec{y} = \left[\begin{array}{c} 3\\1 \end{array} \right]
+        </me>.
+        Sketch <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{x}+\vec{y}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        A starting point for drawing each vector was not given;
+        by default, we'll start at the origin. (This is in many ways nice;
+        this means that the <em>vector</em>
+        <m>\left[\begin{array}{c} 3\\1 \end{array} \right]</m>
+        <q>points</q>
+        to the <em>point</em> (3,1).) We first compute <m>\vec{x}+\vec{y}</m>:
+        <me>
+          \vec{x}+\vec{y} = \left[\begin{array}{c} 1\\1 \end{array} \right] + \left[\begin{array}{c} 3\\1 \end{array} \right] = \left[\begin{array}{c} 4\\2 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Sketching each gives the picture in <xref ref="fig_addvectors1">Figure</xref>.
+      </p>
+      <figure xml:id="fig_addvectors1">
+        <caption>Adding vectors <m>\vec{x}</m> and <m>\vec{y}</m> in <xref ref="ex_add_vectors_1">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(5,0);
+\draw (0,-1)--(0,3);
+\foreach \x in {1,...,4}
+\draw (\x,-.1)--(\x,.1);
+\foreach \x in {1,...,2}
+\draw (-.1,\x)--(.1,\x);
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0)--(1,1) node [above] {\vec{x}};
+\draw[->,thick] (0,0)--(3,1) node [below right] {\vec{y}};
+\draw[->,thick] (0,0)--(4,2) node [above right] {\(\vec{x}+\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    This example is pretty basic;
+    we were given two vectors,
+    told to add them together, then sketch all three vectors.
+    Our job now is to go back and try to see a relationship between the drawings of <m>\vec{x}</m>,
+    <m>\vec{y}</m> and <m>\vec{x}+\vec{y}</m>.
+    Do you see any?
+  </p>
+  <p>
+    Here is one way of interpreting the adding of <m>\vec{x}</m> to <m>\vec{y}</m>.
+    Regardless of where we start, we draw <m>\vec{x}</m>.
+    Now, from the tip of <m>\vec{x}</m>, draw <m>\vec{y}</m>.
+    The vector <m>\vec{x}+\vec{y}</m> is the vector found by drawing an arrow from the <em>origin</em>
+    of <m>\vec{x}</m> to the <em>tip</em> of <m>\vec{y}</m>.
+    Likewise, we could start by drawing <m>\vec{y}</m>.
+    Then, starting from the tip of <m>\vec{y}</m>,
+    we can draw <m>\vec{x}</m>.
+    Finally, draw <m>\vec{x}+\vec{y}</m> by drawing the vector that starts at the origin of <m>\vec{y}</m> and ends at the tip of <m>\vec{x}</m>.
+  </p>
+  <p>
+    The picture in <xref ref="fig_addvectors2">Figure</xref> illustrates this.
+    The gray vectors demonstrate drawing the second vector from the tip of the first;
+    we draw the vector <m>\vec{x}+\vec{y}</m> dashed to set it apart from the rest.
+    We also lightly filled the <em>parallelogram</em>
+    whose opposing sides are the vectors <m>\vec{x}</m> and <m>\vec{y}</m>.
+    This highlights what is known as the
+    <em>Parallelogram Law</em>.
+        <idx><h>Parallelogram Law</h></idx>
+  </p>
+  <figure xml:id="fig_addvectors2">
+    <caption>Adding vectors graphically using the Parallelogram Law</caption>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(5,0);
+\draw (0,-.5)--(0,2.5);
+\foreach \x in {1,...,4}
+\draw (\x,-.1)--(\x,.1);
+\foreach \x in {1,...,2}
+\draw (-.1,\x)--(.1,\x);
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\fill[color=blue!10] (0,0)--(1,1)--(4,2)--(3,1)--(0,0);
+\draw[->,thick] (0,0)--(1,1) node [pos=.5,above] {\vec{x}};
+\draw[->,thick] (0,0)--(3,1) node [pos=.5,below] {\vec{y}};
+\draw[->,thick,gray] (3,1)--(4,2) node [pos=.5,below,black] {\vec{x}};
+\draw[->,thick,gray] (1,1)--(4,2) node [pos=.5,above,black] {\vec{y}};
+\draw[->,thick,dashed] (0,0)--(4,2) node [above right, black] {\(\vec{x}+\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+    </image>
+  </figure>
+  <insight xml:id="idea_Parallelogram">
+    <p>
+      <term>Parallelogram Law</term>
+    </p>
+    <p>
+      To draw the vector <m>\vec{x}+\vec{y}</m>,
+      one can draw the parallelogram with <m>\vec{x}</m> and <m>\vec{y}</m> as its sides.
+      The vector that points from the vertex where <m>\vec{x}</m> and <m>\vec{y}</m> originate to the vertex where <m>\vec{x}</m> and <m>\vec{y}</m> meet is the vector <m>\vec{x}+\vec{y}</m>.
+    </p>
+  </insight>
+  <p>
+    Knowing all of this allows us to draw the sum of two vectors without knowing specifically what the vectors are,
+    as we demonstrate in the following example.
+  </p>
+  <example xml:id="ex_draw_add">
+    <statement>
+      <p>
+        Consider the vectors <m>\vec{x}</m> and <m>\vec{y}</m> as drawn in <xref ref="fig_draw_add_1">Figure</xref>.
+        Sketch the vector <m>\vec{x}+\vec{y}</m>.
+      </p>
+    </statement>
+    <solution>
+      <figure xml:id="fig_draw_add_1">
+        <caption>Vectors <m>\vec{x}</m> and <m>\vec{y}</m> in <xref ref="ex_draw_add">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(2.5,0);
+\draw (0,-.5)--(0,2);
+\draw[->, thick] (0,0)--(1,1) node[right] {\vec{x}};
+\draw[->, thick] (0,0)--(-2,1) node[above] {\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+      <p>
+        We'll apply the Parallelogram Law,
+        as given in <xref ref="idea_Parallelogram">Key Idea</xref>.
+        As before, we draw <m>\vec{x}+\vec{y}</m> dashed to set it apart.
+        The result is given in <xref ref="fig_draw_add_2">Figure</xref>.
+      </p>
+      <figure xml:id="fig_draw_add_2">
+        <caption>Vectors <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{x}+\vec{y}</m> in <xref ref="ex_draw_add">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(2.5,0);
+\draw (0,-.5)--(0,2);
+\draw[->, thick] (0,0)--(1,1) node[right] {\vec{x}};
+\draw[->, thick] (0,0)--(-2,1) node[above] {\vec{y}};
+\draw[->, thick, gray] (-2,1)--(-1,2) ;
+\draw[->, thick, gray] (1,1)--(-1,2) ;
+\draw[->,thick, dashed] (0,0)--(-1,2) node[above, black]{\(\vec{x}+\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    <em><em> Scalar Multiplication</em></em>
+  </p>
+  <p>
+    After learning about matrix addition,
+    we learned about scalar multiplication.
+    We apply that concept now to vectors and see how this is represented graphically.
+  </p>
+  <example xml:id="ex_scalar_vect_1">
+    <statement>
+      <p>
+        Let
+        <me>
+          \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]  \text{ and }   \vec{y} = \left[\begin{array}{c} -2\\1 \end{array} \right]
+        </me>.
+        Sketch <m>\vec{x}</m>,
+        <m>\vec{y}</m>, 3<m>\vec{x}</m> and <m>-1\vec{y}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We begin by computing 3<m>\vec{x}</m> and <m>-\vec{y}</m>:
+        <me>
+          3\vec{x} = \left[\begin{array}{c} 3\\3 \end{array} \right]  \text { and }  -\vec{y} = \left[\begin{array}{c}  2\\-1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        All four vectors are sketched in <xref ref="fig_scalar_1">Figure</xref>.
+      </p>
+      <figure xml:id="fig_scalar_1">
+        <caption>Vectors <m>\vec{x}</m>, <m>\vec{y}</m>, <m>3 \vec{x}</m> and <m>- \vec{y}</m> in <xref ref="ex_scalar_vect_1">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(4,0);
+\draw (0,-2)--(0,4);
+\foreach \x in {-2,...,3}
+\draw (\x,-.1)--(\x,.1);
+\foreach \y in {-1,...,3}
+\draw (-.1,\y)--(.1,\y);
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->, thick] (0,0)--(3,3) node[left] {3\vec{x}};
+\draw[->, thick] (0,0)--(1,1) node[left] {\vec{x}};
+\draw[->, thick] (0,0)--(-2,1) node[above] {\vec{y}};
+\draw[->, thick] (0,0)--(2,-1) node[above] {\(-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    As we often do,
+    let us look at the previous example and see what we can learn from it.
+    We can see that <m>\vec{x}</m> and 3<m>\vec{x}</m> point in the same direction
+    (they lie on the same line),
+    but 3<m>\vec{x}</m> is just longer than <m>\vec{x}</m>. (In fact,
+    it looks like 3<m>\vec{x}</m> is <em>3</em>
+    times longer than <m>\vec{x}</m>.
+    Is it?
+    How do we measure length?)
+  </p>
+  <p>
+    We also see that <m>\vec{y}</m> and
+    <m>-\vec{y}</m> seem to have the same length and lie on the same line,
+    but point in the opposite direction.
+  </p>
+  <p>
+    A vector inherently conveys two pieces of information:
+    length and direction.
+    Multiplying a vector by a positive scalar <m>c</m> stretches the vectors by a factor of <m>c</m>;
+    multiplying by a negative scalar <m>c</m> both stretches the vector and makes it point in the opposite direction.
+  </p>
+  <p>
+    Knowing this,
+    we can sketch scalar multiples of vectors without knowing specifically what they are,
+    as we do in the following example.
+  </p>
+  <example xml:id="ex_draw_scale_1">
+    <statement>
+      <p>
+        Let vectors <m>\vec{x}</m> and <m>\vec{y}</m> be as in <xref ref="fig_draw_scale_1">Figure</xref>.
+        Draw 3<m>\vec{x}</m>, <m>-2\vec{x}</m>,
+        and <m>\frac12\vec{y}</m>.
+      </p>
+      <figure xml:id="fig_draw_scale_1">
+        <caption>Vectors <m>\vec{x}</m> and <m>\vec{y}</m> in <xref ref="ex_draw_scale_1">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3.5,0);
+\draw (0,-.5)--(0,1.5);
+\draw[->, thick] (0,0)--(1,.5) node[right] {\vec{x}};
+\draw[->, thick] (0,0)--(-2,1) node[above] {\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </statement>
+    <solution>
+      <p>
+        To draw 3<m>\vec{x}</m>,
+        we draw a vector in the same direction as <m>\vec{x}</m>,
+        but 3 times as long.
+        To draw <m>-2\vec{x}</m>,
+        we draw a vector twice as long as <m>\vec{x}</m> in the opposite direction;
+        to draw <m>\frac12\vec{y}</m>,
+        we draw a vector half the length of <m>\vec{y}</m> in the same direction as <m>\vec{y}</m>.
+        We again use the default of drawing all the vectors starting at the origin.
+        All of this is shown in <xref ref="fig_draw_scale_2">Figure</xref>.
+      </p>
+      <figure xml:id="fig_draw_scale_2">
+        <caption>Vectors <m>\vec{x}</m>, <m>\vec{y}</m>, <m>3\vec{x}</m>, <m>-2x</m> and <m>\frac12\vec{x}</m> in <xref ref="ex_draw_scale_1">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3.5,0);
+\draw (0,-1.5)--(0,2);
+\draw[->, thick] (0,0)--(1,.5) node[below] {\vec{x}};
+\draw[->, thick] (0,0)--(-2,1) node[above] {\vec{y}};
+\draw[->, thick] (0,0)--(3,1.5) node[right] {3\vec{x}};
+\draw[->, thick] (0,0)--(-2,-1) node[right] {\(-2\vec{x}\)};
+\draw[->, thick] (0,0)--(-1,.5) node[above=.1cm] {\(\frac12\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    <em><em>Vector Subtraction</em></em>
+  </p>
+  <p>
+    The final basic operation to consider between two vectors is that of vector subtraction:
+    given vectors <m>\vec{x}</m> and <m>\vec{y}</m>,
+    how do we draw <m>\vec{x}-\vec{y}</m>?
+  </p>
+  <p>
+    If we know explicitly what <m>\vec{x}</m> and <m>\vec{y}</m> are,
+    we can simply compute what <m>\vec{x}-\vec{y}</m> is and then draw it.
+    We can also think in terms of vector addition and scalar multiplication:
+    we can <em>add</em> the vectors <m>\vec{x} + (-1)\vec{y}</m>.
+    That is, we can draw <m>\vec{x}</m> and draw <m>-\vec{y}</m>,
+    then add them as we did in <xref ref="ex_draw_add">Example</xref>.
+    This is especially useful we don't know explicitly what <m>\vec{x}</m> and <m>\vec{y}</m> are.
+  </p>
+  <example xml:id="ex_subtract">
+    <statement>
+      <p>
+        Let vectors <m>\vec{x}</m> and <m>\vec{y}</m> be as in <xref ref="fig_subtract_1">Figure</xref>.
+        Draw <m>\vec{x}-\vec{y}</m>.
+      </p>
+      <figure xml:id="fig_subtract_1">
+        <caption>Vectors <m>\vec{x}</m> and <m>\vec{y}</m> in <xref ref="ex_subtract">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3.5,0);
+\draw (0,-.5)--(0,1.5);
+\draw[->, thick] (0,0)--(1,.5) node[below] {\vec{x}};
+\draw[->, thick] (0,0)--(-1,1) node[above] {\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </statement>
+    <solution>
+      <p>
+        To draw <m>\vec{x}-\vec{y}</m>,
+        we will first draw <m>-\vec{y}</m> and then apply the Parallelogram Law to add <m>\vec{x}</m> to <m>-\vec{y}</m>.
+        See <xref ref="fig_subtract_2">Figure</xref>.
+      </p>
+      <figure xml:id="fig_subtract_2">
+        <caption>Vectors <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{x} -  \vec{y}</m> in <xref ref="ex_subtract">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3.5,0);
+\draw (0,-1.5)--(0,2);
+\draw[->, thick] (0,0)--(1,.5) node[below] {\vec{x}};
+\draw[->, thick] (0,0)--(-1,1) node[above] {\vec{y}};
+\draw[->, thick] (0,0)--(1,-1) node[below] {\(-\vec{y}\)};
+\draw[->, thick, gray] (1,-1)--(2,-.5) ;
+\draw[->, thick, gray] (1,.5)--(2,-.5) ;
+\draw[->, thick, dashed] (0,0)--(2,-.5) node[right,black] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    In <xref ref="fig_subtract_3">Figure</xref>,
+    we redraw <xref ref="fig_subtract_2">Figure</xref>
+    from <xref ref="ex_subtract">Example</xref>
+    but remove the gray vectors that tend to add clutter,
+    and we redraw the vector <m>\vec{x}-\vec{y}</m> dotted so that it starts from the tip of <m>\vec{y}</m>.<fn>
+    Remember that we can draw vectors starting from anywhere.
+    </fn> Note that the dotted version of
+    <m>\vec{x}-\vec{y}</m> points from <m>\vec{y}</m> to <m>\vec{x}</m>.
+    This is a
+    <q>shortcut</q>
+    to drawing <m>\vec{x}-\vec{y}</m>;
+    simply draw the vector that starts at the tip of <m>\vec{y}</m> and ends at the tip of <m>\vec{x}</m>.
+    This is important so we make it a Key Idea.
+  </p>
+  <figure xml:id="fig_subtract_3">
+    <caption>Redrawing vector <m>\vec{x} - \vec{y}</m></caption>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3.5,0);
+\draw (0,-1.25)--(0,1.5);
+\draw[->, thick] (0,0)--(1,.5) node[right] {\vec{x}};
+\draw[->, thick] (0,0)--(-1,1) node[above] {\vec{y}};
+\draw[->, thick] (0,0)--(1,-1) node[below] {-\vec{y}};
+\draw[->, thick, dotted] (-1,1)--(1,.5) node[above,pos=.8,black] {\(\vec{x}-\vec{y}\)};
+\draw[->, thick, dashed] (0,0)--(2,-.5) node[right,black] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+    </image>
+  </figure>
+  <insight xml:id="idea_vector_subtract">
+    <p>
+      <term>Vector Subtraction</term>
+    </p>
+    <p>
+      To draw the vector <m>\vec{x}-\vec{y}</m>,
+      draw <m>\vec{x}</m> and <m>\vec{y}</m> so that they have the same origin.
+      The vector <m>\vec{x}-\vec{y}</m> is the vector that starts from the tip of <m>\vec{y}</m> and points to the tip of <m>\vec{x}</m>.
+    </p>
+  </insight>
+  <p>
+    Let's practice this once more with a quick example.
+  </p>
+  <example xml:id="ex_subtract_quick">
+    <statement>
+      <p>
+        Let <m>\vec{x}</m> and <m>\vec{y}</m> be as in <xref ref="fig_subtract_quick_2">Figure</xref>(a).
+        Draw <m>\vec{x}-\vec{y}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We simply apply <xref ref="idea_vector_subtract">Key Idea</xref>:
+        we draw an arrow from <m>\vec{y}</m> to <m>\vec{x}</m>.
+        We do so in <xref ref="fig_subtract_quick_2">Figure</xref>;
+        <m>\vec{x}-\vec{y}</m> is dashed.
+      </p>
+      <figure xml:id="fig_subtract_quick_2">
+        <caption>Vectors <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{x} -  \vec{y}</m> in <xref ref="ex_subtract_quick">Example</xref></caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\begin{scope}
+\draw (-.5,0)--(1.5,0);
+\draw (0,-1.5)--(0,1.5);
+\draw[->, thick] (0,0)--(1,1) node[above] {\vec{y}};
+\draw[->, thick] (0,0)--(1,-1) node[below] {\vec{x}};
+\draw (0.5,-2) node [below] {(a)};
+\end{scope}
+\begin{scope}[shift={(5,0)}]
+\draw (-.5,0)--(1.5,0);
+\draw (0,-1.5)--(0,1.5);
+\draw[->, thick] (0,0)--(1,1) node[above] {\vec{y}};
+\draw[->, thick] (0,0)--(1,-1) node[below] {\vec{x}};
+\draw[->, thick, dashed] (1,1)--(1,-1) node[pos=.8,right,black] {\(\vec{x}-\vec{y}\)} ;
+\draw (0.5,-2) node [below] {(b)};
+\end{scope}\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+    </solution>
+  </example>
+  <p>
+    <em><em>Vector Length</em></em>
+  </p>
+  <p>
+    When we discussed scalar multiplication,
+    we made reference to a fundamental question: How do we measure the length of a vector?
+    Basic geometry gives us an answer in the two dimensional case that we are dealing with right now,
+    and later we can extend these ideas to higher dimensions.
+  </p>
+  <p>
+    Consider <xref ref="fig_vector_length">Figure</xref>.
+    A vector <m>\vec{x}</m> is drawn in black,
+    and dashed and dotted lines have been drawn to make it the hypotenuse of a right triangle.
+  </p>
+  <figure xml:id="fig_vector_length">
+    <caption>Measuring the length of a vector</caption>
+    <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(5,0);
+\draw (0,-1)--(0,5);
+\foreach \x in {1,...,4}
+\draw (\x,-.1)--(\x,.1);
+\foreach \x in {1,...,4}
+\draw (-.1,\x)--(.1,\x);
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[dashed,thick] (0,1)--(4,1);
+\draw[thick,dotted] (4,1)--(4,4);
+\draw[->,thick] (0,1)--(4,4) node [above] {\vec{x}};\end{tikzpicture}]]>
+</latex-image>
+    </image>
+  </figure>
+  <p>
+    It is easy to see that the dashed line has length 4 and the dotted line has length 3.
+    We'll let <m>c</m> denote the length of \vec{x}; according to the Pythagorean Theorem,
+    <m>4^2+3^2 = c^2</m>.
+    Thus <m>c^2 = 25</m> and we quickly deduce that <m>c=5</m>.
+  </p>
+  <p>
+    Notice that in our figure,
+    <m>\vec{x}</m> goes to the right 4 units and then up 3 units.
+    In other words, we can write
+    <me>
+      \vec{x} = \left[\begin{array}{c}  4\\3 \end{array} \right]
+    </me>.
+    We learned above that the length of <m>\vec{x}</m> is <m>\sqrt{4^2+3^2}</m>.<fn>
+    Remember that <m>\sqrt{4^2+3^2} \neq 4+3</m>!
+    </fn> This hints at a basic calculation that works for all vectors <m>\vec{x}</m>,
+    and we define the length of a vector according to this rule.
+  </p>
+  <definition xml:id="def_vector_length">
+    <statement>
+      <p>
+        <term>Vector Length</term>
+            <idx><h>vector</h><h>length</h></idx>
+      </p>
+      <p>
+        Let
+        <me>
+          \vec{x} = \left[\begin{array}{c} x_1\\x_2 \end{array} \right]
+        </me>.
+        The <term>length</term> of <m>\vec{x}</m>,
+        denoted <m>||\vec{x}||</m>, is
+        <me>
+          ||\vec{x}|| = \sqrt{x_1^2+x_2^2}
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <example xml:id="ex_length">
+    <statement>
+      <p>
+        Find the length of each of the vectors given below.
+        <me>
+          \vec{x}= \left[\begin{array}{c} 1\\1 \end{array} \right]  \vec{x}= \left[\begin{array}{c}  2\\-3 \end{array} \right]  \vec{x}=\left[\begin{array}{c}  .6\\.8 \end{array} \right]  \vec{x}=\left[\begin{array}{c}  3\\0 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We apply <xref ref="def_vector_length">Definition</xref> to each vector.
+        <md>
+          <mrow>||\vec{x}|| \amp = \sqrt{1^2+1^2} = \sqrt{2}.</mrow>
+          <mrow>||\vec{x}|| \amp = \sqrt{2^2+(-3)^2} = \sqrt{13}.</mrow>
+          <mrow>||\vec{x}|| \amp = \sqrt{.6^2 +.8^2} = \sqrt{.36+.64} = 1.</mrow>
+          <mrow>||\vec{x}|| \amp = \sqrt{3^2+0} = 3</mrow>
+        </md>.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Now that we know how to compute the length of a vector,
+    let's revisit a statement we made as we explored <xref ref="ex_scalar_vect_1">Examples</xref>
+    and <xref ref="ex_draw_scale_1"></xref>:
+    <q>Multiplying a vector by a positive scalar <m>c</m> stretches the vectors by a factor of <m>c</m> <m>\ldots</m></q>
+    At that time,
+    we did not know how to measure the length of a vector,
+    so our statement was unfounded.
+    In the following example,
+    we will confirm the truth of our previous statement.
+  </p>
+  <example xml:id="ex_scalar_vect_2">
+    <statement>
+      <p>
+        Let <m>\vec{x} = \left[\begin{array}{c} 2\\-1 \end{array} \right]</m>.
+        Compute <m>||\vec{x}||</m>,
+        <m>||3\vec{x}||</m>, <m>||-2\vec{x}||</m>,
+        and <m>||c\vec{x}||</m>, where <m>c</m> is a scalar.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We apply <xref ref="def_vector_length">Definition</xref> to each of the vectors.
+      </p>
+      <p>
+        <m>||\vec{x}|| = \sqrt{4+1} = \sqrt{5}</m>.
+      </p>
+      <p>
+        Before computing the length of <m>||3\vec{x}||</m>,
+        we note that <m>3\vec{x} = \left[\begin{array}{c} 6\\-3 \end{array} \right]</m>.
+      </p>
+      <p>
+        <m>||3\vec{x}|| = \sqrt{36+9} = \sqrt{45} = 3\sqrt{5} = 3||\vec{x}||</m>.
+      </p>
+      <p>
+        Before computing the length of <m>||-2\vec{x}||</m>,
+        we note that <m>-2\vec{x} = \left[\begin{array}{c} -4\\2 \end{array} \right]</m>.
+      </p>
+      <p>
+        <m>||-2\vec{x}|| = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5} = 2||\vec{x}||</m>.
+      </p>
+      <p>
+        Finally, to compute <m>||c\vec{x}||</m>,
+        we note that <m>c\vec{x} = \left[\begin{array}{c} 2c\\-c \end{array} \right]</m>.
+        Thus:
+      </p>
+      <p>
+        <m>||c\vec{x}|| = \sqrt{(2c)^2 + (-c)^2} = \sqrt{4c^2 + c^2} = \sqrt{5c^2} = |c|\sqrt{5}</m>.
+      </p>
+      <p>
+        This last line is true because the square root of any number squared is the <em>absolute value</em>
+        of that number (for example,
+        <m>\sqrt{(-3)^2} = 3</m>).
+      </p>
+    </solution>
+  </example>
+  <p>
+    The last computation of our example is the most important one.
+    It shows that, in general,
+    multiplying a vector <m>\vec{x}</m> by a scalar <m>c</m> stretches <m>\vec{x}</m> by a factor of <m>|c|</m>
+    (and the direction will change if <m>c</m> is negative).
+    This is important so we'll make it a Theorem.
+  </p>
+  <theorem xml:id="thm_vect_length">
+    <statement>
+      <p>
+        <em>Vector Length and Scalar Multiplication</em>
+      </p>
+      <p>
+        Let <m>\vec{x}</m> be a vector and let <m>c</m> be a scalar.
+        Then the length of <m>c\vec{x}</m> is
+        <me>
+          ||c\vec{x}|| = |c|\cdot ||\vec{x}||
+        </me>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    <em><em>Matrix <m>-</m> Vector Multiplication</em></em>
+  </p>
+  <p>
+    The last arithmetic operation to consider visualizing is matrix multiplication.
+    Specifically,
+    we want to visualize the result of multiplying a vector by a matrix.
+    In order to multiply a 2D vector by a matrix and get a 2D vector back,
+    our matrix must be a square, <m>2\times 2</m> matrix.<fn>
+    We can multiply a <m>3\times 2</m> matrix by a 2D vector and get a 3D vector back,
+    and this gives very interesting results.
+    See <xref ref="sec_lin_trans">section</xref>.
+    </fn>
+  </p>
+  <p>
+    We'll start with an example.
+    Given a matrix <m>A</m> and several vectors,
+    we'll graph the vectors before and after they've been multiplied by <m>A</m> and see what we learn.
+  </p>
+  <example xml:id="ex_mv_1">
+    <statement>
+      <p>
+        Let <m>A</m> be a matrix,
+        and <m>\vec{x}</m>, <m>\vec{y}</m>,
+        and  be vectors as given below.
+        <me>
+          A = \left[\begin{array}{cc}  1\amp 4\\2\amp 3 \end{array} \right],   \vec{x} = \left[\begin{array}{c}  1\\1 \end{array} \right],  \vec{y} = \left[\begin{array}{c} -1\\1 \end{array} \right],   = \left[\begin{array}{c}  3\\-1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Graph <m>\vec{x}</m>,
+        <m>\vec{y}</m> and , as well as A<m>\vec{x}</m>, A<m>\vec{y}</m> and A.
+      </p>
+    </statement>
+    <solution>
+      <figure xml:id="fig_mv_1">
+        <caption>Multiplying vectors by a matrix in <xref ref="ex_mv_1">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-2.5}{6.5}{-2,...,6};
+\drawylines{-1.5}{5.5}{-1,...,5};
+\draw [->] (0,0)--(1,1) node [right ] {\vec{x}};
+\draw [->] (0,0)--(-1,1) node [above] {\vec{y}};
+\draw [->] (0,0)--(3,-1) node [below right] {};
+\draw [->] (0,0)--(5,5) node [above right] { A\vec{x}};
+\draw [->] (0,0)--(3,1) node [right] { A\vec{y}};
+\draw [->] (0,0)--(-1,3) node [above] { A};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+      <p>
+        It is straightforward to compute:
+        <me>
+          A\vec{x} = \left[\begin{array}{c}  5\\5 \end{array} \right],  A\vec{y} = \left[\begin{array}{c}  3\\1 \end{array} \right],  \text{ and }    A = \left[\begin{array}{c}  -1\\3 \end{array} \right]
+        </me>.
+        The vectors are sketched in <xref ref="fig_mv_1">Figure</xref>
+      </p>
+    </solution>
+  </example>
+  <p>
+    There are several things to notice.
+    When each vector is multiplied by <m>A</m>,
+    the result is a vector with a different length
+    (in this example, always longer),
+    and in two of the cases
+    (for <m>\vec{y}</m> and ),
+    the resulting vector points in a different direction.
+  </p>
+  <p>
+    This isn't surprising.
+    In the previous section we learned about matrix multiplication,
+    which is a strange and seemingly unpredictable operation.
+    Would you expect to see some sort of immediately recognizable pattern appear from multiplying a matrix and a vector?<fn>
+    This is a rhetorical question;
+    the expected answer is
+    <q>No.</q>
+    </fn> In fact,
+    the surprising thing from the example is that <m>\vec{x}</m> and A<m>\vec{x}</m> point in the same direction!
+    Why does the direction of <m>\vec{x}</m> not change after multiplication by A? (We'll answer this in <xref ref="sec_eigen">Section</xref>
+    when we learn about something called
+    <q>eigenvectors.</q>
+    )
+  </p>
+  <p>
+    Different matrices act on vectors in different ways.<fn>
+    That's one reason we call them
+    <q>different.</q>
+    </fn> Some always increase the length of a vector through multiplication,
+    others always decrease the length,
+    others increase the length of some vectors and decrease the length of others,
+    and others still don't change the length at all.
+    A similar statement can be made about how matrices affect the direction of vectors through multiplication:
+    some change every vector's direction, some change
+    <q>most</q>
+    vector's direction but leave some the same,
+    and others still don't change the direction of any vector.
+  </p>
+  <p>
+    How do we set about studying how matrix multiplication affects vectors?
+    We could just create lots of different matrices and lots of different vectors,
+    multiply,
+    then graph,
+    but this would be a lot of work with very little useful result.
+    It would be too hard to find a pattern of behavior in this.<fn>
+    Remember, that's what mathematicians do.
+    We look for patterns.
+    </fn>
+  </p>
+  <p>
+    Instead, we'll begin by using a technique we've employed often in the past.
+    We have a
+    <q>new</q>
+    operation; let's explore how it behaves with
+    <q>old</q>
+    operations.
+    Specifically, we know how to sketch vector addition.
+    What happens when we throw matrix multiplication into the mix?
+    Let's try an example.
+  </p>
+  <example xml:id="ex_mv_2">
+    <statement>
+      <p>
+        Let <m>A</m> be a matrix and <m>\vec{x}</m> and <m>\vec{y}</m> be vectors as given below.
+        <me>
+          A = \left[\begin{array}{cc}  1 \amp  1\\1\amp 2 \end{array} \right],  \vec{x} = \left[\begin{array}{c}  2\\1 \end{array} \right],  \vec{y} = \left[\begin{array}{c}  -1\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Sketch <m>\vec{x}+\vec{y}</m>, A<m>\vec{x}</m>, A<m>\vec{y}</m>,
+        and <m>A(\vec{x}+\vec{y})</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        It is pretty straightforward to compute:
+        <me>
+          \vec{x}+\vec{y} = \left[\begin{array}{c}  1\\2 \end{array} \right];  A\vec{x} = \left[\begin{array}{c} 3\\4 \end{array} \right];   A\vec{y} = \left[\begin{array}{c}  0\\1 \end{array} \right],  A(\vec{x}+\vec{y}) = \left[\begin{array}{c}  3\\5 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        In <xref ref="fig_mv_2">Figure</xref>,
+        we have graphed the above vectors and have included dashed gray vectors to highlight the additive nature of
+        <m>\vec{x}+\vec{y}</m> and <m>A(\vec{x}+\vec{y})</m>.
+        Does anything strike you as interesting?
+      </p>
+      <figure xml:id="fig_mv_2">
+        <caption>Vector addition and matrix multiplication in <xref ref="ex_mv_2">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-1}{4}{0,...,3};
+\drawylines{-1}{5}{0,...,4};
+\draw [->] (0,0)--(2,1) node [right] {\vec{x}};
+\draw [->] (0,0)--(-1,1) node [left ] {\vec{y}};
+\draw [->,gray,dashed] (2,1) -- (1,2);
+\draw [->] (0,0)--(1,2) node [above] {\(\vec{x}+\vec{y}\)};
+\draw [->] (0,0)--(3,4) node [above right] { A\vec{x}};
+\draw [->] (0,0)--(0,1) node [above left] { A\vec{y}};
+\draw [->,gray,dashed] (3,4) -- (3,5);
+\draw [->] (0,0)--(3,5) node [above] {\( A(\vec{x}+\vec{y})\)};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+      <p>
+        Let's not focus on things which don't matter right now:
+        let's not focus on how long certain vectors became,
+        nor necessarily how their direction changed.
+        Rather, think about how matrix multiplication interacted with the vector addition.
+      </p>
+      <p>
+        In some sense, we started with three vectors,
+        <m>\vec{x}</m>, <m>\vec{y}</m>,
+        and <m>\vec{x}+\vec{y}</m>.
+        This last vector is special;
+        it is the sum of the previous two.
+        Now, multiply all three by <m>A</m>.
+        What happens?
+        We get three new vectors, but the significant thing is this:
+        the last vector is still the sum of the previous two! (We emphasize this by drawing dotted vectors to represent part of the Parallelogram Law.)
+      </p>
+      <p>
+        Of course, we knew this already:
+        we already knew that <m>A\vec{x} + A\vec{y} = A(\vec{x}+\vec{y})</m>,
+        for this is just the Distributive Property.
+        However, now we get to see this graphically.
+      </p>
+    </solution>
+  </example>
+  <p>
+    In <xref ref="sec_geom_3">Section</xref>
+    we'll study in greater depth how matrix multiplication affects vectors and the whole Cartesian plane.
+    For now, we'll settle for simple practice:
+    given a matrix and some vectors, we'll multiply and graph.
+    Let's do one more example.
+  </p>
+  <example xml:id="ex_mv_23">
+    <statement>
+      <p>
+        Let <m>A</m>, <m>\vec{x}</m>,
+        <m>\vec{y}</m>, and  be as given below.
+        <me>
+          A = \left[\begin{array}{cc}  1\amp -1\\1\amp -1 \end{array} \right],   \vec{x} = \left[\begin{array}{c}  1\\1 \end{array} \right],  \vec{y} = \left[\begin{array}{c} -1\\1 \end{array} \right],   = \left[\begin{array}{c}  4\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Graph <m>\vec{x}</m>,
+        <m>\vec{y}</m> and , as well as A<m>\vec{x}</m>, A<m>\vec{y}</m> and A.
+      </p>
+    </statement>
+    <solution>
+      <figure xml:id="fig_mv_23">
+        <caption>Multiplying vectors by a matrix in <xref ref="ex_mv_23">Example</xref>.</caption>
+        <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-2.5}{3.5}{-2,...,3};
+\drawylines{-2.5}{3.5}{-2,...,3};
+\draw [->] (0,0)--(1,1) node [right ] {\vec{x}};
+\draw [->] (0,0)--(-1,1) node [above] {\vec{y}};
+\draw [->] (0,0)--(4,1) node [above] {};
+\draw (0,0) node [below right] { A\vec{x}};
+\draw [->] (0,0)--(-2,-2) node [below left] { A\vec{y}};
+\draw [->] (0,0)--(3,3) node [above] { A};\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
+      <p>
+        It is straightforward to compute:
+        <me>
+          A\vec{x} = \left[\begin{array}{c}  0\\0 \end{array} \right],  A\vec{y} = \left[\begin{array}{c}  -2\\-2 \end{array} \right],  \text{ and }    A = \left[\begin{array}{c}  3\\3 \end{array} \right]
+        </me>.
+        The vectors are sketched in <xref ref="fig_mv_23">Figure</xref>.
+      </p>
+      <p>
+        These results are interesting.
+        While we won't explore them in great detail here,
+        notice how <m>\vec{x}</m> got sent to the zero vector.
+        Notice also that A<m>\vec{x}</m>, A<m>\vec{y}</m> and A<nbsp/>are all in a line
+        (as well as \vec{x}!).
+        Why is that?
+        Are <m>\vec{x}</m>, <m>\vec{y}</m> and just special vectors,
+        or would any other vector get sent to the same line when multiplied by A?<fn>
+        Don't just sit there, try it out!
+        </fn>
+      </p>
+    </solution>
+  </example>
+  <p>
+    This section has focused on vectors in two dimensions.
+    Later on in this book,
+    we'll extend these ideas into three dimensions (3D).
+  </p>
+  <p>
+    In the next section we'll take a new idea
+    (matrix multiplication)
+    and apply it to an old idea
+    (solving systems of linear equations).
+    This will allow us to view an old idea in a new way <mdash/> and we'll even get to
+    <q>visualize</q>
+    it.
+  </p>
+  <p>
+    In the following exercises,
+    vectors <m>\vec{x}</m> and <m>\vec{y}</m> are given.
+    Sketch <m>\vec{x}</m>, <m>\vec{y}</m>,
+    <m>\vec{x}+\vec{y}</m>, and
+    <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]</m>,
+        <m>\vec{y} = \left[\begin{array}{c} -2\\3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} -1\\4 \end{array} \right]</m>,
+        <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 3\\-2 \end{array} \right]</m>
+      </p>
+      <p>
+        Sketches will vary depending on choice of origin of each vector.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3,0);
+\draw (0,-1)--(0,5);
+\foreach \x in {-2,...,2}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \x in {1,...,4}
+{\draw (-.1,\x)--(.1,\x);
+};
+\node[below] at (2,-0.1) {2};
+\node[left] at (0,1) {1};
+\draw [->,thick] (0,0)--(1,1) node [below] {\vec{x}};
+\draw [->,thick] (0,0) -- (-2,3) node [below left] {\vec{y}};
+\draw [->,thick] (0,0) -- (-1,4) node [above] {\(\vec{x}+\vec{y}\)};
+\draw [->,thick] (-2,3) -- (1,1) node [above right] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 3\\1 \end{array} \right]</m>,
+        <m>\vec{y} = \left[\begin{array}{c} 1\\-2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 4\\-1 \end{array} \right]</m>,
+        <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 2\\3 \end{array} \right]</m>
+      </p>
+      <p>
+        Sketches will vary depending on choice of origin of each vector.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(5,0);
+\draw (0,-3)--(0,2);
+\foreach \x in {1,...,4}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \x in {-2,...,1}
+{\draw (-.1,\x)--(.1,\x);
+};
+\node[below] at (2,-0.1) {2};
+\node[left] at (0,1) {1};
+\draw [->,thick] (0,0)--(3,1) node [above] {\vec{x}};
+\draw [->,thick] (0,0) -- (1,-2) node [below ] {\vec{y}};
+\draw [->,thick] (0,0) -- (4,-1) node [below] {\(\vec{x}+\vec{y}\)};
+\draw [->,thick] (1,-2) -- (3,1) node [below right] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -1\\1 \end{array} \right]</m>,
+        <m>\vec{y} = \left[\begin{array}{c} -2\\2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} -3\\3 \end{array} \right]</m>,
+        <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 1\\-1 \end{array} \right]</m>
+      </p>
+      <p>
+        Sketches will vary depending on choice of origin of each vector.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(5,0);
+\draw (0,-3)--(0,2);
+\foreach \x in {1,...,4}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \x in {-2,...,1}
+{\draw (-.1,\x)--(.1,\x);
+};
+\node[below] at (2,-0.1) {2};
+\node[left] at (0,1) {1};
+\draw [->,thick] (0,0)--(3,1) node [above] {\vec{x}};
+\draw [->,thick] (0,0) -- (1,-2) node [below ] {\vec{y}};
+\draw [->,thick] (0,0) -- (4,-1) node [below] {\(\vec{x}+\vec{y}\)};
+\draw [->,thick] (1,-2) -- (3,1) node [below right] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 2\\0 \end{array} \right]</m>,
+        <m>\vec{y} = \left[\begin{array}{c} 1\\3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 3\\3 \end{array} \right]</m>,
+        <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 1\\-3 \end{array} \right]</m>
+      </p>
+      <p>
+        Sketches will vary depending on choice of origin of each vector.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(4,0);
+\draw (0,-1)--(0,4);
+\foreach \x in {1,...,3}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \x in {1,...,3}
+{\draw (-.1,\x)--(.1,\x);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw [->,thick] (0,0)--(2,0) node [below] {\vec{x}};
+\draw [->,thick] (0,0) -- (1,3) node [above left] {\vec{y}};
+\draw [->,thick] (0,0) -- (3,3) node [above] {\(\vec{x}+\vec{y}\)};
+\draw [->,thick] (1,3) -- (2,0) node [above right] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    vectors <m>\vec{x}</m> and <m>\vec{y}</m> are drawn.
+    Sketch <m>2\vec{x}</m>, <m>-\vec{y}</m>,
+    <m>\vec{x}+\vec{y}</m>, and
+    <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.
+  </p>
+  <exercise>
+    <statement>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3,0);
+\draw (0,-1)--(0,5);
+\foreach \x in {-2,...,2}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \x in {1,...,4}
+{\draw (-.1,\x)--(.1,\x);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0) -- (1,2) node [right] {\vec{x}};
+\draw[->,thick] (0,0) -- (-2,3) node [left] {\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </statement>
+    <answer>
+      <p>
+        Sketches will vary depending on choice of origin of each vector.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-3,0)--(3,0);
+\draw (0,-4)--(0,5);
+\foreach \x in {-2,...,2}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \x in {-3,...,4}
+{\draw (-.1,\x)--(.1,\x);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0) -- (2,4) node [right] {\(2\vec{x}\)};
+\draw[->,thick] (0,0) -- (2,-3) node [left] {\(-\vec{y}\)};
+\draw[->,thick] (0,0) -- (-1,5) node [above] {\(\vec{x}+\vec{y}\)};
+\draw[->,thick] (0,0) -- (3,-1) node [below right] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(4,0);
+\draw (0,-4)--(0,2);
+\foreach \x in {1,...,3}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \y in {-3,...,1}
+{\draw (-.1,\y)--(.1,\y);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0) -- (3,1) node [right] {\vec{x}};
+\draw[->,thick] (0,0) -- (1,-3) node [right] {\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </statement>
+    <answer>
+      <p>
+        Sketches will vary depending on choice of origin of each vector.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(6,0);
+\draw (0,-1)--(0,5);
+\foreach \x in {1,...,5}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \y in {-1,...,4}
+{\draw (-.1,\y)--(.1,\y);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0) -- (6,2) node [right] {\(2\vec{x}\)};
+\draw[->,thick] (0,0) -- (-1,3) node [left] {\(-\vec{y}\)};
+\draw[->,thick] (0,0) -- (5,5) node [above] {\(\vec{x}+\vec{y}\)};
+\draw[->,thick] (0,0) -- (2,4) node [above] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-1,0)--(3,0);
+\draw (0,-1)--(0,3);
+\foreach \x in {1,...,2}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \y in {1,...,2}
+{\draw (-.1,\y)--(.1,\y);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0) -- (2,2) node [right] {\vec{x}};
+\draw[->,thick] (0,0) -- (-2,2) node [above right] {\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </statement>
+    <answer>
+      <p>
+        Sketches will vary depending on choice of origin of each vector.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-2,0)--(4,0);
+\draw (0,-2)--(0,4);
+\foreach \x in {-1,...,3}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \y in {-1,...,3}
+{\draw (-.1,\y)--(.1,\y);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0) -- (4,4) node [right] {\(2\vec{x}\)};
+\draw[->,thick] (0,0) -- (2,-2) node [left] {\(-\vec{y}\)};
+\draw[->,thick] (0,0) -- (0,4) node [above] {\(\vec{x}+\vec{y}\)};
+\draw[->,thick] (0,0) -- (4,0) node [above] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-2,0)--(3,0);
+\draw (0,-2)--(0,3);
+\foreach \x in {-1,...,2}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \y in {-1,...,2}
+{\draw (-.1,\y)--(.1,\y);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0) -- (2,2) node [right] {\vec{x}};
+\draw[->,thick] (0,0) -- (-1.5,-1.5) node [above left] {\vec{y}};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </statement>
+    <answer>
+      <p>
+        Sketches will vary depending on choice of origin of each vector.
+      </p>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\draw (-2,0)--(4,0);
+\draw (0,-2)--(0,4);
+\foreach \x in {-1,...,3}
+{\draw (\x,-.1)--(\x,.1);
+}
+\foreach \y in {-1,...,3}
+{\draw (-.1,\y)--(.1,\y);
+};
+\node[below] at (1,-0.1) {1};
+\node[left] at (0,1) {1};
+\draw[->,thick] (0,0) -- (4,4) node [above] {\(2\vec{x}\)};
+\draw[->,thick] (0,0) -- (1.5,1.5) node [left] {\(-\vec{y}\)};
+\draw[->,thick] (0,0) -- (.5,.5) node [right] {\(\vec{x}+\vec{y}\)};
+\draw[->,thick] (0,0) -- (3.5,3.5) node [below right] {\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a vector <m>\vec{x}</m> and a scalar <m>a</m> are given.
+    Using <xref ref="def_vector_length">Definition</xref>,
+    compute the lengths of <m>\vec{x}</m> and <m>a\vec{x}</m>,
+    then compare these lengths.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 2\\1 \end{array} \right]</m>,
+        <m>a = 3</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>||\vec{x}|| = \sqrt{5}</m>;
+        <m>||a\vec{x}|| = \sqrt{45} = 3\sqrt{5}</m>.
+        The vector <m>a\vec{x}</m> is 3 times as long as <m>\vec{x}</m>.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 4\\7 \end{array} \right]</m>,
+        <m>a = -2</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>||\vec{x}|| = \sqrt{65}</m>;
+        <m>||a\vec{x}|| = \sqrt{260} = 2\sqrt{65}</m>.
+        The vector <m>a\vec{x}</m> is 2 times as long as <m>\vec{x}</m>.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -3\\5 \end{array} \right]</m>,
+        <m>a = -1</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>||\vec{x}|| = \sqrt{34}</m>;
+        <m>||a\vec{x}|| = \sqrt{34}</m>.
+        The vectors <m>a\vec{x}</m> and <m>\vec{x}</m> are the same length
+        (they just point in opposite directions).
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 3\\-9 \end{array} \right]</m>,
+        <m>a = \frac 13</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>||\vec{x}|| = \sqrt{90} = 3\sqrt{10}</m>;
+        <m>||a\vec{x}|| = \sqrt{10}</m>.
+        The vector <m>a\vec{x}</m> is one-third the length of \vec{x}; equivalently,
+        <m>\vec{x}</m> is 3 times as long as <m>a\vec{x}</m>.
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Four pairs of vectors <m>\vec{x}</m> and <m>\vec{y}</m> are given below.
+        For each pair, compute <m>||\vec{x}||</m>,
+        <m>||\vec{y}||</m>, and <m>||\vec{x} + \vec{y}||</m>.
+        Use this information to answer: Is it always, sometimes,
+        or never true that <m>||\vec{x}|| + ||\vec{y}|| = ||\vec{x}+\vec{y}||</m>?
+        If it always or never true, explain why.
+        If it is sometimes true, explain when it is true.
+        <ol>
+          <li>
+            <p>
+              <m>\vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]</m>,
+              <m>\vec{y} = \left[\begin{array}{c} 2\\3 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vec{x} = \left[\begin{array}{c} 1\\-2 \end{array} \right]</m>,
+              <m>\vec{y} = \left[\begin{array}{c} 3\\-6 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vec{x} = \left[\begin{array}{c} -1\\3 \end{array} \right]</m>,
+              <m>\vec{y} = \left[\begin{array}{c} 2\\5 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vec{x} = \left[\begin{array}{c} 2\\1 \end{array} \right]</m>,
+              <m>\vec{y} = \left[\begin{array}{c} -4\\-2 \end{array} \right]</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <answer>
+      <ol>
+        <li>
+          <p>
+            <m>||\vec{x}|| = \sqrt{2}</m>;
+            <m>||\vec{y}|| = \sqrt{13}</m>;
+            <m>||\vec{x}+\vec{y}|| = 5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>||\vec{x}|| = \sqrt{5}</m>;
+            <m>||\vec{y}|| = 3\sqrt{5}</m>;
+            <m>||\vec{x}+\vec{y}|| = 4\sqrt{5}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>||\vec{x}|| = \sqrt{10}</m>;
+            <m>||\vec{y}|| = \sqrt{29}</m>;
+            <m>||\vec{x}+\vec{y}|| = \sqrt{65}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>||\vec{x}|| = \sqrt{5}</m>;
+            <m>||\vec{y}|| = 2\sqrt{5}</m>;
+            <m>||\vec{x}+\vec{y}|| = \sqrt{5}</m>.
+          </p>
+        </li>
+      </ol>
+      <p>
+        The equality holds sometimes;
+        only when <m>\vec{x}</m> and <m>\vec{y}</m> point along the same line,
+        in the same direction.
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises, a matrix <m>A</m> is given.
+    Sketch <m>\vec{x}</m>,
+    <m>\vec{y}</m>, A<m>\vec{x}</m> and A<m>\vec{y}</m> on the same Cartesian axes, where
+    <me>
+      \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right] \ \text{ and }  \ \vec{y}=\left[\begin{array}{c} -1\\2 \end{array} \right]
+    </me>
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1 \amp -1\\ 2 \amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-3.5}{1.5}{-3,-2,-1,1};
+\drawylines{-.5}{5.5}{1,...,5};
+\draw[thick,->] (0,0) -- (1,1) node [right] {\(\vec{x}\)};
+\draw[thick,->] (0,0) -- (-1,2) node [above] {\(\vec{y}\)};
+\draw[thick,->] (0,0) -- (0,5) node [right] {\( A\vec{x}\)};
+\draw[thick,->] (0,0) -- (-3,4) node [above] {\( A\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp 0\\ -1 \amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-2.5}{2.5}{-2,-1,1,2};
+\drawylines{-.5}{7.5}{1,...,7};
+\draw[thick,->] (0,0) -- (1,1) node [right] {\(\vec{x}\)};
+\draw[thick,->] (0,0) -- (-1,2) node [above] {\(\vec{y}\)};
+\draw[thick,->] (0,0) -- (2,2) node [right] {\( A\vec{x}\)};
+\draw[thick,->] (0,0) -- (-2,7) node [above] {\( A\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 1\\ 1\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{2.5}{-1,1,2};
+\drawylines{-.5}{2.5}{1,...,2};
+\draw[thick,->] (0,0) -- (1,1) node [right] {\(\vec{x}\)};
+\draw[thick,->] (0,0) -- (-1,2) node [above] {\(\vec{y}\)};
+\draw[thick,->] (0,0) -- (2,2) node [right] {\( A\vec{x}\)};
+\draw[thick,->] (0,0) -- (1,1) node [above] {\( A\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 2\\ -1\amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <image>
+<latex-image>
+<![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{3.5}{-1,1,2,3};
+\drawylines{-3.5}{2.5}{-3,...,2};
+\draw[thick,->] (0,0) -- (1,1) node [right] {\(\vec{x}\)};
+\draw[thick,->] (0,0) -- (-1,2) node [above] {\(\vec{y}\)};
+\draw[thick,->] (0,0) -- (3,-3) node [right] {\( A\vec{x}\)};
+\draw[thick,->] (0,0) -- (3,-3) node [below] {\( A\vec{y}\)};\end{tikzpicture}]]>
+</latex-image>
+      </image>
+    </answer>
+  </exercise>
+</section>

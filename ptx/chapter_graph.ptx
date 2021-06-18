@@ -1,0 +1,27 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="chapter_graph">
+  <title>Graphical Explorations of Vectors</title>
+  <introduction>
+    <p>
+      We already looked at the basics of graphing vectors.
+      In this chapter, we'll explore these ideas more fully.
+      One often gains a better understanding of a concept by
+      <q>seeing</q>
+      it.
+      For instance, one can study the function
+      <m>f(x)=x^2</m> and describe many properties of how the output relates to the input without producing a graph,
+      but the graph can quickly bring meaning and insight to equations and formulae.
+      Not only that,
+      but the study of graphs of functions is in itself a wonderful mathematical world,
+      worthy of exploration.
+    </p>
+    <p>
+      We've studied the graphing of vectors;
+      in this chapter we'll take this a step further and study some fantastic graphical properties of vectors and matrix arithmetic.
+      We mentioned earlier that these concepts form the basis of computer graphics;
+      in this chapter, we'll see even better how that is true.
+    </p>
+  </introduction>
+  <xi:include  href="sec_geom_3.ptx"/>
+  <xi:include  href="sec_lin_trans.ptx"/>
+  <xi:include  href="sec_geom_2.ptx"/>
+</chapter>

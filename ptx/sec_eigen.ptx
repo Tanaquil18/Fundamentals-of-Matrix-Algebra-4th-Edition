@@ -1,0 +1,1326 @@
+<section xml:id="sec_eigen">
+  <title>Eigenvalues and Eigenvectors</title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: Given any matrix <m>A</m>,
+          we can always find a vector <m>\vec{x}</m> where <m>A\vec{x}=\vec{x}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          When is the zero vector an eigenvector for a matrix?
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>\vec{v}</m> is an eigenvector of a matrix <m>A</m> with eigenvalue of 2, then what is <m>A\vec{v}</m>?
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: If <m>A</m> is a <m>5\times 5</m> matrix,
+          to find the eigenvalues of <m>A</m>,
+          we would need to find the roots of a 5<m>^\text{ th }</m> degree polynomial.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    We start by considering the matrix <m>A</m> and vector <m>\vec{x}</m> as given below.<fn>
+    Recall this matrix and vector were used in <xref ref="ex_mv_1">Example</xref>
+    on <xref ref="ex_mv_1">page</xref>.
+    </fn>
+    <me>
+      A = \left[\begin{array}{cc}  1\amp 4\\2\amp 3 \end{array} \right]   \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Multiplying A<m>\vec{x}</m> gives:
+    <md>
+      <mrow>A\vec{x} \amp = \left[\begin{array}{cc}  1\amp 4</mrow>
+      <mrow>2\amp 3\end{array}\right] \left[\begin{array}{c} 1</mrow>
+      <mrow>1\end{array}\right]</mrow>
+      <mrow>\amp = \left[\begin{array}{c} 5</mrow>
+      <mrow>5\end{array}\right]</mrow>
+      <mrow>\amp = 5\left[\begin{array}{c} 1</mrow>
+      <mrow>1\end{array}\right] \ !</mrow>
+    </md>
+  </p>
+  <p>
+    Wow!
+    It looks like multiplying A<m>\vec{x}</m> is the same as 5\vec{x}! This makes us wonder lots of things: Is this the only case in the world where something like this happens?<fn xml:id="note_prob_not">
+    Probably not.
+    </fn> Is <m>A</m> somehow a special matrix,
+    and <m>A\vec{x} = 5\vec{x}</m> for any vector <m>\vec{x}</m> we pick?<fn>
+    Probably not.
+    </fn> Or maybe <m>\vec{x}</m> was a special vector,
+    and no matter what <m>2\times 2</m> matrix <m>A</m> we picked,
+    we would have <m>A</m>\vec{x}<m>=5\vec{x}</m>.<fn>
+    See <xref ref="note_prob_not">footnote</xref>.
+    </fn>
+  </p>
+  <p>
+    A more likely explanation is this:
+    given the matrix <m>A</m>,
+    the number 5 and the vector <m>\vec{x}</m> formed a special pair that happened to work together in a nice way.
+    It is then natural to wonder if other
+    <q>special</q>
+    pairs exist.
+    For instance,
+    could we find a vector <m>\vec{x}</m> where <m>A\vec{x}=3\vec{x}</m>?
+  </p>
+  <p>
+    This equation is hard to solve <em>at first</em>;
+    we are not used to matrix equations where <m>\vec{x}</m> appears on both sides of
+    <q><m>=</m>.</q>
+    Therefore we put off solving this for just a moment to state a definition and make a few comments.
+  </p>
+  <definition xml:id="def_eigen">
+    <statement>
+      <p>
+        <term>Eigenvalues and Eigenvectors</term><idx><h>eigenvalue</h><h>definition</h></idx>
+            <idx><h>eigenvector</h><h>|see{eigenvalue}</h></idx>
+      </p>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> matrix,
+        <m>\vec{x}</m> a nonzero <m>n\times 1</m> column vector and <m>\lambda</m> a scalar.
+        If
+        <me>
+          A\vec{x} = \lambd\vec{x}
+        </me>,
+        then <m>\vec{x}</m> is an <term>eigenvector</term>
+        of <m>A</m> and <m>\lambd</m> is an
+        <term>eigenvalue</term> of <m>A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The word
+    <q>eigen</q>
+    is German for
+    <q>proper</q>
+    or
+    <q>characteristic.</q>
+    Therefore, an <em>eigenvector</em> of <m>A</m> is a
+    <q>characteristic vector of <m>A</m>.</q>
+    This vector tells us something about <m>A</m>.
+  </p>
+  <p>
+    Why do we use the Greek letter <m>\lambd</m> (lambda)?
+    It is pure tradition.
+    Above, we used <m>a</m> to represent the unknown scalar,
+    since we are used to that notation.
+    We now switch to <m>\lambd</m> because that is how everyone else does it.<fn>
+    An example of mathematical peer pressure.
+    </fn> Don't get hung up on this;
+    <m>\lambd</m> is just a number.
+  </p>
+  <p>
+    Note that our definition requires that <m>A</m> be a square matrix.
+    If <m>A</m> isn't square then <m>A\vec{x}</m> and
+    <m>\lambda\vec{x}</m> will have different sizes,
+    and so they cannot be equal.
+    Also note that <m>\vec{x}</m> must be nonzero.
+    Why?
+    What if <m>\vec{x} = \vec{0}</m>?
+    Then <em>no matter what</em> <m>\lambd</m> is,
+    <m>A\vec{x} = \lambd\vec{x}</m>.
+    This would then imply that <em>every number</em> is an eigenvalue;
+    if every number is an eigenvalue,
+    then we wouldn't need a definition for it.<fn>
+    Recall <xref ref="footnote_special">footnote</xref>
+    on <xref ref="footnote_special">page</xref>.
+    </fn> Therefore we specify that <m>\vec{x}\neq \vec{0}</m>.
+  </p>
+  <p>
+    Our last comment before trying to find eigenvalues and eigenvectors for given matrices deals with
+    <q>why we care.</q>
+    Did we stumble upon a mathematical curiosity,
+    or does this somehow help us build better bridges,
+    heal the sick, send astronauts into orbit,
+    design optical equipment, and understand quantum mechanics?
+    The answer, of course, is
+    <q>Yes.</q><fn>
+    Except for the
+    <q>understand quantum mechanics</q>
+    part.
+    Nobody truly understands that stuff;
+    they just <em>probably</em> understand it.
+    </fn> This is a wonderful topic in and of itself:
+    we need no external application to appreciate its worth.
+    At the same time, it has many, many applications to
+    <q>the real world.</q>
+    A simple Internet seach on
+    <q>applications of eigenvalues</q>
+    with confirm this.
+  </p>
+  <p>
+    Back to our math.
+    Given a square matrix <m>A</m>,
+    we want to find a nonzero vector <m>\vec{x}</m> and a scalar <m>\lambd</m> such that <m>A\vec{x} = \lambd\vec{x}</m>.
+    We will solve this using the skills we developed in <xref ref="chapter_arithmetic">Chapter</xref>.
+    <me>
+      \begin{array}{rclcc} A\vec{x} \amp  = \amp  \lambd\vec{x} \amp  \amp \scriptsize original equation\\ A\vec{x} - \lambd\vec{x} \amp  = \amp  \vec{0} \amp  \amp  \scriptsize subtract \(\lambd\vec{x}\) from both sides\\ ( A-\lambd I)\vec{x} \amp  = \amp  \vec{0} \amp  \amp  \scriptsize factor out \vec{x} \end{array}
+    </me>
+  </p>
+  <p>
+    Think about this last factorization.
+    We are likely tempted to say
+    <me>
+      A\vec{x}-\lambd\vec{x} = ( A-\lambd)\vec{x}
+    </me>,
+    but this really doesn't make sense.
+    After all, what does
+    <q>a matrix minus a number</q>
+    mean?
+    We need the identity matrix in order for this to be logical.
+  </p>
+  <p>
+    Let us now think about the equation <m>( A-\lambd I)\vec{x}=\vec{0}</m>.
+    While it looks complicated,
+    it really is just a matrix equation of the type we solved in <xref ref="sec_vector_solutions">Section</xref>.
+    We are just trying to solve <m>B\vec{x}=\vec{0}</m>,
+    where <m>B = ( A-\lambd I)</m>.
+  </p>
+  <p>
+    We know from our previous work that this type of equation<fn>
+    Recall this is a <em>homogeneous</em> system of equations.
+    </fn> always has a solution,
+    namely, <m>\vec{x} = \vec{0}</m>.
+    However, we want <m>\vec{x}</m> to be an eigenvector and,
+    by the definition,
+    eigenvectors cannot be \vec{0}.
+  </p>
+  <p>
+    This means that we want solutions to
+    <m>( A-\lambd I)\vec{x}=\vec{0}</m> other than <m>\vec{x}=\vec{0}</m>.
+    Recall that <xref ref="thm_inverse_solution">Theorem</xref>
+    says that if the matrix <m>( A-\lambd I)</m> is invertible,
+    then the <em>only</em> solution to
+    <m>( A-\lambd I)\vec{x}=\vec{0}</m> is <m>\vec{x}=\vec{0}</m>.
+    Therefore, in order to have other solutions,
+    we need <m>( A-\lambd I)</m> to not be invertible.
+  </p>
+  <p>
+    Finally, recall from <xref ref="thm_determinant_properties">Theorem</xref>
+    that noninvertible matrices all have a determinant of 0.
+    Therefore, if we want to find eigenvalues <m>\lambd</m> and eigenvectors <m>\vec{x}</m>,
+    we need <m>\det{ A-\lambd I} = 0</m>.
+  </p>
+  <p>
+    Let's start our practice of this theory by finding <m>\lambd</m> such that <m>\det{ A-\lambd I} = 0</m>;
+    that is, let's find the eigenvalues of a matrix.
+  </p>
+  <example xml:id="ex_find_el">
+    <statement>
+      <p>
+        Find the eigenvalues of <m>A</m>, that is,
+        find <m>\lambd</m> such that <m>\det{ A-\lambd I} = 0</m>, where
+        <me>
+          A = \left[\begin{array}{cc} 1\amp 4\\2\amp 3 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        (Note that this is the matrix we used at the beginning of this section.) First,
+        we write out what <m>A-\lambd I</m> is:
+        <md>
+          <mrow>A-\lambd I \amp = \left[\begin{array}{cc} 1\amp 4</mrow>
+          <mrow>2\amp 3\end{array}\right] - \lambd</mrow>
+          <mrow>\amp = \left[\begin{array}{cc} 1\amp 4</mrow>
+          <mrow>2\amp 3\end{array}\right] - \left[\begin{array}{cc} \lambd\amp 0</mrow>
+          <mrow>0\amp \lambd\end{array}\right]</mrow>
+          <mrow>\amp = \left[\begin{array}{cc} 1-\lambd \amp  4</mrow>
+          <mrow>2\amp 3-\lambd\end{array}\right]</mrow>
+        </md>
+      </p>
+      <p>
+        Therefore,
+        <md>
+          <mrow>\det{ A-\lambd I} \amp = \left| \begin{array}{cc} 1-\lambd \amp  4</mrow>
+          <mrow>2\amp 3-\lambd\end{array} \right|</mrow>
+          <mrow>\amp = (1-\lambd)(3-\lambd)-8</mrow>
+          <mrow>\amp = \lambd^2-4\lambd-5</mrow>
+        </md>
+      </p>
+      <p>
+        Since we want <m>\det{ A-\lambd I}=0</m>,
+        we want <m>\lambd^2-4\lambd-5=0</m>.
+        This is a simple quadratic equation that is easy to factor:
+        <md>
+          <mrow>\lambd^2-4\lambd-5 \amp = 0</mrow>
+          <mrow>(\lambd-5)(\lambd+1) \amp  = 0</mrow>
+          <mrow>\lambd \amp = -1,\ 5</mrow>
+        </md>
+      </p>
+      <p>
+        According to our above work,
+        <m>\det{ A-\lambd I}=0</m> when <m>\lambd = -1,\ 5</m>.
+        Thus, the eigenvalues of <m>A</m> are <m>-1</m> and 5.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Earlier, when looking at the same matrix as used in our example,
+    we wondered if we could find a vector <m>\vec{x}</m> such that <m>A\vec{x}=3\vec{x}</m>.
+    According to this example, the answer is
+    <q>No.</q>
+    With this matrix <m>A</m>,
+    the only values of <m>\lambd</m> that work are <m>-1</m> and <m>5</m>.
+  </p>
+  <p>
+    Let's restate the above in a different way: It is pointless to try to find <m>\vec{x}</m> where <m>A\vec{x}=3\vec{x}</m>,
+    for there is no such <m>\vec{x}</m>.
+    There are only 2 equations of this form that have a solution, namely
+    <me>
+      A\vec{x} = -\vec{x}  \text{ and }     A\vec{x}=5\vec{x}
+    </me>
+  </p>
+  <p>
+    As we introduced this section,
+    we gave a vector <m>\vec{x}</m> such that <m>A\vec{x} = 5\vec{x}</m>.
+    Is this the only one?
+    Let's find out while calling our work an example;
+    this will amount to finding the eigenvectors of <m>A</m> that correspond to the eigenvector of 5.
+  </p>
+  <example xml:id="ex_find_ev">
+    <statement>
+      <p>
+        Find <m>\vec{x}</m> such that <m>A\vec{x}=5\vec{x}</m>, where
+        <me>
+          A = \left[\begin{array}{cc} 1\amp 4\\2\amp 3 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Recall that our algebra from before showed that if
+        <me>
+          A\vec{x}=\lambd\vec{x}  \text{ then }   ( A-\lambd I)\vec{x}=\vec{0}
+        </me>.
+        Therefore, we need to solve the equation
+        <m>( A-\lambd I)\vec{x}=\vec{0}</m> for <m>\vec{x}</m> when <m>\lambda = 5</m>.
+        <md>
+          <mrow>A - 5 I \amp = \left[\begin{array}{cc}  1\amp 4</mrow>
+          <mrow>2\amp 3\end{array}\right] - 5\left[\begin{array}{cc} 1\amp 0</mrow>
+          <mrow>0\amp 1\end{array}\right]</mrow>
+          <mrow>\amp =  \left[\begin{array}{cc}  -4\amp 4</mrow>
+          <mrow>2\amp -2\end{array}\right]</mrow>
+        </md>
+      </p>
+      <p>
+        To solve <m>( A-5 I)\vec{x}=\vec{0}</m>,
+        we form the augmented matrix and put it into reduced row echelon form:
+        <me>
+          \left[\begin{array}{ccc} -4\amp 4\amp 0\\2\amp -2\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{ccc} 1\amp -1\amp 0\\0\amp 0\amp 0 \end{array} \right]
+        </me>.
+        Thus
+        <md>
+          <mrow>x_1 \amp = x_2</mrow>
+          <mrow>x_2 \amp \text{ is free }</mrow>
+        </md>
+        and
+        <me>
+          \vec{x} = \left[\begin{array}{c} x_1\\x_2 \end{array} \right] = x_2\left[\begin{array}{c} 1\\1 \end{array} \right]
+        </me>.
+        We have infinite solutions to the equation <m>A\vec{x} = 5\vec{x}</m>;
+        any nonzero scalar multiple of the vector <m>\left[\begin{array}{c} 1\\1 \end{array} \right]</m> is a solution.
+        We can do a few examples to confirm this:
+        <me>
+          \left[\begin{array}{cc} 1\amp 4\\2\amp 3 \end{array} \right]\left[\begin{array}{c} 2\\2 \end{array} \right] = \left[\begin{array}{c} 10\\10 \end{array} \right] = 5\left[\begin{array}{c} 2\\2 \end{array} \right];
+        </me>
+        <me>
+          \left[\begin{array}{cc} 1\amp 4\\2\amp 3 \end{array} \right]\left[\begin{array}{c} 7\\7 \end{array} \right] = \left[\begin{array}{c} 35\\35 \end{array} \right] = 5\left[\begin{array}{c} 7\\7 \end{array} \right];
+        </me>
+        <me>
+          \left[\begin{array}{cc} 1\amp 4\\2\amp 3 \end{array} \right]\left[\begin{array}{c} -3\\-3 \end{array} \right] = \left[\begin{array}{c} -15\\-15 \end{array} \right] = 5\left[\begin{array}{c} -3\\-3 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Our method of finding the eigenvalues of a matrix <m>A</m> boils down to determining which values of <m>\lambda</m> give the matrix <m>( A - \lambda I)</m> a determinant of 0.
+    In computing <m>\det{ A-\lambda I}</m>,
+    we get a polynomial in <m>\lambda</m> whose roots are the eigenvalues of <m>A</m>.
+    This polynomial is important and so it gets its own name.
+  </p>
+  <definition xml:id="def_char_poly">
+    <statement>
+      <p>
+        <term>Characteristic Polynomial</term><idx><h>characteristic polynomial</h></idx>
+      </p>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> matrix.
+        The <term>characteristic polynomial</term>
+        of <m>A</m> is the <m>n^\text{ th }</m> degree polynomial <m>p(\lambda) = \det{ A-\lambda I}</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Our definition just states <em>what</em>
+    the characteristic polynomial is.
+    We know from our work so far <em>why</em> we care:
+    the roots of the characteristic polynomial of an
+    <m>n\times n</m> matrix <m>A</m> are the eigenvalues of <m>A</m>.
+  </p>
+  <p>
+    In <xref ref="ex_find_el">Examples</xref>
+    and <xref ref="ex_find_ev"></xref>,
+    we found eigenvalues and eigenvectors,
+    respectively, of a given matrix.
+    That is, given a matrix <m>A</m>,
+    we found values <m>\lambda</m> and vectors <m>\vec{x}</m> such that <m>A\vec{x} = \lambda\vec{x}</m>.
+    The steps that follow outline the general procedure for finding eigenvalues and eigenvectors;
+    we'll follow this up with some examples.
+  </p>
+  <insight xml:id="idea_eigen">
+    <p>
+      <term>Finding Eigenvalues and Eigenvectors</term><idx><h>eigenvalue</h><h>finding</h></idx>
+    </p>
+    <p>
+      Let <m>A</m> be an <m>n\times n</m> matrix.
+      <ol>
+        <li>
+          <p>
+            To find the eigenvalues of <m>A</m>,
+            compute <m>p(\lambda)</m>,
+            the characteristic polynomial of <m>A</m>,
+            set it equal to 0, then solve for <m>\lambda</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            To find the eigenvectors of <m>A</m>,
+            <em>for each eigenvalue</em> solve the homogeneous system <m>( A-\lambda I)\vec{x} = \vec{0}</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </insight>
+  <example xml:id="ex_eigen1">
+    <statement>
+      <p>
+        Find the eigenvalues of <m>A</m>,
+        and for each eigenvalue, find an eigenvector where
+        <me>
+          A = \left[\begin{array}{cc} -3\amp 15\\3\amp 9 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        To find the eigenvalues,
+        we must compute <m>\det{ A-\lambda I}</m> and set it equal to 0.
+        <md>
+          <mrow>\det{ A-\lambda I} \amp = \left| \begin{array}{cc} -3-\lambda \amp  15</mrow>
+          <mrow>3 \amp  9-\lambda\end{array} \right|</mrow>
+          <mrow>\amp = (-3-\lambda)(9-\lambda)-45</mrow>
+          <mrow>\amp = \lambda^2-6\lambda-27-45</mrow>
+          <mrow>\amp = \lambda^2-6\lambda-72</mrow>
+          <mrow>\amp = (\lambda-12)(\lambda+6)</mrow>
+        </md>
+      </p>
+      <p>
+        Therefore, <m>\det{ A-\lambda I} = 0</m> when <m>\lambda = -6</m> and <m>12</m>;
+        these are our eigenvalues. (We should note that
+        <m>p(\lambda) =\lambda^2-6\lambda-72</m> is our characteristic polynomial.) It sometimes helps to give them
+        <q>names,</q>
+        so we'll say <m>\lambda_1 = -6</m> and <m>\lambda_2 = 12</m>.
+        Now we find eigenvectors.
+      </p>
+      <p>
+        For <m>\lambda_1=-6</m>:
+      </p>
+      <p>
+        We need to solve the equation <m>( A - (-6) I)\vec{x} = \vec{0}</m>.
+        To do this, we form the appropriate augmented matrix and put it into reduced row echelon form.
+        <me>
+          \left[\begin{array}{ccc} 3\amp 15\amp 0\\3\amp 15\amp 0 \end{array} \right] \overrightarrow{\text{ rref } } \left[\begin{array}{ccc} 1\amp 5\amp 0\\0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Our solution is
+        <md>
+          <mrow>x_1 \amp = -5x_2</mrow>
+          <mrow>x_2 \amp  \text{ is free; }</mrow>
+        </md>
+        in vector form, we have
+        <me>
+          \vec{x} = x_2\left[\begin{array}{c} -5\\1 \end{array} \right]
+        </me>.
+        We may pick any nonzero value for <m>x_2</m> to get an eigenvector;
+        a simple option is <m>x_2 = 1</m>.
+        Thus we have the eigenvector
+        <me>
+          \vec{x}= \left[\begin{array}{c} -5\\1 \end{array} \right]
+        </me>.
+        (We used the notation <m>\vec{x}</m> to associate this eigenvector with the eigenvalue <m>\lambda_1</m>.)
+      </p>
+      <p>
+        We now repeat this process to find an eigenvector for <m>\lambda_2 = 12</m>:
+      </p>
+      <p>
+        In solving <m>( A - 12 I)\vec{x} = \vec{0}</m>, we find
+        <me>
+          \left[\begin{array}{ccc} -15 \amp  15 \amp  0 \\ 3 \amp  -3 \amp  0 \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{ccc} 1\amp -1\amp 0\\0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        In vector form, we have
+        <me>
+          \vec{x} = x_2\left[\begin{array}{c} 1\\1 \end{array} \right]
+        </me>.
+        Again, we may pick any nonzero value for <m>x_2</m>,
+        and so we choose <m>x_2 = 1</m>.
+        Thus an eigenvector for <m>\lambda_2</m> is
+        <me>
+          \vec{x}= \left[\begin{array}{c} 1\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        To summarize, we have:
+        <me>
+          \text{ eigenvalue }  \lambda_1 = -6 \text{ with  eigenvector }  \vec{x}= \left[\begin{array}{c} -5\\1 \end{array} \right]
+        </me>
+        and
+        <me>
+          \text{ eigenvalue }  \lambda_2 = 12 \text{ with eigenvector }  \vec{x}= \left[\begin{array}{c} 1\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We should take a moment and check our work:
+        is it true that <m>A\vec{x}= \lambda_1\vec{x}</m>?
+        <md>
+          <mrow>A\vec{x}\amp =  \left[\begin{array}{cc} -3\amp 15</mrow>
+          <mrow>3\amp 9\end{array}\right]\left[\begin{array}{c} -5</mrow>
+          <mrow>1\end{array}\right]</mrow>
+          <mrow>\amp =  \left[\begin{array}{c}  30</mrow>
+          <mrow>-6\end{array}\right]</mrow>
+          <mrow>\amp =  (-6)\left[\begin{array}{c}  -5</mrow>
+          <mrow>1\end{array}\right]</mrow>
+          <mrow>\amp =  \lambda_1\vec{x}</mrow>
+        </md>.
+      </p>
+      <p>
+        Yes; it appears we have truly found an eigenvalue/eigenvector pair for the matrix <m>A</m>.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Let's do another example.
+  </p>
+  <example xml:id="ex_eigen2">
+    <statement>
+      <p>
+        Let <m>A = \left[\begin{array}{cc} -3\amp 0\\5\amp 1 \end{array} \right]</m>.
+        Find the eigenvalues of <m>A</m> and an eigenvector for each eigenvalue.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We first compute the characteristic polynomial,
+        set it equal to 0, then solve for <m>\lambda</m>.
+        <md>
+          <mrow>\det{ A-\lambda I}   \amp =   \left| \begin{array}{cc}  -3-\lambda \amp  0</mrow>
+          <mrow>5\amp 1-\lambda \end{array} \right|</mrow>
+          <mrow>\amp =   (-3-\lambda)(1-\lambda)</mrow>
+        </md>
+      </p>
+      <p>
+        From this, we see that <m>\det{ A-\lambda I}=0</m> when <m>\lambda = -3, 1</m>.
+        We'll set <m>\lambda_1 = -3</m> and <m>\lambda_2 = 1</m>.
+      </p>
+      <p>
+        Finding an eigenvector for <m>\lambda_1</m>:
+      </p>
+      <p>
+        We solve <m>( A-(-3) I)\vec{x} =\vec{0}</m> for <m>\vec{x}</m> by row reducing the appropriate matrix:
+        <me>
+          \left[\begin{array}{ccc}  0 \amp  0 \amp 0 \\ 5 \amp  4 \amp  0 \end{array} \right] \overrightarrow{\text{ rref } } \left[\begin{array}{ccc} 1\amp 5/4\amp 0\\0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Our solution, in vector form, is
+        <me>
+          \vec{x} = x_2\left[\begin{array}{c} -5/4\\1 \end{array} \right]
+        </me>.
+        Again, we can pick any nonzero value for <m>x_2</m>;
+        a nice choice would eliminate the fraction.
+        Therefore we pick <m>x_2 = 4</m>, and find
+        <me>
+          \vec{x}= \left[\begin{array}{c}  -5\\4 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Finding an eigenvector for <m>\lambda_2</m>:
+      </p>
+      <p>
+        We solve <m>( A-(1) I)\vec{x} =\vec{0}</m> for <m>\vec{x}</m> by row reducing the appropriate matrix:
+        <me>
+          \left[\begin{array}{ccc}  -4 \amp  0 \amp 0 \\ 5 \amp  0 \amp  0 \end{array} \right] \overrightarrow{\text{ rref } } \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We've seen a matrix like this before,<fn>
+        See <xref ref="footnote_extra_zeros">page</xref>.
+        Our future need of knowing how to handle this situation is foretold in <xref ref="footnote_extra_zeros">footnote</xref>.
+        </fn> but we may need a bit of a refreshing.
+        Our first row tells us that <m>x_1 = 0</m>,
+        and we see that no rows/equations involve <m>x_2</m>.
+        We conclude that <m>x_2</m> is free.
+        Therefore, our solution, in vector form, is
+        <me>
+          \vec{x} = x_2\left[\begin{array}{c} 0\\1 \end{array} \right]
+        </me>.
+        We pick <m>x_2 = 1</m>, and find
+        <me>
+          \vec{x}= \left[\begin{array}{c}  0\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        To summarize, we have:
+        <me>
+          \text{ eigenvalue }  \lambda_1 = -3 \text{ with  eigenvector }  \vec{x}= \left[\begin{array}{c} -5\\4 \end{array} \right]
+        </me>
+        and
+        <me>
+          \text{ eigenvalue }  \lambda_2 = 1 \text{ with eigenvector }  \vec{x}= \left[\begin{array}{c} 0\\1 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    So far, our examples have involved <m>2\times 2</m> matrices.
+    Let's do an example with a <m>3\times 3</m> matrix.
+  </p>
+  <example xml:id="ex_eigen3">
+    <statement>
+      <p>
+        Find the eigenvalues of <m>A</m>,
+        and for each eigenvalue, give one eigenvector, where
+        <me>
+          A = \left[\begin{array}{ccc} -7 \amp  -2 \amp  10\\ -3 \amp  2 \amp  3 \\ -6 \amp  -2 \amp  9 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We first compute the characteristic polynomial,
+        set it equal to 0, then solve for \lambd.
+        A warning: this process is rather long.
+        We'll use cofactor expansion along the first row;
+        don't get bogged down with the arithmetic that comes from each step;
+        just try to get the basic idea of what was done from step to step.
+        <md>
+          <mrow>\det{ A-\lambd I} \amp = \left| \begin{array}{ccc}  -7-\lambd \amp  -2 \amp  10</mrow>
+          <mrow>-3 \amp  2-\lambd \amp  3</mrow>
+          <mrow>-6 \amp  -2 \amp  9-\lambd \end{array} \right|</mrow>
+          <mrow>\amp = (-7-\lambd)\left| \begin{array}{cc} 2-\lambd \amp  3</mrow>
+          <mrow>-2 \amp  9-\lambd\end{array} \right|\ -\ (-2)\left| \begin{array}{cc}  -3\amp 3</mrow>
+          <mrow>-6 \amp  9-\lambd \end{array} \right|\ +\ 10\left| \begin{array}{cc}  -3\amp 2-\lambd</mrow>
+          <mrow>-6 \amp  -2 \end{array} \right|</mrow>
+          <mrow>\amp = (-7-\lambd)(\lambd^2-11\lambd + 24) + 2(3\lambd-9)+10(-6\lambd+18)</mrow>
+          <mrow>\amp = -\lambd^3+4\lambd^2-\lambd -6</mrow>
+          <mrow>\amp = -(\lambd + 1)(\lambd-2)(\lambd-3)</mrow>
+        </md>
+      </p>
+      <p>
+        In the last step we factored the characteristic polynomial <m>-\lambd^3+4\lambd^2-\lambd -6</m>.
+        Factoring polynomials of degree <m>>2</m> is not trivial;
+        we'll assume the reader has access to methods for doing this accurately.<fn>
+        You probably learned how to do this in an algebra course.
+        As a reminder,
+        possible roots can be found by factoring the constant term
+        (in this case, <m>-6</m>)
+        of the polynomial.
+        That is, the roots of this equation could be <m>\pm 1, \pm 2, \pm 3</m> and <m>\pm 6</m>.
+        That's 12 things to check.
+        One could also graph this polynomial to find the roots.
+        Graphing will show us that <m>\lambd = 3</m>
+        <em>looks</em> like a root,
+        and a simple calculation will confirm that it is.
+        </fn>
+      </p>
+      <p>
+        Our eigenvalues are <m>\lambd_1 = -1</m>,
+        <m>\lambd_2 = 2</m> and <m>\lambd_3 = 3</m>.
+        We now find corresponding eigenvectors.
+      </p>
+      <p>
+        For <m>\lambd_1 = -1</m>:
+      </p>
+      <p>
+        We need to solve the equation <m>( A - (-1) I)\vec{x} = \vec{0}</m>.
+        To do this, we form the appropriate augmented matrix and put it into reduced row echelon form.
+        <me>
+          \left[\begin{array}{cccc}  -6 \amp  -2 \amp  10 \amp 0\\ -3 \amp  3 \amp  3 \amp  0  \\ -6 \amp  -2 \amp  10 \amp  0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc}  1\amp 0\amp -1.5\amp 0\\0\amp 1\amp -.5\amp 0\\0\amp 0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Our solution, in vector form, is
+        <me>
+          \vec{x} = x_3\left[\begin{array}{c}  3/2\\1/2\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We can pick any nonzero value for <m>x_3</m>;
+        a nice choice would get rid of the fractions.
+        So we'll set <m>x_3 = 2</m> and choose <m>\vec{x}=\left[\begin{array}{c} 3\\1\\2 \end{array} \right]</m> as our eigenvector.
+      </p>
+      <p>
+        For <m>\lambd_2 = 2</m>:
+      </p>
+      <p>
+        We need to solve the equation <m>( A - 2 I)\vec{x} = \vec{0}</m>.
+        To do this, we form the appropriate augmented matrix and put it into reduced row echelon form.
+        <me>
+          \left[\begin{array}{cccc}  -9 \amp  -2 \amp  10 \amp 0\\ -3 \amp  0 \amp  3 \amp  0  \\ -6 \amp  -2 \amp  7 \amp  0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc}  1\amp 0\amp -1\amp 0\\0\amp 1\amp -.5\amp 0\\0\amp 0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Our solution, in vector form, is
+        <me>
+          \vec{x} = x_3\left[\begin{array}{c}  1\\1/2\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We can pick any nonzero value for <m>x_3</m>;
+        again, a nice choice would get rid of the fractions.
+        So we'll set <m>x_3 = 2</m> and choose <m>\vec{x}=\left[\begin{array}{c} 2\\1\\2 \end{array} \right]</m> as our eigenvector.
+      </p>
+      <p>
+        For <m>\lambd_3 = 3</m>:
+      </p>
+      <p>
+        We need to solve the equation <m>( A - 3 I)\vec{x} = \vec{0}</m>.
+        To do this, we form the appropriate augmented matrix and put it into reduced row echelon form.
+        <me>
+          \left[\begin{array}{cccc}  -10 \amp  -2 \amp  10 \amp 0\\ -3 \amp  -1 \amp  3 \amp  0  \\ -6 \amp  -2 \amp  6 \amp  0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc}  1\amp 0\amp -1\amp 0\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Our solution, in vector form,
+        is (note that <m>x_2 = 0</m>):
+        <me>
+          \vec{x} = x_3\left[\begin{array}{c}  1\\0\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We can pick any nonzero value for <m>x_3</m>;
+        an easy choice is <m>x_3 = 1</m>,
+        so <m>\vec{x}=\left[\begin{array}{c} 1\\0\\1 \end{array} \right]</m> as our eigenvector.
+      </p>
+      <p>
+        To summarize,
+        we have the following eigenvalue/eigenvector pairs:
+        <me>
+          \text{ eigenvalue }  \lambd_1=-1 \text{ with eigenvector }  \vec{x}= \left[\begin{array}{c} 3\\1\\2 \end{array} \right]
+        </me>
+        <me>
+          \text{ eigenvalue }  \lambd_2=2 \text{ with eigenvector }  \vec{x}= \left[\begin{array}{c} 2\\1\\2 \end{array} \right]
+        </me>
+        <me>
+          \text{ eigenvalue }  \lambd_3=3 \text{ with eigenvector }  \vec{x}= \left[\begin{array}{c} 1\\0\\1 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Let's practice once more.
+  </p>
+  <example xml:id="ex_eigen4">
+    <statement>
+      <p>
+        Find the eigenvalues of <m>A</m>,
+        and for each eigenvalue, give one eigenvector, where
+        <me>
+          A = \left[\begin{array}{ccc} 2\amp -1\amp 1\\ 0\amp 1\amp 6 \\ 0\amp 3\amp 4 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We first compute the characteristic polynomial,
+        set it equal to 0, then solve for \lambd.
+        We'll use cofactor expansion down the first column
+        (since it has lots of zeros).
+        <md>
+          <mrow>\det{ A-\lambd I} \amp = \left| \begin{array}{ccc}  2-\lambd \amp  -1 \amp  1</mrow>
+          <mrow>0\amp 1-\lambd \amp  6</mrow>
+          <mrow>0 \amp  3 \amp  4-\lambd \end{array} \right|</mrow>
+          <mrow>\amp = (2-\lambd)\left| \begin{array}{cc} 1-\lambd \amp  6</mrow>
+          <mrow>3\amp 4-\lambd\end{array} \right|</mrow>
+          <mrow>\amp = (2-\lambd)(\lambd^2-5\lambd-14)</mrow>
+          <mrow>\amp = (2-\lambd)(\lambd-7)(\lambd+2)</mrow>
+        </md>
+      </p>
+      <p>
+        Notice that while the characteristic polynomial is cubic,
+        we never actually saw a cubic;
+        we never distributed the <m>(2-\lambd)</m> across the quadratic.
+        Instead, we realized that this was a factor of the cubic,
+        and just factored the remaining quadratic.
+        (This makes this example quite a bit simpler than the previous example.)
+      </p>
+      <p>
+        Our eigenvalues are <m>\lambd_1 = -2</m>,
+        <m>\lambd_2 = 2</m> and <m>\lambd_3 = 7</m>.
+        We now find corresponding eigenvectors.
+      </p>
+      <p>
+        For <m>\lambd_1 = -2</m>:
+      </p>
+      <p>
+        We need to solve the equation <m>( A - (-2) I)\vec{x} = \vec{0}</m>.
+        To do this, we form the appropriate augmented matrix and put it into reduced row echelon form.
+        <me>
+          \left[\begin{array}{cccc}  4\amp -1\amp 1\amp 0\\ 0\amp 3\amp 6\amp 0 \\ 0\amp 3\amp 6\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc}  1\amp 0\amp 3/4\amp 0\\0\amp 1\amp 2\amp 0\\0\amp 0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Our solution, in vector form, is
+        <me>
+          \vec{x} = x_3\left[\begin{array}{c}  -3/4\\-2\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We can pick any nonzero value for <m>x_3</m>;
+        a nice choice would get rid of the fractions.
+        So we'll set <m>x_3 = 4</m> and choose <m>\vec{x}=\left[\begin{array}{c} -3\\-8\\4 \end{array} \right]</m> as our eigenvector.
+      </p>
+      <p>
+        For <m>\lambd_2 = 2</m>:
+      </p>
+      <p>
+        We need to solve the equation <m>( A - 2 I)\vec{x} = \vec{0}</m>.
+        To do this, we form the appropriate augmented matrix and put it into reduced row echelon form.
+        <me>
+          \left[\begin{array}{cccc}  0\amp -1\amp 1\amp 0\\ 0\amp -1\amp 6\amp 0 \\ 0\amp 3\amp 2\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc}  0\amp 1\amp 0\amp 0\\0\amp 0\amp 1\amp 0\\0\amp 0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        This looks funny, so we'll look remind ourselves how to solve this.
+        The first two rows tell us that <m>x_2 = 0</m> and <m>x_3 = 0</m>,
+        respectively.
+        Notice that no row/equation uses <m>x_1</m>;
+        we conclude that it is free.
+        Therefore, our solution in vector form is
+        <me>
+          \vec{x} = x_1\left[\begin{array}{c}  1\\0\\0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We can pick any nonzero value for <m>x_1</m>;
+        an easy choice is <m>x_1 = 1</m> and choose <m>\vec{x}=\left[\begin{array}{c} 1\\0\\0 \end{array} \right]</m> as our eigenvector.
+      </p>
+      <p>
+        For <m>\lambd_3 = 7</m>:
+      </p>
+      <p>
+        We need to solve the equation <m>( A - 7 I)\vec{x} = \vec{0}</m>.
+        To do this, we form the appropriate augmented matrix and put it into reduced row echelon form.
+        <me>
+          \left[\begin{array}{cccc}  -5\amp -1\amp 1\amp 0\\ 0\amp -6\amp 6\amp 0 \\ 0\amp 3\amp -3\amp 0 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc}  1\amp 0\amp 0\amp 0\\0\amp 1\amp -1\amp 0\\0\amp 0\amp 0\amp 0 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        Our solution, in vector form,
+        is (note that <m>x_1 = 0</m>):
+        <me>
+          \vec{x} = x_3\left[\begin{array}{c}  0\\1\\1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We can pick any nonzero value for <m>x_3</m>;
+        an easy choice is <m>x_3 = 1</m>,
+        so <m>\vec{x}=\left[\begin{array}{c} 0\\1\\1 \end{array} \right]</m> as our eigenvector.
+      </p>
+      <p>
+        To summarize,
+        we have the following eigenvalue/eigenvector pairs:
+        <me>
+          \text{ eigenvalue }  \lambd_1=-2 \text{ with eigenvector }  \vec{x}= \left[\begin{array}{c} -3\\-8\\4 \end{array} \right]
+        </me>
+        <me>
+          \text{ eigenvalue }  \lambd_2=2 \text{ with eigenvector }  \vec{x}= \left[\begin{array}{c} 1\\0\\0 \end{array} \right]
+        </me>
+        <me>
+          \text{ eigenvalue }  \lambd_3=7 \text{ with eigenvector }  \vec{x}= \left[\begin{array}{c} 0\\1\\1 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    In this section we have learned about a new concept:
+    given a matrix <m>A</m> we can find certain values <m>\lambd</m> and vectors <m>\vec{x}</m> where <m>A\vec{x} =\lambd\vec{x}</m>.
+    In the next section we will continue to the pattern we have established in this text:
+    after learning a new concept,
+    we see how it interacts with other concepts we know about.
+    That is, we'll look for connections between eigenvalues and eigenvectors and things like the inverse,
+    determinants, the trace, the transpose, etc.
+  </p>
+  <p>
+    In the following exercises,
+    a matrix <m>A</m> and one of its eigenvectors are given.
+    Find the eigenvalue of <m>A</m> for the given eigenvector.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 9 \amp 8 \\ -6 \amp -5 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -4\\3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambda = 3</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 19 \amp -6 \\ 48 \amp -15 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 1\\3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambda = 1</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp -2\\ -2 \amp 4 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 2\\1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambda = 0</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -11 \amp -19 \amp 14 \\ -6 \amp -8 \amp 6 \\ -12 \amp -22 \amp 15 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 3\\2\\4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambda = -5</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -7 \amp 1 \amp 3 \\ 10 \amp 2 \amp -3 \\ -20 \amp -14 \amp 1 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 1\\-2\\4 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambda = 3</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -12 \amp -10 \amp 0 \\ 15 \amp 13 \amp 0 \\ 15 \amp 18 \amp -5 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -1\\1\\1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambda = -2</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises,
+    a matrix <m>A</m> and one of its eigenvalues are given.
+    Find an eigenvector of <m>A</m> for the given eigenvalue.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 16 \amp 6 \\ -18 \amp -5 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambda = 4</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -1\\2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -2 \amp 6 \\ -9 \amp 13 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambda = 7</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 2\\3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -16 \amp -28 \amp -19 \\ 42 \amp 69 \amp 46 \\ -42 \amp -72 \amp -49 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambda = 5</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 3\\-7\\7 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 7 \amp -5 \amp -10 \\ 6 \amp 2 \amp -6 \\ 2 \amp -5 \amp -5 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambda = -3</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} 1\\0\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 4 \amp 5 \amp -3 \\ -7 \amp -8 \amp 3 \\ 1 \amp -5 \amp 8 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambda = 2</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\vec{x} = \left[\begin{array}{c} -1\\1\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <p>
+    In the following exercises, find the eigenvalues of the given matrix.
+    For each eigenvalue, give an eigenvector.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -1 \amp -4 \\ -3 \amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -5</m> with <m>\vec{x}= \left[\begin{array}{c} 1\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 2</m> with <m>\vec{x}= \left[\begin{array}{c} -4\\3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -4 \amp 72 \\ -1 \amp 13 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = 4</m> with <m>\vec{x}= \left[\begin{array}{c} 9\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 5</m> with <m>\vec{x}= \left[\begin{array}{c} 8\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 2 \amp -12 \\ 2 \amp -8 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -4</m> with <m>\vec{x}= \left[\begin{array}{c} 2\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = -2</m> with <m>\vec{x}= \left[\begin{array}{c} 3\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 3 \amp 12 \\ 1 \amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -3</m> with <m>\vec{x}= \left[\begin{array}{c} -2\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 5</m> with <m>\vec{x}= \left[\begin{array}{c} 6\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 5 \amp 9 \\ -1 \amp -5 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -4</m> with <m>\vec{x}= \left[\begin{array}{c} -1\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 4</m> with <m>\vec{x}= \left[\begin{array}{c} -9\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 3 \amp -1 \\ -1 \amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = 2</m> with <m>\vec{x}= \left[\begin{array}{c} 1\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 4</m> with <m>\vec{x}= \left[\begin{array}{c} -1\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} 0 \amp 1 \\ 25 \amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -5</m> with <m>\vec{x}= \left[\begin{array}{c} -1\\5 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 5</m> with <m>\vec{x}= \left[\begin{array}{c} 1\\5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{cc} -3 \amp 1 \\ 0 \amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -1</m> with <m>\vec{x}= \left[\begin{array}{c} 1\\2 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = -3</m> with <m>\vec{x}= \left[\begin{array}{c} 1\\0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 1 \amp -2 \amp -3 \\ 0 \amp 3 \amp 0 \\ 0 \amp -1 \amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -1</m> with <m>\vec{x}= \left[\begin{array}{c} 3\\0\\2 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 1</m> with <m>\vec{x}= \left[\begin{array}{c} 1\\0\\0 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambd_3 = 3</m> with <m>\vec{x}= \left[\begin{array}{c} 5\\-8\\2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 5 \amp -2 \amp 3 \\ 0 \amp 4 \amp 0 \\ 0 \amp -1 \amp 3 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = 3</m> with <m>\vec{x}= \left[\begin{array}{c} -3\\0\\2 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 4</m> with <m>\vec{x}= \left[\begin{array}{c} -5\\-1\\1 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambd_3 = 5</m> with <m>\vec{x}= \left[\begin{array}{c} 1\\0\\0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 1 \amp 0 \amp 12 \\ 2 \amp -5 \amp 0 \\ 1 \amp 0 \amp 2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -5</m> with <m>\vec{x}= \left[\begin{array}{c} 0\\1\\0 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = -2</m> with <m>\vec{x}= \left[\begin{array}{c} -12\\-8\\3 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambd_3 = 5</m> with <m>\vec{x}= \left[\begin{array}{c} 15\\3\\5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 1 \amp 0 \amp -18 \\ -4 \amp 3 \amp -1 \\ 1 \amp 0 \amp -8 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -5</m> with <m>\vec{x}= \left[\begin{array}{c} 24\\13\\8 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = -2</m> with <m>\vec{x}= \left[\begin{array}{c} 6\\5\\1 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambd_3 = 3</m> with <m>\vec{x}= \left[\begin{array}{c} 0\\1\\0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} -1 \amp 18 \amp 0 \\ 1 \amp 2 \amp 0 \\ 5 \amp -3 \amp -1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -4</m> with <m>\vec{x}= \left[\begin{array}{c} -6\\1\\11 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = -1</m> with <m>\vec{x}= \left[\begin{array}{c} 0\\0\\1 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambd_3 = 5</m> with <m>\vec{x}= \left[\begin{array}{c} 3\\1\\2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 5 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \\ -1 \amp 5 \amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = -2</m> with <m>\vec{x}= \left[\begin{array}{c} 0\\0\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 1</m> with <m>\vec{x}= \left[\begin{array}{c} 0\\3\\5 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambd_3 = 5</m> with <m>\vec{x}= \left[\begin{array}{c} 28\\7\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 2 \amp -1 \amp 1 \\ 0 \amp 3 \amp 6 \\ 0 \amp 0 \amp 7 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambd_1 = 2</m> with <m>\vec{x}= \left[\begin{array}{c} 1\\0\\0 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambd_2 = 3</m> with <m>\vec{x}= \left[\begin{array}{c} -1\\1\\0 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>\lambd_3 = 7</m> with <m>\vec{x}= \left[\begin{array}{c} -1\\15\\10 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 3\amp 5\amp -5\\ -2\amp 3\amp 2\\-2\amp 5\amp 0 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambda_1=-2</m> with <m>\vec{x} = \left[\begin{array}{c} 1\\0\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambda_2=3</m> with <m>\vec{x} = \left[\begin{array}{c} 1\\1\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambda_3=5</m> with <m>\vec{x} = \left[\begin{array}{c} 0\\1\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>\left[\begin{array}{ccc} 1\amp 2\amp 1\\1\amp 2\amp 3\\1\amp 1\amp 1 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\lambda_1=0</m> with <m>\vec{x} = \left[\begin{array}{c} 1\\3\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambda_2=-1</m> with <m>\vec{x} = \left[\begin{array}{c} 2\\2\\1 \end{array} \right]</m>;
+      </p>
+      <p>
+        <m>\lambda_3=2</m> with <m>\vec{x} = \left[\begin{array}{c} 1\\1\\1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+</section>
