@@ -88,7 +88,7 @@
           <mrow>r+b+g \amp = 30</mrow>
           <mrow>2g + 3g+g \amp =30</mrow>
           <mrow>6g\amp =30</mrow>
-          <mrow xml:id="eq_g5">g\amp =5</mrow>
+          <mrow number="yes" xml:id="eq_g5">g\amp =5</mrow>
         </md>
       </p>
       <p>

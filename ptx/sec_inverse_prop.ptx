@@ -17,17 +17,17 @@
       <li>
         <p>
           T/F: If <m>A</m> is not invertible,
-          then <m>A \vec{x} = \vec{b}</m><nbsp/>could have infinite solutions.
+          then <m>A \vec{x} = \vec{b}</m> could have infinite solutions.
         </p>
       </li>
       <li>
         <p>
-          What is the inverse of the inverse of A?
+          What is the inverse of the inverse of <m>A</m>?
         </p>
       </li>
       <li>
         <p>
-          T/F: Solving <m>A \vec{x} = \vec{b}</m><nbsp/>using Gaussian elimination is faster than using the inverse of <m>A</m>.
+          T/F: Solving <m>A \vec{x} = \vec{b}</m> using Gaussian elimination is faster than using the inverse of <m>A</m>.
         </p>
       </li>
     </ol>
@@ -58,9 +58,38 @@
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix.
         The following statements are equivalent.
-        <ul>
-          {(\alph{IMTcount})}\usecounter{IMTcount} \item <m>A</m> is invertible. \item There exists a matrix B<nbsp/>such that <m>B A = I</m>. \item There exists a matrix C<nbsp/>such that <m>A C = I</m>. \item The \rref<nbsp/>of <m>A</m> is I. \item The equation <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution for every <m>n\times 1</m> vector \vec{b}. \item The equation has exactly one solution (namely, <m>\vec{x} = \vec{0}</m>).
-        </ul>
+        <ol label="((a))">
+          <li>
+            <p> 
+                <m>A</m> is invertible.
+            </p>
+          </li>  
+          <li>
+            <p> 
+                There exists a matrix <m>B</m> such that <m>B A = I</m>.
+            </p>
+          </li>
+          <li>
+            <p> 
+                 There exists a matrix <m>C</m> such that <m>A C = I</m>.
+            </p>
+          </li>
+          <li>
+            <p> 
+                 The reduced row echelon form of <m>A</m> is I.
+            </p>
+          </li>
+          <li>
+            <p> 
+                 The equation <m>A \vec{x} = \vec{b}</m> has exactly one solution for every <m>n\times 1</m> vector <m>\vec{b}</m>.
+            </p>
+          </li>
+          <li>
+            <p> 
+                 The equation <m>A \vec{x} = \vec{0}</m> has exactly one solution (namely, <m>\vec{x} = \vec{0}</m>).
+            </p>
+          </li>
+        </ol>
       </p>
     </statement>
   </theorem>
@@ -77,18 +106,18 @@
         it means that the truth of any one of them implies that the rest are also true;
         if any one of the statements is false, then they are all false.
         So, for example,
-        if we determined that the equation had exactly one solution
+        if we determined that the equation <m>A \vec{x} = \vec{0}</m>had exactly one solution
         (and <m>A</m> was an <m>n\times n</m> matrix)
         then we would know that <m>A</m> was invertible,
-        that <m>A \vec{x} = \vec{b}</m><nbsp/>had only one solution,
-        that the reduced row echelon form<nbsp/>of <m>A</m> was I, etc.
+        that <m>A \vec{x} = \vec{b}</m> had only one solution,
+        that the reduced row echelon form of <m>A</m> was <m>I</m>, etc.
       </p>
     </li>
     <li>
       <p>
         Let's go through each of the statements and see why we already knew they all said essentially the same thing.
       </p>
-      <ol>
+      <ol label="((a))">
         <li>
           <p>
             This simply states that <m>A</m> is invertible <mdash/> that is,
@@ -99,133 +128,118 @@
         </li>
         <li>
           <p>
-            If we know that <m>A</m> is invertible,
-            then we already know that there is a matrix B<nbsp/>where <m>B A= I</m>.
-            That is part of the definition of invertible.
-            However, we can also
-            <q>go the other way.</q>
-            Recall from <xref ref="thm_inverse1">Theorem</xref>
-            that even if all we know is that there is a matrix B<nbsp/>where <m>B A= I</m>,
-            then we also know that <m>A B= I</m>.
-            That is, we know that B<nbsp/>is the inverse of <m>A</m>
-            (and hence <m>A</m> is invertible).
+            If we know that <m>A</m> is invertible, 
+            then we already know that there is a matrix B<nbsp/>where <m>B A= I</m>. 
+            That is part of the definition of invertible. 
+            However, we can also 
+            <q>go the other way.</q> 
+            Recall from <xref ref="thm_inverse1">Theorem</xref> 
+            that even if all we know is that there is a matrix B<nbsp/>where <m>B A= I</m>, 
+            then we also know that <m>A B= I</m>. 
+            That is, we know that B<nbsp/>is the inverse of <m>A</m> 
+            (and hence <m>A</m> is invertible). 
           </p>
         </li>
         <li>
           <p>
-            We use the same logic as in the previous statement to show why this is the same as
+            We use the same logic as in the previous statement to show why this is the same as 
             <q><m>A</m> is invertible.</q>
           </p>
         </li>
         <li>
           <p>
-            If <m>A</m> is invertible,
-            we can find the inverse by using <xref ref="idea_finding_inverses">Key Idea</xref>
-            (which in turn depends on <xref ref="thm_inverse1">Theorem</xref>).
-            The crux of <xref ref="idea_finding_inverses">Key Idea</xref>
-            is that the reduced row echelon form<nbsp/>of <m>A</m> is I; if it is something else,
-            we can't find <m>A^{-1}</m>
-            (it doesn't exist).
-            Knowing that <m>A</m> is invertible means that the reduced row echelon form<nbsp/>of <m>A</m> is I. We can go the other way;
-            if we know that the reduced row echelon form<nbsp/>of <m>A</m> is I, then we can employ <xref ref="idea_finding_inverses">Key Idea</xref> to find <m>A^{-1}</m>,
-            so <m>A</m> is invertible.
+            If <m>A</m> is invertible, 
+            we can find the inverse by using <xref ref="idea_finding_inverses">Key Idea</xref> 
+            (which in turn depends on <xref ref="thm_inverse1">Theorem</xref>). 
+            The crux of <xref ref="idea_finding_inverses">Key Idea</xref> 
+            is that the reduced row echelon form of <m>A</m> is <m>I</m>; if it is something else, 
+            we can't find <m>A^{-1}</m> (it doesn't exist). 
+            Knowing that <m>A</m> is invertible means that the reduced row echelon form<nbsp/>of <m>A</m> is <m>I</m>. We can go the other                 way; if we know that the reduced row echelon form<nbsp/>of <m>A</m> is <m>I </m>, then we can employ 
+            <xref ref="idea_finding_inverses">Key Idea</xref> to find <m>A^{-1}</m>, so <m>A</m> is invertible.
           </p>
         </li>
         <li>
           <p>
-            We know from <xref ref="thm_inverse_solution">Theorem</xref>
-            that if <m>A</m> is invertible,
-            then given any vector <m>\vec{b}</m>,
-            <m>A \vec{x} = \vec{b}</m><nbsp/>has always has exactly one solution,
-            namely <m>\vec{x}= A^{-1}\vec{b}</m>.
-            However, we can go the other way;
-            let's say we know that <m>A \vec{x} = \vec{b}</m><nbsp/>always has exactly solution.
-            How can we conclude that <m>A</m> is invertible?
-            Think about how we, up to this point,
-            determined the solution to <m>A \vec{x} = \vec{b}</m>.
-            We set up the augmented matrix
-            <m>\left[\begin{array}{cc} A \amp \vec{b} \end{array} \right]</m> and put it into reduced row echelon form.
-            We know that getting the identity matrix on the left means that we had a unique solution
-            (and not getting the identity means we either have no solution or infinite solutions).
-            So getting I<nbsp/>on the left means having a unique solution;
-            having I<nbsp/>on the left means that the reduced row echelon form<nbsp/>of <m>A</m> is I, which we know from above is the same as <m>A</m> being invertible.
+            We know from <xref ref="thm_inverse_solution">Theorem</xref> 
+            that if <m>A</m> is invertible, 
+            then given any vector <m>\vec{b}</m>, 
+            <m>A \vec{x} = \vec{b}</m> has always has exactly one solution, 
+            namely <m>\vec{x}= A^{-1}\vec{b}</m>. 
+            However, we can go the other way; 
+            let's say we know that <m>A \vec{x} = \vec{b}</m> always has exactly solution. 
+            How can we conclude that <m>A</m> is invertible? 
+            Think about how we, up to this point, 
+            determined the solution to <m>A \vec{x} = \vec{b}</m>. 
+            We set up the augmented matrix 
+            <m>\left[\begin{array}{cc} A \amp \vec{b} \end{array} \right]</m> and put it into reduced row echelon form. 
+            We know that getting the identity matrix on the left means that we had a unique solution 
+            (and not getting the identity means we either have no solution or infinite solutions). 
+            So getting <m>I</m> on the left means having a unique solution; 
+            having <m>I</m> on the left means that the reduced row echelon form<nbsp/>of <m>A</m> is <m>I</m>, 
+            which we know from above is the same as <m>A</m> being invertible.
           </p>
         </li>
         <li>
           <p>
-            This is the same as the above;
-            simply replace the vector \vec{b}<nbsp/>with the vector \vec{0}.
+            This is the same as the above; 
+            simply replace the vector <m>\vec{b}</m> with the vector <m>\vec{0}</m>.
           </p>
         </li>
       </ol>
-      So we came up with a list of statements that are all
-      <em>equivalent</em> to the statement
-      <q><m>A</m> is invertible.</q>
-      Again, if we know that if any one of them is true
-      (or false),
-      then they are all true
-      (or all false).
+    <p>
+        So we came up with a list of statements that are all <em>equivalent</em> to the statement 
+        <q><m>A</m> is invertible.</q>  Again, if we know that if any one of them is true 
+        (or false), then they are all true (or all false).
+    </p>
     </li>
   </ol>
   <p>
-    <xref ref="thm_IMT">Theorem</xref>
-    states formally that if <m>A</m> is invertible,
-    then <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution,
-    namely <m>A^{-1}\vec{b}</m>.
-    What if <m>A</m> is not invertible?
-    What are the possibilities for solutions to <m>A \vec{x} = \vec{b}</m>?
+    <xref ref="thm_IMT">Theorem</xref> 
+    states formally that if <m>A</m> is invertible, 
+    then <m>A \vec{x} = \vec{b}</m> has exactly one solution, 
+    namely <m>A^{-1}\vec{b}</m>. What if <m>A</m> is not invertible? What are the possibilities for solutions to <m>A \vec{x} = \vec{b}</m>?
   </p>
   <p>
-    We know that <m>A \vec{x} = \vec{b}</m><nbsp/><em>cannot</em>
-    have exactly one solution;
-    if it did, then by our theorem it would be invertible.
-    Recalling that linear equations have either one solution,
-    infinite solutions, or no solution,
-    we are left with the latter options when <m>A</m> is not invertible.
+    We know that <m>A \vec{x} = \vec{b}</m> <em>cannot</em> have exactly one solution; 
+    if it did, then by our theorem it would be invertible. Recalling that linear equations have either one solution, 
+    infinite solutions, or no solution, we are left with the latter options when <m>A</m> is not invertible. 
     This idea is important and so we'll state it again as a Key Idea.
   </p>
   <insight xml:id="idea_solutions_invert">
     <p>
-      <term>Solutions to <m>A \vec{x} = \vec{b}</m><nbsp/>and the Invertibility of A</term>
+      <term>Solutions to <m>A \vec{x} = \vec{b}</m> and the Invertibility of A</term>
     </p>
     <p>
       Consider the system of linear equations <m>A \vec{x} = \vec{b}</m>.
       <ol>
         <li>
           <p>
-            If <m>A</m> is invertible,
-            then <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution,
+            If <m>A</m> is invertible, 
+            then <m>A \vec{x} = \vec{b}</m> has exactly one solution, 
             namely <m>A^{-1}\vec{b}</m>.
           </p>
         </li>
         <li>
           <p>
-            If <m>A</m> is not invertible,
-            then <m>A \vec{x} = \vec{b}</m><nbsp/>has either infinite solutions or no solution.
+            If <m>A</m> is not invertible, 
+            then <m>A \vec{x} = \vec{b}</m> has either infinite solutions or no solution.
           </p>
         </li>
       </ol>
     </p>
   </insight>
   <p>
-    In <xref ref="thm_IMT">Theorem</xref>
-    we've come up with a list of ways in which we can tell whether or not a matrix is invertible.
-    At the same time,
-    we have come up with a list of properties of invertible matrices <mdash/> things we know that are true about them.
-    (For instance, if we know that <m>A</m> is invertible,
-    then we know that <m>A \vec{x} = \vec{b}</m><nbsp/>has only one solution.)
+    In <xref ref="thm_IMT">Theorem</xref> 
+    we've come up with a list of ways in which we can tell whether or not a matrix is invertible. 
+    At the same time, 
+    we have come up with a list of properties of invertible matrices <mdash/> things we know that are true about them. 
+    (For instance, if we know that <m>A</m> is invertible, 
+    then we know that <m>A \vec{x} = \vec{b}</m> has only one solution.)
   </p>
   <p>
-    We now go on to discover other properties of invertible matrices.
-    Specifically,
-    we want to find out how invertibility interacts with other matrix operations.
-    For instance,
-    if we know that <m>A</m> and B<nbsp/>are invertible,
-    what is the inverse of <m>A+ B</m>?
-    What is the inverse of <m>A B</m>?
-    What is
-    <q>the inverse of the inverse?</q>
-    We'll explore these questions through an example.
+    We now go on to discover other properties of invertible matrices. 
+    Specifically, we want to find out how invertibility interacts with other matrix operations. 
+    For instance, if we know that <m>A</m> and <m>B</m> are invertible, what is the inverse of <m>A+ B</m>? What is the inverse of <m>A B</m>?      What is <q>the inverse of the inverse?</q> We'll explore these questions through an example.
   </p>
   <example xml:id="ex_inv_prop">
     <statement>
@@ -289,7 +303,7 @@
           </li>
           <li>
             <p>
-              To compute <m>( A B)^{-1}</m>, we first compute  A B:
+              To compute <m>( A B)^{-1}</m>, we first compute <m>A B</m>:
               <me>
                 A B = \left[\begin{array}{cc} 3\amp 2\\0\amp 1 \end{array} \right]\left[\begin{array}{cc} -2 \amp  0\\1\amp 1 \end{array} \right] = \left[\begin{array}{cc}  -4\amp 2\\1\amp 1 \end{array} \right]
               </me>
@@ -337,9 +351,6 @@
           </li>
         </ol>
         <p>
-          \vskip .1in
-        </p>
-        <p>
           We now look for connections between <m>A^{-1}</m>, , <m>( A B)^{-1}</m>,
           <m>( A^{-1})^{-1}</m> and <m>( A+ B)^{-1}</m>.
           <ol>
@@ -354,13 +365,13 @@
                 </me>.
                 Obviously, this is not equal to <m>( A B)^{-1}</m>.
                 Before we do some further guessing,
-                let's think about what the inverse of  A B<nbsp/>is supposed to do.
-                The inverse <mdash/> let's call it  C<nbsp/><ndash/> is supposed to be a matrix such that
+                let's think about what the inverse of <m>AB</m> is supposed to do.
+                The inverse <mdash/> let's call it <m>C</m>C <ndash/> is supposed to be a matrix such that
                 <me>
                   ( A B) C =  C( A B) =  I
                 </me>.
                 In examining the expression <m>( A B) C</m>,
-                we see that we want  B<nbsp/>to somehow
+                we see that we want <m>B</m> to somehow
                 <q>cancel</q>
                 with  C. What
                 <q>cancels</q>
@@ -393,10 +404,9 @@
             <li>
               <p>
                 Is there some sort of connection between
-                <m>( A^{-1})^{-1}</m> and A? The answer is pretty obvious:
+                <m>( A^{-1})^{-1}</m> and <m>A</m>? The answer is pretty obvious:
                 they are equal.
-                The
-                <q>inverse of the inverse</q>
+                The <q>inverse of the inverse</q>
                 returns one to the original matrix.
               </p>
             </li>
@@ -435,21 +445,21 @@
   </example>
   <p>
     Let's summarize the results of this example.
-    If <m>A</m> and B<nbsp/>are both invertible matrices,
-    then so is their product, A B. We demonstrated this with our example,
+    If <m>A</m> and <m>B</m> are both invertible matrices,
+    then so is their product, <m>A B</m>. We demonstrated this with our example,
     and there is more to be said.
-    Let's suppose that <m>A</m> and B<nbsp/>are <m>n\times n</m> matrices,
+    Let's suppose that <m>A</m> and <m>B</m> are <m>n\times n</m> matrices,
     but we don't yet know if they are invertible.
-    If A B<nbsp/>is invertible, then each of <m>A</m> and B<nbsp/>are;
-    if A B<nbsp/>is not invertible,
-    then <m>A</m> or B<nbsp/>is also not invertible.
+    If <m>AB</m> is invertible, then each of <m>A</m> and <m>B</m> are;
+    if <m>AB</m> is not invertible,
+    then <m>A</m> or <m>B</m> is also not invertible.
   </p>
   <p>
     In short, invertibility
     <q>works well</q>
     with matrix multiplication.
     However, we saw that it doesn't work well with matrix addition.
-    Knowing that <m>A</m> and B<nbsp/>are invertible does not help us find the inverse of <m>( A+ B)</m>;
+    Knowing that <m>A</m> and <m>B</m>B are invertible does not help us find the inverse of <m>( A+ B)</m>;
     in fact, the latter matrix may not even be invertible.<fn>
     The fact that invertibility works well with matrix multiplication should not come as a surprise.
     After all, saying that <m>A</m> is invertible makes a statement about the mulitiplicative properties of <m>A</m>.
@@ -503,24 +513,23 @@
         <em>Properties of Invertible Matrices</em>
       </p>
       <p>
-        Let <m>A</m> and B<nbsp/>be <m>n\times n</m> invertible matrices.
+        Let <m>A</m> and <m>B</m> be <m>n\times n</m> invertible matrices.
         Then:
         <ol>
           <li>
             <p>
-              A B<nbsp/>is invertible; <m>( A B)^{-1} = A^{-1}</m>.
+              <m>AB</m> is invertible; <m>( A B)^{-1} = A^{-1}</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>A^{-1}</m> is invertible;
-              <m>( A^{-1})^{-1} = A</m>.
+              <m>A^{-1}</m> is invertible; <m>( A^{-1})^{-1} = A</m>.
             </p>
           </li>
           <li>
             <p>
               <m>n A</m> is invertible for any nonzero scalar <m>n</m>;
-              <m>(n A)^{-1} = \frac 1n A^{-1}</m>.
+              <m>(n A)^{-1} = \frac{1}{n} A^{-1}</m>.
             </p>
           </li>
           <li>
@@ -529,7 +538,7 @@
               with diagonal entries <m>d_1, d_2, \cdots , d_n</m>,
               where none of the diagonal entries are 0, then <m>A^{-1}</m> exists and is a diagonal matrix.
               Furthermore,
-              the diagonal entries of <m>A^{-1}</m> are <m>1/d_1, 1/d_2, \cdots, 1/d_n</m>.
+              the diagonal entries of <m>A^{-1}</m> are <m> \frac{1}{d_1}, \frac{1}{d_2}, \cdots \frac{1}{d_n}</m>.
             </p>
           </li>
         </ol>
@@ -539,14 +548,14 @@
         <ol>
           <li>
             <p>
-              If a product A B<nbsp/>is not invertible,
-              then <m>A</m> or B<nbsp/>is not invertible.
+              If a product <m>AB</m> is not invertible,
+              then <m>A</m> or <m>B</m> is not invertible.
             </p>
           </li>
           <li>
             <p>
-              If <m>A</m> or B<nbsp/>are not invertible,
-              then A B<nbsp/>is not invertible.
+              If <m>A</m> or <m>B</m> are not invertible,
+              then <m>AB</m> is not invertible.
             </p>
           </li>
         </ol>
@@ -573,13 +582,13 @@
     <q>large</q>
     picture these days.
     </fn> Solving a system
-    <m>A \vec{x} = \vec{b}</m><nbsp/>by computing A^{-1}\vec{b}<nbsp/>seems pretty slick,
+    <m>A \vec{x} = \vec{b}</m> by computing <m>A^{-1}\vec{b}</m> seems pretty slick,
     so it would make sense that this is the way it is normally done.
     However, in practice, this is rarely done.
     There are two main reasons why this is the case.
   </p>
   <p>
-    First, computing <m>A^{-1}</m> and A^{-1}\vec{b}<nbsp/>is
+    First, computing <m>A^{-1}</m> and <m>A^{-1}\vec{b}</m> is
     <q>expensive</q>
     in the sense that it takes up a lot of computing time.
     Certainly, our calculators have no trouble dealing with the
@@ -593,13 +602,13 @@
   </p>
   <p>
     Secondly, computing <m>A^{-1}</m> using the method we've described often gives rise to numerical roundoff errors.
-    Even though computers often do computations with an accuracy to more than 8 decimal places,
+    Even though computers often do computations with an accuracy to more than <m>8</m> decimal places,
     after thousands of computations,
     roundoffs can cause big errors. (A
     <q>small</q>
     <m>1,000 \times 1,000</m> matrix has <m>1,000,000</m> entries!
     That's a lot of places to have roundoff errors accumulate!) It is not unheard of to have a computer compute <m>A^{-1}</m> for a large matrix,
-    and then immediately have it compute A<m>A^{-1}</m> and <em>not</em>
+    and then immediately have it compute <m>A A^{-1}</m> and <em>not</em>
     get the identity matrix.<fn>
     The result is usually very close,
     with the numbers on the diagonal close to 1 and the other entries near 0.
@@ -608,12 +617,12 @@
   </p>
   <p>
     Therefore, in real life,
-    solutions to <m>A \vec{x} = \vec{b}</m><nbsp/>are usually found using the methods we learned in <xref ref="sec_vector_solutions">Section</xref>.
+    solutions to <m>A \vec{x} = \vec{b}</m> are usually found using the methods we learned in <xref ref="sec_vector_solutions">Section</xref>.
     It turns out that even with all of our advances in mathematics,
     it is hard to beat the basic method that Gauss introduced a long time ago.
   </p>
   <p>
-    In the following exercises, matrices <m>A</m> and B<nbsp/>are given.
+    In the following exercises, matrices <m>A</m> and <m>B</m> are given.
     Compute <m>( A B)^{-1}</m> and <m>B^{-1} A^{-1}</m>.
   </p>
   <exercise>
@@ -736,7 +745,7 @@
   <exercise>
     <statement>
       <p>
-        Find <m>2\times 2</m> matrices <m>A</m> and B<nbsp/>that are each invertible,
+        Find <m>2\times 2</m> matrices <m>A</m> and <m>B</m> that are each invertible,
         but <m>A+ B</m> is not.
       </p>
     </statement>
@@ -757,7 +766,7 @@
     </statement>
     <answer>
       <p>
-        Likely some entries that should be 0 will not be exaclty 0, but rather very small values.
+        Likely some entries that should be <m>0</m> will not be exactly <m>0</m>, but rather very small values.
       </p>
     </answer>
   </exercise>

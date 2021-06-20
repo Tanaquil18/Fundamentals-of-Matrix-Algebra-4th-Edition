@@ -5,14 +5,15 @@
 <!--
 <xi:include href="../latex-image-preamble.ptx" />
 -->
-    <rename element="insight" lang="en-US">Key Idea</rename>
+    <rename element="insight">Key Idea</rename>
+    <rename element="objectives">As You Read</rename>
 <macros>
 \newcommand{\lambd}{\lambda}
 </macros>
   </docinfo>
   <book>
-    <title>\textsc{Fundamentals of Matrix Algebra}\\
-    {\small Version 2.1011}</title>
+    <title>Fundamentals of Matrix Algebra
+    </title>
     <frontmatter>
       <titlepage>
         <author>
