@@ -14,7 +14,7 @@
       </li>
       <li>
         <p>
-          Can a coefficient in a linear equation be 0?
+          Can a coefficient in a linear equation be <m>0</m>?
         </p>
       </li>
     </ol>
@@ -23,10 +23,12 @@
     We'll begin this section by examining a problem you probably already know how to solve.
   </p>
   <example xml:id="ex_by_hand">
+    <title>Motivating Example, jar of multicolored marbles</title>
+      
     <statement>
       <p>
         Suppose a jar contains red, blue and green marbles.
-        You are told that there are a total of 30 marbles in the jar;
+        You are told that there are a total of <m>30</m> marbles in the jar;
         there are twice as many red marbles as green ones;
         the number of blue marbles is the same as the sum of the red and green marbles.
         How many marbles of each color are there?
@@ -46,7 +48,7 @@
         We can use the given statements about the marbles in the jar to create some equations.
       </p>
       <p>
-        Since we know there are 30 marbles in the jar, we know that
+        Since we know there are <m>30</m> marbles in the jar, we know that
         <men xml:id="eq_rbg30">
           r+b+g=30
         </men>.
@@ -66,10 +68,8 @@
         </men>.
       </p>
       <p>
-        From this stage, there isn't one
-        <q>right</q>
-        way of proceeding.
-        Rather, there are many ways to use this information to find the solution.
+        From this stage, there isn't one <q>right</q> way of proceeding.
+        Rather, there are <em>many</em> ways to use this information to find the solution.
         One way is to combine ideas from <xref ref="eq_r2g">equations</xref>
         and <xref ref="eq_brg"></xref>;
         in <xref ref="eq_brg"></xref> replace <m>r</m> with <m>2g</m>.
@@ -101,22 +101,12 @@
     </solution>
   </example>
   <p>
-    Mathematicians often see solutions to given problems and then ask
-    <q>What if<m>\ldots</m>?</q>
-    It's an annoying habit that we would do well to develop <mdash/> we should learn to think like a mathematician.
-    What are the right kinds of
-    <q>what if</q>
-    questions to ask?
-    Here's another annoying habit of mathematicians: they often ask
-    <q>wrong</q>
-    questions.
+    Mathematicians often see solutions to given problems and then ask <q>What if <m>\ldots</m>?</q> It's an annoying habit that we would do well to develop <mdash/> we should learn to think like a mathematician.
+    What are the right kinds of <q>what if</q> questions to ask?
+    Here's another annoying habit of mathematicians: they often ask <q>wrong</q> questions.
     That is, they often ask questions and find that the answer isn't particularly interesting.
-    But asking enough questions often leads to some good
-    <q>right</q>
-    questions.
-    So don't be afraid of doing something
-    <q>wrong;</q>
-    we mathematicians do it all the time.
+    But asking enough questions often leads to some good <q>right</q> questions.
+    So don't be afraid of doing something wrong; we mathematicians do it all the time.
   </p>
   <p>
     So what is a good question to ask after seeing <xref ref="ex_by_hand">Example</xref>?
@@ -124,62 +114,47 @@
     <ol>
       <li>
         <p>
-          Did we really have to call the red balls
-          <q><m>r</m></q>? Could we call them
-          <q><m>q</m></q>?
+          Did we really have to call the red balls <q><m>r</m></q>? Could we call them <q><m>q</m></q>?
         </p>
       </li>
       <li>
         <p>
-          What if we had 60 balls at the start instead of 30?
+          What if we had <m>60</m> balls at the start instead of <m>30</m>?
         </p>
       </li>
     </ol>
   </p>
   <p>
     Let's look at the first question.
-    Would the solution to our problem change if we called the red balls <m>q</m>?
-    Of course not.
-    At the end, we'd find that <m>q = 10</m>,
-    and we would know that this meant that we had 10 red balls.
+    Would the solution to our problem change if we called the red balls <m>q</m>? Of course not. 
+    At the end, we'd find that <m>q = 10</m>, 
+    and we would know that this meant that we had <m>10</m> red balls.
   </p>
   <p>
-    Now let's look at the second question.
-    Suppose we had 60 balls, but the other relationships stayed the same.
-    How would the situation and solution change?
-    Let's compare the
-    <q>original</q>
-    equations to the
-    <q>new</q>
-    equations.
+    Now let's look at the second question. Suppose we had <m>60</m> balls, but the other relationships stayed the same. How would the situation and solution change? Let's compare the original equations to the new equations.
   </p>
-  <tabular>
+  <tabular halign="center">
     <row>
-      <cell>Original</cell>
-      <cell>New</cell>
-    </row>
-    <row bottom="minor">
-      <cell></cell>
-      <cell></cell>
+      <cell right="minor" bottom="minor">Original</cell>
+      <cell bottom="minor">New</cell>
     </row>
     <row>
-      <cell><m>r+b+g=30</m></cell>
+      <cell right="minor"><m>r+b+g=30</m></cell>
       <cell><m>r+b+g=60</m></cell>
     </row>
     <row>
-      <cell><m>r=2g</m></cell>
+      <cell right="minor"><m>r=2g</m></cell>
       <cell><m>r=2g</m></cell>
     </row>
     <row>
-      <cell><m>b=r+g</m></cell>
+      <cell right="minor"><m>b=r+g</m></cell>
       <cell><m>b=r+g</m></cell>
     </row>
   </tabular>
   <p>
-    By examining these equations,
-    we see that nothing has changed except the first equation.
-    It isn't too much of a stretch of the imagination to see that we would solve this new problem exactly the same way that we solved the original one,
-    except that we'd have twice as many of each type of ball.
+    By examining these equations, we see that nothing has changed except the first equation.
+    It isn't too much of a stretch of the imagination to see that we would solve this new problem exactly the same way that we solved the
+    original one, except that we'd have twice as many of each type of ball.
   </p>
   <p>
     A conclusion from answering these two questions is this:
@@ -196,19 +171,15 @@
     Before we go on, we must first define what a linear equation is.
   </p>
   <definition xml:id="def_lin_eq">
+    <title>Linear Equation</title>
+      
     <statement>
-      <p>
-        <term>Linear Equation</term>
-      </p>
       <p>
         A <term>linear equation</term> is an equation that can be written in the form
         <me>
           a_1x_1+a_2x_2+\cdots+a_nx_n = c
         </me>
-        where the <m>x_i</m> are variables
-        (the unknowns),
-        the <m>a_i</m> are coefficients,
-        and <m>c</m> is a constant.
+        where the <m>x_i</m> are variables (the unknowns), the <m>a_i</m> are coefficients, and <m>c</m> is a constant.
       </p>
       <p>
         A <term>system of linear equations</term>
@@ -227,8 +198,7 @@
   </p>
   <p>
     So in <xref ref="ex_by_hand">Example</xref>, when we answered
-    <q>how many marbles of each color are there?,</q>
-    we were also answering
+    <q>how many marbles of each color are there?,</q> we were also answering
     <q>find a solution to a certain system of linear equations.</q>
   </p>
   <p>
@@ -241,12 +211,11 @@
     </md>
   </p>
   <p>
-    Notice that the coefficients and constants can be fractions and irrational numbers (like <m>\pi</m>,
-    <m>\sqrt[3]{-10}</m> and <m>\cos(45^\circ)</m>).
+    Notice that the coefficients and constants can be fractions and irrational numbers (like <m>\pi</m>, <m>\sqrt[3]{-10}</m> and
+    <m>\cos(45^\circ)</m>).
     The variables only come in the form of <m>a_ix_i</m>;
     that is, just one variable multiplied by a coefficient.
-    (Note that <m>\frac{3t}{5} = \frac35t</m>,
-    just a variable multiplied by a coefficient.)
+    (Note that <m>\frac{3t}{5} = \frac{3}{5}t</m>, just a variable multiplied by a coefficient.)
     Also, it doesn't really matter what side of the equation we put the variables and the constants,
     although most of the time we write them with the variables on the left and the constants on the right.
   </p>
@@ -262,7 +231,7 @@
   </p>
   <p>
     It is important to notice that not all equations used all of the variables
-    (it is more accurate to say that the coefficients can be 0, so the last equation could have been written as <m>0x_1+x_2+x_3+0x_4 = 10</m>).
+    (it is more accurate to say that the coefficients can be <m>0</m>, so the last equation could have been written as <m>0x_1+x_2+x_3+0x_4 = 10</m>).
     Also, just because we have four unknowns does not mean we have to have four equations.
     We could have had fewer, even just one,
     and we could have had more.
@@ -288,13 +257,10 @@
     <m>\cos</m> or <m>\ln</m>, nor can our variables be raised as an exponent.
   </p>
   <p>
-    At this stage,
-    we have yet to discuss how to efficiently find a solution to a system of linear equations.
+    At this stage, we have yet to discuss how to efficiently find a solution to a system of linear equations.
     That is a goal for the upcoming sections.
     Right now we focus on identifying linear equations.
-    It is also useful to
-    <q>limber</q>
-    up by solving a few systems of equations using any method we have at hand to refresh our memory about the basic process.
+    It is also useful to <q>limber</q> up by solving a few systems of equations using any method we have at hand to refresh our memory about the basic process.
   </p>
   <p>
     In the following exercises, state whether or not the given equation is linear.
@@ -474,27 +440,27 @@
     <statement>
       <p>
         A farmer looks out his window at his chickens and pigs.
-        He tells his daughter that he sees 62 heads and 190 legs.
+        He tells his daughter that he sees <m>62</m> heads and <m>190</m> legs.
         How many chickens and pigs does the farmer have?
       </p>
     </statement>
     <answer>
       <p>
-        29 chickens and 33 pigs
+        <m>29</m> chickens and <m>33</m> pigs
       </p>
     </answer>
   </exercise>
   <exercise>
     <statement>
       <p>
-        A lady buys 20 trinkets at a yard sale.
-        The cost of each trinket is either $0.30 or $0.65.
-        If she spends $8.80, how many of each type of trinket does she buy?
+        A lady buys <m>20</m> trinkets at a yard sale. 
+        The cost of each trinket is either <m>\$ 0.30</m> or <m>\$ 0.65</m>. 
+        If she spends <m>\$8.80</m>, how many of each type of trinket does she buy?
       </p>
     </statement>
     <answer>
       <p>
-        12 $0.30 trinkets, 8 $0.65 trinkets
+        <m>12</m> of the <m>\$ 0.30</m> trinkets, <m>8</m> of the <m>\$ 0.65</m> trinkets
       </p>
     </answer>
   </exercise>
