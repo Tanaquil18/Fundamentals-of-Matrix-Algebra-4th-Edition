@@ -5,8 +5,8 @@
 <!--
 <xi:include href="../latex-image-preamble.ptx" />
 -->
-    <rename element="insight">Key Idea</rename>
-    <rename element="objectives">As You Read</rename>
+    <rename element="insight" xml:lang="en-US">Key Idea</rename>
+    <rename element="objectives" xml:lang="en-US">As You Read...</rename>
 <macros>
 \newcommand{\lambd}{\lambda}
 </macros>
