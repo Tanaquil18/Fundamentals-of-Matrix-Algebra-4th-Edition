@@ -495,10 +495,13 @@
       </p>
     </solution>
   </example>
-    
+<exercises>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises, convert the given system of linear equations into an augmented matrix.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -547,11 +550,15 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises,
     convert the given augmented matrix into a system of linear equations.
     Use the variables <m>x_1</m>, <m>x_2</m>, etc.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -612,6 +619,9 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises,
     perform the given row operations on <m>A</m>, where
@@ -619,6 +629,7 @@
       A = \left[\begin{array}{ccc} 2\amp -1\amp 7\\0\amp 4\amp -2\\5\amp 0\amp 3 \end{array} \right]
     </me>
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -691,14 +702,16 @@
       </p>
     </answer>
   </exercise>
-  <p>
-    A matrix <m>A</m> is given below.
-    In the following exercises, a matrix B<nbsp/>is given.
-    Give the row operation that transforms <m>A</m> into B.
+ </exercisegroup>
+ <exercisegroup>
+     <introduction>
+          <p>
+                A matrix <m>A</m> is given below. In the following exercises, a matrix <m>B</m> is given. Give the row operation that transforms <m>A</m> into <m>B</m>.
     <me>
       A = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 0\amp 1\\1\amp 2\amp 3 \end{array} \right]
     </me>
-  </p>
+          </p>
+      </introduction>
   <exercise>
     <statement>
       <p>
@@ -759,10 +772,14 @@
       </p>
     </answer>
   </exercise>
-  <p>
-    In the following exercises, rewrite the system of equations in matrix form.
-    Find the solution to the linear system by simultaneously manipulating the equations and the matrix.
-  </p>
+ </exercisegroup>
+ <exercisegroup> 
+     <introduction>
+        <p>
+            In the following exercises, rewrite the system of equations in matrix form.
+            Find the solution to the linear system by simultaneously manipulating the equations and the matrix.
+        </p>
+      </introduction>
   <exercise>
     <statement>
       <p>
@@ -835,4 +852,6 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+</exercises>
 </section>

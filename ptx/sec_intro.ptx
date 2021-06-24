@@ -24,8 +24,6 @@
   </p>
   <example xml:id="ex_by_hand">
     <title>Motivating Example, jar of multicolored marbles</title>
-      
-    <statement>
       <p>
         Suppose a jar contains red, blue and green marbles.
         You are told that there are a total of <m>30</m> marbles in the jar;
@@ -33,8 +31,6 @@
         the number of blue marbles is the same as the sum of the red and green marbles.
         How many marbles of each color are there?
       </p>
-    </statement>
-    <solution>
       <p>
         We could attempt to solve this with some trial and error,
         and we'd probably get the correct answer without too much work.
@@ -98,7 +94,6 @@
         <m>r = 2g = 10</m> and then since <m>r+b+g = 30</m>,
         we easily find that <m>b = 15</m>.
       </p>
-    </solution>
   </example>
   <p>
     Mathematicians often see solutions to given problems and then ask <q>What if <m>\ldots</m>?</q> It's an annoying habit that we would do well to develop <mdash/> we should learn to think like a mathematician.
@@ -262,9 +257,13 @@
     Right now we focus on identifying linear equations.
     It is also useful to <q>limber</q> up by solving a few systems of equations using any method we have at hand to refresh our memory about the basic process.
   </p>
-  <p>
-    In the following exercises, state whether or not the given equation is linear.
-  </p>
+<exercises>
+ <exercisegroup>
+     <introduction>
+          <p>
+            In the following exercises, state whether or not the given equation is linear.
+          </p>
+     </introduction>
   <exercise>
     <statement>
       <p>
@@ -385,9 +384,13 @@
       </p>
     </answer>
   </exercise>
-  <p>
-    In the following exercises, solve the system of linear equations.
-  </p>
+ </exercisegroup>
+ <exercisegroup>
+   <introduction>
+      <p>
+          In the following exercises, solve the system of linear equations.
+      </p>
+   </introduction>
   <exercise>
     <statement>
       <p>
@@ -436,6 +439,7 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
   <exercise>
     <statement>
       <p>
@@ -464,4 +468,5 @@
       </p>
     </answer>
   </exercise>
+</exercises>
 </section>

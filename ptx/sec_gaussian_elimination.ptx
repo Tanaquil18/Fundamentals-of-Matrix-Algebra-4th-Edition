@@ -21,7 +21,7 @@
       </li>
       <li>
         <p>
-          Identify the leading 1s in the following matrix:
+          Identify the leading <m>1</m>'s in the following matrix:
           <me>
             \left[\begin{array}{cccc}  1\amp 0\amp 0\amp 1\\ 0\amp 1\amp 1\amp 0\\0\amp 0\amp 1\amp 1\\0\amp 0\amp 0\amp 0 \end{array} \right]
           </me>
@@ -81,8 +81,8 @@
     we list them again here in the context of matrices.
   </p>
   <insight xml:id="idea_elementary_row_operations">
+      <title><term>Elementary Row Operations</term></title>
     <p>
-      <term>Elementary Row Operations</term>
       <ol>
         <li>
           <p>
@@ -110,7 +110,7 @@
     Given any system of linear equations, we can find a solution
     (if one exists)
     by using these three row operations.
-    Elementary row operations give us a new linear system,
+    Performing elementary row operations gives us a new linear system,
     but the solution to the new system is the same as the old.
     We can use these operations as much as we want and not change the solution.
     This brings to mind two good questions:
@@ -140,51 +140,46 @@
     using the elementary row operations,
     put it into something called <em>reduced row echelon form</em>.<fn>
     Some texts use the term <em>reduced echelon form</em> instead.
-    </fn> This is our
-    <q>destination,</q>
-    for this form allows us to readily identify whether or not a solution exists,
+    </fn> This is our destination, for this form allows us to readily identify whether or not a solution exists,
     and in the case that it does, what that solution is.
   </p>
   <p>
     In the previous section, when we manipulated matrices to find solutions,
     we were unwittingly putting the matrix into reduced row echelon form.
     However, not all solutions come in such a simple manner as we've seen so far.
-    Putting a matrix into reduced row echelon form<nbsp/>helps us identify all types of solutions.
+    Putting a matrix into reduced row echelon form helps us identify all types of solutions.
     We'll explore the topic of understanding what the reduced row echelon form of a matrix tells us in the following sections;
     in this section we focus on finding it.
   </p>
   <p>
         <idx><h>reduced echelon form</h></idx>
   </p>
-  <definition xml:id="def_rref">
+  <definition xml:id="def_rref"> <title>Reduced Row Echelon Form</title>
     <statement>
-      <p>
-        <term>Reduced Row Echelon Form</term>
-      </p>
       <p>
         A matrix is in <term>reduced row echelon form</term>
         if its entries satisfy the following conditions.
         <ol>
           <li>
             <p>
-              The first nonzero entry in each row is a 1
-              (called a <em>leading 1</em>).
+              The first nonzero entry in each row is a <m>1</m>
+              (called a <term>leading <m>1</m></term>).
                 <idx><h>leading one</h></idx>
             </p>
           </li>
           <li>
             <p>
-              Each leading 1 comes in a column to the right of the leading 1s in rows above it.
+              Each leading <m>1</m> comes in a column to the right of the leading <m>1</m>'s in rows above it.
             </p>
           </li>
           <li>
             <p>
-              All rows of all 0s come at the bottom of the matrix.
+              All rows of all <m>0</m>'s come at the bottom of the matrix.
             </p>
           </li>
           <li>
             <p>
-              If a column contains a leading 1, then all other entries in that column are 0.
+              If a column contains a leading <m>1</m>, then all other entries in that column are <m>0</m>.
             </p>
           </li>
         </ol>
@@ -199,65 +194,55 @@
         <idx><h>reduced row echelon form</h></idx>
         <idx><h>row echelon form</h></idx>
   </p>
-  <example xml:id="ex_rref">
+  <example xml:id="ex_rref"> <title>In RREF or not?</title>
     <statement>
       <p>
         Which of the following matrices is in reduced row echelon form?
       </p>
-      <tabular>
-        <row>
-          <cell>a) <m>\left[\begin{array}{cc} 1\amp 0\\0\amp 1
-            \end{array} \right]</m></cell>
-          <cell><m></m></cell>
-          <cell>b) <m>\left[\begin{array}{ccc}  1\amp 0\amp 1\\0\amp 1\amp 2
-            \end{array} \right]</m></cell>
-        </row>
-        <row>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>c) <m>\left[\begin{array}{cc} 0\amp 0\\0\amp 0
-            \end{array} \right]</m></cell>
-          <cell><m></m></cell>
-          <cell>d) <m>\left[\begin{array}{ccc}  1\amp 1\amp 0\\0\amp 0\amp 1
-            \end{array} \right]</m></cell>
-        </row>
-        <row>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>e) <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 0\amp 0\amp 0\\0\amp 0\amp 1\amp 3
-            \end{array} \right]</m></cell>
-          <cell><m></m></cell>
-          <cell>f) <m>\left[\begin{array}{cccc} 1\amp 2\amp 0\amp 0 \\0\amp 0\amp 3\amp 0\\0\amp 0\amp 0\amp 4
-            \end{array} \right]</m></cell>
-        </row>
-        <row>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>g) <m>\left[\begin{array}{cccccc} 0\amp 1\amp 2\amp 3\amp 0\amp 4\\ 0\amp 0\amp 0\amp 0\amp 1\amp 5\\0\amp 0\amp 0\amp 0\amp 0\amp 0
-            \end{array} \right]</m></cell>
-          <cell><m></m></cell>
-          <cell>h) <m>\left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 0\\0\amp 0\amp 1
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sbsgroup>
+        <sidebyside>
+          <p>a) <m>\left[\begin{array}{cc} 1\amp 0\\0\amp 1
+            \end{array} \right]</m></p>
+          <p>b) <m>\left[\begin{array}{ccc}  1\amp 0\amp 1\\0\amp 1\amp 2
+            \end{array} \right]</m></p>
+        </sidebyside>
+          
+        <sidebyside>
+          <p>c) <m>\left[\begin{array}{cc} 0\amp 0\\0\amp 0
+            \end{array} \right]</m></p>
+          
+          <p>d) <m>\left[\begin{array}{ccc}  1\amp 1\amp 0\\0\amp 0\amp 1
+            \end{array} \right]</m></p>
+        </sidebyside>
+        
+        <sidebyside>
+          <p>e) <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 0\amp 0\amp 0\\0\amp 0\amp 1\amp 3
+            \end{array} \right]</m></p>
+          
+          <p>f) <m>\left[\begin{array}{cccc} 1\amp 2\amp 0\amp 0 \\0\amp 0\amp 3\amp 0\\0\amp 0\amp 0\amp 4
+            \end{array} \right]</m></p>
+        </sidebyside>
+        
+        <sidebyside>
+          <p>g) <m>\left[\begin{array}{cccccc} 0\amp 1\amp 2\amp 3\amp 0\amp 4\\ 0\amp 0\amp 0\amp 0\amp 1\amp 5\\0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array} \right]</m></p>
+          
+          <p>h) <m>\left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]</m></p>
+        </sidebyside>
+      </sbsgroup>
     </statement>
     <solution>
       <p>
         The matrices in a),
         b), c), d) and g) are all in reduced row echelon form.
         Check to see that each satisfies the necessary conditions.
-        If your instincts were wrong on some of these,
-        correct your thinking accordingly.
+        If your instincts were wrong on some of these, correct your thinking accordingly.
       </p>
       <p>
-        The matrix in e) is not in reduced row echelon form since the row of all zeros is not at the bottom.
-        The matrix in f) is not in reduced row echelon form since the first nonzero entries in rows 2 and 3 are not 1.
-        Finally, the matrix in h) is not in reduced row echelon form since the first entry in column 2 is not zero;
-        the second 1 in column 2 is a leading one,
-        hence all other entries in that column should be 0.
+        The matrix in e) is not in reduced row echelon form since the row of all <m>0</m>'s is not at the bottom.
+        The matrix in f) is not in reduced row echelon form since the first nonzero entries in rows <m>2</m> and <m>3</m> are not <m>1</m>.
+        Finally, the matrix in h) is not in reduced row echelon form since the first entry in column <m>2</m> is not zero;
+        the second <m>1</m> in column <m>2</m> is a leading one,
+        hence all other entries in that column should be <m>0</m>.
       </p>
       <p>
         We end this example with a preview of what we'll learn in the future.
@@ -265,7 +250,7 @@
         If this matrix came from the augmented matrix of a system of linear equations,
         then we can readily recognize that the solution of the system is <m>x_1=1</m> and <m>x_2=2</m>.
         Again, in previous examples, when we found the solution to a linear system,
-        we were unwittingly putting our matrices into reduced row echelon form.
+        we were actually putting our matrices into reduced row echelon form.
       </p>
     </solution>
   </example>
@@ -276,15 +261,11 @@
     and
     <q>How do we get there quickly?</q>
     We've just answered the first question:
-    most of the time we are
-    <q>going to</q>
-    reduced row echelon form.
+    most of the time we are going to <em>reduced row echelon form.</em>
     We now address the second question.
   </p>
   <p>
-    There is no one
-    <q>right</q>
-    way of using these operations to transform a matrix into reduced row echelon form.
+    There is no one <q>right</q> way of using these operations to transform a matrix into reduced row echelon form.
     However, there is a general technique that works very well in that it is very efficient
     (so we don't waste time on unnecessary steps).
     This technique is called <em>Gaussian elimination</em>.
@@ -294,19 +275,16 @@
   <p>
     While this technique isn't very difficult to use,
     it is one of those things that is easier understood by watching it being used than explained as a series of steps.
-    With this in mind,
-    we will go through one more example highlighting important steps and then we'll explain the procedure in detail.
+    With this in mind, we will go through one more example highlighting important steps and then we'll explain the procedure in detail.
   </p>
-  <example xml:id="ex_gaussian_elimination">
-    <statement>
+  <example xml:id="ex_gaussian_elimination"> <title>Gaussian Elimination Demonstrated</title>
       <p>
         Put the augmented matrix of the following system of linear equations into reduced row echelon form.
         <me>
           \begin{array}{ccccccc} -3x_1\amp -\amp 3x_2\amp +\amp 9x_3\amp =\amp 12\\ 2x_1\amp +\amp 2x_2\amp -\amp 4x_3\amp =\amp -2\\ \amp \amp -2x_2\amp -\amp 4x_3\amp =\amp -8 \end{array}
         </me>
       </p>
-    </statement>
-    <solution>
+      
       <p>
         We start by converting the linear system into an augmented matrix.
         <me>
@@ -314,105 +292,122 @@
         </me>
       </p>
       <p>
-        Our next step is to change the entry in the box to a 1.
-        To do this, let's multiply row 1 by <m>-\frac13</m>.
+        Our next step is to change the entry in the box to a <m>1</m>.
+        To do this, let's multiply row <m>1</m> by <m>-\frac13</m>.
       </p>
-      <tabular>
-        <row>
-          <cell><m>-\frac13R_1\rightarrow R_1</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\ 2\amp 2\amp -4\amp -2\\0\amp -2\amp -4\amp -8
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+            <m>-\frac13R_1\rightarrow R_1</m>
+        </p>
+          
+        <p>
+            <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\ 2\amp 2\amp -4\amp -2\\0\amp -2\amp -4\amp -8
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+      
       <p>
-        We have now created a <em>leading 1</em>;
-        that is, the first entry in the first row is a 1.
-        Our next step is to put zeros under this 1.
+        We have now created a <em>leading <m>1</m></em>;
+        that is, the first entry in the first row is a <m>1</m>.
+        Our next step is to put zeros under this <m>1</m>.
         To do this, we'll use the elementary row operation given below.
       </p>
-      <tabular>
-        <row>
-          <cell><m>-2R_1+R_2\rightarrow R_2</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\ 0\amp \fbox{0}\amp 2\amp 6\\0\amp -2\amp -4\amp -8
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+            <m>-2R_1+R_2\rightarrow R_2</m>
+          </p>
+          
+          <p>
+              <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\ 0\amp \fbox{0}\amp 2\amp 6\\0\amp -2\amp -4\amp -8
+            \end{array} \right]</m>
+          </p>
+      </sidebyside>
+      
       <p>
         Once this is accomplished,
         we shift our focus from the leading one down one row,
         and to the right one column, to the position that is boxed.
-        We again want to put a 1 in this position.
+        We again want to put a <m>1</m> in this position.
         We can use any elementary row operations,
-        but we need to restrict ourselves to using only the second row and any rows below it.
-        Probably the simplest thing we can do is interchange rows 2 and 3, and then scale the new second row so that there is a 1 in the desired position.
+        but <alert>we need to restrict ourselves to using only the second row and any rows below it.</alert>
+        Probably the simplest thing we can do is interchange rows <m>2</m> and <m>3</m>, and then scale the new second row so that there is a <m>1</m> in the desired position.
       </p>
-      <tabular>
-        <row>
-          <cell><m>R_2\leftrightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp \fbox{<m>-2</m>}\amp -4\amp -8 \\0\amp 0\amp 2\amp 6
-            \end{array} \right]</m></cell>
-        </row>
-        <row>
-          <cell></cell>
-        </row>
-        <row>
-          <cell><m>-\frac12R_2\rightarrow R_2</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp 1\amp 2\amp 4 \\0\amp 0\amp \fbox{2}\amp 6
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      
+      <sidebyside widths="16% 50%" margins="34% 0%" valign="middle">
+          <p>
+            <m>R_2\leftrightarrow R_3</m>
+          </p>
+            
+          <p>
+             <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp \fbox{-2}\amp -4\amp -8 \\0\amp 0\amp 2\amp 6
+            \end{array} \right]</m>
+          </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+            <p>
+                <m>-\frac12R_2\rightarrow R_2</m>
+            </p>
+            
+            <p>
+                <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp 1\amp 2\amp 4 \\0\amp 0\amp \fbox{2}\amp 6
+            \end{array} \right]</m>
+            </p>
+        </sidebyside>
+
       <p>
-        We have now created another leading 1, this time in the second row.
-        Our next desire is to put zeros underneath it,
+        We have now created another leading <m>1</m>, this time in the second row.
+        Our next desire is to put <m>0</m>'s underneath it,
         but this has already been accomplished by our previous steps.
         Therefore we again shift our attention to the right one column and down one row,
         to the next position put in the box.
-        We want that to be a 1.
+        We want that to be a <m>1</m>.
         A simple scaling will accomplish this.
       </p>
-      <tabular>
-        <row>
-          <cell><m>\frac12R_3\rightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp 1\amp 2\amp 4 \\0\amp 0\amp 1\amp 3
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+          <m>\frac12R_3\rightarrow R_3</m>
+        </p>
+          
+        <p><m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp 1\amp 2\amp 4 \\0\amp 0\amp 1\amp 3
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
       <p>
         This ends what we will refer to as the <em>forward steps</em>.
-        Our next task is to use the elementary row operations and go back and put zeros above our leading 1s.
+        Our next task is to use the elementary row operations and go back and put zeros above our leading <m>1</m>'s.
         This is referred to as the <em>backward steps</em>.
         These steps are given below.
       </p>
-      <tabular>
-        <row>
-          <cell><m>3R_3+R_1\rightarrow R_1</m></cell>
-        </row>
-        <row>
-          <cell><m>-2R_3+R_2\rightarrow R_2</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1\amp 0\amp 5\\0\amp 1\amp 0\amp -2 \\0\amp 0\amp 1\amp 3
-            \end{array} \right]</m></cell>
-        </row>
-        <row>
-          <cell></cell>
-        </row>
-        <row>
-          <cell>\small<m>-R_2+R_1\rightarrow R_1</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 7\\0\amp 1\amp 0\amp -2 \\0\amp 0\amp 1\amp 3
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <md>
+              <mrow>-2R_3+R_2\rightarrow R_2</mrow>
+              <mrow>3R_3+R_1\rightarrow R_1 </mrow>
+          </md>
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{cccc} 1\amp 1\amp 0\amp 5\\0\amp 1\amp 0\amp -2 \\0\amp 0\amp 1\amp 3
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+       
+      <sidebyside widths="20% 50%" margins="25% 0%" valign="middle">
+          <p>
+              <m>-R_2+R_1\rightarrow R_1</m>
+          </p>
+          
+          <p>
+              <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 7\\0\amp 1\amp 0\amp -2 \\0\amp 0\amp 1\amp 3
+            \end{array} \right]</m>
+          </p>
+      </sidebyside>
       <p>
         It is now easy to read off the solution as <m>x_1 = 7</m>,
         <m>x_2 = -2</m> and <m>x_3 = 3</m>.
       </p>
-    </solution>
   </example>
   <p>
     We now formally explain the procedure used to find the solution above.
@@ -425,33 +420,33 @@
       <li>
         <p>
           Working from left to right,
-          consider the first column that isn't all zeros that hasn't already been worked on.
+          consider the first column that isn't all <m>0</m>'s that hasn't already been worked on.
           Then working from top to bottom,
           consider the first row that hasn't been worked on.
         </p>
       </li>
       <li>
         <p>
-          If the entry in the row and column that we are considering is zero,
+          If the entry in the row and column that we are considering is <m>0</m>,
           interchange rows with a row below the current row so that that entry is nonzero.
-          If all entries below are zero,
+          If all entries below are <m>0</m>,
           we are done with this column;
-          start again at step 1.
+          start again at Step <m>1</m>.
         </p>
       </li>
       <li>
         <p>
-          Multiply the current row by a scalar to make its first entry a 1 (a leading 1).
+          Multiply the current row by a scalar to make its first entry a <m>1</m> (a leading <m>1</m>).
         </p>
       </li>
       <li>
         <p>
-          Repeatedly use Elementary Row Operation 1 to put zeros underneath the leading one.
+          Repeatedly use Elementary Row Operation <m>1</m> to put <m>0</m>'s underneath the leading <m>1</m>.
         </p>
       </li>
       <li>
         <p>
-          Go back to step 1 and work on the new rows and columns until either all rows or columns have been worked on.
+          Go back to step <m>1</m> and work on the new rows and columns until either all rows or columns have been worked on.
         </p>
       </li>
     </ol>
@@ -462,17 +457,17 @@
     <ol>
       <li>
         <p>
-          The first nonzero entry in each row is a 1 (a leading 1).
+          The first nonzero entry in each row is a <m>1</m> (a leading <m>1</m>).
         </p>
       </li>
       <li>
         <p>
-          Each leading 1 is in a column to the right of the leading 1s above it.
+          Each leading <m>1</m> is in a column to the right of the leading <m>1</m>'s above it.
         </p>
       </li>
       <li>
         <p>
-          All rows of all zeros come at the bottom of the matrix.
+          All rows of all <m>0</m>'s come at the bottom of the matrix.
         </p>
       </li>
     </ol>
@@ -491,7 +486,7 @@
       <li>
         <p>
           Starting from the right and working left,
-          use Elementary Row Operation 1 repeatedly to put zeros above each leading 1.
+          use Elementary Row Operation <m>1</m> repeatedly to put zeros above each leading <m>1</m>.
         </p>
       </li>
     </ol>
@@ -507,11 +502,8 @@
     This method is very efficient, so it gets its own name
     (which we've already been using).
   </p>
-  <definition xml:id="def_gaussian_elimination">
+  <definition xml:id="def_gaussian_elimination"> <title>Gaussian Elimination</title>
     <statement>
-      <p>
-        <term>Gaussian Elimination</term>
-      </p>
       <p>
         <term>Gaussian elimination</term>
         is the technique for finding the reduced row echelon form of a matrix using the above procedure.
@@ -519,22 +511,22 @@
         <ol>
           <li>
             <p>
-              Create a leading 1.
+              Create a leading <m>1</m>.
             </p>
           </li>
           <li>
             <p>
-              Use this leading 1 to put zeros underneath it.
+              Use this leading <m>1</m> to put zeros underneath it.
             </p>
           </li>
           <li>
             <p>
-              Repeat the above steps until all possible rows have leading 1s.
+              Repeat the above steps until all possible rows have leading <m>1</m>'s.
             </p>
           </li>
           <li>
             <p>
-              Put zeros above these leading 1s.
+              Put zeros above these leading <m>1</m>'s.
             </p>
           </li>
         </ol>
@@ -547,7 +539,7 @@
   <p>
     Let's practice some more.
   </p>
-  <example xml:id="ex_rref_2">
+  <example xml:id="ex_rref_2"> <title>Another Gaussian Elimination</title>
     <statement>
       <p>
         Use Gaussian elimination to put the matrix <m>A</m> into reduced row echelon form, where
@@ -558,83 +550,95 @@
     </statement>
     <solution>
       <p>
-        We start by wanting to make the entry in the first column and first row a 1 (a leading 1).
+        We start by wanting to make the entry in the first column and first row a <m>1</m> (a leading <m>1</m>).
         To do this we'll scale the first row by a factor of <m>-\frac12</m>.
       </p>
-      <tabular>
-        <row>
-          <cell><m>-\frac12R_1\rightarrow R_1</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\2\amp 4\amp 1\amp 9\amp -2\\3\amp 6\amp 1\amp 13\amp -4
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+            <m>-\frac12R_1\rightarrow R_1</m>
+        </p>
+          
+        <p>
+            <m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\2\amp 4\amp 1\amp 9\amp -2\\3\amp 6\amp 1\amp 13\amp -4
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
       <p>
-        Next we need to put zeros in the column below this newly formed leading 1.
+        Next we need to put zeros in the column below this newly formed leading <m>1</m>.
       </p>
-      <tabular>
-        <row>
-          <cell><m>-2R_1+R_2\rightarrow R_2</m></cell>
-        </row>
-        <row>
-          <cell><m>-3R_1+R_3\rightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp \fbox{0}\amp -1\amp -1\amp -2\\0\amp 0\amp -2\amp -2\amp -4
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <md>
+              <mrow>-2R_1+R_2\rightarrow R_2</mrow>
+              <mrow>-3R_1+R_3\rightarrow R_3</mrow>
+          </md>
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp \fbox{0}\amp -1\amp -1\amp -2\\0\amp 0\amp -2\amp -2\amp -4
+            \end{array} \right]
+          </m>
+        </p>
+      </sidebyside>
       <p>
         Our attention now shifts to the right one column and down one row to the position indicated by the box.
-        We want to put a 1 in that position.
+        We want to put a <m>1</m> in that position.
         Our only options are to either scale the current row or to interchange rows with a row below it.
         However, in this case neither of these options will accomplish our goal.
         Therefore, we shift our attention to the right one more column.
       </p>
       <p>
-        We want to put a 1 where there is a <ndash/>1.
+        We want to put a <m>1</m> where there is a <m>-1</m>.
         A simple scaling will accomplish this;
-        once done, we will put a 0 underneath this leading one.
+        once done, we will put a <m>0</m> underneath this leading <m>1</m>.
       </p>
-      <tabular>
-        <row>
-          <cell><m>-R_2\rightarrow R_2</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp -2\amp -2\amp -4
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>2R_2+R_3\rightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp 0\amp \fbox{0}\amp 0
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+          <m>-R_2\rightarrow R_2</m>
+        </p>
+        
+        <p>
+            <m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp -2\amp -2\amp -4
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <m>2R_2+R_3\rightarrow R_3</m>
+        </p>
+          
+        <p>
+            <m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp 0\amp \fbox{0}\amp 0
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
       <p>
         Our attention now shifts over one more column and down one row to the position indicated by the box;
-        we wish to make this a 1.
+        we wish to make this a <m>1</m>.
         Of course, there is no way to do this,
         so we are done with the forward steps.
       </p>
       <p>
-        Our next goal is to put a 0 above each of the leading 1s
-        (in this case there is only one leading 1 to deal with).
+        Our next goal is to put a <m>0</m> above each of the leading <m>1</m>'s
+        (in this case there is only one leading <m>1</m> to deal with).
       </p>
-      <tabular>
-        <row>
-          <cell><m>-R_2+R_1\rightarrow R_1</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{ccccc} 1\amp 2\amp 0\amp 4\amp -2\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp 0\amp 0\amp 0
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <m>-R_2+R_1\rightarrow R_1</m>
+        </p>
+          
+        <p>
+            <m>\left[\begin{array}{ccccc} 1\amp 2\amp 0\amp 4\amp -2\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp 0\amp 0\amp 0
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
       <p>
         This final matrix is in reduced row echelon form.
       </p>
     </solution>
   </example>
-  <example xml:id="ex_rref_3">
+  <example xml:id="ex_rref_3"> <title>Gaussian Elimination Again, this time with fewer words</title>
     <statement>
       <p>
         Put the matrix
@@ -648,60 +652,74 @@
       <p>
         Here we will show all steps without explaining each one.
       </p>
-      <tabular>
-        <row>
-          <cell><m>-2R_1+R_2\rightarrow R_2</m></cell>
-        </row>
-        <row>
-          <cell><m>-3R_1+R_3\rightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp -3\amp -1\amp -5\\0\amp -3\amp -1\amp -8
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>-\frac13R_2\rightarrow R_2</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp -3\amp -1\amp -8
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>3R_2+R_3\rightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp 0\amp 0\amp -3
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>-\frac13R_3\rightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp 0\amp 0\amp 1
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>-3R_3+R_1\rightarrow R_1</m></cell>
-        </row>
-        <row>
-          <cell><m>-\frac53R_3+R_2\rightarrow R_2</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 0\\0\amp 1\amp 1/3\amp 0\\0\amp 0\amp 0\amp 1
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>-2R_2+R_1\rightarrow R_1</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc}  1\amp 0\amp 1/3\amp 0\\0\amp 1\amp 1/3\amp 0\\0\amp 0\amp 0\amp 1
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <md>
+              <mrow>-2R_1+R_2\rightarrow R_2</mrow>
+              <mrow>-3R_1+R_3\rightarrow R_3</mrow>
+          </md>
+        </p>
+        <p>
+          <m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp -3\amp -1\amp -5\\0\amp -3\amp -1\amp -8
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+            <m>-\frac13R_2\rightarrow R_2</m>
+        </p>
+          
+        <p>
+            <m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp -3\amp -1\amp -8
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <m>3R_2+R_3\rightarrow R_3</m>
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp 0\amp 0\amp -3
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+          <m>-\frac13R_3\rightarrow R_3</m>
+        </p>
+          
+        <p><m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp 0\amp 0\amp 1
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <md>
+              <mrow>-3R_3+R_1\rightarrow R_1</mrow>
+              <mrow>-\frac53R_3+R_2\rightarrow R_2</mrow>
+          </md>
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 0\\0\amp 1\amp 1/3\amp 0\\0\amp 0\amp 0\amp 1
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <m>-2R_2+R_1\rightarrow R_1</m>
+        </p>
+          
+        <p>
+            <m>\left[\begin{array}{cccc}  1\amp 0\amp 1/3\amp 0\\0\amp 1\amp 1/3\amp 0\\0\amp 0\amp 0\amp 1
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
     </solution>
   </example>
   <p>
@@ -711,7 +729,7 @@
     What does it mean to have a leading one in the last column?
     We'll figure this out in the next section.
   </p>
-  <example xml:id="ex_back_substitution">
+  <example xml:id="ex_back_substitution"> <title>Gaussian Elimination with Demonstration of Back Substitution</title>
     <statement>
       <p>
         Put the matrix <m>A</m> into reduced row echelon form, where
@@ -725,77 +743,83 @@
         We'll again show the steps without explanation,
         although we will stop at the end of the forward steps and make a comment.
       </p>
-      <tabular>
-        <row>
-          <cell><m>\frac12R_1\rightarrow R_1</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\1\amp -1\amp 2\amp 12\\2\amp 2\amp -1\amp 9\\
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>-R_1+R_2\rightarrow R_2</m></cell>
-        </row>
-        <row>
-          <cell><m>-2R_1+R_3\rightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp -3/2\amp 5/2\amp 10\\0\amp 1\amp 0\amp 5\\
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>-\frac23R_2\rightarrow R_2</m></cell>
-        </row>
-        <row>
-          <cell></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 1\amp 0\amp 5\\
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>-R_2+R_3\rightarrow R_3</m></cell>
-        </row>
-        <row>
-          <cell></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 0\amp 5/3\amp 35/3\\
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>\frac35R_3\rightarrow R_3</m></cell>
-        </row>
-        <row>
-          <cell></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 0\amp 1\amp 7\\
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+          <m>\frac12R_1\rightarrow R_1</m>
+        </p>
+            
+        <p>
+            <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\1\amp -1\amp 2\amp 12\\2\amp 2\amp -1\amp 9\\
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+            <md>
+                <mrow>-R_1+R_2\rightarrow R_2</mrow>
+                <mrow>-2R_1+R_3\rightarrow R_3</mrow>
+            </md>
+          
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp -3/2\amp 5/2\amp 10\\0\amp 1\amp 0\amp 5\\
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+          <m>-\frac23R_2\rightarrow R_2</m>
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 1\amp 0\amp 5\\
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
+        <p>
+          <m>-R_2+R_3\rightarrow R_3</m>
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 0\amp 5/3\amp 35/3\\
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
+        <p>
+          <m>\frac35R_3\rightarrow R_3</m>
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 0\amp 1\amp 7\\
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
       <p>
         Let's take a break here and think about the state of our linear system at this moment.
         Converting back to linear equations, we now know
         <me>
-          \begin{array}{rcl} x_1+1/2x_2-1/2x_3\amp =\amp 2\\ x_2-5/3x_3\amp =\amp -20/3\\ x_3\amp =\amp 7 \end{array}
+          \begin{array}{rcl} x_1+\frac12 x_2-\frac12 x_3\amp =\amp 2\\ x_2-\frac53 x_3\amp =\amp -\frac{20}{3}\\ x_3\amp =\amp 7 \end{array}
         </me>
       </p>
       <p>
         Since we know that <m>x_3 = 7</m>,
         the second equation turns into
         <me>
-          x_2 - (5/3)(7) = -20/3
+          x_2 - \frac{5}{3}(7) = \frac{-20}{3}
         </me>,
         telling us that <m>x_2 = 5</m>.
       </p>
       <p>
         Finally, knowing values for <m>x_2</m> and <m>x_3</m> lets us substitute in the first equation and find
         <me>
-          x_1 +(1/2)(5)-(1/2)(7) = 2
+          x_1 +\frac12(5)-\frac12(7) = 2
         </me>,
         so <m>x_1 = 3</m>.
       </p>
@@ -803,37 +827,37 @@
         This process of substituting known values back into other equations is called
         <em>back substitution.</em>
         This process is essentially what happens when we perform the backward steps of Gaussian elimination.
-        We make note of this below as we finish out finding the reduced row echelon form<nbsp/>of our matrix.
+        We make note of this below as we finish out finding the reduced row echelon form of our matrix.
       </p>
-      <tabular>
-        <row>
-          <cell><m>\frac53R_3+R_2\rightarrow R_2</m></cell>
-        </row>
-        <row>
-          <cell>(knowing <m>x_3=7</m> allows us to find <m>x_2 = 5</m>)</cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp 0\amp 5\\0\amp 0\amp 1\amp 7\\
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
-      <tabular>
-        <row>
-          <cell><m>\frac12R_3+R_1\rightarrow R_1</m></cell>
-        </row>
-        <row>
-          <cell><m>-\frac12R_2+R_1\rightarrow R_1</m></cell>
-        </row>
-        <row>
-          <cell>(knowing <m>x_2=5</m> and <m>x_3=7</m> allows us to find <m>x_1 = 3</m>)</cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 3\\0\amp 1\amp 0\amp 5\\0\amp 0\amp 1\amp 7\\
-            \end{array} \right]</m></cell>
-        </row>
-      </tabular>
+        
+      <sidebyside widths="35% 50%" margins="10% 0%" valign="middle">
+        <p>
+            <line><m>\frac53R_3+R_2\rightarrow R_2</m></line>
+          <line>(knowing <m>x_3=7</m> allows us to find <m>x_2 = 5</m>)</line>
+        </p>
+          
+        <p>
+          <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp 0\amp 5\\0\amp 0\amp 1\amp 7\\
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
+        
+      <sidebyside widths="35% 50%" margins="10% 0%" valign="middle">
+        <p>
+           <line><m>\frac12R_3+R_1\rightarrow R_1</m></line>
+           <line><m>-\frac12R_2+R_1\rightarrow R_1</m></line>
+           <line>(knowing <m>x_2=5</m> and <m>x_3=7</m> allows us to find <m>x_1 = 3</m>)</line>
+        </p>
+        
+        <p>
+          <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 3\\0\amp 1\amp 0\amp 5\\0\amp 0\amp 1\amp 7\\
+            \end{array} \right]</m>
+        </p>
+      </sidebyside>
       <p>
         We did our operations slightly
         <q>out of order</q>
-        in that we didn't put the zeros above our leading 1 in the third column in the same step,
+        in that we didn't put the zeros above our leading <m>1</m> in the third column in the same step,
         highlighting how back substitution works.
       </p>
     </solution>
@@ -847,12 +871,17 @@
     Could we have systems without a solution?
     These are some of the questions we'll address in the next section.
   </p>
-  <p>
-    In the following exercises,
+    
+<exercises>
+<exercisegroup>
+    <introduction>
+        <p>
+            In the following exercises,
     state whether or not the given matrices are in reduced row echelon form.
     If it is not, state why.
-  </p>
-  <exercise>
+        </p>
+    </introduction>
+    <exercise>
     <statement>
       <ol>
         <li>
@@ -1052,10 +1081,15 @@
       </ol>
     </answer>
   </exercise>
-  <p>
-    In the following exercises,
-    use Gaussian Elimination to put the given matrix into reduced row echelon form.
-  </p>
+</exercisegroup>
+  
+<exercisegroup>
+    <introduction>
+        <p>
+            In the following exercises,
+            use Gaussian Elimination to put the given matrix into reduced row echelon form.
+          </p>
+    </introduction>
   <exercise>
     <statement>
       <p>
@@ -1272,4 +1306,6 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+</exercises>
 </section>
