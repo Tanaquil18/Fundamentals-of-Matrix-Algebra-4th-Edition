@@ -108,7 +108,7 @@
   <p>
     Let's look again at our system of equations in <xref ref="eq_before_matrix"/> and write the coefficients and the constants in a rectangular array. This time we won't ignore the zeros, but rather write them out.
     <me>
-      \begin{array}{ccccccc} b\amp +\amp g\amp +\amp r\amp =\amp 30\\ \amp -\amp 2g\amp +\amp r\amp =\amp 0\\ -b\amp +\amp g\amp +\amp r\amp =\amp 0 \end{array} \ \Longleftrightarrow \ \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 30\\ 0\amp -2\amp 1\amp 0\\ -1\amp 1\amp 1\amp 0 \end{array} \right]
+      \begin{array}{ccccccc} b\amp +\amp g\amp +\amp r\amp =\amp 30\\ \amp -\amp 2g\amp +\amp r\amp =\amp 0\\ -b\amp +\amp g\amp +\amp r\amp =\amp 0 \end{array} \quad \Longleftrightarrow \quad \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 30\\ 0\amp -2\amp 1\amp 0\\ -1\amp 1\amp 1\amp 0 \end{array} \right]
     </me>
   </p>
   <p>

@@ -4,12 +4,12 @@
     <ol>
       <li>
         <p>
-          T/F: It is possible for a linear system to have exactly 5 solutions.
+          T/F: It is possible for a linear system to have exactly <m>5</m> solutions.
         </p>
       </li>
       <li>
         <p>
-          T/F: A variable that corresponds to a leading 1 is
+          T/F: A variable that corresponds to a leading <m>1</m> is
           <q>free.</q>
         </p>
       </li>
@@ -22,7 +22,7 @@
         <p>
           Give an example
           (different from those given in the text)
-          of a 2 equation, 2 unknown linear system that is not consistent.
+          of a <m>2</m> equation, <m>2</m> unknown linear system that is not consistent.
         </p>
       </li>
       <li>
@@ -117,23 +117,21 @@
   </p>
   <p>
     We should immediately spot a problem with this system;
-    if the sum of <m>x</m> and <m>y</m> is 1, how can it also be 2?
-    There is no solution to such a problem;
-    this linear system has no solution.
-    We can visualize this situation in <xref ref="fig_visual_solution">Figure</xref> (c);
+    if the sum of <m>x</m> and <m>y</m> is <m>1</m>, how can it also be <m>2</m>? There is no solution to such a problem;
+    this linear system has no solution. We can visualize this situation in <xref ref="fig_visual_solution">Figure</xref> (c);
     the two lines are parallel and never intersect.
   </p>
   <p>
     If we were to consider a linear system with three equations and two unknowns,
     we could visualize the solution by graphing the corresponding three lines.
     We can picture that perhaps all three lines would meet at one point,
-    giving exactly 1 solution;
+    giving exactly <m>1</m> solution;
     perhaps all three equations describe the same line,
     giving an infinite number of solutions;
     perhaps we have different lines,
     but they do not all meet at the same point, giving no solution.
     We further visualize similar situations with,
-    say, 20 equations with two variables.
+    say, <m>20</m> equations with two variables.
   </p>
   <p>
     While it becomes harder to visualize when we add variables,
@@ -143,11 +141,8 @@
     This is a fact that we will not prove here,
     but it deserves to be stated.
   </p>
-  <theorem xml:id="thm_existence_uniqueness">
+  <theorem xml:id="thm_existence_uniqueness"> <title>Solution Forms of Linear Systems</title>
     <statement>
-      <p>
-        <em>Solution Forms of Linear Systems</em>
-      </p>
       <p>
         Every linear system of equations has exactly one solution,
         infinite solutions, or no solution.
@@ -165,11 +160,8 @@
     Here we don't differentiate between having one solution and infinite solutions,
     but rather just whether or not a solution exists.
   </p>
-  <definition xml:id="def_consistent">
+  <definition xml:id="def_consistent"> <title>Consistent and Inconsistent Linear Systems</title>
     <statement>
-      <p>
-        <term>Consistent and Inconsistent Linear Systems</term>
-      </p>
       <p>
         A system of linear equations is
         <term>consistent</term> if it has a solution
@@ -195,26 +187,34 @@
   </p>
   <p>
     Before we start with a simple example,
-    let us make a note about finding the reduced row echelon form<nbsp/>of a matrix.
+    let us make a note about finding the reduced row echelon form of a matrix.
   </p>
   <p>
     <em><em> Technology Note:</em></em> In the previous section,
-    we learned how to find the reduced row echelon form<nbsp/>of a matrix using Gaussian elimination <mdash/> by hand.
+    we learned how to find the reduced row echelon form of a matrix using Gaussian elimination <mdash/> by hand.
     We need to know how to do this;
     understanding the process has benefits.
     However, actually executing the process by hand for every problem is not usually beneficial.
     In fact, with large systems,
-    computing the reduced row echelon form<nbsp/>by hand is effectively impossible.
+    computing the reduced row echelon form by hand is effectively impossible.
     Our main concern is <em>what</em>
     <q>the rref</q>
     is, not what exact steps were used to arrive there.
     Therefore, the reader is encouraged to employ some form of technology to find the reduced row echelon form.
-    Computer programs such as <em>Mathematica</em>, MATLAB, Maple,
-    and Derive can be used;
+    </p>
+    <p>
+    Computer programs such as <em>Mathematica</em>, MATLAB, and Maple can be used;
     many handheld calculators
     (such as Texas Instruments calculators)
-    will perform these calculations very quickly.
+    will perform these calculations very quickly.  As will SageMath, a free online alternative to the more widely known <q>M</q> software programs listed above.  You can find a small workspace here: <url href="https://sagecell.sagemath.org/" />, but you can also simply modify the space below.  I like to show <m>A</m> first to make sure I don't have any typos, but it's not strictly necessary; you could have just the first and third lines.  Hit the <q>Evaluate</q> button to see the matrix and its reduced row echelon form.
   </p>
+    <sage>
+        <input>
+            A=matrix(QQ,2,3,[[1,2,3],[4,5,6]])
+            show(A)
+            show(A.rref())
+        </input>
+    </sage>
   <p>
     As a general rule, when we are learning a new technique,
     it is best to not use technology to aid us.
@@ -224,16 +224,16 @@
   </p>
   <p>
     From here on out, in our examples,
-    when we need the reduced row echelon form<nbsp/>of a matrix,
+    when we need the reduced row echelon form of a matrix,
     we will not show the steps involved.
     Rather, we will give the initial matrix,
-    then immediately give the reduced row echelon form<nbsp/>of the matrix.
+    then immediately give the reduced row echelon form of the matrix.
     We trust that the reader can verify the accuracy of this form by both performing the necessary steps by hand or utilizing some technology to do it for them.
   </p>
   <p>
     Our first example explores officially a quick example used in the introduction of this section.
   </p>
-  <example xml:id="ex_ex_un_01">
+  <example xml:id="ex_ex_un_01"> <title>Using RREF to analyze solutions; introducing free variables</title>
     <statement>
       <p>
         Find the solution to the linear system
@@ -282,7 +282,7 @@
   <p>
     Let's try another example, one that uses more variables.
   </p>
-  <example xml:id="ex_ex_un_1">
+  <example xml:id="ex_ex_un_1"> <title>Another RREF and free variable example</title>
     <statement>
       <p>
         Find the solution to the linear system
@@ -342,43 +342,34 @@
     How do we recognize which variables are free and which are not?
   </p>
   <p>
-    Look back to the reduced matrix in <xref ref="ex_ex_un_01">Example</xref>.
-    Notice that there is only one leading 1 in that matrix,
-    and that leading 1 corresponded to the <m>x_1</m> variable.
-    That told us that <m>x_1</m> was
-    <em>not</em> a free variable;
-    since <m>x_2</m> <em>did not</em>
-    correspond to a leading 1, it was a free variable.
+    Look back to the reduced matrix in <xref ref="ex_ex_un_01">Example</xref>. Notice that there is only one leading <m>1</m> in that matrix, and that leading <m>1</m> corresponded to the <m>x_1</m> variable. That told us that <m>x_1</m> was <em>not</em> a free variable; since <m>x_2</m> <em>did not</em> correspond to a leading <m>1</m>, it was a free variable.
   </p>
   <p>
     Look also at the reduced matrix in <xref ref="ex_ex_un_1">Example</xref>.
-    There were two leading 1s in that matrix;
+    There were two leading <m>1</m>'s in that matrix;
     one corresponded to <m>x_1</m> and the other to <m>x_2</m>.
     This meant that <m>x_1</m> and <m>x_2</m> were not free variables;
-    since there was not a leading 1 that corresponded to <m>x_3</m>,
+    since there was not a leading <m>1</m> that corresponded to <m>x_3</m>,
     it was a free variable.
   </p>
   <p>
     We formally define this and a few other terms in this following definition.
   </p>
-  <definition xml:id="def_free">
+  <definition xml:id="def_free"> <title>Dependent and Independent Variables</title>
     <statement>
       <p>
-        <term>Dependent and Independent Variables</term>
-      </p>
-      <p>
-        Consider the reduced row echelon form<nbsp/>of an augmented matrix of a linear system of equations.
+        Consider the reduced row echelon form of an augmented matrix of a linear system of equations.
         Then:
       </p>
       <p>
-        a variable that corresponds to a leading 1 is a <term>basic</term>,
+        a variable that corresponds to a leading <m>1</m> is a <term>basic</term>,
         or <term>dependent</term>,
         variable, and<idx><h>variable</h><h>dependent</h></idx>
             <idx><h>variable</h><h>basic</h></idx>
             <idx><h>basic variable</h></idx>
       </p>
       <p>
-        a variable that does not correspond to a leading 1 is a <term>free</term>,
+        a variable that does not correspond to a leading <m>1</m> is a <term>free</term>,
         or <term>independent</term>,
         variable<idx><h>variable</h><h>independent</h></idx>
             <idx><h>variable</h><h>free</h></idx>.
@@ -404,12 +395,9 @@
     if there are any free variables,
     there are infinite solutions.
   </p>
-  <insight xml:id="idea_consistent">
+  <insight xml:id="idea_consistent"> <title>Consistent Solution Types</title>
     <p>
-      Consistent Solution Types
-    </p>
-    <p>
-      A consistent linear system of equations will have exactly one solution if and only if there is a leading 1 for each variable in the system.
+      A consistent linear system of equations will have exactly one solution if and only if there is a leading <m>1</m> for each variable in the system.
           <idx><h>system of linear equations</h><h>consistent</h></idx>
           <idx><h>leading one</h></idx>
           <idx><h>solution</h><h>infinite</h></idx>
@@ -419,7 +407,7 @@
       it has infinite solutions.
     </p>
     <p>
-      If a consistent linear system has more variables than leading 1s,
+      If a consistent linear system has more variables than leading <m>1</m>'s,
       then the system will have infinite solutions.
     </p>
     <p>
@@ -437,9 +425,9 @@
   </p>
   <p>
     When a consistent system has only one solution,
-    each equation that comes from the reduced row echelon form<nbsp/>of the corresponding augmented matrix will contain exactly one variable.
+    each equation that comes from the reduced row echelon form of the corresponding augmented matrix will contain exactly one variable.
     If the consistent system has infinite solutions,
-    then there will be at least one equation coming from the reduced row echelon form<nbsp/>that contains more than one variable.
+    then there will be at least one equation coming from the reduced row echelon form that contains more than one variable.
     The
     <q>first</q>
     variable will be the basic
@@ -452,7 +440,7 @@
     How will we recognize that a system is inconsistent?
     Let's find out through an example.
   </p>
-  <example xml:id="ex_ex_un_2">
+  <example xml:id="ex_ex_un_2"> <title>An Inconsistent System</title>
     <statement>
       <p>
         Find the solution to the linear system
@@ -499,27 +487,22 @@
     How can we tell if a system is inconsistent?
   </p>
   <p>
-    A linear system will be inconsistent only when it implies that 0 equals 1.
-    We can tell if a linear system implies this by putting its corresponding augmented matrix into reduced row echelon form.
-    If we have any row where all entries are 0 except for the entry in the last column,
-    then the system implies 0=1.
-    More succinctly,
-    if we have a leading 1 in the last column of an augmented matrix,
+    A linear system will be inconsistent only when it implies that <m>0</m> equals <m>1</m>. We can tell if a linear system implies this by putting its corresponding augmented matrix into reduced row echelon form.
+    If we have any row where all entries are <m>0</m> except for the entry in the last column,
+    then the system implies <m>0=1</m>. More succinctly,
+    if we have a leading <m>1</m> in the last column of an augmented matrix,
     then the linear system has no solution.
   </p>
-  <insight xml:id="idea_inconsistent">
+  <insight xml:id="idea_inconsistent"><title>Inconsistent Systems of Linear Equations</title>
     <p>
-      <term>Inconsistent Systems of Linear Equations</term>
-    </p>
-    <p>
-      A system of linear equations is inconsistent if the reduced row echelon form<nbsp/>of its corresponding augmented matrix has a leading 1 in the last column.
+      A system of linear equations is inconsistent if the reduced row echelon form of its corresponding augmented matrix has a leading <m>1</m> in the last column.
     </p>
   </insight>
   <p>
         <idx><h>system of linear equations</h><h>inconsistent</h></idx>
         <idx><h>leading one</h></idx>
   </p>
-  <example xml:id="ex_ex_un_3">
+  <example xml:id="ex_ex_un_3"> <title>Another Inconsistent System</title>
     <statement>
       <p>
         Confirm that the linear system
@@ -534,11 +517,11 @@
         We can verify that this system has no solution in two ways.
         First, let's just think about it.
         If <m>x+y=0</m>, then it stands to reason,
-        by multiplying both sides of this equation by 2, that <m>2x+2y = 0</m>.
+        by multiplying both sides of this equation by <m>2</m>, that <m>2x+2y = 0</m>.
         However, the second equation of our system says that <m>2x+2y= 4</m>.
         Since <m>0\neq 4</m>,
         we have a contradiction and hence our system has no solution.
-        (We cannot possibly pick values for <m>x</m> and <m>y</m> so that <m>2x+2y</m> equals both 0 and 4.)
+        (We cannot possibly pick values for <m>x</m> and <m>y</m> so that <m>2x+2y</m> equals both <m>0</m> and <m>4</m>.)
       </p>
       <p>
         Now let us confirm this using the prescribed technique from above.
@@ -546,20 +529,20 @@
         <me>
           \left[\begin{array}{ccc}  1\amp 1\amp 0\\0\amp 0\amp 1\\ \end{array} \right]
         </me>.
-        We have a leading 1 in the last column,
+        We have a leading <m>1</m> in the last column,
         so therefore the system is inconsistent.
       </p>
     </solution>
   </example>
   <p>
     Let's summarize what we have learned up to this point.
-    Consider the reduced row echelon form<nbsp/>of the augmented matrix of a system of linear equations.<fn>
+    Consider the reduced row echelon form of the augmented matrix of a system of linear equations.<fn>
     That sure seems like a mouthful in and of itself.
     However, it boils down to
     <q>look at the reduced form of the usual matrix.</q>
-    </fn> If there is a leading 1 in the last column,
+    </fn> If there is a leading <m>1</m> in the last column,
     the system has no solution.
-    Otherwise, if there is a leading 1 for each variable,
+    Otherwise, if there is a leading <m>1</m> for each variable,
     then there is exactly one solution;
     otherwise (i.e., there are free variables) there are infinite solutions.
   </p>
@@ -570,11 +553,8 @@
     First, a definition: if there are infinite solutions,
     what do we call one of those infinite solutions?
   </p>
-  <definition xml:id="def_particular">
+  <definition xml:id="def_particular"> <title>Particular Solution</title>
     <statement>
-      <p>
-        <term>Particular Solution</term>
-      </p>
       <p>
         Consider a linear system of equations with infinite solutions.
         A <term>particular solution</term>
@@ -588,10 +568,10 @@
     The easiest way to find a particular solution is to pick values for the free variables which then determines the values of the dependent variables.
     Again, more practice is called for.
   </p>
-  <example xml:id="ex_ex_un_4">
+  <example xml:id="ex_ex_un_4"> <title>Infinite Solutions; Particular Solutions</title>
     <statement>
       <p>
-        Give the solution to a linear system whose augmented matrix in reduced row echelon form<nbsp/>is
+        Give the solution to a linear system whose augmented matrix in reduced row echelon form is
         <me>
           \left[\begin{array}{ccccc}  1\amp -1\amp 0\amp 2\amp 4\\ 0\amp 0\amp 1\amp -3\amp 7\\ 0\amp 0\amp 0\amp 0\amp 0\\ \end{array} \right]
         </me>
@@ -615,7 +595,7 @@
         </md>.
       </p>
       <p>
-        Notice how the variables <m>x_1</m> and <m>x_3</m> correspond to the leading 1s of the given matrix.
+        Notice how the variables <m>x_1</m> and <m>x_3</m> correspond to the leading <m>1</m>'s of the given matrix.
         Therefore <m>x_1</m> and <m>x_3</m> are dependent variables;
         all other variables
         (in this case, <m>x_2</m> and <m>x_4</m>)
@@ -670,10 +650,10 @@
       </sidebyside>
     </solution>
   </example>
-  <example xml:id="ex_ex_un_5">
+  <example xml:id="ex_ex_un_5"> <title>Infinite Solutions; Column of Zeros</title>
     <statement>
       <p>
-        Find the solution to a linear system whose augmented matrix in reduced row echelon form<nbsp/>is
+        Find the solution to a linear system whose augmented matrix in reduced row echelon form is
         <me>
           \left[\begin{array}{ccccc}  1\amp 0\amp 0\amp 2\amp 3\\0\amp 1\amp 0\amp 4\amp 5\\ \end{array} \right]
         </me>
@@ -707,7 +687,7 @@
         In those cases we leave the variable in the system just to remind ourselves that it is there.
         </fn> for <m>x_3</m> doesn't appear in any of the equations above,
         but cannot overlook it;
-        it is still a free variable since there is not a leading 1 that corresponds to it.
+        it is still a free variable since there is not a leading <m>1</m> that corresponds to it.
         We write our solution as:
         <md>
           <mrow>x_1 \amp = 3-2x_4</mrow>
@@ -748,7 +728,7 @@
       </p>
     </solution>
   </example>
-  <example xml:id="ex_ex_un_6">
+  <example xml:id="ex_ex_un_6"><title>Infinite Solutions; One Variable Constant</title>
     <statement>
       <p>
         Find the solution to the linear system
@@ -762,7 +742,7 @@
       <p>
         The corresponding augmented matrix and its reduced row echelon form are given below
         <me>
-          .\left[\begin{array}{cccc} 1\amp 1\amp 1\amp 5\\1\amp -1\amp 1\amp 3\\ \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{cccc} 1\amp 0\amp 1\amp 4\\0\amp 1\amp 0\amp 1\\ \end{array} \right]
+          \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 5\\1\amp -1\amp 1\amp 3\\ \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{cccc} 1\amp 0\amp 1\amp 4\\0\amp 1\amp 0\amp 1\\ \end{array} \right]
         </me>
       </p>
       <p>
@@ -783,7 +763,7 @@
         <q>unusual</q>
         solution; while <m>x_2</m> is a dependent variable,
         it does not depend on any free variable;
-        instead, it is always 1. (We can think of it as depending on the value of 1.) By picking two values for <m>x_3</m>,
+        instead, it is always <m>1</m>. (We can think of it as depending on the value of <m>1</m>.) By picking two values for <m>x_3</m>,
         we get two particular solutions.
       </p>
       <sidebyside>
@@ -816,7 +796,7 @@
     it will always have exactly one solution even if the constants are changed.)
     Let's look at an example to get an idea of how the values of constants and coefficients work together to determine the solution type.
   </p>
-  <example xml:id="ex_variable_k">
+  <example xml:id="ex_variable_k"><title>Analyzing the Effect of Different Coefficient Values on the Linear System</title>
     <statement>
       <p>
         For what values of <m>k</m> will the given system have exactly one solution,
@@ -856,18 +836,13 @@
   </example>
   <p>
     As an extension of the previous example,
-    consider the similar augmented matrix where the constant 9 is replaced with a 10.
-    Performing the same elementary row operation gives
+    consider the similar augmented matrix where the constant <m>9</m> is replaced with a <m>10</m>. Performing the same elementary row operation gives
     <me>
-      \left[\begin{array}{ccc}  1\amp 2\amp 3\\3\amp k\amp 10 \end{array} \right] \qquad \overrightarrow{-3R_1+R_2\rightarrow R_2} \qquad \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp k-6\amp 1 \end{array} \right]
+      \left[\begin{array}{ccc}  1\amp 2\amp 3\\3\amp k\amp 10 \end{array} \right] \qquad \xrightarrow{-3R_1+R_2\rightarrow R_2} \qquad \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp k-6\amp 1 \end{array} \right]
     </me>
   </p>
   <p>
-    As in the previous example, if <m>k\neq6</m>,
-    we can make the second row,
-    second column entry a leading one and hence we have one solution.
-    However, if <m>k=6</m>, then our last row is <m>[0\ 0\ 1]</m>,
-    meaning we have no solution.
+    As in the previous example, if <m>k\neq6</m>, we can make the second row, second column entry a leading one and hence we have one solution. However, if <m>k=6</m>, then our last row is <m>\left[\begin{array}{ccc}0\amp 0\amp 1\end{array}\right]</m>, meaning we have no solution.
   </p>
   <p>
     We have been studying the solutions to linear systems mostly in an
@@ -877,11 +852,15 @@
     we'll look at situations which create linear systems that need solving (i.e.,
     <q>word problems</q>).
   </p>
+<exercises>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises, find the solution to the given linear system.
     If the system has infinite solutions,
-    give 2 particular solutions.
+    give <m>2</m> particular solutions.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -1078,11 +1057,15 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises,
-    state for which values of <m>k</m> the given system will have exactly 1 solution,
+    state for which values of <m>k</m> the given system will have exactly <m>1</m> solution,
     infinite solutions, or no solution.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -1091,7 +1074,7 @@
     </statement>
     <answer>
       <p>
-        Never exactly 1 solution; infinite solutions if <m>k=2</m>;
+        Never exactly <m>1</m> solution; infinite solutions if <m>k=2</m>;
         no solution if <m>k\neq 2</m>.
       </p>
     </answer>
@@ -1104,7 +1087,7 @@
     </statement>
     <answer>
       <p>
-        Exactly 1 solution if <m>k\neq 2</m>;
+        Exactly <m>1</m> solution if <m>k\neq 2</m>;
         infinite solutions if <m>k=2</m>; never no solution.
       </p>
     </answer>
@@ -1117,7 +1100,7 @@
     </statement>
     <answer>
       <p>
-        Exactly 1 solution if <m>k\neq 2</m>;
+        Exactly <m>1</m> solution if <m>k\neq 2</m>;
         no solution if <m>k=2</m>;
         never infinite solutions.
       </p>
@@ -1131,8 +1114,10 @@
     </statement>
     <answer>
       <p>
-        Exactly 1 solution for all <m>k</m>.
+        Exactly <m>1</m> solution for all <m>k</m>.
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+</exercises>
 </section>
