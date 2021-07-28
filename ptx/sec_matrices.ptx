@@ -120,11 +120,9 @@
     We have just created a <em>matrix</em>.
     The definition of matrix is remarkable only in how unremarkable it seems.
   </p>
-  <p>
-        <idx><h>matrix</h><h>definition</h></idx>
-  </p>
   <definition xml:id="def_matrix">
     <title>Matrix</title>
+      <idx><h>matrix</h><h>definition</h></idx>
     <statement>
       <p>
         A <term>matrix</term> is a rectangular array of numbers.

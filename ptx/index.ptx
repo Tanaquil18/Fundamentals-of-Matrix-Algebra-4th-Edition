@@ -7,6 +7,9 @@
 -->
     <rename element="insight" xml:lang="en-US">Key Idea</rename>
     <rename element="objectives" xml:lang="en-US">As You Read...</rename>
+<latex-preamble>
+    <package>mathtools</package>
+</latex-preamble>
 <macros>
 \newcommand{\lambd}{\lambda}
 </macros>

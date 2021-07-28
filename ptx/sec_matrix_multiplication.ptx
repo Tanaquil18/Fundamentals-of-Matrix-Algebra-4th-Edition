@@ -10,20 +10,18 @@
       </li>
       <li>
         <p>
-          T/F: To multiply <m>A\times B</m>,
-          the number of rows of <m>A</m> and B<nbsp/>need to be the same.
+          T/F: To multiply <m>A\times B</m>, the number of rows of <m>A</m> and <m>B</m> need to be the same.
         </p>
       </li>
       <li>
         <p>
-          T/F: The entry in the 2<m>^\text{ nd }</m> row and 3<m>^\text{ rd }</m> column of the product A B<nbsp/>comes from multipling the 2<m>^\text{ nd }</m> row of <m>A</m> with the 3<m>^\text{ rd }</m> column of B.
+          T/F: The entry in the 2nd row and 3rd column of the product <m>A B </m> comes from multiplying the 2nd row of <m>A</m> with the 3rd column of <m>B</m>.
         </p>
       </li>
       <li>
         <p>
           Name two properties of matrix multiplication that also hold for
-          <q>regular multiplication</q>
-          of numbers.
+          <q>regular multiplication</q> of numbers.
         </p>
       </li>
       <li>
@@ -89,14 +87,12 @@
     So let's take a step back and progress slowly.
     The first thing we'd like to do is define a special type of matrix called a vector.
   </p>
-  <definition xml:id="def_vector">
+  <definition xml:id="def_vector"> <title>Column and Row Vectors</title>
     <statement>
-      <p>
-        <term>Column and Row Vectors</term>
-      </p>
-      <p>
-            <idx><h>vector</h><h>column</h></idx>
+        <idx><h>vector</h><h>column</h></idx>
             <idx><h>vector</h><h>row</h></idx>
+      <p>
+            
         A <m>m\times 1</m> matrix is called a
         <term>column vector</term>.
       </p>
@@ -138,18 +134,15 @@
     Before we learn how to multiply matrices in general,
     we will learn what it means to multiply a row vector by a column vector.
   </p>
-  <definition xml:id="def_vector_multiply">
+  <definition xml:id="def_vector_multiply"> <title>Multiplying a Row Vector by a Column Vector</title>
     <statement>
-      <p>
-        <term>Multiplying a row vector by a column vector</term>
-      </p>
       <p>
         Let <m>\vec{u}</m> be an <m>1\times n</m> row vector with entries <m>u_1</m>,
         <m>u_2</m>, <m>\cdots</m>,
         <m>u_n</m> and let <m>\vec{v}</m> be an
         <m>n\times 1</m> column vector with entries <m>v_1</m>,
         <m>v_2</m>, <m>\cdots</m>, <m>v_n</m>.
-        The <term>product of <m>\vec{u}</m> and \vec{v}</term>,
+          The <term>product of <m>\vec{u}</m> and <m>\vec{v}</m></term>,
         denoted <m>\vec{u}\cdot\vec{v}</m> or <m>\vec{u}\vec{v}</m>, is
         <me>
           \sum_{i=1}^n  u_iv_i = u_1v_1 + u_2v_2 + \cdots + u_nv_n
@@ -162,39 +155,39 @@
     It is really an easy concept;
     an example will make things more clear.
   </p>
-  <example xml:id="ex_vector_multiplication">
+  <example xml:id="ex_vector_multiplication"> <title>Row and Column Multiplication</title>
     <statement>
       <p>
         Let
         <me>
-          \vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right],\ \vec{v} = \left[\begin{array}{cccc} 2\amp 0\amp 1\amp -1 \end{array} \right],\ \vec{x} = \left[\begin{array}{c} -2\\4\\3 \end{array} \right],\ \vec{y} = \left[\begin{array}{c}  1\\2\\5\\0 \end{array} \right]
-        </me>.
+          \vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right],\ \vec{v} = \left[\begin{array}{cccc} 2\amp 0\amp 1\amp -1 \end{array} \right],\ \vec{x} = \left[\begin{array}{c} -2\\4\\3 \end{array} \right],\ \vec{y} = \left[\begin{array}{c}  1\\2\\5\\0 \end{array} \right].
+        </me>
         Find the following products.
       </p>
       <ol cols="3">
         <li>
           <p>
-            \vec{u}\vec{x}
+            <m>\vec{u}\vec{x}</m>
           </p>
         </li>
         <li>
           <p>
-            \vec{v}\vec{y}
+            <m>\vec{v}\vec{y}</m>
           </p>
         </li>
         <li>
           <p>
-            \vec{u}\vec{y}
+            <m>\vec{u}\vec{y}</m>
           </p>
         </li>
         <li>
           <p>
-            \vec{u}\vec{v}
+            <m>\vec{u}\vec{v}</m>
           </p>
         </li>
         <li>
           <p>
-            \vec{x}\vec{u}
+            <m>\vec{x}\vec{u}</m>
           </p>
         </li>
       </ol>
@@ -213,7 +206,7 @@
         </li>
         <li>
           <p>
-            \vec{u}<m>\vec{y}</m> is not defined;
+            <m>\vec{u}\vec{y}</m> is not defined;
             <xref ref="def_vector_multiply">Definition</xref>
             specifies that in order to multiply a row vector and column vector,
             they must have the same number of entries.
@@ -221,7 +214,7 @@
         </li>
         <li>
           <p>
-            \vec{u}<m>\vec{v}</m> is not defined;
+            <m>\vec{u}\vec{v}</m> is not defined;
             we only know how to multipy row vectors by column vectors.
             We haven't defined how to multiply two row vectors
             (in general, it can't be done).
@@ -229,36 +222,30 @@
         </li>
         <li>
           <p>
-            The product \vec{x}<m>\vec{u}</m> <em>is</em> defined,
+            The product <m>\vec{x}\vec{u}</m> <em>is</em> defined,
             but we don't know how to do it yet.
             Right now, we only know how to multiply a row vector times a column vector;
             we don't know how to multiply a column vector times a row vector. (That's right:
-            <m>\vec{u}\vec{x} \neq \vec{x}\vec{u}!</m>)
+            <m>\vec{u}\vec{x} \neq \vec{x}\vec{u}</m>!)
           </p>
         </li>
       </ol>
-      <p>
-        \vskip -\topsep
-      </p>
     </solution>
   </example>
   <p>
     Now that we understand how to multiply a row vector by a column vector,
     we are ready to define matrix multiplication.
   </p>
-  <definition xml:id="def_matrix_multiply">
+  <definition xml:id="def_matrix_multiply"> <title>Matrix Multiplication</title>
     <statement>
-      <p>
-            <idx><h>matrix</h><h>multiplication</h></idx>
-        <term>Matrix Multiplication</term>
-      </p>
+        <idx><h>matrix</h><h>multiplication</h></idx>
       <p>
         Let <m>A</m> be an <m>m\times r</m> matrix,
-        and let B<nbsp/>be an <m>r\times n</m> matrix.
-        The <term>matrix product of <m>A</m> and B</term>, denoted <m>A\cdot B</m>,
-        or simply A B, is the <m>m\times n</m> matrix whose entry in the <m>i^{\text{ th } }</m> row and
-        <m>j^{\text{ th } }</m> column is the product of the
-        <m>i^{\text{ th } }</m> row of <m>A</m> and the <m>j^{\text{ th } }</m> column of B.
+        and let <m>B</m> be an <m>r\times n</m> matrix.
+        The <term>matrix product of <m>A</m> and <m>B</m></term>, denoted <m>A\cdot B</m>,
+        or simply <m>A B</m>, is the <m>m\times n</m> matrix whose entry in the <m>i^{th}</m> row and
+        <m>j^{th}</m> column is the product of the
+          <m>i^{th}</m> row of <m>A</m> and the <m>j^{th}</m> column of <m>B</m>.
       </p>
     </statement>
   </definition>
@@ -266,7 +253,7 @@
     It may help to illustrate it in this way.
     Let matrix <m>A</m> have rows <m>\vec{a_1}</m>,
     <m>\vec{a_2}</m>, <m>\cdots</m>,
-    <m>\vec{a_m}</m> and let B<nbsp/>have columns <m>\vec{b_1}</m>,
+    <m>\vec{a_m}</m> and let <m>B</m> have columns <m>\vec{b_1}</m>,
     <m>\vec{b_2}</m>,
     <m>\cdots</m>, <m>\vec{b_n}</m>.
     Thus <m>A</m> looks like
@@ -276,13 +263,13 @@
     where the
     <q><m>-</m></q>
     symbols just serve as reminders that the
-    <m>\vec{a_i}</m> represent rows, and B<nbsp/>looks like
+    <m>\vec{a_i}</m> represent rows, and <m>B</m> looks like
     <me>
       \left[\begin{array}{cccc} |\amp |\amp  \amp |\\\vec{b_1}\amp \vec{b_2}\amp \cdots\amp \vec{b_n}\\|\amp |\amp  \amp | \end{array} \right]
     </me>
     where again, the
     <q><m>|</m></q>
-    symbols just remind us that the \vec{b_i}<nbsp/>represent column vectors.
+      symbols just remind us that the <m>\vec{b_i}</m> represent column vectors.
     Then
     <me>
       A B = \left[\begin{array}{cccc} \vec{a_1}\vec{b_1} \amp  \vec{a_1}\vec{b_2} \amp  \cdots \amp  \vec{a_1}\vec{b_n}\\ \vec{a_2}\vec{b_1} \amp  \vec{a_2}\vec{b_2} \amp  \cdots \amp  \vec{a_2}\vec{b_n}\\ \vdots \amp  \vdots \amp  \ddots \amp  \vdots \\ \vec{a_m}\vec{b_1} \amp  \vec{a_m}\vec{b_2} \amp  \cdots \amp  \vec{a_m}\vec{b_n} \end{array} \right]
@@ -290,23 +277,23 @@
   </p>
   <p>
     Two quick notes about this definition.
-    First, notice that in order to multiply <m>A</m> and B, the number of <em>columns</em>
+    First, notice that in order to multiply <m>A</m> and <m>B</m>, the number of <em>columns</em>
     of <m>A</m> must be the same as the number of <em>rows</em>
-    of B<nbsp/>(we refer to these as the
+    of <m>B</m> (we refer to these as the
     <q>inner dimensions</q>).
     Secondly,
     the resulting matrix has the same number of <em>rows</em>
     as <m>A</m> and the same number of <em>columns</em>
-    as B<nbsp/>(we refer to these as the
+    as <m>B</m> (we refer to these as the
     <q>outer dimensions</q>).
     <me>
-      \overbrace{(m\times {}\underbrace{r) \times (r}_\text{ these inner dimensions must match } {}\times n)}^\text{ final dimensions are the outer dimensions }
+      \overbrace{(m\times \underbrace{r) \times (r}_{\mathclap{\text{these inner dimensions must match}}} \times n)}^{\mathclap{\text{final dimensions are the outer dimensions}}}
     </me>
   </p>
   <p>
     Of course, this will make much more sense when we see an example.
   </p>
-  <example xml:id="ex_matrix_multiply_1">
+  <example xml:id="ex_matrix_multiply_1"> <title>First Matrix Multiplication</title>
     <statement>
       <p>
         Revisit the matrix product we saw at the beginning of this section; multiply
@@ -317,8 +304,8 @@
     </statement>
     <solution>
       <p>
-        Let's call our first matrix <m>A</m> and the second B. We should first check to see that we can actually perform this multiplication.
-        Matrix <m>A</m> is <m>2\times 2</m> and B<nbsp/>is <m>2\times 3</m>.
+        Let's call our first matrix <m>A</m> and the second <m>B</m>. We should first check to see that we can actually perform this multiplication.
+        Matrix <m>A</m> is <m>2\times 2</m> and <m>B</m> is <m>2\times 3</m>.
         The
         <q>inner</q>
         dimensions match up, so we can compute the product; the
@@ -333,7 +320,7 @@
       <p>
         The entry <m>m_{11}</m> is in the first row and first column;
         therefore to find its value,
-        we need to multiply the first row of <m>A</m> by the first column of B. Thus
+        we need to multiply the first row of <m>A</m> by the first column of <m>B</m>. Thus
         <me>
           m_{11} = \left[\begin{array}{cc}  1\amp 2 \end{array} \right]\left[\begin{array}{c} 1\\2 \end{array} \right] = 1(1)+2(2) = 5
         </me>.
@@ -357,7 +344,7 @@
         </me>
       </p>
       <p>
-        To compute the second row of A B, we multiply with the second row of <m>A</m>.
+        To compute the second row of <m>A B</m>, we multiply with the second row of <m>A</m>.
         We find
         <me>
           m_{21} = \left[\begin{array}{cc} 3\amp 4 \end{array} \right]\left[\begin{array}{c} 1\\2 \end{array} \right] = 11
@@ -376,7 +363,7 @@
       </p>
     </solution>
   </example>
-  <example xml:id="ex_matrix_multiply_2">
+  <example xml:id="ex_matrix_multiply_2"> <title>Second Matrix Multiplication</title>
     <statement>
       <p>
         Multiply
@@ -388,8 +375,8 @@
     <solution>
       <p>
         Let's first check to make sure this product is defined.
-        Again calling the first matrix <m>A</m> and the second B, we see that <m>A</m> is a
-        <m>3\times 2</m> matrix and B<nbsp/>is a <m>2\times4</m> matrix;
+        Again calling the first matrix <m>A</m> and the second <m>B</m>, we see that <m>A</m> is a
+        <m>3\times 2</m> matrix and <m>B</m> is a <m>2\times4</m> matrix;
         the inner dimensions match so the product is defined,
         and the product will be a <m>3\times 4</m> matrix,
         <me>
@@ -424,7 +411,7 @@
         \end{array} \right] = 25
       </me>
       <p>
-        So far, we've computed this much of A B:
+        So far, we've computed this much of <m>A B</m>:
         <me>
           A B = \left[\begin{array}{cccc} -1\amp m_{12}\amp -6\amp m_{14}\\ m_{21}\amp m_{22}\amp 19\amp 23\\m_{31}\amp 16\amp m_{33}\amp 25 \end{array} \right]
         </me>
@@ -437,7 +424,7 @@
       </p>
     </solution>
   </example>
-  <example xml:id="ex_matrix_multiply_3">
+  <example xml:id="ex_matrix_multiply_3"> <title>Matrix Multiplication Can't Always Be Done</title>
     <statement>
       <p>
         Multiply, if possible,
@@ -448,24 +435,24 @@
     </statement>
     <solution>
       <p>
-        Again, we'll call the first matrix <m>A</m> and the second B. Checking the dimensions of each matrix,
+        Again, we'll call the first matrix <m>A</m> and the second <m>B</m>. Checking the dimensions of each matrix,
         we see that <m>A</m> is a <m>2\times 3</m> matrix,
-        whereas B<nbsp/>is a <m>2\times2</m> matrix.
+        whereas <m>B</m> is a <m>2\times2</m> matrix.
         The inner dimensions do not match,
         therefore this multiplication is not defined.
       </p>
     </solution>
   </example>
-  <example xml:id="ex_matrix_multiply_4">
+  <example xml:id="ex_matrix_multiply_4"> <title>Column by Row using Matrix Multiplication</title>
     <statement>
       <p>
         In <xref ref="ex_vector_multiplication">Example</xref>,
-        we were told that the product \vec{x}<m>\vec{u}</m> was defined, where
+        we were told that the product <m>\vec{x}\vec{u}</m> was defined, where
         <me>
           \vec{x} =\left[\begin{array}{c} -2\\4\\3 \end{array} \right]  \text{ and }   \vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right]
         </me>,
         although we were not shown what that product was.
-        Find \vec{x}<m>\vec{u}</m>.
+        Find <m>\vec{x}\vec{u}</m>.
       </p>
     </statement>
     <solution>
@@ -475,7 +462,7 @@
         they are, in fact, just matrices).
       </p>
       <p>
-        The column vector <m>\vec{x}</m> has dimensions <m>3\times1</m>,
+        The column vector <m>\vec{x}</m> has dimensions <m>3\times 1</m>,
         whereas the row vector <m>\vec{u}</m> has dimensions <m>1\times 3</m>.
         Since the inner dimensions do match,
         the matrix product is defined;
@@ -488,27 +475,27 @@
       <p>
         To compute the entry <m>m_{11}</m>,
         we multiply the first row of <m>\vec{x}</m> by the first column of <m>\vec{u}</m>.
-        What is the first row of \vec{x}? Simply the number <m>-2</m>.
-        What is the first column of \vec{u}? Just the number 1.
+          What is the first row of <m>\vec{x}</m>? Simply the number <m>-2</m>.
+          What is the first column of <m>\vec{u}</m>? Just the number <m>1</m>.
         Thus <m>m_{11} = -2</m>.
         (This does seem odd, but through checking,
         you can see that we are indeed following the rules.)
       </p>
       <p>
         What about the entry <m>m_{12}</m>?
-        Again, we multiply the first row of <m>\vec{x}</m> by the first column of \vec{u}; that is,
+        Again, we multiply the first row of <m>\vec{x}</m> by the first column of <m>\vec{u}</m>; that is,
         we multiply <m>-2(2)</m>.
         So <m>m_{12} = -4</m>.
       </p>
       <p>
         What about <m>m_{23}</m>?
-        Multiply the second row of <m>\vec{x}</m> by the third column of \vec{u}; multiply <m>4(3)</m>,
+        Multiply the second row of <m>\vec{x}</m> by the third column of <m>vec{u}</m>; multiply <m>4(3)</m>,
         so <m>m_{23} = 12</m>.
       </p>
       <p>
-        One final example:
+        One final calculation:
         <m>m_{31}</m> comes from multiplying the third row of <m>\vec{x}</m>,
-        which is 3, by the first column of <m>\vec{u}</m>, which is 1.
+        which is <m>3</m>, by the first column of <m>\vec{u}</m>, which is <m>1</m>.
         Therefore <m>m_{31} = 3</m>.
       </p>
       <p>
@@ -518,7 +505,7 @@
         </me>
       </p>
       <p>
-        After performing all 9 multiplications, we find
+        After performing all <m>9</m> multiplications, we find
         <me>
           \vec{x}\vec{u} = \left[\begin{array}{ccc} -2\amp -4\amp -6\\ 4\amp 8\amp 12\\3\amp 6\amp 9 \end{array} \right]
         </me>
@@ -538,16 +525,16 @@
   </p>
   <p>
     In <xref ref="sec_matrix_arithmetic_1">Section</xref>,
-    we identified the zero matrix O<nbsp/>that had a nice property in relation to matrix addition (i.e., <m>A+ O = A</m> for any matrix A).
+    we identified the zero matrix <m>\mathbf{0}</m> that had a nice property in relation to matrix addition (i.e., <m>A+ \mathbf{0} = A</m> for any matrix <m>A</m>).
     In the following example we'll identify a matrix that works well with multiplication as well as some multiplicative properties.
     For instance, we've learned how <m>1\cdot A = A</m>;
-    is there a <em>matrix</em> that acts like the number 1?
+    is there a <em>matrix</em> that acts like the number <m>1</m>?
     That is, can we find a matrix <m>X</m> where <m>X\cdot A= A</m>?<fn>
     We made a guess in <xref ref="sec_matrix_arithmetic_1">Section</xref>
-    that maybe a matrix of all 1s would work.
+    that maybe a matrix of all <m>1</m>'s would work.
     </fn>
   </p>
-  <example xml:id="ex_identity">
+  <example xml:id="ex_identity"> <title>What's the Identity Matrix?</title>
     <statement>
       <p>
         Let
@@ -562,17 +549,17 @@
       <ol cols="4">
         <li>
           <p>
-            A B
+            <m>A B</m>
           </p>
         </li>
         <li>
           <p>
-            B A
+            <m>B A</m>
           </p>
         </li>
         <li>
           <p>
-            <m>A\tto_{3\times4}</m>
+            <m>A\mathbf{0}_{3\times4}</m>
           </p>
         </li>
         <li>
@@ -582,7 +569,7 @@
         </li>
         <li>
           <p>
-            I A
+            <m>I A</m>
           </p>
         </li>
         <li>
@@ -592,7 +579,7 @@
         </li>
         <li>
           <p>
-            B C
+            <m>B C</m>
           </p>
         </li>
         <li>
@@ -619,17 +606,17 @@
           </li>
           <li>
             <p>
-              <m>A\tto_{3\times4} = \tto_{3\times4}</m>.
+              <m>A\mathbf{0}_{3\times4} = \mathbf{0}_{3\times4}</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>A I = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right] = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right]</m>
+              <m>A I = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right] \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]= \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right]</m>
             </p>
           </li>
           <li>
             <p>
-              <m>I A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right] = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right]</m>
+              <m>I A = \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right] \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right] = \left[\begin{array}{ccc} 1\amp 2\amp 3\\2\amp -7\amp 5\\-2\amp -8\amp 3 \end{array} \right]</m>
             </p>
           </li>
           <li>
@@ -638,7 +625,7 @@
               but we could probably make the reasonable guess that <m>I^2= I\cdot I</m>.
               Thus
               <me>
-                I^2 =  =
+                I^2 = \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right] \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right] = \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]
               </me>
             </p>
           </li>
@@ -653,9 +640,6 @@
             </p>
           </li>
         </ol>
-      </p>
-      <p>
-        \vskip -\topsep
       </p>
     </solution>
   </example>
@@ -675,8 +659,8 @@
   <p>
     <em><em>Interesting Idea #2:</em></em>
     Right before this example we wondered if there was a matrix that
-    <q>acted like the number 1,</q>
-    and guessed it may be a matrix of all 1s.
+    <q>acted like the number <m>1</m>,</q>
+    and guessed it may be a matrix of all <m>1</m>'s.
     However, we found out that such a matrix does not work in that way;
     in our example, <m>A B \neq A</m>.
     We did find that <m>A I = I A = A</m>.
@@ -706,7 +690,7 @@
     We'll answer these questions;
     first we'll do an example that demonstrates some of the things that do work.
   </p>
-  <example xml:id="ex_dist_and_assoc">
+  <example xml:id="ex_dist_and_assoc"> <title>Distributive and Associative Properties</title>
     <statement>
       <p>
         Let
@@ -844,15 +828,11 @@
     The examples given here and in the exercises should suffice until we meet the full definition later.
     </fn>
   </p>
-  <definition xml:id="def_identity">
+  <definition xml:id="def_identity"> <title>Identity Matrix</title> <idx><h>identity matrix</h></idx>
+            <idx><h>matrix</h><h>identity matrix</h></idx>
     <statement>
       <p>
-            <idx><h>identity matrix</h></idx>
-            <idx><h>matrix</h><h>identity matrix</h></idx>
-        <term>Identity Matrix</term>
-      </p>
-      <p>
-        The <m>n\times n</m> matrix with 1's on the diagonal and zeros elsewhere is the
+        The <m>n\times n</m> matrix with <m>1</m>'s on the diagonal and <m>0</m>'s elsewhere is the
         <term><m>n\times n</m> identity matrix</term>, denoted <m>I_n</m>.
         When the context makes the dimension of the identity clear,
         the subscript is generally omitted.
@@ -864,7 +844,7 @@
     the identity matrix is always a square matrix.
     We show a few identity matrices below.
     <me>
-      I_2=  , I_3 =  ,  I_4 =
+      I_2=  \left[\begin{array}{cc} 1\amp 0\\0\amp 1\end{array} \right],   I_3 = \left[\begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right], I_4 = \left[\begin{array}{cccc} 1\amp 0\amp 0 \amp 0\\0\amp 1\amp 0 \amp 0\\0\amp 0\amp 1 \amp 0 \\ 0\amp 0 \amp 0\amp 1 \end{array} \right]
     </me>
   </p>
   <p>
@@ -889,14 +869,11 @@
   <p>
     Now we give the good news of what does work when dealing with matrix multiplication.
   </p>
-  <theorem xml:id="thm_matrix_multiplication">
+  <theorem xml:id="thm_matrix_multiplication"> <title>Properties of Matrix Multiplication</title>
     <statement>
+      <idx><h>matrix</h><h>multiplication!properties</h></idx>
       <p>
-            <idx><h>matrix</h><h>multiplication!properties</h></idx>
-        <em>Properties of Matrix Multiplication</em>
-      </p>
-      <p>
-        Let <m>A</m>, B<nbsp/>and C<nbsp/>be matrices with dimensions so that the following operations make sense,
+        Let <m>A</m>, <m>B</m> and <m>C</m> be matrices with dimensions so that the following operations make sense,
         and let <m>k</m> be a scalar.
         The following equalities hold:
         <ol>
@@ -989,15 +966,19 @@
     <q>seeing</q>
     how some of these arithmetic properties work together.
   </p>
+<exercises>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises,
     row and column vectors <m>\vec{u}</m> and <m>\vec{v}</m> are defined.
-    Find the product \vec{u}<m>\vec{v}</m>, where possible.
+    Find the product <m>\vec{u} \vec{v}</m>, where possible.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{cc} 1\amp -4 \end{array} \right] \vec{v} = \left[\begin{array}{c} -2\\5 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{cc} 1\amp -4 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} -2\\5 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1009,7 +990,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{cc} 2\amp 3 \end{array} \right] \vec{v} = \left[\begin{array}{c} 7\\-4 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{cc} 2\amp 3 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 7\\-4 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1021,7 +1002,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{cc} 1\amp -1 \end{array} \right] \vec{v} = \left[\begin{array}{c} 3\\3 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{cc} 1\amp -1 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 3\\3 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1033,7 +1014,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{cc} 0.6\amp 0.8 \end{array} \right] \vec{v} = \left[\begin{array}{c} 0.6\\0.8 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{cc} 0.6\amp 0.8 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 0.6\\0.8 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1045,7 +1026,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp -1 \end{array} \right] \ \vec{v} = \left[\begin{array}{c} 2\\1\\-1 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp -1 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 2\\1\\-1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1057,7 +1038,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{ccc} 3\amp 2\amp -2 \end{array} \right] \ \vec{v} = \left[\begin{array}{c} -1\\0\\9 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{ccc} 3\amp 2\amp -2 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} -1\\0\\9 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1069,7 +1050,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{ccc} 8\amp -4\amp 3 \end{array} \right] \ \vec{v} = \left[\begin{array}{c} 2\\4\\5 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{ccc} 8\amp -4\amp 3 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 2\\4\\5 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1081,7 +1062,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{ccc} -3\amp 6\amp 1 \end{array} \right]</m> <m>\vec{v} = \left[\begin{array}{c} 1\\-1\\1 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{ccc} -3\amp 6\amp 1 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 1\\-1\\1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1093,10 +1074,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{cccc} 1\amp 2\amp 3\amp 4 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>\vec{v} = \left[\begin{array}{c} 1\\-1\\1\\-1 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{cccc} 1\amp 2\amp 3\amp 4 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 1\\-1\\1\\-1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1108,10 +1086,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{cccc} 6\amp 2\amp -1\amp 2 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>\vec{v} = \left[\begin{array}{c} 3\\2\\9\\5 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{cccc} 6\amp 2\amp -1\amp 2 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 3\\2\\9\\5 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1123,7 +1098,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right] \vec{v} = \left[\begin{array}{c} 3\\2 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{ccc} 1\amp 2\amp 3 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 3\\2 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1135,7 +1110,7 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{u} = \left[\begin{array}{cc} 2\amp -5 \end{array} \right] \vec{v} = \left[\begin{array}{c} 1\\1\\1 \end{array} \right]</m>
+        <m>\vec{u} = \left[\begin{array}{cc} 2\amp -5 \end{array} \right] \quad \vec{v} = \left[\begin{array}{c} 1\\1\\1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1144,16 +1119,17 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
   <p>
-    In the following exercises, matrices <m>A</m> and B<nbsp/>are defined.
-    <ul>
-      {(\alph{enumi})}\usecounter{enumi} \item Give the dimensions of <m>A</m> and B. If the dimensions properly match, give the dimensions of A B<nbsp/>and B<m>A</m>. \item Find the products A B<nbsp/>and B<m>A</m>, if possible.
-    </ul>
+    In the following exercises, matrices <m>A</m> and <m>B</m> are defined. Give the dimensions of <m>A</m> and <m>B</m>. If the dimensions properly match, give the dimensions of <m>A B</m> and <m>B A</m>. Find the products <m>A B</m>and <m>B A</m>, if possible.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 1\amp 2\\-1\amp 4 \end{array} \right]</m><nbsp/><m>B = \left[\begin{array}{cc} 2\amp 5\\3\amp -1 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 1\amp 2\\-1\amp 4 \end{array} \right] \quad B = \left[\begin{array}{cc} 2\amp 5\\3\amp -1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1168,7 +1144,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 3\amp 7\\2\amp 5 \end{array} \right]</m><nbsp/><m>B = \left[\begin{array}{cc} 1\amp -1\\3\amp -3 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 3\amp 7\\2\amp 5 \end{array} \right] \quad B = \left[\begin{array}{cc} 1\amp -1\\3\amp -3 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1183,10 +1159,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 3\amp -1\\2\amp 2 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} 1\amp 0\amp 7\\4\amp 2\amp 9 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 3\amp -1\\2\amp 2 \end{array} \right] \quad B = \left[\begin{array}{ccc} 1\amp 0\amp 7\\4\amp 2\amp 9 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1201,10 +1174,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 0\amp 1\\1\amp -1\\-2\amp -4 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{cc} -2\amp 0\\3\amp 8 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 0\amp 1\\1\amp -1\\-2\amp -4 \end{array} \right] \quad B = \left[\begin{array}{cc} -2\amp 0\\3\amp 8 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1219,10 +1189,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{ccc} 9\amp 4\amp 3\\9\amp -5\amp 9 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{cc} -2\amp 5\\-2\amp -1 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{ccc} 9\amp 4\amp 3\\9\amp -5\amp 9 \end{array} \right] \quad B = \left[\begin{array}{cc} -2\amp 5\\-2\amp -1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1237,10 +1204,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} -2\amp -1\\9\amp -5\\3\amp -1 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} -5\amp 6\amp -4\\0\amp 6\amp -3 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} -2\amp -1\\9\amp -5\\3\amp -1 \end{array} \right] \quad B = \left[\begin{array}{ccc} -5\amp 6\amp -4\\0\amp 6\amp -3 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1255,10 +1219,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 2\amp 6\\6\amp 2\\5\amp -1 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} -4\amp 5\amp 0\\-4\amp 4\amp -4 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 2\amp 6\\6\amp 2\\5\amp -1 \end{array} \right] \quad B = \left[\begin{array}{ccc} -4\amp 5\amp 0\\-4\amp 4\amp -4 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1273,10 +1234,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} -5\amp 2\\ -5\amp -2 \\ -5\amp -4 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} 0\amp -5\amp 6\\ -5\amp -3\amp -1 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} -5\amp 2\\ -5\amp -2 \\ -5\amp -4 \end{array} \right] \quad B = \left[\begin{array}{ccc} 0\amp -5\amp 6\\ -5\amp -3\amp -1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1291,10 +1249,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 8\amp -2\\ 4\amp 5 \\ 2\amp -5 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} -5\amp 1\amp -5\\ 8\amp 3\amp -2 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 8\amp -2\\ 4\amp 5 \\ 2\amp -5 \end{array} \right] \quad B = \left[\begin{array}{ccc} -5\amp 1\amp -5\\ 8\amp 3\amp -2 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1309,10 +1264,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 1\amp 4\\ 7\amp 6 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{cccc} 1\amp -1\amp -5\amp 5\\ -2\amp 1\amp 3\amp -5 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 1\amp 4\\ 7\amp 6 \end{array} \right] \quad B = \left[\begin{array}{cccc} 1\amp -1\amp -5\amp 5\\ -2\amp 1\amp 3\amp -5 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1327,10 +1279,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} -1\amp 5\\ 6\amp 7 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{cccc} 5\amp -3\amp -4\amp -4\\ -2\amp -5\amp -5\amp -1 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} -1\amp 5\\ 6\amp 7 \end{array} \right] \quad B = \left[\begin{array}{cccc} 5\amp -3\amp -4\amp -4\\ -2\amp -5\amp -5\amp -1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1345,10 +1294,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{ccc} -1\amp 2\amp 1\\ -1\amp 2\amp -1 \\ 0\amp 0\amp -2 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} 0\amp 0\amp -2\\ 1\amp 2\amp -1 \\ 1\amp 0\amp 0 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{ccc} -1\amp 2\amp 1\\ -1\amp 2\amp -1 \\ 0\amp 0\amp -2 \end{array} \right] \quad B = \left[\begin{array}{ccc} 0\amp 0\amp -2\\ 1\amp 2\amp -1 \\ 1\amp 0\amp 0 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1363,10 +1309,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{ccc} -1\amp 1\amp 1\\ -1\amp -1\amp -2 \\ 1\amp 1\amp -2 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} -2\amp -2\amp -2\\ 0\amp -2\amp 0 \\ -2\amp 0\amp 2 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{ccc} -1\amp 1\amp 1\\ -1\amp -1\amp -2 \\ 1\amp 1\amp -2 \end{array} \right] \quad B = \left[\begin{array}{ccc} -2\amp -2\amp -2\\ 0\amp -2\amp 0 \\ -2\amp 0\amp 2 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1381,10 +1324,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{ccc} -4\amp 3\amp 3\\ -5\amp -1\amp -5 \\ -5\amp 0\amp -1 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} 0\amp 5\amp 0\\ -5\amp -4\amp 3 \\ 5\amp -4\amp 3 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{ccc} -4\amp 3\amp 3\\ -5\amp -1\amp -5 \\ -5\amp 0\amp -1 \end{array} \right] \quad B = \left[\begin{array}{ccc} 0\amp 5\amp 0\\ -5\amp -4\amp 3 \\ 5\amp -4\amp 3 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1399,10 +1339,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{ccc} -4\amp -1\amp 3\\ 2\amp -3\amp 5 \\ 1\amp 5\amp 3 \end{array} \right]</m>
-      </p>
-      <p>
-        <m>B = \left[\begin{array}{ccc} -2\amp 4\amp 3\\ -1\amp 1\amp -1 \\ 4\amp 0\amp 2 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{ccc} -4\amp -1\amp 3\\ 2\amp -3\amp 5 \\ 1\amp 5\amp 3 \end{array} \right] \quad B = \left[\begin{array}{ccc} -2\amp 4\amp 3\\ -1\amp 1\amp -1 \\ 4\amp 0\amp 2 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1414,15 +1351,19 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises,
-    a <em>diagonal</em> matrix and a matrix <m>A</m> are given.
-    Find the products <m>A</m> and A, where possible.
+    a <em>diagonal</em> matrix <m>D</m>and a matrix <m>A</m> are given.
+    Find the products <m>DA</m> and <m>AD</m>, where possible.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
-        <m>= \left[\begin{array}{cc} 3\amp 0\\ 0\amp -1 \end{array} \right]</m>
+        <m>D= \left[\begin{array}{cc} 3\amp 0\\ 0\amp -1 \end{array} \right]</m>
       </p>
       <p>
         <m>A = \left[\begin{array}{cc} 2\amp 4\\ 6\amp 8 \end{array} \right]</m>
@@ -1430,17 +1371,17 @@
     </statement>
     <answer>
       <p>
-        <m>A= \left[\begin{array}{cc} 6\amp -4\\ 18\amp -8 \end{array} \right]</m>
+        <m>AD= \left[\begin{array}{cc} 6\amp -4\\ 18\amp -8 \end{array} \right]</m>
       </p>
       <p>
-        <m>A = \left[\begin{array}{cc} 6\amp 12\\ -6\amp -8 \end{array} \right]</m>
+        <m>DA = \left[\begin{array}{cc} 6\amp 12\\ -6\amp -8 \end{array} \right]</m>
       </p>
     </answer>
   </exercise>
   <exercise>
     <statement>
       <p>
-        <m>= \left[\begin{array}{cc} 4\amp 0\\ 0\amp -3 \end{array} \right]</m>
+        <m>D= \left[\begin{array}{cc} 4\amp 0\\ 0\amp -3 \end{array} \right]</m>
       </p>
       <p>
         <m>A = \left[\begin{array}{cc} 1\amp 2\\ 1\amp 2 \end{array} \right]</m>
@@ -1448,17 +1389,17 @@
     </statement>
     <answer>
       <p>
-        <m>A= \left[\begin{array}{cc} 4\amp -6\\ 4\amp -6 \end{array} \right]</m>
+        <m>AD= \left[\begin{array}{cc} 4\amp -6\\ 4\amp -6 \end{array} \right]</m>
       </p>
       <p>
-        <m>A = \left[\begin{array}{cc} 4\amp 8\\ -3\amp -6 \end{array} \right]</m>
+        <m>DA = \left[\begin{array}{cc} 4\amp 8\\ -3\amp -6 \end{array} \right]</m>
       </p>
     </answer>
   </exercise>
   <exercise>
     <statement>
       <p>
-        <m>= \left[\begin{array}{ccc} -1\amp 0\amp 0\\ 0\amp 2\amp 0 \\ 0\amp 0\amp 3 \end{array} \right]</m>
+        <m>D= \left[\begin{array}{ccc} -1\amp 0\amp 0\\ 0\amp 2\amp 0 \\ 0\amp 0\amp 3 \end{array} \right]</m>
       </p>
       <p>
         <m>A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\ 4\amp 5\amp 6 \\ 7\amp 8\amp 9 \end{array} \right]</m>
@@ -1466,7 +1407,10 @@
     </statement>
     <answer>
       <p>
-        <m>A= \left[\begin{array}{ccc} -1\amp 4\amp 9\\ -4\amp 10\amp 18 \\ -7\amp 16\amp 27 \end{array} \right]</m>\ <m>A = \left[\begin{array}{ccc} -1\amp -2\amp -3\\ 8\amp 10\amp 12 \\ 21\amp 24\amp 27 \end{array} \right]</m>
+        <m>AD= \left[\begin{array}{ccc} -1\amp 4\amp 9\\ -4\amp 10\amp 18 \\ -7\amp 16\amp 27 \end{array} \right]</m>
+        </p>
+      <p>
+          <m>DA = \left[\begin{array}{ccc} -1\amp -2\amp -3\\ 8\amp 10\amp 12 \\ 21\amp 24\amp 27 \end{array} \right]</m>
       </p>
     </answer>
   </exercise>
@@ -1476,19 +1420,22 @@
         <m>A = \left[\begin{array}{ccc} 1\amp 1\amp 1\\ 2\amp 2\amp 2 \\ -3\amp -3\amp -3 \end{array} \right]</m>
       </p>
       <p>
-        <m>= \left[\begin{array}{ccc} 2\amp 0\amp 0\\ 0\amp -3\amp 0 \\ 0\amp 0\amp 5 \end{array} \right]</m>
+        <m>D = \left[\begin{array}{ccc} 2\amp 0\amp 0\\ 0\amp -3\amp 0 \\ 0\amp 0\amp 5 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
       <p>
-        <m>A= \left[\begin{array}{ccc} 2\amp 2\amp 2\\ -6\amp -6\amp -6 \\ -15\amp -15\amp -15 \end{array} \right]</m>\ <m>A = \left[\begin{array}{ccc} 2\amp -3\amp 5\\ 4\amp -6\amp 10 \\ -6\amp 9\amp -15 \end{array} \right]</m>
+        <m>DA= \left[\begin{array}{ccc} 2\amp 2\amp 2\\ -6\amp -6\amp -6 \\ -15\amp -15\amp -15 \end{array} \right]</m>
+      </p>
+      <p>
+        <m>AD = \left[\begin{array}{ccc} 2\amp -3\amp 5\\ 4\amp -6\amp 10 \\ -6\amp 9\amp -15 \end{array} \right]</m>
       </p>
     </answer>
   </exercise>
   <exercise>
     <statement>
       <p>
-        <m>= \left[\begin{array}{cc} d_1\amp 0\\ 0\amp d_2 \end{array} \right]</m>
+        <m>D = \left[\begin{array}{cc} d_1\amp 0\\ 0\amp d_2 \end{array} \right]</m>
       </p>
       <p>
         <m>A = \left[\begin{array}{cc} a\amp b\\ c\amp d \end{array} \right]</m>
@@ -1496,17 +1443,17 @@
     </statement>
     <answer>
       <p>
-        <m>A= \left[\begin{array}{cc} d_1a\amp d_1b\\ d_2c\amp d_2d \end{array} \right]</m>
+        <m>DA= \left[\begin{array}{cc} d_1a\amp d_1b\\ d_2c\amp d_2d \end{array} \right]</m>
       </p>
       <p>
-        <m>A = \left[\begin{array}{cc} d_1a\amp d_2b\\ d_1c\amp d_2d \end{array} \right]</m>
+        <m>AD = \left[\begin{array}{cc} d_1a\amp d_2b\\ d_1c\amp d_2d \end{array} \right]</m>
       </p>
     </answer>
   </exercise>
   <exercise>
     <statement>
       <p>
-        <m>= \left[\begin{array}{ccc} d_1\amp 0\amp 0\\ 0\amp d_2\amp 0 \\ 0\amp 0\amp d_3 \end{array} \right]</m>
+        <m>D = \left[\begin{array}{ccc} d_1\amp 0\amp 0\\ 0\amp d_2\amp 0 \\ 0\amp 0\amp d_3 \end{array} \right]</m>
       </p>
       <p>
         <m>A = \left[\begin{array}{ccc} a\amp b\amp c\\ d\amp e\amp f \\ g\amp h\amp i \end{array} \right]</m>
@@ -1514,19 +1461,22 @@
     </statement>
     <answer>
       <p>
-        <m>A= \left[\begin{array}{ccc} d_1a\amp d_1b\amp d_1c\\ d_2d\amp d_2e\amp d_2f \\ d_3g\amp d_3h\amp d_3i \end{array} \right]</m>\ <m>A = \left[\begin{array}{ccc} d_1a\amp d_2b\amp d_3c\\ d_1d\amp d_2e\amp d_3f \\ d_1g\amp d_2h\amp d_3i \end{array} \right]</m>
+        <m>DA= \left[\begin{array}{ccc} d_1a\amp d_1b\amp d_1c\\ d_2d\amp d_2e\amp d_2f \\ d_3g\amp d_3h\amp d_3i \end{array} \right]</m>\ <m>AD = \left[\begin{array}{ccc} d_1a\amp d_2b\amp d_3c\\ d_1d\amp d_2e\amp d_3f \\ d_1g\amp d_2h\amp d_3i \end{array} \right]</m>
       </p>
     </answer>
   </exercise>
-  <p>
-    In the following exercises,
-    a matrix <m>A</m> and a vector <m>\vec{x}</m> are given.
-    Find the product A<m>\vec{x}</m>.
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
+   <p>
+    In the following exercises, a matrix <m>A</m> and a vector <m>\vec{x}</m> are given.
+    Find the product <m>A\vec{x}</m>.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 2\amp 3\\ 1\amp -1 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} 4\\ 9 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 2\amp 3\\ 1\amp -1 \end{array} \right] \quad \vec{x} = \left[\begin{array}{c} 4\\ 9 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1538,7 +1488,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} -1\amp 4\\ 7\amp 3 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} 2\\ -1 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} -1\amp 4\\ 7\amp 3 \end{array} \right] \quad \vec{x} = \left[\begin{array}{c} 2\\ -1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1550,7 +1500,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{ccc} 2\amp 0\amp 3\\ 1\amp 1\amp 1 \\ 3\amp -1\amp 2 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} 1\\ 4\\ 2 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{ccc} 2\amp 0\amp 3\\ 1\amp 1\amp 1 \\ 3\amp -1\amp 2 \end{array} \right] \quad \vec{x} = \left[\begin{array}{c} 1\\ 4\\ 2 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1562,7 +1512,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{ccc} -2\amp 0\amp 3\\ 1\amp 1\amp -2 \\ 4\amp 2\amp -1 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} 4\\ 3\\ 1 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{ccc} -2\amp 0\amp 3\\ 1\amp 1\amp -2 \\ 4\amp 2\amp -1 \end{array} \right] \quad \vec{x} = \left[\begin{array}{c} 4\\ 3\\ 1 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1574,7 +1524,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{cc} 2\amp -1\\ 4\amp 3 \end{array} \right]</m> ,<m>\vec{x} = \left[\begin{array}{c} x_1\\ x_2 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{cc} 2\amp -1\\ 4\amp 3 \end{array} \right] \quad \vec{x} = \left[\begin{array}{c} x_1\\ x_2 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1586,7 +1536,7 @@
   <exercise>
     <statement>
       <p>
-        <m>A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\ 1\amp 0\amp 2 \\ 2\amp 3\amp 1 \end{array} \right]</m>,<m>\vec{x} = \left[\begin{array}{c} x_1\\ x_2\\ x_3 \end{array} \right]</m>
+        <m>A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\ 1\amp 0\amp 2 \\ 2\amp 3\amp 1 \end{array} \right] \quad \vec{x} = \left[\begin{array}{c} x_1\\ x_2\\ x_3 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
@@ -1595,6 +1545,7 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
   <exercise>
     <statement>
       <p>
@@ -1679,7 +1630,7 @@
           </li>
           <li>
             <p>
-              Find <m>( A+ B)^2</m> by using your answer from (a).
+              Find <m>( A+ B)^2</m> by using your answer from the first part.
             </p>
           </li>
           <li>
@@ -1689,7 +1640,7 @@
           </li>
           <li>
             <p>
-              Are the results from (a) and (b) the same?
+              Are the results from the second and third parts the same?
             </p>
           </li>
           <li>
@@ -1731,4 +1682,5 @@
       </ol>
     </answer>
   </exercise>
+ </exercises>
 </section>
