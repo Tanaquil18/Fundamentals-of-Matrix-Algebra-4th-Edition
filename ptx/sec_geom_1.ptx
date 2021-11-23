@@ -29,6 +29,7 @@
       </li>
     </ol>
   </objectives>
+ <introduction xml:id="subsec_draw_vecs_2D"><title>Drawing Vectors in the Plane</title>
   <p>
     When we first learned about adding numbers together,
     it was useful to picture a number line:
@@ -98,16 +99,16 @@
   <p>
     Let's practice this concept by drawing various vectors from given starting points.
   </p>
-  <example xml:id="ex_draw_vectors_1">
+  <example xml:id="ex_draw_vectors_1"><title>Drawing Vectors</title>
     <statement>
       <p>
         Let
         <me>
-          \vec{x} = \left[\begin{array}{c} 1\\-1 \end{array} \right]  \vec{y} = \left[\begin{array}{c}  2\\3 \end{array} \right]  \text{ and }    = \left[\begin{array}{c}  -3\\2 \end{array} \right]
+          \vec{x} = \left[\begin{array}{c} 1\\-1 \end{array} \right] \ \ \  \vec{y} = \left[\begin{array}{c}  2\\3 \end{array} \right]  \text{ and }  \ \ \   \vec{z} = \left[\begin{array}{c}  -3\\2 \end{array} \right]
         </me>.
         Draw <m>\vec{x}</m> starting from the point <m>(0,-1)</m>;
         draw <m>\vec{y}</m> starting from the point <m>(-1,-1)</m>,
-        and draw  starting from the point <m>(2,-1)</m>.
+        and draw <m>\vec{z}</m> starting from the point <m>(2,-1)</m>.
       </p>
     </statement>
     <solution>
@@ -124,7 +125,7 @@
         hence <m>\vec{y}</m> points from <m>(-1,-1)</m> to (1,2).
       </p>
       <p>
-        To draw , we start at <m>(2,-1)</m> and draw the tip 3 units to the left and 2 units up;
+        To draw <m>\vec{z}</m>, we start at <m>(2,-1)</m> and draw the tip 3 units to the left and 2 units up;
         points from <m>(2,-1)</m> to <m>(-1,1)</m>.
       </p>
       <p>
@@ -159,8 +160,8 @@
     we start by going 0 units in the <m>x</m> direction,
     followed by 0 units in the <m>y</m> direction.
     In other words, we don't go anywhere.
-    In general, we don't actually draw \vec{0}. At best,
-    one can draw a dark circle at the origin to convey the idea that \vec{0}, when starting at the origin,
+      In general, we don't actually draw <m>\vec{0}</m>. At best,
+      one can draw a dark circle at the origin to convey the idea that <m>\vec{0}</m>, when starting at the origin,
     points to the origin.
   </p>
   <p>
@@ -171,15 +172,14 @@
     <q>draw</q>
     these operations.
   </p>
-  <p>
-    <em><em> Vector Addition</em></em>
-  </p>
+    </introduction>
+ <subsection xml:id="subsec_vec_add_2D"><title>Vector Addition</title>
   <p>
     Given two vectors <m>\vec{x}</m> and <m>\vec{y}</m>,
     how do we draw the vector <m>\vec{x}+\vec{y}</m>?
     Let's look at this in the context of an example, then study the result.
   </p>
-  <example xml:id="ex_add_vectors_1">
+  <example xml:id="ex_add_vectors_1"><title>Drawing Vector Addition</title>
     <statement>
       <p>
         Let
@@ -274,10 +274,7 @@
 </latex-image>
     </image>
   </figure>
-  <insight xml:id="idea_Parallelogram">
-    <p>
-      <term>Parallelogram Law</term>
-    </p>
+  <insight xml:id="idea_Parallelogram"><title>Parallelogram Law</title>
     <p>
       To draw the vector <m>\vec{x}+\vec{y}</m>,
       one can draw the parallelogram with <m>\vec{x}</m> and <m>\vec{y}</m> as its sides.
@@ -288,14 +285,12 @@
     Knowing all of this allows us to draw the sum of two vectors without knowing specifically what the vectors are,
     as we demonstrate in the following example.
   </p>
-  <example xml:id="ex_draw_add">
+  <example xml:id="ex_draw_add"><title>Vector Addition by Drawing</title>
     <statement>
       <p>
         Consider the vectors <m>\vec{x}</m> and <m>\vec{y}</m> as drawn in <xref ref="fig_draw_add_1">Figure</xref>.
         Sketch the vector <m>\vec{x}+\vec{y}</m>.
       </p>
-    </statement>
-    <solution>
       <figure xml:id="fig_draw_add_1">
         <caption>Vectors <m>\vec{x}</m> and <m>\vec{y}</m> in <xref ref="ex_draw_add">Example</xref></caption>
         <image>
@@ -307,6 +302,8 @@
 </latex-image>
         </image>
       </figure>
+        </statement>
+    <solution>
       <p>
         We'll apply the Parallelogram Law,
         as given in <xref ref="idea_Parallelogram">Key Idea</xref>.
@@ -329,23 +326,21 @@
       </figure>
     </solution>
   </example>
-  <p>
-    <em><em> Scalar Multiplication</em></em>
-  </p>
+ </subsection>
+ <subsection xml:id="subsec_scalar_mult"><title>Scalar Multiplication</title>
   <p>
     After learning about matrix addition,
     we learned about scalar multiplication.
     We apply that concept now to vectors and see how this is represented graphically.
   </p>
-  <example xml:id="ex_scalar_vect_1">
+  <example xml:id="ex_scalar_vect_1"><title>Drawing Scalar Multiplication</title>
     <statement>
       <p>
         Let
         <me>
           \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]  \text{ and }   \vec{y} = \left[\begin{array}{c} -2\\1 \end{array} \right]
         </me>.
-        Sketch <m>\vec{x}</m>,
-        <m>\vec{y}</m>, 3<m>\vec{x}</m> and <m>-1\vec{y}</m>.
+        Sketch <m>\vec{x}</m>, <m>\vec{y}</m>, 3<m>\vec{x}</m> and <m>-1\vec{y}</m>.
       </p>
     </statement>
     <solution>
@@ -386,9 +381,7 @@
     (they lie on the same line),
     but 3<m>\vec{x}</m> is just longer than <m>\vec{x}</m>. (In fact,
     it looks like 3<m>\vec{x}</m> is <em>3</em>
-    times longer than <m>\vec{x}</m>.
-    Is it?
-    How do we measure length?)
+    times longer than <m>\vec{x}</m>. Is it? How do we measure length?)
   </p>
   <p>
     We also see that <m>\vec{y}</m> and
@@ -396,21 +389,19 @@
     but point in the opposite direction.
   </p>
   <p>
-    A vector inherently conveys two pieces of information:
-    length and direction.
-    Multiplying a vector by a positive scalar <m>c</m> stretches the vectors by a factor of <m>c</m>;
-    multiplying by a negative scalar <m>c</m> both stretches the vector and makes it point in the opposite direction.
+    A vector inherently conveys two pieces of information: length and direction.
+    Multiplying a vector by a positive scalar <m>c</m> stretches the vectors by a factor of <m>c</m>; multiplying by a negative scalar <m>c</m> both stretches the vector and makes it point in the opposite direction.
   </p>
   <p>
     Knowing this,
     we can sketch scalar multiples of vectors without knowing specifically what they are,
     as we do in the following example.
   </p>
-  <example xml:id="ex_draw_scale_1">
+  <example xml:id="ex_draw_scale_1"><title>Scalar Multiplication by Drawing</title>
     <statement>
       <p>
         Let vectors <m>\vec{x}</m> and <m>\vec{y}</m> be as in <xref ref="fig_draw_scale_1">Figure</xref>.
-        Draw 3<m>\vec{x}</m>, <m>-2\vec{x}</m>,
+        Draw <m>3\vec{x}</m>, <m>-2\vec{x}</m>,
         and <m>\frac12\vec{y}</m>.
       </p>
       <figure xml:id="fig_draw_scale_1">
@@ -427,9 +418,9 @@
     </statement>
     <solution>
       <p>
-        To draw 3<m>\vec{x}</m>,
+        To draw <m>3\vec{x}</m>,
         we draw a vector in the same direction as <m>\vec{x}</m>,
-        but 3 times as long.
+        but <m>3</m> times as long.
         To draw <m>-2\vec{x}</m>,
         we draw a vector twice as long as <m>\vec{x}</m> in the opposite direction;
         to draw <m>\frac12\vec{y}</m>,
@@ -453,24 +444,20 @@
       </figure>
     </solution>
   </example>
-  <p>
-    <em><em>Vector Subtraction</em></em>
-  </p>
+  </subsection>
+  <subsection xml:id="subsec_vec_subtract_2D"><title>Vector Subtraction</title>
   <p>
     The final basic operation to consider between two vectors is that of vector subtraction:
-    given vectors <m>\vec{x}</m> and <m>\vec{y}</m>,
-    how do we draw <m>\vec{x}-\vec{y}</m>?
+    given vectors <m>\vec{x}</m> and <m>\vec{y}</m>, how do we draw <m>\vec{x}-\vec{y}</m>?
   </p>
   <p>
     If we know explicitly what <m>\vec{x}</m> and <m>\vec{y}</m> are,
     we can simply compute what <m>\vec{x}-\vec{y}</m> is and then draw it.
     We can also think in terms of vector addition and scalar multiplication:
-    we can <em>add</em> the vectors <m>\vec{x} + (-1)\vec{y}</m>.
-    That is, we can draw <m>\vec{x}</m> and draw <m>-\vec{y}</m>,
-    then add them as we did in <xref ref="ex_draw_add">Example</xref>.
+    we can <em>add</em> the vectors <m>\vec{x} + (-1)\vec{y}</m>. That is, we can draw <m>\vec{x}</m> and draw <m>-\vec{y}</m>, then add them as we did in <xref ref="ex_draw_add">Example</xref>.
     This is especially useful we don't know explicitly what <m>\vec{x}</m> and <m>\vec{y}</m> are.
   </p>
-  <example xml:id="ex_subtract">
+  <example xml:id="ex_subtract"><title>Vector Subtraction by Drawing</title>
     <statement>
       <p>
         Let vectors <m>\vec{x}</m> and <m>\vec{y}</m> be as in <xref ref="fig_subtract_1">Figure</xref>.
@@ -490,9 +477,7 @@
     </statement>
     <solution>
       <p>
-        To draw <m>\vec{x}-\vec{y}</m>,
-        we will first draw <m>-\vec{y}</m> and then apply the Parallelogram Law to add <m>\vec{x}</m> to <m>-\vec{y}</m>.
-        See <xref ref="fig_subtract_2">Figure</xref>.
+        To draw <m>\vec{x}-\vec{y}</m>, we will first draw <m>-\vec{y}</m> and then apply the Parallelogram Law to add <m>\vec{x}</m> to <m>-\vec{y}</m>. See <xref ref="fig_subtract_2">Figure</xref>.
       </p>
       <figure xml:id="fig_subtract_2">
         <caption>Vectors <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{x} -  \vec{y}</m> in <xref ref="ex_subtract">Example</xref></caption>
@@ -516,15 +501,10 @@
     we redraw <xref ref="fig_subtract_2">Figure</xref>
     from <xref ref="ex_subtract">Example</xref>
     but remove the gray vectors that tend to add clutter,
-    and we redraw the vector <m>\vec{x}-\vec{y}</m> dotted so that it starts from the tip of <m>\vec{y}</m>.<fn>
-    Remember that we can draw vectors starting from anywhere.
-    </fn> Note that the dotted version of
-    <m>\vec{x}-\vec{y}</m> points from <m>\vec{y}</m> to <m>\vec{x}</m>.
-    This is a
-    <q>shortcut</q>
-    to drawing <m>\vec{x}-\vec{y}</m>;
-    simply draw the vector that starts at the tip of <m>\vec{y}</m> and ends at the tip of <m>\vec{x}</m>.
-    This is important so we make it a Key Idea.
+    and we redraw the vector <m>\vec{x}-\vec{y}</m> dotted so that it starts from the tip of <m>\vec{y}</m>.
+    <fn> Remember that we can draw vectors starting from anywhere. </fn> Note that the dotted version of
+    <m>\vec{x}-\vec{y}</m> points from <m>\vec{y}</m> to <m>\vec{x}</m>. This is a <q>shortcut</q>
+    to drawing <m>\vec{x}-\vec{y}</m>; simply draw the vector that starts at the tip of <m>\vec{y}</m> and ends at the tip of <m>\vec{x}</m>. This is important so we make it a Key Idea.
   </p>
   <figure xml:id="fig_subtract_3">
     <caption>Redrawing vector <m>\vec{x} - \vec{y}</m></caption>
@@ -540,23 +520,19 @@
 </latex-image>
     </image>
   </figure>
-  <insight xml:id="idea_vector_subtract">
+  <insight xml:id="idea_vector_subtract"><title>Drawing Vector Subtraction</title>
     <p>
-      <term>Vector Subtraction</term>
-    </p>
-    <p>
-      To draw the vector <m>\vec{x}-\vec{y}</m>,
-      draw <m>\vec{x}</m> and <m>\vec{y}</m> so that they have the same origin.
+      To draw the vector <m>\vec{x}-\vec{y}</m>, draw <m>\vec{x}</m> and <m>\vec{y}</m> so that they have the same origin.
       The vector <m>\vec{x}-\vec{y}</m> is the vector that starts from the tip of <m>\vec{y}</m> and points to the tip of <m>\vec{x}</m>.
     </p>
   </insight>
   <p>
     Let's practice this once more with a quick example.
   </p>
-  <example xml:id="ex_subtract_quick">
+  <example xml:id="ex_subtract_quick"><title>Another Vector Subtraction by Drawing</title>
     <statement>
       <p>
-        Let <m>\vec{x}</m> and <m>\vec{y}</m> be as in <xref ref="fig_subtract_quick_2">Figure</xref>(a).
+        Let <m>\vec{x}</m> and <m>\vec{y}</m> be as in <xref ref="fig_subtract_quick_2">Figure</xref>.
         Draw <m>\vec{x}-\vec{y}</m>.
       </p>
     </statement>
@@ -591,9 +567,8 @@
       </figure>
     </solution>
   </example>
-  <p>
-    <em><em>Vector Length</em></em>
-  </p>
+    </subsection>
+  <subsection xml:id="subsec_vec_length_2D"><title>Vector Length</title>
   <p>
     When we discussed scalar multiplication,
     we made reference to a fundamental question: How do we measure the length of a vector?
@@ -624,48 +599,39 @@
     </image>
   </figure>
   <p>
-    It is easy to see that the dashed line has length 4 and the dotted line has length 3.
-    We'll let <m>c</m> denote the length of \vec{x}; according to the Pythagorean Theorem,
-    <m>4^2+3^2 = c^2</m>.
-    Thus <m>c^2 = 25</m> and we quickly deduce that <m>c=5</m>.
+    It is easy to see that the dashed line has length <m>4</m> and the dotted line has length <m>3</m>.  We'll let <m>c</m> denote the length of <m>\vec{x}</m>;  according to the Pythagorean Theorem, <m>4^2+3^2 = c^2</m>.  Thus <m>c^2 = 25</m> and we quickly deduce that <m>c=5</m>.
   </p>
   <p>
     Notice that in our figure,
-    <m>\vec{x}</m> goes to the right 4 units and then up 3 units.
+    <m>\vec{x}</m> goes to the right <m>4</m> units and then up <m>3</m> units.
     In other words, we can write
     <me>
       \vec{x} = \left[\begin{array}{c}  4\\3 \end{array} \right]
     </me>.
     We learned above that the length of <m>\vec{x}</m> is <m>\sqrt{4^2+3^2}</m>.<fn>
     Remember that <m>\sqrt{4^2+3^2} \neq 4+3</m>!
-    </fn> This hints at a basic calculation that works for all vectors <m>\vec{x}</m>,
-    and we define the length of a vector according to this rule.
+    </fn>  This hints at a basic calculation that works for all vectors <m>\vec{x}</m>,  and we define the length of a vector according to this rule.
   </p>
-  <definition xml:id="def_vector_length">
+  <definition xml:id="def_vector_length"><title>Vector Length</title><idx><h>vector</h><h>length</h></idx>
     <statement>
-      <p>
-        <term>Vector Length</term>
-            <idx><h>vector</h><h>length</h></idx>
-      </p>
       <p>
         Let
         <me>
           \vec{x} = \left[\begin{array}{c} x_1\\x_2 \end{array} \right]
         </me>.
-        The <term>length</term> of <m>\vec{x}</m>,
-        denoted <m>||\vec{x}||</m>, is
+        The <term>length</term> of <m>\vec{x}</m>, denoted <m>\lVert\vec{x}\rVert</m>, is
         <me>
-          ||\vec{x}|| = \sqrt{x_1^2+x_2^2}
+          \lVert\vec{x}\rVert = \sqrt{x_1^2+x_2^2}
         </me>
       </p>
     </statement>
   </definition>
-  <example xml:id="ex_length">
+  <example xml:id="ex_length"><title>Calculating the Length of Vectors in the Plane</title>
     <statement>
       <p>
         Find the length of each of the vectors given below.
         <me>
-          \vec{x}= \left[\begin{array}{c} 1\\1 \end{array} \right]  \vec{x}= \left[\begin{array}{c}  2\\-3 \end{array} \right]  \vec{x}=\left[\begin{array}{c}  .6\\.8 \end{array} \right]  \vec{x}=\left[\begin{array}{c}  3\\0 \end{array} \right]
+          \vec{x}_1= \left[\begin{array}{c} 1\\1 \end{array} \right], \ \  \vec{x}_2= \left[\begin{array}{c}  2\\-3 \end{array} \right],  \ \ \vec{x}_3=\left[\begin{array}{c}  0.6\\0.8 \end{array} \right],\ \   \vec{x}_4=\left[\begin{array}{c}  3\\0 \end{array} \right]
         </me>
       </p>
     </statement>
@@ -673,11 +639,11 @@
       <p>
         We apply <xref ref="def_vector_length">Definition</xref> to each vector.
         <md>
-          <mrow>||\vec{x}|| \amp = \sqrt{1^2+1^2} = \sqrt{2}.</mrow>
-          <mrow>||\vec{x}|| \amp = \sqrt{2^2+(-3)^2} = \sqrt{13}.</mrow>
-          <mrow>||\vec{x}|| \amp = \sqrt{.6^2 +.8^2} = \sqrt{.36+.64} = 1.</mrow>
-          <mrow>||\vec{x}|| \amp = \sqrt{3^2+0} = 3</mrow>
-        </md>.
+          <mrow>\lVert\vec{x}_1\rVert \amp = \sqrt{1^2+1^2} = \sqrt{2}.</mrow>
+          <mrow>\lVert\vec{x}_2\rVert \amp = \sqrt{2^2+(-3)^2} = \sqrt{13}.</mrow>
+          <mrow>\lVert\vec{x}_3\rVert \amp = \sqrt{0.6^2 +0.8^2} = \sqrt{0.36+0.64} = 1.</mrow>
+          <mrow>\lVert\vec{x}_4\rVert \amp = \sqrt{3^2+0} = 3</mrow>
+        </md>
       </p>
     </solution>
   </example>
@@ -686,19 +652,14 @@
     let's revisit a statement we made as we explored <xref ref="ex_scalar_vect_1">Examples</xref>
     and <xref ref="ex_draw_scale_1"></xref>:
     <q>Multiplying a vector by a positive scalar <m>c</m> stretches the vectors by a factor of <m>c</m> <m>\ldots</m></q>
-    At that time,
-    we did not know how to measure the length of a vector,
-    so our statement was unfounded.
-    In the following example,
-    we will confirm the truth of our previous statement.
+    At that time, we did not know how to measure the length of a vector, so our statement was unfounded.
+    In the following example, we will confirm the truth of our previous statement.
   </p>
-  <example xml:id="ex_scalar_vect_2">
+  <example xml:id="ex_scalar_vect_2"><title>Scalar Multiplication and Length</title>
     <statement>
       <p>
-        Let <m>\vec{x} = \left[\begin{array}{c} 2\\-1 \end{array} \right]</m>.
-        Compute <m>||\vec{x}||</m>,
-        <m>||3\vec{x}||</m>, <m>||-2\vec{x}||</m>,
-        and <m>||c\vec{x}||</m>, where <m>c</m> is a scalar.
+        Let <m>\vec{x} = \left[\begin{array}{c} 2\\-1 \end{array} \right]</m>.  Compute <m>\lVert\vec{x}\rVert</m>,
+         <m>\lVert 3\vec{x}\rVert </m>, <m>\lVert -2\vec{x}\rVert </m>, and <m>\lVert c\vec{x}\rVert </m>, where <m>c</m> is a scalar.
       </p>
     </statement>
     <solution>
@@ -706,29 +667,29 @@
         We apply <xref ref="def_vector_length">Definition</xref> to each of the vectors.
       </p>
       <p>
-        <m>||\vec{x}|| = \sqrt{4+1} = \sqrt{5}</m>.
+        <m>\lVert \vec{x}\rVert  = \sqrt{4+1} = \sqrt{5}</m>.
       </p>
       <p>
-        Before computing the length of <m>||3\vec{x}||</m>,
+        Before computing the length of <m>\lVert 3\vec{x}\rVert </m>,
         we note that <m>3\vec{x} = \left[\begin{array}{c} 6\\-3 \end{array} \right]</m>.
       </p>
       <p>
-        <m>||3\vec{x}|| = \sqrt{36+9} = \sqrt{45} = 3\sqrt{5} = 3||\vec{x}||</m>.
+        <m>\lVert 3\vec{x}\rVert = \sqrt{36+9} = \sqrt{45} = 3\sqrt{5} = 3\lVert \vec{x} \rVert </m>.
       </p>
       <p>
-        Before computing the length of <m>||-2\vec{x}||</m>,
+        Before computing the length of <m>\lVert -2\vec{x}\rVert </m>,
         we note that <m>-2\vec{x} = \left[\begin{array}{c} -4\\2 \end{array} \right]</m>.
       </p>
       <p>
-        <m>||-2\vec{x}|| = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5} = 2||\vec{x}||</m>.
+        <m>\lVert -2\vec{x}\rVert = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5} = 2\lVert \vec{x} \rVert </m>.
       </p>
       <p>
-        Finally, to compute <m>||c\vec{x}||</m>,
+        Finally, to compute <m>\lVert c\vec{x} \rVert </m>,
         we note that <m>c\vec{x} = \left[\begin{array}{c} 2c\\-c \end{array} \right]</m>.
         Thus:
       </p>
       <p>
-        <m>||c\vec{x}|| = \sqrt{(2c)^2 + (-c)^2} = \sqrt{4c^2 + c^2} = \sqrt{5c^2} = |c|\sqrt{5}</m>.
+        <m>\lVert c\vec{x}\rVert = \sqrt{(2c)^2 + (-c)^2} = \sqrt{4c^2 + c^2} = \sqrt{5c^2} = |c|\sqrt{5}</m>.
       </p>
       <p>
         This last line is true because the square root of any number squared is the <em>absolute value</em>
@@ -740,36 +701,30 @@
   <p>
     The last computation of our example is the most important one.
     It shows that, in general,
-    multiplying a vector <m>\vec{x}</m> by a scalar <m>c</m> stretches <m>\vec{x}</m> by a factor of <m>|c|</m>
-    (and the direction will change if <m>c</m> is negative).
+    multiplying a vector <m>\vec{x}</m> by a scalar <m>c</m> stretches <m>\vec{x}</m> by a factor of <m>|c|</m> (and the direction will change if <m>c</m> is negative).
     This is important so we'll make it a Theorem.
   </p>
-  <theorem xml:id="thm_vect_length">
+  <theorem xml:id="thm_vect_length"><title>Vector Length and Scalar Multiplication</title>
     <statement>
-      <p>
-        <em>Vector Length and Scalar Multiplication</em>
-      </p>
       <p>
         Let <m>\vec{x}</m> be a vector and let <m>c</m> be a scalar.
         Then the length of <m>c\vec{x}</m> is
         <me>
-          ||c\vec{x}|| = |c|\cdot ||\vec{x}||
+          \lVert c\vec{x}\rVert = |c|\cdot \lVert \vec{x} \rVert
         </me>
       </p>
     </statement>
   </theorem>
-  <p>
-    <em><em>Matrix <m>-</m> Vector Multiplication</em></em>
-  </p>
+    </subsection>
+    <subsection xml:id="subsec_mv_mult_2D"><title>Matrix <ndash/> Vector Multiplication</title>
   <p>
     The last arithmetic operation to consider visualizing is matrix multiplication.
-    Specifically,
-    we want to visualize the result of multiplying a vector by a matrix.
+    Specifically, we want to visualize the result of multiplying a vector by a matrix.
     In order to multiply a 2D vector by a matrix and get a 2D vector back,
     our matrix must be a square, <m>2\times 2</m> matrix.<fn>
     We can multiply a <m>3\times 2</m> matrix by a 2D vector and get a 3D vector back,
     and this gives very interesting results.
-    See <xref ref="sec_lin_trans">section</xref>.
+    See <xref ref="sec_lin_trans">Section</xref>.
     </fn>
   </p>
   <p>
@@ -777,19 +732,18 @@
     Given a matrix <m>A</m> and several vectors,
     we'll graph the vectors before and after they've been multiplied by <m>A</m> and see what we learn.
   </p>
-  <example xml:id="ex_mv_1">
+  <example xml:id="ex_mv_1"><title>Vectors Multiplied by a Matrix</title>
     <statement>
       <p>
-        Let <m>A</m> be a matrix,
-        and <m>\vec{x}</m>, <m>\vec{y}</m>,
-        and  be vectors as given below.
+        Let <m>A</m> be the matrix given below,
+        and <m>\vec{x}</m>, <m>\vec{y}</m>, and <m>\vec{z}</m> be the vectors given below.
         <me>
-          A = \left[\begin{array}{cc}  1\amp 4\\2\amp 3 \end{array} \right],   \vec{x} = \left[\begin{array}{c}  1\\1 \end{array} \right],  \vec{y} = \left[\begin{array}{c} -1\\1 \end{array} \right],   = \left[\begin{array}{c}  3\\-1 \end{array} \right]
+          A = \left[\begin{array}{cc}  1\amp 4\\2\amp 3 \end{array} \right], \ \  \vec{x} = \left[\begin{array}{c}  1\\1 \end{array} \right],  \ \ \vec{y} = \left[\begin{array}{c} -1\\1 \end{array} \right], \ \  \vec{z} = \left[\begin{array}{c}  3\\-1 \end{array} \right]
         </me>
       </p>
       <p>
         Graph <m>\vec{x}</m>,
-        <m>\vec{y}</m> and , as well as A<m>\vec{x}</m>, A<m>\vec{y}</m> and A.
+        <m>\vec{y}</m> and <m>\vec{z}</m>, as well as <m>A\vec{x}</m>, <m>A\vec{y}</m> and <m>A\vec{z}</m>.
       </p>
     </statement>
     <solution>
@@ -801,30 +755,25 @@
 \drawylines{-1.5}{5.5}{-1,...,5};
 \draw [->] (0,0)--(1,1) node [right ] {\vec{x}};
 \draw [->] (0,0)--(-1,1) node [above] {\vec{y}};
-\draw [->] (0,0)--(3,-1) node [below right] {};
+\draw [->] (0,0)--(3,-1) node [below right] {\vec{z}};
 \draw [->] (0,0)--(5,5) node [above right] { A\vec{x}};
 \draw [->] (0,0)--(3,1) node [right] { A\vec{y}};
-\draw [->] (0,0)--(-1,3) node [above] { A};\end{tikzpicture}]]>
+\draw [->] (0,0)--(-1,3) node [above] { A\vec{z}};\end{tikzpicture}]]>
 </latex-image>
         </image>
       </figure>
       <p>
         It is straightforward to compute:
         <me>
-          A\vec{x} = \left[\begin{array}{c}  5\\5 \end{array} \right],  A\vec{y} = \left[\begin{array}{c}  3\\1 \end{array} \right],  \text{ and }    A = \left[\begin{array}{c}  -1\\3 \end{array} \right]
+          A\vec{x} = \left[\begin{array}{c}  5\\5 \end{array} \right], \ \  A\vec{y} = \left[\begin{array}{c}  3\\1 \end{array} \right], \text{ and }  A\vec{z} = \left[\begin{array}{c}  -1\\3 \end{array} \right]
         </me>.
         The vectors are sketched in <xref ref="fig_mv_1">Figure</xref>
       </p>
     </solution>
   </example>
   <p>
-    There are several things to notice.
-    When each vector is multiplied by <m>A</m>,
-    the result is a vector with a different length
-    (in this example, always longer),
-    and in two of the cases
-    (for <m>\vec{y}</m> and ),
-    the resulting vector points in a different direction.
+    There are several things to notice. When each vector is multiplied by <m>A</m>, the result is a vector with a different length
+    (in this example, always longer), and in two of the cases (for <m>\vec{y}</m> and <m>\vec{z}</m>), the resulting vector points in a different direction.
   </p>
   <p>
     This isn't surprising.
@@ -835,11 +784,9 @@
     the expected answer is
     <q>No.</q>
     </fn> In fact,
-    the surprising thing from the example is that <m>\vec{x}</m> and A<m>\vec{x}</m> point in the same direction!
-    Why does the direction of <m>\vec{x}</m> not change after multiplication by A? (We'll answer this in <xref ref="sec_eigen">Section</xref>
-    when we learn about something called
-    <q>eigenvectors.</q>
-    )
+    the surprising thing from the example is that <m>\vec{x}</m> and <m>A\vec{x}</m> point in the same direction!
+    Why does the direction of <m>\vec{x}</m> not change after multiplication by <m>A</m>?  (We'll answer this in <xref ref="sec_eigen">Section</xref>
+    when we learn about something called <q>eigenvectors.</q>)
   </p>
   <p>
     Different matrices act on vectors in different ways.<fn>
@@ -858,9 +805,7 @@
   <p>
     How do we set about studying how matrix multiplication affects vectors?
     We could just create lots of different matrices and lots of different vectors,
-    multiply,
-    then graph,
-    but this would be a lot of work with very little useful result.
+    multiply, then graph, but this would be a lot of work with very little useful result.
     It would be too hard to find a pattern of behavior in this.<fn>
     Remember, that's what mathematicians do.
     We look for patterns.
@@ -868,25 +813,20 @@
   </p>
   <p>
     Instead, we'll begin by using a technique we've employed often in the past.
-    We have a
-    <q>new</q>
-    operation; let's explore how it behaves with
-    <q>old</q>
-    operations.
+    We have a <q>new</q> operation; let's explore how it behaves with <q>old</q> operations.
     Specifically, we know how to sketch vector addition.
-    What happens when we throw matrix multiplication into the mix?
-    Let's try an example.
+    What happens when we throw matrix multiplication into the mix? Let's try an example.
   </p>
-  <example xml:id="ex_mv_2">
+  <example xml:id="ex_mv_2"><title>Another Matrix <ndash/> Vector Multiplication</title>
     <statement>
       <p>
         Let <m>A</m> be a matrix and <m>\vec{x}</m> and <m>\vec{y}</m> be vectors as given below.
         <me>
-          A = \left[\begin{array}{cc}  1 \amp  1\\1\amp 2 \end{array} \right],  \vec{x} = \left[\begin{array}{c}  2\\1 \end{array} \right],  \vec{y} = \left[\begin{array}{c}  -1\\1 \end{array} \right]
+          A = \left[\begin{array}{cc}  1 \amp  1\\1\amp 2 \end{array} \right], \ \   \vec{x} = \left[\begin{array}{c}  2\\1 \end{array} \right], \ \  \vec{y} = \left[\begin{array}{c}  -1\\1 \end{array} \right]
         </me>
       </p>
       <p>
-        Sketch <m>\vec{x}+\vec{y}</m>, A<m>\vec{x}</m>, A<m>\vec{y}</m>,
+        Sketch <m>\vec{x}+\vec{y}</m>, <m>A\vec{x}</m>, <m>A\vec{y}</m>,
         and <m>A(\vec{x}+\vec{y})</m>.
       </p>
     </statement>
@@ -894,7 +834,7 @@
       <p>
         It is pretty straightforward to compute:
         <me>
-          \vec{x}+\vec{y} = \left[\begin{array}{c}  1\\2 \end{array} \right];  A\vec{x} = \left[\begin{array}{c} 3\\4 \end{array} \right];   A\vec{y} = \left[\begin{array}{c}  0\\1 \end{array} \right],  A(\vec{x}+\vec{y}) = \left[\begin{array}{c}  3\\5 \end{array} \right]
+          \vec{x}+\vec{y} = \left[\begin{array}{c}  1\\2 \end{array} \right]; \ \  A\vec{x} = \left[\begin{array}{c} 3\\4 \end{array} \right];  \ \  A\vec{y} = \left[\begin{array}{c}  0\\1 \end{array} \right]; \ \  A(\vec{x}+\vec{y}) = \left[\begin{array}{c}  3\\5 \end{array} \right]
         </me>
       </p>
       <p>
@@ -928,19 +868,15 @@
       </p>
       <p>
         In some sense, we started with three vectors,
-        <m>\vec{x}</m>, <m>\vec{y}</m>,
-        and <m>\vec{x}+\vec{y}</m>.
-        This last vector is special;
+        <m>\vec{x}</m>, <m>\vec{y}</m>, and <m>\vec{x}+\vec{y}</m>.  This last vector is special;
         it is the sum of the previous two.
-        Now, multiply all three by <m>A</m>.
-        What happens?
+        Now, multiply all three by <m>A</m>.  What happens?
         We get three new vectors, but the significant thing is this:
         the last vector is still the sum of the previous two! (We emphasize this by drawing dotted vectors to represent part of the Parallelogram Law.)
       </p>
       <p>
         Of course, we knew this already:
-        we already knew that <m>A\vec{x} + A\vec{y} = A(\vec{x}+\vec{y})</m>,
-        for this is just the Distributive Property.
+        we already knew that <m>A\vec{x} + A\vec{y} = A(\vec{x}+\vec{y})</m>, for this is just the Distributive Property.
         However, now we get to see this graphically.
       </p>
     </solution>
@@ -952,18 +888,17 @@
     given a matrix and some vectors, we'll multiply and graph.
     Let's do one more example.
   </p>
-  <example xml:id="ex_mv_23">
+  <example xml:id="ex_mv_23"><title>Yet Another Matrix <ndash/> Vector Multiplication Example</title>
     <statement>
       <p>
         Let <m>A</m>, <m>\vec{x}</m>,
-        <m>\vec{y}</m>, and  be as given below.
+        <m>\vec{y}</m>, and <m>\vec{z}</m> be as given below.
         <me>
-          A = \left[\begin{array}{cc}  1\amp -1\\1\amp -1 \end{array} \right],   \vec{x} = \left[\begin{array}{c}  1\\1 \end{array} \right],  \vec{y} = \left[\begin{array}{c} -1\\1 \end{array} \right],   = \left[\begin{array}{c}  4\\1 \end{array} \right]
+          A = \left[\begin{array}{cc}  1\amp -1\\1\amp -1 \end{array} \right], \ \   \vec{x} = \left[\begin{array}{c}  1\\1 \end{array} \right], \ \  \vec{y} = \left[\begin{array}{c} -1\\1 \end{array} \right],\ \  \vec{z}  = \left[\begin{array}{c}  4\\1 \end{array} \right]
         </me>
       </p>
       <p>
-        Graph <m>\vec{x}</m>,
-        <m>\vec{y}</m> and , as well as A<m>\vec{x}</m>, A<m>\vec{y}</m> and A.
+        Graph <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{z}</m>, as well as <m>A\vec{x}</m>, <m>A\vec{y}</m> and <m>A\vec{z}</m>.
       </p>
     </statement>
     <solution>
@@ -985,7 +920,7 @@
       <p>
         It is straightforward to compute:
         <me>
-          A\vec{x} = \left[\begin{array}{c}  0\\0 \end{array} \right],  A\vec{y} = \left[\begin{array}{c}  -2\\-2 \end{array} \right],  \text{ and }    A = \left[\begin{array}{c}  3\\3 \end{array} \right]
+          A\vec{x} = \left[\begin{array}{c}  0\\0 \end{array} \right], \ \  A\vec{y} = \left[\begin{array}{c}  -2\\-2 \end{array} \right], \ \  \text{ and } \ \    A = \left[\begin{array}{c}  3\\3 \end{array} \right]
         </me>.
         The vectors are sketched in <xref ref="fig_mv_23">Figure</xref>.
       </p>
@@ -993,16 +928,17 @@
         These results are interesting.
         While we won't explore them in great detail here,
         notice how <m>\vec{x}</m> got sent to the zero vector.
-        Notice also that A<m>\vec{x}</m>, A<m>\vec{y}</m> and A<nbsp/>are all in a line
-        (as well as \vec{x}!).
-        Why is that?
-        Are <m>\vec{x}</m>, <m>\vec{y}</m> and just special vectors,
-        or would any other vector get sent to the same line when multiplied by A?<fn>
+        Notice also that <m>A\vec{x}</m>, <m>A\vec{y}</m> and <m>A\vec{z}</m>are all in a line
+          (as well as <m>\vec{x}</m>!).  Why is that?
+        Are <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{z}</m> just special vectors,
+        or would any other vector get sent to the same line when multiplied by <m>A</m>?<fn>
         Don't just sit there, try it out!
         </fn>
       </p>
     </solution>
   </example>
+    </subsection>
+    <conclusion xml:id="subsec_draw_vec_2D_end">
   <p>
     This section has focused on vectors in two dimensions.
     Later on in this book,
@@ -1017,6 +953,10 @@
     <q>visualize</q>
     it.
   </p>
+    </conclusion>
+<exercises>
+    <exercisegroup>
+    <introduction>
   <p>
     In the following exercises,
     vectors <m>\vec{x}</m> and <m>\vec{y}</m> are given.
@@ -1024,16 +964,17 @@
     <m>\vec{x}+\vec{y}</m>, and
     <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.
   </p>
+        </introduction>
   <exercise>
     <statement>
       <p>
-        <m>\vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]</m>,
+        <m>\vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right]</m>, 
         <m>\vec{y} = \left[\begin{array}{c} -2\\3 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
       <p>
-        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} -1\\4 \end{array} \right]</m>,
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} -1\\4 \end{array} \right]</m>, 
         <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 3\\-2 \end{array} \right]</m>
       </p>
       <p>
@@ -1068,7 +1009,7 @@
     </statement>
     <answer>
       <p>
-        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 4\\-1 \end{array} \right]</m>,
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 4\\-1 \end{array} \right]</m>, 
         <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 2\\3 \end{array} \right]</m>
       </p>
       <p>
@@ -1097,13 +1038,13 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{x} = \left[\begin{array}{c} -1\\1 \end{array} \right]</m>,
+        <m>\vec{x} = \left[\begin{array}{c} -1\\1 \end{array} \right]</m>, 
         <m>\vec{y} = \left[\begin{array}{c} -2\\2 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
       <p>
-        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} -3\\3 \end{array} \right]</m>,
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} -3\\3 \end{array} \right]</m>, 
         <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 1\\-1 \end{array} \right]</m>
       </p>
       <p>
@@ -1132,13 +1073,13 @@
   <exercise>
     <statement>
       <p>
-        <m>\vec{x} = \left[\begin{array}{c} 2\\0 \end{array} \right]</m>,
+        <m>\vec{x} = \left[\begin{array}{c} 2\\0 \end{array} \right]</m>, 
         <m>\vec{y} = \left[\begin{array}{c} 1\\3 \end{array} \right]</m>
       </p>
     </statement>
     <answer>
       <p>
-        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 3\\3 \end{array} \right]</m>,
+        <m>\vec{x}+\vec{y} = \left[\begin{array}{c} 3\\3 \end{array} \right]</m>, 
         <m>\vec{x}-\vec{y} = \left[\begin{array}{c} 1\\-3 \end{array} \right]</m>
       </p>
       <p>
@@ -1164,6 +1105,9 @@
       </image>
     </answer>
   </exercise>
+ </exercisegroup>
+ <exercisegroup>
+     <introduction>
   <p>
     In the following exercises,
     vectors <m>\vec{x}</m> and <m>\vec{y}</m> are drawn.
@@ -1171,6 +1115,7 @@
     <m>\vec{x}+\vec{y}</m>, and
     <m>\vec{x}-\vec{y}</m> on the same Cartesian axes.
   </p>
+     </introduction>
   <exercise>
     <statement>
       <image>
@@ -1343,6 +1288,9 @@
       </image>
     </answer>
   </exercise>
+    </exercisegroup>
+    <exercisegroup>
+        <introduction>
   <p>
     In the following exercises,
     a vector <m>\vec{x}</m> and a scalar <m>a</m> are given.
@@ -1350,6 +1298,7 @@
     compute the lengths of <m>\vec{x}</m> and <m>a\vec{x}</m>,
     then compare these lengths.
   </p>
+        </introduction>
   <exercise>
     <statement>
       <p>
@@ -1359,9 +1308,9 @@
     </statement>
     <answer>
       <p>
-        <m>||\vec{x}|| = \sqrt{5}</m>;
-        <m>||a\vec{x}|| = \sqrt{45} = 3\sqrt{5}</m>.
-        The vector <m>a\vec{x}</m> is 3 times as long as <m>\vec{x}</m>.
+        <m>\lVert\vec{x}\rVert = \sqrt{5}</m>;
+        <m>\lVert a\vec{x}\rVert = \sqrt{45} = 3\sqrt{5}</m>.
+        The vector <m>a\vec{x}</m> is <m>3</m> times as long as <m>\vec{x}</m>.
       </p>
     </answer>
   </exercise>
@@ -1374,9 +1323,9 @@
     </statement>
     <answer>
       <p>
-        <m>||\vec{x}|| = \sqrt{65}</m>;
-        <m>||a\vec{x}|| = \sqrt{260} = 2\sqrt{65}</m>.
-        The vector <m>a\vec{x}</m> is 2 times as long as <m>\vec{x}</m>.
+        <m>\lVert \vec{x}\rVert = \sqrt{65}</m>;
+        <m>\lVert a\vec{x}\rVert = \sqrt{260} = 2\sqrt{65}</m>.
+        The vector <m>a\vec{x}</m> is <m>2</m> times as long as <m>\vec{x}</m>.
       </p>
     </answer>
   </exercise>
@@ -1389,8 +1338,8 @@
     </statement>
     <answer>
       <p>
-        <m>||\vec{x}|| = \sqrt{34}</m>;
-        <m>||a\vec{x}|| = \sqrt{34}</m>.
+        <m>\lVert \vec{x}\rVert = \sqrt{34}</m>;
+        <m>\lVert a\vec{x}\rVert = \sqrt{34}</m>.
         The vectors <m>a\vec{x}</m> and <m>\vec{x}</m> are the same length
         (they just point in opposite directions).
       </p>
@@ -1405,21 +1354,21 @@
     </statement>
     <answer>
       <p>
-        <m>||\vec{x}|| = \sqrt{90} = 3\sqrt{10}</m>;
-        <m>||a\vec{x}|| = \sqrt{10}</m>.
-        The vector <m>a\vec{x}</m> is one-third the length of \vec{x}; equivalently,
-        <m>\vec{x}</m> is 3 times as long as <m>a\vec{x}</m>.
+        <m>\lVert \vec{x}\rVert = \sqrt{90} = 3\sqrt{10}</m>;
+        <m>\lVert a\vec{x}\rVert = \sqrt{10}</m>.
+        The vector <m>a\vec{x}</m> is one-third the length of <m>\vec{x}</m>; equivalently,
+        <m>\vec{x}</m> is <m>3</m> times as long as <m>a\vec{x}</m>.
       </p>
     </answer>
   </exercise>
+    </exercisegroup>
   <exercise>
     <statement>
       <p>
         Four pairs of vectors <m>\vec{x}</m> and <m>\vec{y}</m> are given below.
-        For each pair, compute <m>||\vec{x}||</m>,
-        <m>||\vec{y}||</m>, and <m>||\vec{x} + \vec{y}||</m>.
+        For each pair, compute <m>\lVert \vec{x}\rVert </m>, <m>\lVert\vec{y}\rVert</m>, and <m>\lVert\vec{x} + \vec{y}\rVert</m>.
         Use this information to answer: Is it always, sometimes,
-        or never true that <m>||\vec{x}|| + ||\vec{y}|| = ||\vec{x}+\vec{y}||</m>?
+        or never true that <m>\lVert\vec{x}\rVert + \lVert\vec{y}\rVert = \lVert\vec{x}+\vec{y}\rVert</m>?
         If it always or never true, explain why.
         If it is sometimes true, explain when it is true.
         <ol>
@@ -1454,30 +1403,30 @@
       <ol>
         <li>
           <p>
-            <m>||\vec{x}|| = \sqrt{2}</m>;
-            <m>||\vec{y}|| = \sqrt{13}</m>;
-            <m>||\vec{x}+\vec{y}|| = 5</m>.
+            <m>\lVert\vec{x}\rVert = \sqrt{2}</m>;
+            <m>\lVert\vec{y}\rVert = \sqrt{13}</m>;
+            <m>\lVert\vec{x}+\vec{y}\rVert = 5</m>.
           </p>
         </li>
         <li>
           <p>
-            <m>||\vec{x}|| = \sqrt{5}</m>;
-            <m>||\vec{y}|| = 3\sqrt{5}</m>;
-            <m>||\vec{x}+\vec{y}|| = 4\sqrt{5}</m>.
+            <m>\lVert\vec{x}\rVert = \sqrt{5}</m>;
+            <m>\lVert\vec{y}\rVert = 3\sqrt{5}</m>;
+            <m>\lVert\vec{x}+\vec{y}\rVert = 4\sqrt{5}</m>.
           </p>
         </li>
         <li>
           <p>
-            <m>||\vec{x}|| = \sqrt{10}</m>;
-            <m>||\vec{y}|| = \sqrt{29}</m>;
-            <m>||\vec{x}+\vec{y}|| = \sqrt{65}</m>.
+            <m>\lVert\vec{x}\rVert = \sqrt{10}</m>;
+            <m>\lVert\vec{y}\rVert = \sqrt{29}</m>;
+            <m>\lVert\vec{x}+\vec{y}\rVert = \sqrt{65}</m>.
           </p>
         </li>
         <li>
           <p>
-            <m>||\vec{x}|| = \sqrt{5}</m>;
-            <m>||\vec{y}|| = 2\sqrt{5}</m>;
-            <m>||\vec{x}+\vec{y}|| = \sqrt{5}</m>.
+            <m>\lVert\vec{x}\rVert = \sqrt{5}</m>;
+            <m>\lVert\vec{y}\rVert = 2\sqrt{5}</m>;
+            <m>\lVert\vec{x}+\vec{y}\rVert = \sqrt{5}</m>.
           </p>
         </li>
       </ol>
@@ -1488,14 +1437,17 @@
       </p>
     </answer>
   </exercise>
+    <exercisegroup>
+        <introduction>
   <p>
     In the following exercises, a matrix <m>A</m> is given.
     Sketch <m>\vec{x}</m>,
-    <m>\vec{y}</m>, A<m>\vec{x}</m> and A<m>\vec{y}</m> on the same Cartesian axes, where
+    <m>\vec{y}</m>, <m>A\vec{x}</m> and <m>A\vec{y}</m> on the same Cartesian axes, where
     <me>
-      \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right] \ \text{ and }  \ \vec{y}=\left[\begin{array}{c} -1\\2 \end{array} \right]
+      \vec{x} = \left[\begin{array}{c} 1\\1 \end{array} \right] \text{ and } \vec{y}=\left[\begin{array}{c} -1\\2 \end{array} \right]
     </me>
   </p>
+        </introduction>
   <exercise>
     <statement>
       <p>
@@ -1572,4 +1524,6 @@
       </image>
     </answer>
   </exercise>
+    </exercisegroup>
+</exercises>
 </section>

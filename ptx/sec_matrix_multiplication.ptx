@@ -919,16 +919,11 @@
     </me>
   </p>
   <p>
-    With numbers, we are used to <m>a^{-n} = \frac{1}{a^n}</m>.
-    Do negative exponents work with matrices, too?
-    The answer is yes, sort of.
-    We'll have to be careful,
+    With numbers, we are used to <m>a^{-n} = \frac{1}{a^n}</m>.  Do negative exponents work with matrices, too?
+    The answer is yes, sort of. We'll have to be careful,
     and we'll cover the topic in detail once we define the inverse of a matrix.
-    For now, though,
-    we recognize the fact that <m>A^{-1} \neq \frac{1}{ A}</m>,
-    for <m>\frac{1}{ A}</m> makes no sense; we don't know how to
-    <q>divide</q>
-    by a matrix.
+    For now, though, we recognize the fact that <m>A^{-1} \neq \frac{1}{ A}</m>, for <m>\frac{1}{ A}</m> makes no sense; we don't know how to
+    <q>divide</q> by a matrix.
   </p>
   <p>
     We end this section with a reminder of some of the things that do not work with matrix multiplication.
@@ -942,8 +937,7 @@
       </li>
       <li>
         <p>
-          In general, just because <m>A X = B X</m>,
-          we cannot conclude that <m>A= B</m>.
+          In general, just because <m>A X = B X</m>, we cannot conclude that <m>A= B</m>.
         </p>
       </li>
     </ol>
@@ -954,8 +948,7 @@
     <me>
       (a+b)^2 = a^2+2ab+b^2
     </me>.
-    What about <m>( A+ B)^2</m>?
-    All we'll say here is that
+    What about <m>( A+ B)^2</m>?  All we'll say here is that
     <me>
       ( A+ B)^2 \neq  A^2+2 A B+ B^2;
     </me>
