@@ -58,7 +58,7 @@
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix.
         The following statements are equivalent.
-        <ol label="((a))">
+        <ol marker="((a))">
           <li>
             <p> 
                 <m>A</m> is invertible.
@@ -117,7 +117,7 @@
       <p>
         Let's go through each of the statements and see why we already knew they all said essentially the same thing.
       </p>
-      <ol label="((a))">
+      <ol marker="((a))">
         <li>
           <p>
             This simply states that <m>A</m> is invertible <mdash/> that is,

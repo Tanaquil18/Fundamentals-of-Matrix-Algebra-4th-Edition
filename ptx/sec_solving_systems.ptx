@@ -354,7 +354,7 @@
         Note that we decided to let the first column hold the coefficients of <m>b</m>.
       </p>
       <p>
-        Putting this matrix in reduced row echelon form<nbsp/>gives us:
+        Putting this matrix in reduced row echelon form gives us:
         <me>
           \left[\begin{array}{ccc}  1 \amp  1 \amp  4\\ 2\amp -1\amp 4\\ \end{array} \right] \quad \xrightarrow[\mathrm{rref}] \qquad\left[\begin{array}{ccc} 1\amp 0\amp 8/3\\0\amp 1\amp 4/3\\ \end{array} \right]
         </me>
@@ -650,7 +650,7 @@
 <exercises>
     <p>
     In the following exercises, find the solution of the given problem by:
-    <ol label="(a)">
+    <ol marker="(a)">
       <li>
         <p>
           creating an appropriate system of linear equations
