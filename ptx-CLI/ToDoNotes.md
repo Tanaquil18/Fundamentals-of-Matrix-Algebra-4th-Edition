@@ -3,11 +3,11 @@
   - As You Read... should they be Reading Questions?
   - Consistent Capitalization in my titles
   - [x] problems with "math followed by punctuation" eating up the next space. (I think this was just my html viewer or it's been fixed.)
-  - statements of examples and exercises to show, not solutions.
+  - [x] statements of examples and exercises to show, not solutions (unknowled in publication file)
   - "Exercise Group" words appear now, and I'm not sure I like that
   - [x] get rid of periods after titles of subsections, other things? (feature, not a bug)
 
-[ ] sec_existence: picture
+[ ] have no generated pictures anywhere yet
 
 [ ] sec_matrices: center or right-justify within a side by side?
 
@@ -15,13 +15,11 @@
 
 [ ] sec_solving_systems... can't get spacing right on \xrightarrow[\mathrm{rref}] between matrices. 
 
-[ ] sec_matrix_multiplication... Example with Row and Column Multiplication... why no arrow over u in the last part of the question?  It's in the ptx file.  something to do with the 3 columns but only 5 problems?
+[x] sec_matrix_multiplication... Example with Row and Column Multiplication... why no arrow over u in the last part of the question?  It's in the ptx file.  something to do with the 3 columns but only 5 problems? (must have been my html viewer... looks fine now!)
 
-[ ] sec_matrix_multiplication... (and previous sections, like sec_existence) best practices says to use \text, not font changing.  But it doesn't look right, not centered, etc.  particularly the dimensions match and output diagram in this section. Alex Jordan gave a hack that works for this section.   
+[x] sec_matrix_multiplication... (and previous sections, like sec_existence) best practices says to use \text, not font changing.  But it doesn't look right, not centered, etc.  particularly the dimensions match and output diagram in this section. (\mathclap seems to have solved it for this particular problem. based on output seem in mathjax, I kind of want to try removing the mathclap now, but not enough to risk creating a problem where there currently isn't one.)  
 
 [x]mathtools package... already using xrightarrow in a different section... so is it working already or not?
-
-[ ] sec_geom_1... missing pictures, (numbers are all off because I added subsections) figure 2.3.1, 2.3.3, 2.3.5, 2.3.6, 2.3.9, 2.3.10, 2.3.12, 2.3.14, 2.3.17, 2.3.19, 2.3.23, 2.3.29, 2.3.31, and tons of pictures in the exercises.
 
 [ ] added subsections to sec_geom_1... any unintended consequences of that?
 
@@ -39,6 +37,8 @@
 
 [ ] sec_inverse_prop has the same \xrightarrow[\text{ rref }] \quad problem as last section. 
 
-[ ] sec_inverse_prop I couldn't get the labels on the Invertible Matrix Theorem to be alphabetical using marker, but label worked.  I didn't get a warning using CLI like I did before with xsltproc, so I just left it label.  marker worked in other cases, including once this section, so is it different because it's inside a theorem?
+[x] sec_inverse_prop added sage to one of the exercises
+
+[ ] sec_inverse_prop I couldn't get the labels on the Invertible Matrix Theorem to be alphabetical using marker, but label worked.  I didn't get a warning using CLI like I did before with xsltproc, so I just left it as label.  marker worked in other instances, including one other time this section, so is it different because it's inside a theorem?
 
 [x] Have gone over every section in the first two chapters making fixes!
