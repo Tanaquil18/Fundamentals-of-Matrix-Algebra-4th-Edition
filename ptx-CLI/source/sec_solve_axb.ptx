@@ -1,0 +1,579 @@
+<section xml:id="sec_solve_axb">
+  <title>Solving Matrix Equations <m>A X= B</m></title>
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          T/F: To solve the matrix equation <m>A X= B</m>,
+          put the matrix <m>\left[\begin{array}{cc} A \amp X \end{array} \right]</m> into reduced row echelon form and interpret the result properly.
+        </p>
+      </li>
+      <li>
+        <p>
+          T/F: The first column of a matrix product <m>AB</m> is <m>A</m> times the first column of <m>B</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Give two reasons why one might solve for the columns of <m>X</m> in the equation <m>AX=B</m> separately.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+  <p>
+    We began last section talking about solving numerical equations like <m>ax=b</m> for <m>x</m>.
+    We mentioned that solving matrix equations of the form <m>A X= B</m> is of interest,
+    but we first learned how to solve the related, but simpler,
+    equations <m>A \vec{x} = \vec{b}</m>.
+    In this section we will learn how to solve the general matrix equation <m>A X= B</m> for <m>X</m>.
+  </p>
+  <p>
+    We will start by considering the best case scenario when solving <m>A \vec{x} = \vec{b}</m>;
+    that is, when <m>A</m> is square and we have exactly one solution.
+    For instance,
+    suppose we want to solve <m>A \vec{x} = \vec{b}</m> where
+    <me>
+      A = \left[\begin{array}{cc} 1\amp 1\\2\amp 1 \end{array} \right]  \text{ and }   \vec{b} = \left[\begin{array}{c}  0\\1 \end{array} \right]
+    </me>.
+    We know how to solve this;
+    put the appropriate matrix into reduced row echelon form and interpret the result.
+    <me>
+      \left[\begin{array}{ccc} 1\amp 1\amp 0\\2\amp 1\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp -1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    We read from this that
+    <me>
+      \vec{x} = \left[\begin{array}{c} 1\\-1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Written in a more general form,
+    we found our solution by forming the augmented matrix
+    <me>
+      \left[\begin{array}{cc}  A \amp  \vec{b} \end{array} \right]
+    </me>
+    and interpreting its reduced row echelon form:
+    <me>
+      \left[\begin{array}{cc}  A \amp  \vec{b} \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cc}  I \amp  \vec{x} \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Notice that when the reduced row echelon form of <m>A</m> is the identity matrix <m>I</m>I we have exactly one solution.
+    This, again, is the best case scenario.
+  </p>
+  <p>
+      We apply the same general technique to solving the matrix equation <m>A X= B</m> for <m>X</m>. We'll assume that <m>A</m> is a square matrix (<m>B</m> need not be) and we'll form the augmented matrix
+    <me>
+      \left[\begin{array}{cc}  A\amp  B \end{array} \right]
+    </me>.
+    Putting this matrix into reduced row echelon form will give us <m>X</m>, much like we found <m>\vec{x}</m> before.
+    <me>
+      \left[\begin{array}{cc}  A\amp  B \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cc}  I \amp   X \end{array} \right]
+    </me>
+  </p>
+  <p>
+    As long as the reduced row echelon form of <m>A</m> is the identity matrix,
+    this technique works great.
+    After a few examples, we'll discuss why this technique works,
+    and we'll also talk just a little bit about what happens when the reduced row echelon form of <m>A</m> is not the identity matrix.
+  </p>
+  <p>
+    First, some examples.
+  </p>
+  <example xml:id="ex_axb_1"> <title>Solving <m>AX=B</m>, with <m>2\times 2</m> matrix <m>A</m></title>
+    <statement>
+      <p>
+        Solve the matrix equation <m>A X= B</m> where
+        <me>
+          A = \left[\begin{array}{cc}  1\amp -1\\ 5\amp 3 \end{array} \right] \text{ and }    B = \left[\begin{array}{ccc}  -8\amp -13\amp 1\\32\amp -17\amp 21 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        To solve <m>A X= B</m> for <m>X</m>, we form the proper augmented matrix,
+        put it into reduced row echelon form, and interpret the result.
+        <me>
+          \left[\begin{array}{ccccc} 1\amp -1\amp -8\amp -13\amp 1\\5\amp 3\amp 32\amp -17\amp 21 \end{array} \right] \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp -7\amp 3\\0\amp 1\amp 9\amp 6\amp 2 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We read from the reduced row echelon form of the matrix that
+        <me>
+          X = \left[\begin{array}{ccc} 1\amp -7\amp 3\\9\amp 6\amp 2 \end{array} \right]
+        </me>.
+        We can easily check to see if our answer is correct by multiplying <m>A X</m>.
+      </p>
+    </solution>
+  </example>
+  <example xml:id="ex_axb_2"><title>Solving <m>AX=B</m>, with <m>3\times 3</m> matrix <m>A</m></title>
+    <statement>
+      <p>
+        Solve the matrix equation <m>A X =  B</m> where
+        <me>
+          A = \left[\begin{array}{ccc} 1\amp 0\amp 2\\0\amp -1\amp -2\\2\amp -1\amp 0 \end{array} \right] \text{ and }   B = \left[\begin{array}{cc} -1\amp 2\\2\amp -6\\2\amp -4 \end{array} \right]
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        To solve, let's again form the augmented matrix
+        <me>
+          \left[\begin{array}{cc}   A \amp   B \end{array} \right]
+        </me>,
+        put it into reduced row echelon form, and interpret the result.
+        <me>
+          \left[\begin{array}{ccccc} 1\amp 0\amp 2\amp -1\amp 2\\0\amp -1\amp -2\amp 2\amp -6\\2\amp -1\amp 0\amp 2\amp -4 \end{array} \right] \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccccc} 1\amp 0\amp 0\amp 1\amp 0\\0\amp 1\amp 0\amp 0\amp 4\\0\amp 0\amp 1\amp -1\amp 1 \end{array} \right]
+        </me>
+      </p>
+      <p>
+        We see from this that
+        <me>
+          X = \left[\begin{array}{cc} 1\amp 0\\0\amp 4\\-1\amp 1 \end{array} \right]
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    Why does this work?
+    To see the answer, let's define five matrices.
+    <me>
+      A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right], \ \ \vec{u} =\left[\begin{array}{c} 1\\1 \end{array} \right], \ \ \vec{v} =\left[\begin{array}{c} -1\\1 \end{array} \right], \ \ \vec{w}  = \left[\begin{array}{c}  5\\6 \end{array} \right] \ \ \text{ and }  \ \  X = \left[\begin{array}{ccc} 1\amp -1\amp 5\\1\amp 1\amp 6 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Notice that <m>\vec{u}</m>,
+    <m>\vec{v}</m>, and <m>\vec{w}</m> are the first,
+    second, and third columns of <m>X</m>, respectively.
+    Now consider this list of matrix products:
+    <m>A\vec{u}</m>, <m>A\vec{v}</m>, <m>A\vec{w}</m>, and <m>A X</m>.
+   </p>
+      <sbsgroup width="20%">
+      <sidebyside>
+        <p>
+            <md>
+              <mrow>A\vec{u} \amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+              <mrow>3\amp 4\end{array}\right]\left[\begin{array}{c} 1</mrow>
+              <mrow>1\end{array}\right]</mrow>
+              <mrow>\amp = \left[\begin{array}{c} 3</mrow>
+              <mrow>7\end{array}\right]</mrow>
+            </md>
+        </p>
+        <p>
+            <md>
+              <mrow>A\vec{v} \amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+              <mrow>3\amp 4\end{array}\right]\left[\begin{array}{c} -1</mrow>
+              <mrow>1\end{array}\right]</mrow>
+              <mrow>\amp = \left[\begin{array}{c} 1</mrow>
+              <mrow>1\end{array}\right]</mrow>
+            </md>
+          </p>
+       </sidebyside>
+       <sidebyside>
+         <p>
+            <md>
+              <mrow>A\vec{w}  \amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+              <mrow>3\amp 4\end{array}\right]\left[\begin{array}{c} 5</mrow>
+              <mrow>6\end{array}\right]</mrow>
+              <mrow>\amp = \left[\begin{array}{c} 17</mrow>
+              <mrow>39\end{array}\right]</mrow>
+            </md>
+          </p>
+          <p>
+            <md>
+              <mrow>A X  \amp = \left[\begin{array}{cc} 1\amp 2</mrow>
+              <mrow>3\amp 4\end{array}\right]\left[\begin{array}{ccc} 1\amp -1\amp 5</mrow>
+              <mrow>1\amp 1\amp 6\end{array}\right]</mrow>
+              <mrow>\amp = \left[\begin{array}{ccc} 3\amp 1\amp 17</mrow>
+              <mrow>7\amp 1\amp 39\end{array}\right]</mrow>
+            </md>
+           </p>
+      </sidebyside>
+      </sbsgroup>
+  <p>
+    So again note that the columns of <m>X</m> are <m>\vec{u}</m>,
+    <m>\vec{v}</m> and <m>\vec{w}</m>; that is, we can write
+    <me>
+      X = \left[\begin{array}{ccc} \vec{u} \amp  \vec{v}\amp \vec{w} \end{array} \right]
+    </me>.
+    Notice also that the columns of <m>A X</m> are <m>A\vec{u}</m>,
+    <m>A\vec{v}</m> and <m>A\vec{w}</m>, respectively.
+    Thus we can write
+    <md>
+      <mrow>A X \amp =  A\left[\begin{array}{ccc} \vec{u} \amp  \vec{v}\amp \vec{w} \end{array} \right]</mrow>
+      <mrow>\amp =\left[\begin{array}{ccc}   A\vec{u} \amp   A\vec{v} \amp   A\vec{w} \end{array} \right]</mrow>
+      <mrow>\amp = \left[\begin{array}{ccc}  \left[\begin{array}{c} 3</mrow>
+      <mrow>7\end{array}\right] \amp  \left[\begin{array}{c}  1</mrow>
+      <mrow>1\end{array}\right] \amp  \left[\begin{array}{c} 17</mrow>
+      <mrow>39\end{array}\right] \end{array}\right]</mrow>
+      <mrow>\amp =\left[\begin{array}{ccc} 3\amp 1\amp 17</mrow>
+      <mrow>7\amp 1\amp 39\end{array}\right]</mrow>
+    </md>
+  </p>
+  <p>
+    We summarize what we saw above in the following statement:
+  </p>
+  <blockquote>
+    The columns of a matrix product  <m>AX</m> are <m>A</m> times the columns of <m>X</m>.
+  </blockquote>
+  <p>
+    How does this help us solve the matrix equation <m>A X= B</m> for <m>X</m>? Assume that <m>A</m> is a square matrix
+    (that forces <m>X</m> and <m>B</m> to be the same size).
+    We'll let <m>\vec{x}_1,\vec{x}_2, \cdots \vec{x}_n</m> denote the columns of the (unknown) matrix <m>X</m>, and we'll let
+    <m>\vec{b}_1,\vec{b}_2, \cdots \vec{b}_n</m> denote the columns of <m>B</m>. We want to solve
+    <m>A X =  B</m> for <m>X</m>. That is, we want <m>X</m> where
+    <md>
+      <mrow>A X \amp =  B</mrow>
+      <mrow>A\left[\begin{array}{cccc} \vec{x}_1\amp \vec{x}_2\amp  \cdots \amp  \vec{x}_n \end{array} \right] \amp  = \left[\begin{array}{cccc} \vec{b}_1\amp \vec{b}_2\amp  \cdots \amp  \vec{b}_n \end{array} \right]</mrow>
+      <mrow>\left[\begin{array}{cccc}  A\vec{x}_1\amp  A\vec{x}_2\amp  \cdots \amp   A\vec{x}_n \end{array} \right] \amp  = \left[\begin{array}{cccc} \vec{b}_1\amp \vec{b}_2\amp  \cdots \amp  \vec{b}_n \end{array} \right]</mrow>
+    </md>
+  </p>
+  <p>
+    If the matrix on the left hand side is equal to the matrix on the right,
+    then their respective columns must be equal.
+    This means we need to solve <m>n</m> equations:
+    <md>
+      <mrow>A\vec{x}_1 \amp  = \vec{b}_1</mrow>
+      <mrow>A\vec{x}_2 \amp  = \vec{b}_2</mrow>
+      <mrow>\vdots\    \    \amp  = \ \vdots</mrow>
+      <mrow>A\vec{x}_n \amp = \vec{b}_n</mrow>
+    </md>
+  </p>
+  <p>
+    We already know how to do this;
+    this is what we learned in the previous section.
+    Let's do this in a concrete example.
+    In our above work we defined matrices <m>A</m> and <m>X</m>, and looked at the product <m>AX</m>. Let's call the product <m>B</m>; that is,
+    set <m>B=AX</m>. Now, let's pretend that we don't know what <m>X</m> is,
+    and let's try to find the matrix <m>X</m> that satisfies the equation <m>A X= B</m>.
+    As a refresher, recall that
+    <me>
+      A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right]  \text{ and }    B = \left[\begin{array}{ccc} 3\amp 1\amp 17\\7\amp 1\amp 39 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Since <m>A</m> is a <m>2\times 2</m> matrix and <m>B</m> is a <m>2\times 3</m> matrix,
+    what dimensions must <m>X</m> be in the equation <m>A X= B</m>?
+    The number of rows of <m>X</m> must match the number of columns of <m>A</m>; the number of columns of <m>X</m> must match the number of columns of <m>B</m>. Therefore we know that <m>X</m> must be a <m>2\times 3</m> matrix.
+  </p>
+  <p>
+    We'll call the three columns of <m>X</m>, <m>\vec{x}_1</m>,
+    <m>\vec{x}_2</m> and <m>\vec{x}_3</m>.
+    Our previous explanation tells us that if <m>A X =  B</m>, then:
+    <md>
+      <mrow>A X \amp  =  B</mrow>
+      <mrow>A\left[\begin{array}{ccc} \vec{x}_1 \amp  \vec{x}_2 \amp  \vec{x}_3 \end{array} \right] \amp  = \left[\begin{array}{ccc} 3\amp 1\amp 17</mrow>
+      <mrow>7\amp 1\amp 39\end{array}\right]</mrow>
+      <mrow>\left[\begin{array}{ccc}  A\vec{x}_1 \amp   A\vec{x}_2 \amp   A\vec{x}_3 \end{array} \right] \amp  =\left[\begin{array}{ccc} 3\amp 1\amp 17</mrow>
+      <mrow>7\amp 1\amp 39\end{array}\right]</mrow>
+    </md>.
+  </p>
+  <p>
+    Hence
+    <md>
+      <mrow>A\vec{x}_1 \amp  = \left[\begin{array}{c} 3</mrow>
+      <mrow>7\end{array}\right]</mrow>
+      <mrow>A\vec{x}_2 \amp  = \left[\begin{array}{c} 1</mrow>
+      <mrow>1\end{array}\right]</mrow>
+      <mrow>A\vec{x}_3 \amp  = \left[\begin{array}{c} 17</mrow>
+      <mrow>39\end{array}\right]</mrow>
+    </md>
+  </p>
+  <p>
+    To find <m>\vec{v}_1</m>, we form the proper augmented matrix and put it into reduced row echelon form and interpret the results.
+    <me>
+      \left[\begin{array}{ccc} 1\amp 2\amp 3\\3\amp 4\amp 7 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp 1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    This shows us that
+    <me>
+      \vec{x}_1 = \left[\begin{array}{c} 1\\1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    To find <m>\vec{v}_2</m>, we again form an augmented matrix and interpret its reduced row echelon form.
+    <me>
+      \left[\begin{array}{ccc} 1\amp 2\amp 1\\3\amp 4\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccc} 1\amp 0\amp -1\\0\amp 1\amp 1 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Thus
+    <me>
+      \vec{x}_2 = \left[\begin{array}{c} -1\\1 \end{array} \right]
+    </me>
+    which matches with what we already knew from above.
+  </p>
+  <p>
+    Before continuing on in this manner to find <m>\vec{v}_3</m>, we should stop and think.
+    If the matrix vector equation <m>A \vec{x} = \vec{b}</m> is consistent,
+    then the steps involved in putting
+    <me>
+      \left[\begin{array}{cc}  A \amp  \vec{b} \end{array} \right]
+    </me>
+    into reduced row echelon form depend only on <m>A</m>; it does not matter what <m>\vec{b}</m> is.
+    So when we put the two matrices
+    <me>
+      \left[\begin{array}{ccc} 1\amp 2\amp 3\\3\amp 4\amp 7 \end{array} \right]  \text{ and }   \left[\begin{array}{ccc} 1\amp 2\amp 1\\3\amp 4\amp 1 \end{array} \right]
+    </me>
+    from above into reduced row echelon form,
+    we performed exactly the same steps! In fact, those steps are:
+    <md>
+        <mrow>-3R_1+R_2 \amp \rightarrow R_2</mrow>
+        <mrow>-\frac12R_2 \amp \rightarrow R_2</mrow>
+        <mrow>-2R_2+R_1 \amp \rightarrow R_1</mrow>
+    </md>
+  </p>
+  <p>
+    Instead of solving for each column of <m>X</m> separately,
+    performing the same steps to put the necessary matrices into reduced row echelon form three different times,
+    why don't we just do it all at once?<fn>
+    One reason to do it three different times is that we enjoy doing unnecessary work.
+    Another reason could be that we are stupid.
+    </fn> Instead of individually putting
+    <me>
+      \left[\begin{array}{ccc} 1\amp 2\amp 3\\3\amp 4\amp 7 \end{array} \right],  \left[\begin{array}{ccc} 1\amp 2\amp 1\\3\amp 4\amp 1 \end{array} \right]  \text{ and }   \left[\begin{array}{ccc} 1\amp 2\amp 17\\3\amp 4\amp 39 \end{array} \right]
+    </me>
+    into reduced row echelon form, let's just put
+    <me>
+      \left[\begin{array}{ccccc} 1\amp 2\amp 3\amp 1\amp 17\\3\amp 4\amp 7\amp 1\amp 39 \end{array} \right]
+    </me>
+    into reduced row echelon form.
+    <me>
+      \left[\begin{array}{ccccc} 1\amp 2\amp 3\amp 1\amp 17\\3\amp 4\amp 7\amp 1\amp 39 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp -1\amp 5\\0\amp 1\amp 1\amp 1\amp 6 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    By looking at the last three columns, we see <m>X</m>:
+    <me>
+      X = \left[\begin{array}{ccc} 1\amp -1\amp 5\\1\amp 1\amp 6 \end{array} \right]
+    </me>
+  </p>
+  <p>
+    Now that we've justified the technique we've been using in this section to solve <m>A X= B</m> for <m>X</m>, we reinfornce its importance by restating it as a Key Idea.
+  </p>
+    <insight xml:id="idea_solve_AXB"><title>Solving <m>A X= B</m></title>
+    <p>
+      Let <m>A</m> be an <m>n\times n</m> matrix,
+      where the reduced row echelon form of <m>A</m> is <m>I</m>. To solve the matrix equation <m>A X= B</m> for <m>X</m>,
+      <ol>
+        <li>
+          <p>
+            Form the augmented matrix <m>\left[\begin{array}{cc} A\amp B \end{array} \right]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Put this matrix into reduced row echelon form.
+            It will be of the form <m>\left[\begin{array}{cc} I \amp X \end{array} \right]</m>,
+            where <m>X</m> appears in the columns where <m>B</m> once was.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </insight>
+  <p>
+    These simple steps cause us to ask certain questions.
+    First, we specify above that <m>A</m> should be a square matrix.
+    What happens if <m>A</m> isn't square?
+    Is a solution still possible?
+    Secondly, we only considered cases where the reduced row echelon form of <m>A</m> was <m>I</m> (and stated that as a requirement in our Key Idea).
+    What if the reduced row echelon form of <m>A</m> isn't <m>I</m>? Would we still be able to find a solution? (Instead of having exactly one solution,
+    could we have no solution?
+    Infinite solutions?
+    How would we be able to tell?)
+  </p>
+  <p>
+    These questions are good to ask,
+    and we leave it to the reader to discover their answers.
+    Instead of tackling these questions,
+    we instead tackle the problem of <q>Why do we care about solving <m>A X= B</m>?</q>
+    The simple answer is that, for now,
+    we only care about the special case when <m>B= I</m>.
+    By solving <m>A X = I</m> for <m>X</m>, we find a matrix <m>X</m> that,
+    when multiplied by <m>A</m>, gives the identity <m>I</m>. That will be very useful.
+  </p>
+<exercises>
+ <exercisegroup>
+  <introduction>
+  <p>
+    In the following exercises, matrices <m>A</m> and <m>B</m> are given.
+    Solve the matrix equation <m>A X= B</m>.
+  </p>
+  </introduction>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 4\amp -1 \\ -7\amp 5 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>B=\left[\begin{array}{cc} 8 \amp -31\\ -27 \amp 38 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{cc} 1 \amp -9\\ -4 \amp -5 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp -3 \\ -3\amp 6 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>B=\left[\begin{array}{cc} 12\amp -10\\ -27 \amp 27 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{cc} 3\amp -7\\ -3\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 3\amp 3 \\ 6\amp 4 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>B=\left[\begin{array}{cc} 15\amp -39\\ 16\amp -66 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{cc} -2\amp -7\\ 7\amp -6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -3\amp -6 \\ 4\amp 0 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>B=\left[\begin{array}{cc} 48\amp -30\\ 0\amp -8 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{cc} 0\amp -2\\ -8\amp 6 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -1\amp -2 \\ -2\amp -3 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>B=\left[\begin{array}{ccc} 13\amp 4\amp 7\\ 22\amp 5\amp 12 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{ccc} -5\amp 2\amp -3\\ -4\amp -3\amp -2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} -4\amp 1 \\ -1\amp -2 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>B=\left[\begin{array}{ccc} -2\amp -10\amp 19\\ 13\amp 2\amp -2 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{ccc} -1\amp 2\amp -4\\ -6\amp -2\amp 3 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 1\amp 0 \\ 3\amp -1 \end{array} \right]</m>,
+        <m>B=I_2</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{cc} 1\amp 0 \\ 3\amp -1 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{cc} 2\amp 2 \\ 3\amp 1 \end{array} \right]</m>,
+        <m>B=I_2</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{cc} -1/4 \amp 1/2 \\ 3/4 \amp -1/2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -2\amp 0\amp 4 \\ -5\amp -4\amp 5 \\ -3\amp 5\amp -3 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>B=\left[\begin{array}{ccc} -18\amp 2\amp -14\\ -38\amp 18\amp -13 \\ 10\amp 2\amp -18 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{ccc} 3\amp -3\amp 3\\ 2\amp -2\amp -3 \\ -3\amp -1\amp -2 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -5\amp -4\amp -1 \\ 8\amp -2\amp -3 \\ 6\amp 1\amp -8 \end{array} \right]</m>,
+      </p>
+      <p>
+        <m>B=\left[\begin{array}{ccc} -21\amp -8\amp -19\\ 65\amp -11\amp -10 \\ 75 \amp -51\amp 33 \end{array} \right]</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{ccc} 6\amp 1\amp -1\\ -1\amp -1\amp 7 \\ -5\amp 7\amp -4 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} 0\amp -2\amp 1 \\ 0\amp 2\amp 2 \\ 1\amp 2\amp -3 \end{array} \right]</m>,
+        <m>B=I_3</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{ccc} 5/3\amp 2/3\amp 1\\ -1/3 \amp 1/6\amp 0\\ 1/3\amp 1/3\amp 0 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>A = \left[\begin{array}{ccc} -3\amp 3\amp -2 \\ 1\amp -3\amp 2 \\ -1\amp -1\amp 2 \end{array} \right]</m>,
+        <m>B=I_3</m>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>X=\left[\begin{array}{ccc} -1/2 \amp -1/2 \amp 0\\ -1/2 \amp -1 \amp 1/2 \\ -1/2 \amp -3/4 \amp 3/4 \end{array} \right]</m>
+      </p>
+    </answer>
+  </exercise>
+ </exercisegroup>
+</exercises>
+</section>

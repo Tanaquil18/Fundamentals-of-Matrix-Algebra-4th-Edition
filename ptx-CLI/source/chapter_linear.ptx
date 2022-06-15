@@ -1,0 +1,32 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="chapter_linear">
+  <title>Systems of Linear Equations</title>
+  <introduction>
+    <p>
+      You have probably encountered systems of linear equations before;
+      you can probably remember solving systems of equations where you had three equations,
+      three unknowns, and you tried to find the value of the unknowns.
+      In this chapter we will uncover some of the fundamental principles guiding the solution to such problems.
+    </p>
+    <p>
+      Solving such systems was a bit time consuming,
+      but not terribly difficult.
+      So why bother?
+      We bother because linear equations have many,
+      many, <em>many</em> applications,
+      from business to engineering to computer graphics to understanding more mathematics.
+      And not only are there many applications of systems of linear equations,
+      on most occasions where these systems arise we are using far more than three variables.
+      (Engineering applications,
+      for instance, often require thousands of variables.)
+      So getting a good understanding of how to solve these systems effectively is important.
+    </p>
+    <p>
+      But don't worry; we'll start at the beginning.
+    </p>
+  </introduction>
+  <xi:include  href="sec_intro.ptx"/>
+  <xi:include  href="sec_matrices.ptx"/>
+  <xi:include  href="sec_gaussian_elimination.ptx"/>
+  <xi:include  href="sec_existence.ptx"/>
+  <xi:include  href="sec_solving_systems.ptx"/>
+</chapter>
