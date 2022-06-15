@@ -24,7 +24,7 @@
         </author>
       </titlepage>
     </frontmatter>
-    <!-- <xi:include href="./chapter_linear.ptx"/> -->
+    <xi:include href="./chapter_linear.ptx"/>
     <xi:include href="./chapter_arithmetic.ptx"/>
     <!-- <xi:include href="./chapter_ops.ptx"/>
     <xi:include href="./chapter_eigen.ptx"/>

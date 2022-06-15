@@ -47,18 +47,15 @@
     As we move through other sections,
     we'll add on to this theorem.
   </p>
-  <theorem xml:id="thm_IMT">
-    <statement>
-      <p>
-            <idx><h>Invertible Matrix Theorem</h></idx>
+  <theorem xml:id="thm_IMT"><title>Invertible Matrix Theorem</title><idx><h>Invertible Matrix Theorem</h></idx>
             <idx><h>inverse</h><h>properties</h></idx>
             <idx><h>inverse</h><h>Invertible Matrix Theorem</h></idx>
-        <em>Invertible Matrix Theorem</em>
-      </p>
+    <statement>
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix.
         The following statements are equivalent.
-        <ol marker="((a))">
+      </p>
+        <ol label="(a)">
           <li>
             <p> 
                 <m>A</m> is invertible.
@@ -76,7 +73,7 @@
           </li>
           <li>
             <p> 
-                 The reduced row echelon form of <m>A</m> is I.
+                 The reduced row echelon form of <m>A</m> is <m>I</m>.
             </p>
           </li>
           <li>
@@ -90,7 +87,6 @@
             </p>
           </li>
         </ol>
-      </p>
     </statement>
   </theorem>
   <p>
@@ -106,7 +102,7 @@
         it means that the truth of any one of them implies that the rest are also true;
         if any one of the statements is false, then they are all false.
         So, for example,
-        if we determined that the equation <m>A \vec{x} = \vec{0}</m>had exactly one solution
+        if we determined that the equation <m>A \vec{x} = \vec{0}</m> had exactly one solution
         (and <m>A</m> was an <m>n\times n</m> matrix)
         then we would know that <m>A</m> was invertible,
         that <m>A \vec{x} = \vec{b}</m> had only one solution,
@@ -117,7 +113,7 @@
       <p>
         Let's go through each of the statements and see why we already knew they all said essentially the same thing.
       </p>
-      <ol marker="((a))">
+      <ol marker="(a)">
         <li>
           <p>
             This simply states that <m>A</m> is invertible <mdash/> that is,
@@ -205,10 +201,7 @@
     infinite solutions, or no solution, we are left with the latter options when <m>A</m> is not invertible. 
     This idea is important and so we'll state it again as a Key Idea.
   </p>
-  <insight xml:id="idea_solutions_invert">
-    <p>
-      <term>Solutions to <m>A \vec{x} = \vec{b}</m> and the Invertibility of A</term>
-    </p>
+  <insight xml:id="idea_solutions_invert"><title>Solutions to <m>A \vec{x} = \vec{b}</m> and the Invertibility of <m>A</m></title>
     <p>
       Consider the system of linear equations <m>A \vec{x} = \vec{b}</m>.
       <ol>
@@ -241,7 +234,7 @@
     Specifically, we want to find out how invertibility interacts with other matrix operations. 
     For instance, if we know that <m>A</m> and <m>B</m> are invertible, what is the inverse of <m>A+ B</m>? What is the inverse of <m>A B</m>?      What is <q>the inverse of the inverse?</q> We'll explore these questions through an example.
   </p>
-  <example xml:id="ex_inv_prop">
+  <example xml:id="ex_inv_prop"><title>Exploring Properties of the Inverse</title>
     <statement>
       <p>
         Let
@@ -297,7 +290,7 @@
             <p>
               We compute  in the same way as above.
               <me>
-                = \frac{1}{-2}\left[\begin{array}{cc} 1\amp 0\\-1\amp -2 \end{array} \right] = \left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right]
+                B^{-1} = \frac{1}{-2}\left[\begin{array}{cc} 1\amp 0\\-1\amp -2 \end{array} \right] = \left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right]
               </me>
             </p>
           </li>
@@ -316,7 +309,7 @@
           <li>
             <p>
               To compute <m>( A^{-1})^{-1}</m>,
-              we simply apply <xref ref="thm_2by2">Theorem</xref> to  A^{-1}:
+                we simply apply <xref ref="thm_2by2">Theorem</xref> to  <m>A^{-1}</m>:
               <me>
                 ( A^{-1})^{-1} = \frac{1}{1/3}\left[\begin{array}{cc} 1 \amp  2/3\\0 \amp  1/3 \end{array} \right] = \left[\begin{array}{cc}  3 \amp  2\\0 \amp  1 \end{array} \right]
               </me>.
@@ -351,52 +344,52 @@
           </li>
         </ol>
         <p>
-          We now look for connections between <m>A^{-1}</m>, , <m>( A B)^{-1}</m>,
+          We now look for connections between <m>A^{-1}</m>, <m>B^{-1}</m> , <m>( A B)^{-1}</m>,
           <m>( A^{-1})^{-1}</m> and <m>( A+ B)^{-1}</m>.
           <ol>
             <li>
               <p>
                 Is there some sort of relationship between
-                <m>( A B)^{-1}</m> and <m>A^{-1}</m> and ? A first guess that seems plausible is <m>( A B)^{-1} =  A^{-1}</m>.
+                <m>( A B)^{-1}</m> and <m>A^{-1}</m> and <m>B^{-1}</m>? A first guess that seems plausible is <m>( A B)^{-1} =  A^{-1} B^{-1}</m>.
                 Is this true?
                 Using our work from above, we have
                 <me>
-                  A^{-1} = \left[\begin{array}{cc}  1/3 \amp  -2/3\\ 0 \amp  1 \end{array} \right]\left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right] = \left[\begin{array}{cc}  -1/2 \amp  -2/3 \\ 1/2 \amp  1 \end{array} \right]
+                  A^{-1} B^{-1}= \left[\begin{array}{cc}  1/3 \amp  -2/3\\ 0 \amp  1 \end{array} \right]\left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right] = \left[\begin{array}{cc}  -1/2 \amp  -2/3 \\ 1/2 \amp  1 \end{array} \right]
                 </me>.
                 Obviously, this is not equal to <m>( A B)^{-1}</m>.
                 Before we do some further guessing,
                 let's think about what the inverse of <m>AB</m> is supposed to do.
-                The inverse <mdash/> let's call it <m>C</m>C <ndash/> is supposed to be a matrix such that
+                The inverse <mdash/> let's call it <m>C</m> <mdash/> is supposed to be a matrix such that
                 <me>
                   ( A B) C =  C( A B) =  I
                 </me>.
                 In examining the expression <m>( A B) C</m>,
                 we see that we want <m>B</m> to somehow
                 <q>cancel</q>
-                with  C. What
+                with <m>C</m>. What
                 <q>cancels</q>
-                B? An obvious answer is . This gives us a thought:
-                perhaps we got the order of <m>A^{-1}</m> and  wrong before.
+                <m>B</m>? An obvious answer is <m>B^{-1}</m> . This gives us a thought:
+                perhaps we got the order of <m>A^{-1}</m> and <m>B^{-1}</m> wrong before.
                 After all, we were hoping to find that
                 <me>
-                  A B A^{-1} \overset{\text{?} }{=}  I
+                  A B A^{-1} B^{-1}\overset{\text{?} }{=}  I
                 </me>,
                 but algebraically speaking, it is hard to cancel out these terms.<fn>
                 Recall that matrix multiplication is not commutative.
                 </fn> However,
-                switching the order of <m>A^{-1}</m> and  gives us some hope.
-                Is <m>( A B)^{-1} =  A^{-1}</m>?
+                switching the order of <m>A^{-1}</m> and <m>B^{-1}</m> gives us some hope.
+                Is <m>( A B)^{-1} = B^{-1} A^{-1}</m>?
                 Let's see.
                 <md>
-                  <mrow>( A B)( A^{-1}) \amp =  A( B) A^{-1} \textsf{(regrouping by the associative property)}</mrow>
-                  <mrow>\amp =  A I A^{-1} \textsf{($ B =  I$)}</mrow>
-                  <mrow>\amp =  A A^{-1} \textsf{($ A I =  A$)}</mrow>
-                  <mrow>\amp =  I \textsf{($ A A^{-1}= I$)}</mrow>
+                  <mrow>( A B)(B^{-1} A^{-1}) \amp =  A( B B^{-1}) A^{-1} \amp \text{(regrouping by the associative property)}</mrow>
+                  <mrow>\amp =  A I A^{-1} \amp (\text{because } B B^{-1} =  I)</mrow>
+                  <mrow>\amp =  A A^{-1} \amp (\text{ because } A I =  A)</mrow>
+                  <mrow>\amp =  I \amp( \text{because } A A^{-1}= I)</mrow>
                 </md>
-                Thus it seems that <m>( A B)^{-1} =  A^{-1}</m>.
+                Thus it seems that <m>( A B)^{-1} =  B^{-1} A^{-1}</m>.
                 Let's confirm this with our example matrices.
                 <me>
-                  A^{-1} = \left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right]\left[\begin{array}{cc}  1/3 \amp  -2/3\\ 0 \amp  1 \end{array} \right] = \left[\begin{array}{cc}  -1/6 \amp  1/3\\ 1/6 \amp  2/3 \end{array} \right] = ( A B)^{-1}
+                  B^{-1} A^{-1} = \left[\begin{array}{cc}  -1/2 \amp  0 \\ 1/2 \amp  1 \end{array} \right]\left[\begin{array}{cc}  1/3 \amp  -2/3\\ 0 \amp  1 \end{array} \right] = \left[\begin{array}{cc}  -1/6 \amp  1/3\\ 1/6 \amp  2/3 \end{array} \right] = ( A B)^{-1}
                 </me>.
                 It worked!
               </p>
@@ -413,11 +406,10 @@
             <li>
               <p>
                 Is there some sort of relationship between <m>( A+ B)^{-1}</m>,
-                <m>A^{-1}</m> and ? Certainly,
-                if we were forced to make a guess without working any examples,
-                we would guess that
+                <m>A^{-1}</m> and <m>B^{-1}</m>? If we were forced to make a guess without working any examples,
+                we would probably guess that
                 <me>
-                  ( A+ B)^{-1} \overset{\text{?} }{=}  A^{-1}+
+                  ( A+ B)^{-1} \overset{\text{?} }{=}  A^{-1}+ B^{-1}
                 </me>.
                 However, we saw that in our example,
                 the matrix <m>( A+ B)</m> isn't even invertible.
@@ -427,7 +419,7 @@
             <li>
               <p>
                 Is there a connection between
-                <m>(5 A)^{-1}</m> and  A^{-1}? Consider:
+                <m>(5 A)^{-1}</m> and <m>A^{-1}</m>? Consider:
                 <md>
                   <mrow>(5 A)^{-1} \amp = \left[\begin{array}{cc}  1/15 \amp  -2/15</mrow>
                   <mrow>0 \amp  1/5\end{array}\right]</mrow>
@@ -446,8 +438,8 @@
   <p>
     Let's summarize the results of this example.
     If <m>A</m> and <m>B</m> are both invertible matrices,
-    then so is their product, <m>A B</m>. We demonstrated this with our example,
-    and there is more to be said.
+    then so is their product, <m>A B</m>. We saw this with our example, though of course that's not a proof,
+    but there is more that can be said.
     Let's suppose that <m>A</m> and <m>B</m> are <m>n\times n</m> matrices,
     but we don't yet know if they are invertible.
     If <m>AB</m> is invertible, then each of <m>A</m> and <m>B</m> are;
@@ -459,11 +451,11 @@
     <q>works well</q>
     with matrix multiplication.
     However, we saw that it doesn't work well with matrix addition.
-    Knowing that <m>A</m> and <m>B</m>B are invertible does not help us find the inverse of <m>( A+ B)</m>;
+    Knowing that <m>A</m> and <m>B</m> are invertible does not help us find the inverse of <m>( A+ B)</m>;
     in fact, the latter matrix may not even be invertible.<fn>
     The fact that invertibility works well with matrix multiplication should not come as a surprise.
     After all, saying that <m>A</m> is invertible makes a statement about the mulitiplicative properties of <m>A</m>.
-    It says that I can multiply <m>A</m> with a special matrix to get I. Invertibility,
+    It says that I can multiply <m>A</m> with a special matrix to get <m>I</m>. Invertibility,
     in and of itself, says nothing about matrix addition,
     therefore we should not be too surprised that it doesn't work well with it.
     </fn>
@@ -472,7 +464,7 @@
     Let's do one more example,
     then we'll summarize the results of this section in a theorem.
   </p>
-  <example xml:id="ex_diagonal_inverse">
+  <example xml:id="ex_diagonal_inverse"><title>Inverse of a Special Kind of Matrix</title>
     <statement>
       <p>
         Find the inverse of <m>A = \left[\begin{array}{ccc} 2\amp 0\amp 0\\0\amp 3\amp 0\\0\amp 0\amp -7 \end{array} \right]</m>.
@@ -482,7 +474,7 @@
       <p>
         We'll find <m>A^{-1}</m> using <xref ref="idea_finding_inverses">Key Idea</xref>.
         <me>
-          \left[\begin{array}{cccccc}  2\amp 0\amp 0\amp 1\amp 0\amp 0\\0\amp 3\amp 0\amp 0\amp 1\amp 0\\0\amp 0\amp -7\amp 0\amp 0\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{cccccc}  1\amp 0\amp 0\amp 1/2\amp 0\amp 0\\0\amp 1\amp 0\amp 0\amp 1/3\amp 0\\0\amp 0\amp 1\amp 0\amp 0\amp -1/7 \end{array} \right]
+          \left[\begin{array}{cccccc}  2\amp 0\amp 0\amp 1\amp 0\amp 0\\0\amp 3\amp 0\amp 0\amp 1\amp 0\\0\amp 0\amp -7\amp 0\amp 0\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cccccc}  1\amp 0\amp 0\amp 1/2\amp 0\amp 0\\0\amp 1\amp 0\amp 0\amp 1/3\amp 0\\0\amp 0\amp 1\amp 0\amp 0\amp -1/7 \end{array} \right]
         </me>
       </p>
       <p>
@@ -506,19 +498,15 @@
     and it holds true in general.
     We'll state this and summarize the results of this section with the following theorem.
   </p>
-  <theorem xml:id="thm_inv_prop">
+  <theorem xml:id="thm_inv_prop"><title>Properties of Invertible Matrices</title><idx><h>inverse</h><h>properties</h></idx>
     <statement>
-      <p>
-            <idx><h>inverse</h><h>properties</h></idx>
-        <em>Properties of Invertible Matrices</em>
-      </p>
       <p>
         Let <m>A</m> and <m>B</m> be <m>n\times n</m> invertible matrices.
         Then:
         <ol>
           <li>
             <p>
-              <m>AB</m> is invertible; <m>( A B)^{-1} = A^{-1}</m>.
+              <m>AB</m> is invertible; <m>( A B)^{-1} = B^{-1} A^{-1}</m>.
             </p>
           </li>
           <li>
@@ -554,7 +542,7 @@
           </li>
           <li>
             <p>
-              If <m>A</m> or <m>B</m> are not invertible,
+              If <m>A</m> or <m>B</m> is not invertible,
               then <m>AB</m> is not invertible.
             </p>
           </li>
@@ -621,10 +609,14 @@
     It turns out that even with all of our advances in mathematics,
     it is hard to beat the basic method that Gauss introduced a long time ago.
   </p>
-  <p>
-    In the following exercises, matrices <m>A</m> and <m>B</m> are given.
-    Compute <m>( A B)^{-1}</m> and <m>B^{-1} A^{-1}</m>.
-  </p>
+ <exercises>
+  <exercisegroup>
+   <introduction>
+      <p>
+        In the following exercises, matrices <m>A</m> and <m>B</m> are given.
+        Compute <m>( A B)^{-1}</m> and <m>B^{-1} A^{-1}</m>.
+      </p>
+   </introduction>
   <exercise>
     <statement>
       <p>
@@ -677,11 +669,15 @@
       </p>
     </answer>
   </exercise>
-  <p>
-    In the following exercises, a
-    <m>2\times 2</m> matrix <m>A</m> is given.
-    Compute <m>A^{-1}</m> and <m>( A^{-1})^{-1}</m> using <xref ref="thm_2by2">Theorem</xref>.
-  </p>
+  </exercisegroup>
+  <exercisegroup>
+   <introduction>
+      <p>
+        In the following exercises, a
+        <m>2\times 2</m> matrix <m>A</m> is given.
+        Compute <m>A^{-1}</m> and <m>( A^{-1})^{-1}</m> using <xref ref="thm_2by2">Theorem</xref>.
+      </p>
+    </introduction>
   <exercise>
     <statement>
       <p>
@@ -742,6 +738,7 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
   <exercise>
     <statement>
       <p>
@@ -759,10 +756,21 @@
     <statement>
       <p>
         Create a random <m>6\times 6</m> matrix <m>A</m>,
-        then have a calculator or computer compute <m>A A^{-1}</m>.
+        then have a calculator or computer compute <m>A^{-1}</m> and <m>A A^{-1}</m>.
         Was the identity matrix returned exactly?
-        Comment on your results.
+        Comment on your results. You could use Sage, as shown below.
       </p>
+        <sage>
+            <input>
+                A=random_matrix(RR,6,6)
+                show(A)
+            </input>
+        </sage>
+        <sage>
+            <input>
+                show(A*A.inverse())
+            </input>
+        </sage>
     </statement>
     <answer>
       <p>
@@ -783,8 +791,9 @@
     </statement>
     <answer>
       <p>
-        Likely some entries that should be 0 will not be exactly 0, but rather very small values.
+        Likely some entries that should be <m>0</m> will not be exactly <m>0</m>, but rather very small values.
       </p>
     </answer>
-  </exercise>
+   </exercise>
+  </exercises>
 </section>

@@ -4,7 +4,7 @@
     <ol>
       <li>
         <p>
-          T/F: If <m>A</m> and B<nbsp/>are square matrices where <m>A B= I</m>,
+          T/F: If <m>A</m> and <m></m> are square matrices where <m>A B= I</m>,
           then <m>B A= I</m>.
         </p>
       </li>
@@ -56,7 +56,7 @@
   </p>
   <p>
     Let us now think in terms of matrices.
-    We have learned of the identity matrix I<nbsp/>that
+    We have learned of the identity matrix <m>I</m> that
     <q>acts like the number 1.</q>
     That is, if <m>A</m> is a square matrix, then
     <me>
@@ -65,7 +65,7 @@
     If we had a matrix,
     which we'll call <m>A^{-1}</m>, where <m>A^{-1} A= I</m>,
     then by analogy to our algebra example above it seems like we might be able to solve the linear system
-    <m>A \vec{x} = \vec{b}</m><nbsp/>for <m>\vec{x}</m> by multiplying both sides of the equation by <m>A^{-1}</m>.
+    <m>A \vec{x} = \vec{b}</m> for <m>\vec{x}</m> by multiplying both sides of the equation by <m>A^{-1}</m>.
     That is, perhaps
     <me>
       \vec{x} =  A^{-1}\vec{b}
@@ -75,26 +75,26 @@
     Of course, there is a lot of speculation here.
     We don't know that such a matrix like <m>A^{-1}</m> exists.
     However, we do know how to solve the matrix equation <m>A X = B</m>,
-    so we can use that technique to solve the equation <m>A X = I</m> for X. This seems like it will get us close to what we want.
+    so we can use that technique to solve the equation <m>A X = I</m> for <m>X</m>. This seems like it will get us close to what we want.
     Let's practice this once and then study our results.
   </p>
-  <example xml:id="ex_inverse_1">
+  <example xml:id="ex_inverse_1"><title>Solving <m>AX=I</m> with <m>2 \times 2</m> matrix <m>A</m></title>
     <statement>
       <p>
         Let
         <me>
           A = \left[\begin{array}{cc}  2\amp 1\\1\amp 1 \end{array} \right]
         </me>.
-        Find a matrix X<nbsp/>such that <m>A X =  I</m>.
+        Find a matrix <m>X</m> such that <m>A X =  I</m>.
       </p>
     </statement>
     <solution>
       <p>
         We know how to solve this from the previous section:
         we form the proper augmented matrix,
-        put it into reduced row echelon form<nbsp/>and interpret the results.
+        put it into reduced row echelon form and interpret the results.
         <me>
-          \left[\begin{array}{cccc} 2\amp 1\amp 1\amp 0\\1\amp 1\amp 0\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc} 1\amp 0\amp 1\amp -1\\0\amp 1\amp -1\amp 2 \end{array} \right]
+          \left[\begin{array}{cccc} 2\amp 1\amp 1\amp 0\\1\amp 1\amp 0\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad  \left[\begin{array}{cccc} 1\amp 0\amp 1\amp -1\\0\amp 1\amp -1\amp 2 \end{array} \right]
         </me>
       </p>
       <p>
@@ -119,7 +119,7 @@
   </example>
   <p>
     Looking at our previous example,
-    we are tempted to jump in and call the matrix X<nbsp/>that we found
+    we are tempted to jump in and call the matrix <m>X</m> that we found
     <q><m>A^{-1}</m>.</q>
     However, there are two obstacles in the way of us doing this.
   </p>
@@ -132,7 +132,7 @@
     Secondly, we have seen examples of matrices where <m>A B = A C</m>,
     but <m>B\neq C</m>.
     So just because <m>A X = I</m>,
-    it is possible that another matrix exists where <m>A = I</m>.
+    it is possible that another matrix <m>Y</m> exists where <m>AY = I</m>.
     If this is the case,
     using the notation <m>A^{-1}</m> would be misleading,
     since it could refer to more than one matrix.
@@ -141,7 +141,7 @@
     These obstacles that we face are not insurmountable.
     The first obstacle was that we know that <m>A X= I</m> but didn't know that <m>X A= I</m>.
     That's easy enough to check, though.
-    Let's look at <m>A</m> and X<nbsp/>from our previous example.
+    Let's look at <m>A</m> and <m>X</m> from our previous example.
     <md>
       <mrow>X A \amp = \left[\begin{array}{cc} 1\amp -1</mrow>
       <mrow>-1\amp 2\end{array}\right]\left[\begin{array}{cc} 2\amp 1</mrow>
@@ -162,23 +162,20 @@
     We won't worry about proving it always works,
     but state formally that it does in the following theorem.
   </p>
-  <theorem xml:id="thm_inverse1">
+  <theorem xml:id="thm_inverse1"><title>Special Commuting Matrix Products</title>
     <statement>
-      <p>
-        <em>Special Commuting Matrix Products</em>
-      </p>
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix.
         <ol>
           <li>
             <p>
-              If there is a matrix X<nbsp/>such that <m>A X=I_n</m>,
+              If there is a matrix <m>X</m> such that <m>A X=I_n</m>,
               then <m>X A=I_n</m>.
             </p>
           </li>
           <li>
             <p>
-              If there is a matrix X<nbsp/>such that <m>X A=I_n</m>,
+              If there is a matrix <m>X</m> such that <m>X A=I_n</m>,
               then <m>A X=I_n</m>.
             </p>
           </li>
@@ -188,63 +185,55 @@
   </theorem>
   <p>
     The second obstacle is easier to address.
-    We want to know if another matrix  exists where <m>A =  I = A</m>.
+    We want to know if another matrix <m>Y</m> exists where <m>AY =  I = YA</m>.
     Let's suppose that it does.
-    Consider the expression <m>X A</m>.
+    Consider the expression <m>X AY</m>.
     Since matrix multiplication is associative,
     we can group this any way we choose.
-    We could group this as <m>( X A)</m>; this results in
+    We could group this as <m>( X A)Y</m>; this results in
     <md>
-      <mrow>( X A)  \amp =  I</mrow>
-      <mrow>\amp = </mrow>
+      <mrow>( X A) Y \amp =  I Y</mrow>
+      <mrow>\amp = Y</mrow>
     </md>.
   </p>
   <p>
-    We could also group <m>X A</m> as <m>X( A)</m>.
+    We could also group <m>X A Y</m> as <m>X(AY)</m>.
     This tells us
     <md>
-      <mrow>X( A) \amp =  X I</mrow>
+      <mrow>X( AY) \amp =  X I</mrow>
       <mrow>\amp =  X</mrow>
     </md>
   </p>
   <p>
     Combining the two ideas above,
-    we see that <m>X = X A =</m>; that is, <m>X=</m>.
-    We conclude that there is only one matrix X<nbsp/>where <m>X A = I = A X</m>.
+    we see that <m>X = X A Y =Y</m>; that is, <m>X=Y</m>.
+    We conclude that there is only one matrix <m>X</m> where <m>X A = I = A X</m>.
     (Even if we think we have two,
     we can do the above exercise and see that we really just have one.)
   </p>
   <p>
     We have just proved the following theorem.
   </p>
-  <theorem xml:id="thm_inverse_unique">
+  <theorem xml:id="thm_inverse_unique"><title>Uniqueness of Solutions to <m>A X=I_n</m></title><idx><h>inverse</h><h>uniqueness</h></idx>
     <statement>
       <p>
-            <idx><h>inverse</h><h>uniqueness</h></idx>
-        <em>Uniqueness of Solutions to <m>A X=I_n</m></em>
-      </p>
-      <p>
-        Let <m>A</m> be an <m>n\times n</m> matrix and let X<nbsp/>be a matrix where <m>A X = I_n</m>.
-        Then X<nbsp/>is unique;
+        Let <m>A</m> be an <m>n\times n</m> matrix and let <m>X</m> be a matrix where <m>A X = I_n</m>.
+        Then <m>X</m> is unique;
         it is the only matrix that satisfies this equation.
       </p>
     </statement>
   </theorem>
   <p>
     So given a square matrix <m>A</m>,
-    if we can find a matrix X<nbsp/>where <m>A X= I</m>,
-    then we know that <m>X A = I</m> and that X<nbsp/>is the only matrix that does this.
-    This makes X<nbsp/>special, so we give it a special name.
+    if we can find a matrix <m>X</m> where <m>A X= I</m>,
+    then we know that <m>X A = I</m> and that <m>X</m> is the only matrix that does this.
+    This makes <m>X</m> special, so we give it a special name.
   </p>
-  <definition xml:id="def_inverse">
+  <definition xml:id="def_inverse"><title>Invertible Matrices and the Inverse of A</title><idx><h>matrix</h><h>inverse</h></idx>
+            <idx><h>inverse</h><h>definition</h></idx>
     <statement>
       <p>
-            <idx><h>matrix</h><h>inverse</h></idx>
-            <idx><h>inverse</h><h>definition</h></idx>
-        <term>Invertible Matrices and the Inverse of A</term>
-      </p>
-      <p>
-        Let <m>A</m> and X<nbsp/>be
+        Let <m>A</m> and <m>X</m> be
         <m>n\times n</m> matrices where <m>A X = I = X A</m>.
         Then:
         <ol>
@@ -255,7 +244,7 @@
           </li>
           <li>
             <p>
-              X<nbsp/>is the <em>inverse</em>
+              <m>X</m> is the <em>inverse</em>
               of <m>A</m>, denoted by <m>A^{-1}</m>.
             </p>
           </li>
@@ -264,9 +253,9 @@
     </statement>
   </definition>
   <p>
-    Let's do an example.
+    Let's do another example.
   </p>
-  <example xml:id="ex_inverse_2">
+  <example xml:id="ex_inverse_2"><title>When <m>A</m> does not row reduce to <m>I</m></title>
     <statement>
       <p>
         Find the inverse of <m>A = \left[\begin{array}{cc} 1\amp 2\\2\amp 4 \end{array} \right]</m>.
@@ -274,15 +263,15 @@
     </statement>
     <solution>
       <p>
-        By solving the equation <m>A X =  I</m> for X<nbsp/>will give us the inverse of <m>A</m>.
-        Forming the appropriate augmented matrix and finding its reduced row echelon form<nbsp/>gives us
+        By solving the equation <m>A X =  I</m> for <m>X</m> will give us the inverse of <m>A</m>.
+        Forming the appropriate augmented matrix and finding its reduced row echelon form gives us
         <me>
-          \left[\begin{array}{cccc} 1\amp 2\amp 1\amp 0\\2\amp 4\amp 0\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } }  \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 1/2\\0\amp 0\amp 1\amp -1/2 \end{array} \right]
+          \left[\begin{array}{cccc} 1\amp 2\amp 1\amp 0\\2\amp 4\amp 0\amp 1 \end{array} \right] \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 1/2\\0\amp 0\amp 1\amp -1/2 \end{array} \right]
         </me>
       </p>
       <p>
         Yikes!
-        We were expecting to find that the reduced row echelon form<nbsp/>of this matrix would look like
+        We were expecting to find that the reduced row echelon form of this matrix would look like
         <me>
           \left[\begin{array}{cc}  I \amp   A^{-1} \end{array} \right]
         </me>.
@@ -307,12 +296,8 @@
     Finally, we describe the most general way to find the inverse of a matrix,
     and a way to tell if it does not have one.
   </p>
-  <insight xml:id="idea_finding_inverses">
-    <p>
-          <idx><h>inverse</h><h>computing</h></idx>
+  <insight xml:id="idea_finding_inverses"><title>Finding <m>A^{-1}</m></title> <idx><h>inverse</h><h>computing</h></idx>
           <idx><h>matrix</h><h>inverse</h></idx>
-      <term>Finding A^{-1}</term>
-    </p>
     <p>
       Let <m>A</m> be an <m>n \times n</m> matrix.
       To find <m>A^{-1}</m>, put the augmented matrix
@@ -326,14 +311,14 @@
       </me>,
       then <m>A^{-1} =  X</m>.
       If not, (that is,
-      if the first <m>n</m> columns of the reduced row echelon form<nbsp/>are not <m>I_n</m>),
+      if the first <m>n</m> columns of the reduced row echelon form are not <m>I_n</m>),
       then <m>A</m> is not invertible.
     </p>
   </insight>
   <p>
     Let's try again.
   </p>
-  <example xml:id="ex_inverse_3">
+  <example xml:id="ex_inverse_3"><title>Calculating the inverse of <m>A</m> when <m>A</m> is a <m>3\times 3</m> matrix</title>
     <statement>
       <p>
         Find the inverse, if it exists,
@@ -342,9 +327,9 @@
     </statement>
     <solution>
       <p>
-        We'll try to solve <m>A X =  I</m> for X<nbsp/>and see what happens.
+        We'll try to solve <m>A X =  I</m> for <m>X</m> and see what happens.
         <me>
-          \left[\begin{array}{cccccc} 1\amp 1\amp -1\amp 1\amp 0\amp 0\\1\amp -1\amp 1\amp 0\amp 1\amp 0\\1\amp 2\amp 3\amp 0\amp 0\amp 1 \end{array} \right]  \overrightarrow{\text{ rref } } \left[\begin{array}{cccccc} 1\amp 0\amp 0\amp 0.5\amp 0.5\amp 0\\0\amp 1\amp 0\amp 0.2\amp -0.4\amp 0.2\\0\amp 0\amp 1\amp -0.3\amp 0.1\amp 0.2 \end{array} \right]
+          \left[\begin{array}{cccccc} 1\amp 1\amp -1\amp 1\amp 0\amp 0\\1\amp -1\amp 1\amp 0\amp 1\amp 0\\1\amp 2\amp 3\amp 0\amp 0\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cccccc} 1\amp 0\amp 0\amp 0.5\amp 0.5\amp 0\\0\amp 1\amp 0\amp 0.2\amp -0.4\amp 0.2\\0\amp 0\amp 1\amp -0.3\amp 0.1\amp 0.2 \end{array} \right]
         </me>
       </p>
       <p>
@@ -359,7 +344,7 @@
   <p>
     In general, given a matrix <m>A</m>,
     to find <m>A^{-1}</m> we need to form the augmented matrix
-    <m>\left[\begin{array}{cc}  A\amp  I \end{array} \right]</m> and put it into reduced row echelon form<nbsp/>and interpret the result.
+    <m>\left[\begin{array}{cc}  A\amp  I \end{array} \right]</m> and put it into reduced row echelon form and interpret the result.
     In the case of a <m>2\times 2</m> matrix,
     though, there is a shortcut.
     We give the shortcut in terms of a theorem.<fn>
@@ -369,16 +354,13 @@
     <me>
       \left[\begin{array}{cccc} a\amp b\amp 1\amp 0\\c\amp d\amp 0\amp 1 \end{array} \right]
     </me>
-    into \rref<nbsp/>and you'll discover the result of the theorem.
+    into rref and you'll discover the result of the theorem.
     Alternatively,
     multiply <m>A</m> by what we propose is the inverse and see that we indeed get  I.
     </fn>
   </p>
-  <theorem xml:id="thm_2by2">
+    <theorem xml:id="thm_2by2"><title>The Inverse of a <m>2\times 2</m> Matrix</title>
     <statement>
-      <p>
-        <em>The Inverse of a 2<times/>2 Matrix</em>
-      </p>
       <p>
         Let
         <me>
@@ -406,7 +388,7 @@
   <p>
     Although this idea is simple, we should practice it.
   </p>
-  <example xml:id="ex_inverse_4">
+    <example xml:id="ex_inverse_4"><title>Using the formula for <m>2\times 2</m> inverses </title>
     <statement>
       <p>
         Use <xref ref="thm_2by2">Theorem</xref> to find the inverse of
@@ -440,9 +422,9 @@
   <p>
     We started this section out by speculating that just as we solved algebraic equations of the form <m>ax=b</m> by computing <m>x = a^{-1}b</m>,
     we might be able to solve matrix equations of the form
-    <m>A \vec{x} = \vec{b}</m><nbsp/>by computing <m>\vec{x} =  A^{-1}\vec{b}</m>.
+    <m>A \vec{x} = \vec{b}</m> by computing <m>\vec{x} =  A^{-1}\vec{b}</m>.
     If <m>A^{-1}</m> does exist,
-    then we <em>can</em> solve the equation <m>A \vec{x} = \vec{b}</m><nbsp/>this way.
+    then we <em>can</em> solve the equation <m>A \vec{x} = \vec{b}</m> this way.
     Consider:
     <md>
       <mrow>A \vec{x} \amp = \vec{b} \amp  \amp  \textsf{(original equation)}</mrow>
@@ -454,14 +436,14 @@
   <p>
     Let's step back and think about this for a moment.
     The only thing we know about the equation
-    <m>A \vec{x} = \vec{b}</m><nbsp/>is that <m>A</m> is invertible.
+    <m>A \vec{x} = \vec{b}</m> is that <m>A</m> is invertible.
     We also know that solutions to
-    <m>A \vec{x} = \vec{b}</m><nbsp/>come in three forms:
+    <m>A \vec{x} = \vec{b}</m> come in three forms:
     exactly one solution, infinite solutions, and no solution.
     We just showed that if <m>A</m> is invertible,
-    then <m>A \vec{x} = \vec{b}</m><nbsp/>has
+    then <m>A \vec{x} = \vec{b}</m> has
     <em>at least</em> one solution.
-    We showed that by setting <m>\vec{x}</m> equal to A^{-1}\vec{b}, we have a solution.
+      We showed that by setting <m>\vec{x}</m> equal to <m>A^{-1}\vec{b}</m>, we have a solution.
     Is it possible that more solutions exist?
   </p>
   <p>
@@ -477,20 +459,16 @@
     </md>.
   </p>
   <p>
-    This shows that <em>all</em> solutions to <m>A \vec{x} = \vec{b}</m><nbsp/>are exactly
+    This shows that <em>all</em> solutions to <m>A \vec{x} = \vec{b}</m> are exactly
     <m>\vec{x} = A^{-1}\vec{b}</m> when <m>A</m> is invertible.
     We have just proved the following theorem.
   </p>
-  <theorem xml:id="thm_inverse_solution">
+  <theorem xml:id="thm_inverse_solution"><title>Invertible Matrices and Solutions to <m>A \vec{x} = \vec{b}</m></title><idx><h>solution</h><h>unique</h></idx>
     <statement>
       <p>
-            <idx><h>solution</h><h>unique</h></idx>
-        <em>Invertible Matrices and Solutions to <m>A \vec{x} = \vec{b}</m></em>
-      </p>
-      <p>
         Let <m>A</m> be an invertible <m>n\times n</m> matrix,
-        and let \vec{b}<nbsp/>be any <m>n\times 1</m> column vector.
-        Then the equation <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution, namely
+          and let <m>\vec{b}</m> be any <m>n\times 1</m> column vector.
+        Then the equation <m>A \vec{x} = \vec{b}</m> has exactly one solution, namely
         <me>
           \vec{x} =  A^{-1}\vec{b}
         </me>
@@ -501,18 +479,18 @@
     A corollary<fn>
     a <em>corollary</em> is an idea that follows directly from a theorem
     </fn> to this theorem is: If <m>A</m> is not invertible,
-    then <m>A \vec{x} = \vec{b}</m><nbsp/>does not have exactly one solution.
-    It may have infinite solutions and it may have no solution,
-    and we would need to examine the reduced row echelon form<nbsp/>of the augmented matrix
+    then <m>A \vec{x} = \vec{b}</m> does not have exactly one solution.
+    It may have infinite solutions or it may have no solution,
+    and we would need to examine the reduced row echelon form of the augmented matrix
     <m>\left[\begin{array}{cc} A \amp \vec{b} \end{array} \right]</m> to see which case applies.
   </p>
   <p>
     We demonstrate our theorem with an example.
   </p>
-  <example xml:id="ex_inverse_solution_1">
+  <example xml:id="ex_inverse_solution_1"><title>Solving a Matrix<ndash/>vector Equation using <m>A^{-1}</m></title>
     <statement>
       <p>
-        Solve <m>A \vec{x} = \vec{b}</m><nbsp/>by computing <m>\vec{x} =  A^{-1}\vec{b}</m>, where
+        Solve <m>A \vec{x} = \vec{b}</m> by computing <m>\vec{x} =  A^{-1}\vec{b}</m>, where
         <me>
           A = \left[ \begin{array}{ccc} 1\amp 0\amp -3\\  -3\amp -4\amp 10 \\  4\amp -5\amp -11 \end{array}  \right]\ \text{ and } \ \vec{b} = \left[ \begin{array}{c} -15\\   57 \\  -46 \end{array}  \right]
         </me>
@@ -525,7 +503,7 @@
           A^{-1} = \left[ \begin{array}{ccc} 94\amp 15\amp -12\\  7\amp 1\amp -1 \\  31\amp 5\amp -4 \end{array}  \right]
         </me>.
         We then find the solution to
-        <m>A \vec{x} = \vec{b}</m><nbsp/>by computing A^{-1}\vec{b}:
+          <m>A \vec{x} = \vec{b}</m> by computing <m>A^{-1}\vec{b}</m>:
         <md>
           <mrow>\vec{x} \amp = A^{-1}\vec{b}</mrow>
           <mrow>\amp = \left[ \begin{array}{ccc} 94\amp 15\amp -12</mrow>
@@ -554,16 +532,20 @@
     This is discussed at the end of the next section.
     </fn> Among many other reasons,
     if you know <m>A</m> is invertible,
-    then you know for sure that A \vec{x} = \vec{b} has a solution
+      then you know for sure that <m>A \vec{x} = \vec{b}</m> has a solution
     (as we just stated in <xref ref="thm_inverse_solution">Theorem</xref>).
     In the next section we'll demonstrate many different properties of invertible matrices,
     including stating several different ways in which we know that a matrix is invertible.
   </p>
-  <p>
-    In the following exercises, A matrix <m>A</m> is given.
-    Find <m>A^{-1}</m> using <xref ref="thm_2by2">Theorem</xref>,
-    if it exists.
-  </p>
+ <exercises>
+  <exercisegroup>
+   <introduction>
+      <p>
+        In the following exercises, a matrix <m>A</m> is given.
+        Find <m>A^{-1}</m> using <xref ref="thm_2by2">Theorem</xref>,
+        if it exists.
+      </p>
+   </introduction>
   <exercise>
     <statement>
       <p>
@@ -660,11 +642,15 @@
       </p>
     </answer>
   </exercise>
-  <p>
-    In the following exercises, a matrix <m>A</m> is given.
-    Find <m>A^{-1}</m> using <xref ref="idea_finding_inverses">Key Idea</xref>,
-    if it exists.
-  </p>
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
+      <p>
+        In the following exercises, a matrix <m>A</m> is given.
+        Find <m>A^{-1}</m> using <xref ref="idea_finding_inverses">Key Idea</xref>,
+        if it exists.
+      </p>
+   </introduction>
   <exercise>
     <statement>
       <p>
@@ -905,11 +891,15 @@
       </p>
     </answer>
   </exercise>
-  <p>
-    In the following exercises,
-    a matrix <m>A</m> and a vector \vec{b}<nbsp/>are given.
-    Solve the equation <m>A \vec{x} = \vec{b}</m><nbsp/>using <xref ref="thm_inverse_solution">Theorem</xref>.
-  </p>
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
+      <p>
+        In the following exercises,
+          a matrix <m>A</m> and a vector <m>\vec{b}</m> are given.
+        Solve the equation <m>A \vec{x} = \vec{b}</m> using <xref ref="thm_inverse_solution">Theorem</xref>.
+      </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -1022,4 +1012,6 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+ </exercises>
 </section>
