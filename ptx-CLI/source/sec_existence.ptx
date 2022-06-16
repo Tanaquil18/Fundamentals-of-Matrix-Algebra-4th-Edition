@@ -141,7 +141,8 @@
     This is a fact that we will not prove here,
     but it deserves to be stated.
   </p>
-  <theorem xml:id="thm_existence_uniqueness"> <title>Solution Forms of Linear Systems</title>
+  <theorem xml:id="thm_existence_uniqueness">
+      <title>Solution Forms of Linear Systems</title>
     <statement>
       <p>
         Every linear system of equations has exactly one solution,
@@ -160,7 +161,12 @@
     Here we don't differentiate between having one solution and infinite solutions,
     but rather just whether or not a solution exists.
   </p>
-  <definition xml:id="def_consistent"> <title>Consistent and Inconsistent Linear Systems</title>
+  <definition xml:id="def_consistent">
+      <title>Consistent and Inconsistent Linear Systems</title>
+      <idx><h>system of linear equations</h><h>consistent</h></idx>
+        <idx><h>system of linear equations</h><h>inconsistent</h></idx>
+        <idx><h>consistent</h></idx>
+        <idx><h>inconsistent</h></idx>
     <statement>
       <p>
         A system of linear equations is
@@ -171,12 +177,6 @@
       </p>
     </statement>
   </definition>
-  <p>
-        <idx><h>system of linear equations</h><h>consistent</h></idx>
-        <idx><h>system of linear equations</h><h>inconsistent</h></idx>
-        <idx><h>consistent</h></idx>
-        <idx><h>inconsistent</h></idx>
-  </p>
   <p>
     How can we tell what kind of solution
     (if one exists)
@@ -233,7 +233,8 @@
   <p>
     Our first example explores officially a quick example used in the introduction of this section.
   </p>
-  <example xml:id="ex_ex_un_01"> <title>Using RREF to analyze solutions; introducing free variables</title>
+  <example xml:id="ex_ex_un_01">
+      <title>Using RREF to analyze solutions; introducing free variables</title>
     <statement>
       <p>
         Find the solution to the linear system
@@ -247,7 +248,7 @@
         Create the corresponding augmented matrix,
         and then put the matrix into reduced row echelon form.
         <me>
-          \left[\begin{array}{ccc}  1\amp 1\amp 1\\2\amp 2\amp 2 \end{array} \right] \qquad \xrightarrow[\mathrm{rref}] \qquad \left[\begin{array}{ccc}  1\amp 1\amp 1\\0\amp 0\amp 0 \end{array} \right]
+          \left[\begin{array}{ccc}  1\amp 1\amp 1\\2\amp 2\amp 2 \end{array} \right] \xrightarrow[\mathrm{rref}] \qquad \left[\begin{array}{ccc}  1\amp 1\amp 1\\0\amp 0\amp 0 \end{array} \right]
         </me>
       </p>
       <p>
@@ -282,7 +283,8 @@
   <p>
     Let's try another example, one that uses more variables.
   </p>
-  <example xml:id="ex_ex_un_1"> <title>Another RREF and free variable example</title>
+  <example xml:id="ex_ex_un_1">
+      <title>Another RREF and free variable example</title>
     <statement>
       <p>
         Find the solution to the linear system
@@ -355,7 +357,8 @@
   <p>
     We formally define this and a few other terms in this following definition.
   </p>
-  <definition xml:id="def_free"> <title>Dependent and Independent Variables</title>
+  <definition xml:id="def_free">
+      <title>Dependent and Independent Variables</title>
     <statement>
       <p>
         Consider the reduced row echelon form of an augmented matrix of a linear system of equations.
@@ -395,12 +398,13 @@
     if there are any free variables,
     there are infinite solutions.
   </p>
-  <insight xml:id="idea_consistent"> <title>Consistent Solution Types</title>
+  <insight xml:id="idea_consistent">
+      <title>Consistent Solution Types</title>
+      <idx><h>system of linear equations</h><h>consistent</h></idx>
+      <idx><h>leading one</h></idx>
+      <idx><h>solution</h><h>infinite</h></idx>
     <p>
       A consistent linear system of equations will have exactly one solution if and only if there is a leading <m>1</m> for each variable in the system.
-          <idx><h>system of linear equations</h><h>consistent</h></idx>
-          <idx><h>leading one</h></idx>
-          <idx><h>solution</h><h>infinite</h></idx>
     </p>
     <p>
       If a consistent linear system of equations has a free variable,
@@ -412,9 +416,6 @@
     </p>
     <p>
       A consistent linear system with more variables than equations will always have infinite solutions.
-          <idx><h>system of linear equations</h><h>consistent</h></idx>
-          <idx><h>leading one</h></idx>
-          <idx><h>solution</h><h>infinite</h></idx>
     </p>
   </insight>
   <p>
@@ -440,7 +441,8 @@
     How will we recognize that a system is inconsistent?
     Let's find out through an example.
   </p>
-  <example xml:id="ex_ex_un_2"> <title>An Inconsistent System</title>
+  <example xml:id="ex_ex_un_2">
+      <title>An Inconsistent System</title>
     <statement>
       <p>
         Find the solution to the linear system
@@ -493,7 +495,8 @@
     if we have a leading <m>1</m> in the last column of an augmented matrix,
     then the linear system has no solution.
   </p>
-  <insight xml:id="idea_inconsistent"><title>Inconsistent Systems of Linear Equations</title>
+  <insight xml:id="idea_inconsistent">
+      <title>Inconsistent Systems of Linear Equations</title>
     <p>
       A system of linear equations is inconsistent if the reduced row echelon form of its corresponding augmented matrix has a leading <m>1</m> in the last column.
     </p>
@@ -502,7 +505,8 @@
         <idx><h>system of linear equations</h><h>inconsistent</h></idx>
         <idx><h>leading one</h></idx>
   </p>
-  <example xml:id="ex_ex_un_3"> <title>Another Inconsistent System</title>
+  <example xml:id="ex_ex_un_3">
+      <title>Another Inconsistent System</title>
     <statement>
       <p>
         Confirm that the linear system
@@ -553,14 +557,15 @@
     First, a definition: if there are infinite solutions,
     what do we call one of those infinite solutions?
   </p>
-  <definition xml:id="def_particular"> <title>Particular Solution</title>
+  <definition xml:id="def_particular">
+      <title>Particular Solution</title>
+      <idx><h>particular solution</h></idx>
+      <idx><h>solution</h><h>particular</h></idx>
     <statement>
       <p>
         Consider a linear system of equations with infinite solutions.
         A <term>particular solution</term>
         is one solution out of the infinite set of possible solutions.
-            <idx><h>particular solution</h></idx>
-            <idx><h>solution</h><h>particular</h></idx>
       </p>
     </statement>
   </definition>
@@ -568,7 +573,8 @@
     The easiest way to find a particular solution is to pick values for the free variables which then determines the values of the dependent variables.
     Again, more practice is called for.
   </p>
-  <example xml:id="ex_ex_un_4"> <title>Infinite Solutions; Particular Solutions</title>
+  <example xml:id="ex_ex_un_4">
+      <title>Infinite Solutions; Particular Solutions</title>
     <statement>
       <p>
         Give the solution to a linear system whose augmented matrix in reduced row echelon form is
@@ -650,7 +656,8 @@
       </sidebyside>
     </solution>
   </example>
-  <example xml:id="ex_ex_un_5"> <title>Infinite Solutions; Column of Zeros</title>
+  <example xml:id="ex_ex_un_5">
+      <title>Infinite Solutions; Column of Zeros</title>
     <statement>
       <p>
         Find the solution to a linear system whose augmented matrix in reduced row echelon form is
@@ -728,7 +735,8 @@
       </p>
     </solution>
   </example>
-  <example xml:id="ex_ex_un_6"><title>Infinite Solutions; One Variable Constant</title>
+  <example xml:id="ex_ex_un_6">
+      <title>Infinite Solutions; One Variable Constant</title>
     <statement>
       <p>
         Find the solution to the linear system
@@ -796,7 +804,8 @@
     it will always have exactly one solution even if the constants are changed.)
     Let's look at an example to get an idea of how the values of constants and coefficients work together to determine the solution type.
   </p>
-  <example xml:id="ex_variable_k"><title>Analyzing the Effect of Different Coefficient Values on the Linear System</title>
+  <example xml:id="ex_variable_k">
+      <title>Analyzing the Effect of Different Coefficient Values on the Linear System</title>
     <statement>
       <p>
         For what values of <m>k</m> will the given system have exactly one solution,

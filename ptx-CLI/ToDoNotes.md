@@ -37,8 +37,12 @@
 
 [ ] sec_inverse_prop has the same \xrightarrow[\text{ rref }] \quad problem as last section. 
 
-[x] sec_inverse_prop added sage to one of the exercises
+[ ] sec_inverse_prop and sec_existence I added sage cells but know what to do about <output>, how to format it, so I didn't include any. 
 
 [ ] sec_inverse_prop I couldn't get the labels on the Invertible Matrix Theorem to be alphabetical using marker, but label worked.  I didn't get a warning using CLI like I did before with xsltproc, so I just left it as label.  marker worked in other instances, including one other time this section, so is it different because it's inside a theorem?
 
 [x] Have gone over every section in the first two chapters making fixes!
+  
+[x] Starting statements of definitions, theorems, examples, etc, on a new line instead of right after the title?  Relatedly, placement of the idx markers? (checked sample article... followed its conventions)
+  
+[ ] Not PreTeXt related, but sec_transpose calls non-square matrices triangular... change this or add a note that some authors don't do this?
