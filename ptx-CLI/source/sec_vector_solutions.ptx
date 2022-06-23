@@ -100,7 +100,7 @@
   <p>
     We convert the above linear system into an augmented matrix and find the reduced row echelon form:
     <me>
-      \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 2\\1\amp -1\amp 2\amp -3\\2\amp 0\amp 1\amp 1 \end{array} \right] \xrightarrow[\text{  rref  }] \quad \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 1\amp 0\amp 2\\0\amp 0\amp 1\amp -1 \end{array} \right]
+      \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 2\\1\amp -1\amp 2\amp -3\\2\amp 0\amp 1\amp 1 \end{array} \right] \rrefarrow \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 1\amp 0\amp 2\\0\amp 0\amp 1\amp -1 \end{array} \right]
     </me>.
     This tells us that <m>x_1=1</m>,
     <m>x_2=2</m> and <m>x_3 = -1</m>, so
@@ -133,7 +133,7 @@
         even though we did a lot of work before to find the answer.
         Form the augmented matrix <m>\left[\begin{array}{cc}   A\amp \vec{b} \end{array} \right]</m> and interpret its reduced row echelon form.
         <me>
-          \left[\begin{array}{cccc} 1\amp 2\amp 3\amp 5\\-1\amp 2\amp 1\amp -1\\1\amp 1\amp 0\amp 2 \end{array} \right] \xrightarrow[\text{  rref  }] \quad \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 2\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 1\amp 1 \end{array} \right]
+          \left[\begin{array}{cccc} 1\amp 2\amp 3\amp 5\\-1\amp 2\amp 1\amp -1\\1\amp 1\amp 0\amp 2 \end{array} \right] \rrefarrow \left[\begin{array}{cccc} 1\amp 0\amp 0\amp 2\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 1\amp 1 \end{array} \right]
         </me>
       </p>
       <p>
@@ -213,7 +213,7 @@
         put the augmented matrix into reduced row echelon form,
         which we do below.
         <me>
-          \left[\begin{array}{ccc}  1\amp 2\amp 0\\2\amp 4\amp 0 \end{array} \right] \xrightarrow[\text{  rref  }] \quad  \left[\begin{array}{ccc}  1\amp 2\amp 0\\0\amp 0\amp 0 \end{array} \right]
+          \left[\begin{array}{ccc}  1\amp 2\amp 0\\2\amp 4\amp 0 \end{array} \right] \rrefarrow  \left[\begin{array}{ccc}  1\amp 2\amp 0\\0\amp 0\amp 0 \end{array} \right]
         </me>
       </p>
       <p>
@@ -323,7 +323,7 @@
         we form the proper augmented matrix and we put it into reduced row echelon form,
         which we do below.
         <me>
-          \left[\begin{array}{ccc}  2\amp -3\amp 0\\-2 \amp  3\amp 0 \end{array} \right] \xrightarrow[\text{  rref  }] \quad  \left[\begin{array}{ccc}  1 \amp  -3/2 \amp  0 \\0\amp 0\amp 0 \end{array} \right]
+          \left[\begin{array}{ccc}  2\amp -3\amp 0\\-2 \amp  3\amp 0 \end{array} \right] \rrefarrow \left[\begin{array}{ccc}  1 \amp  -3/2 \amp  0 \\0\amp 0\amp 0 \end{array} \right]
         </me>
       </p>
       <p>
@@ -408,7 +408,7 @@
         Our methodology is the same as before;
         we form the augmented matrix and put it into reduced row echelon form.
         <me>
-          \left[\begin{array}{ccc}  1\amp 2\amp 3\\2\amp 4\amp 6 \end{array} \right] \xrightarrow[\text{  rref  }] \quad \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp 0\amp 0 \end{array} \right]
+          \left[\begin{array}{ccc}  1\amp 2\amp 3\\2\amp 4\amp 6 \end{array} \right] \rrefarrow \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp 0\amp 0 \end{array} \right]
         </me>
       </p>
       <p>
@@ -737,7 +737,7 @@
         We form the associated augmented matrix,
         put it into reduced row echelon form, and interpret the result.
         <me>
-          \left[\begin{array}{ccccc} 1\amp -1\amp 1\amp 3\amp 0\\4\amp 2\amp 4\amp 6\amp 0 \end{array} \right] \xrightarrow[\text{  rref  }] \quad  \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp 2\amp 0\\0\amp 1\amp 0\amp -1\amp 0 \end{array} \right]
+          \left[\begin{array}{ccccc} 1\amp -1\amp 1\amp 3\amp 0\\4\amp 2\amp 4\amp 6\amp 0 \end{array} \right] \rrefarrow  \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp 2\amp 0\\0\amp 1\amp 0\amp -1\amp 0 \end{array} \right]
         </me>
         <md>
           <mrow>x_1\amp =-x_3-2x_4</mrow>
@@ -796,7 +796,7 @@
         Now let's tackle <m>A\vec{x} = \vec{b}</m>.
         Once again we put the associated augmented matrix into reduced row echelon form and interpret the results.
         <me>
-          \left[\begin{array}{ccccc} 1\amp -1\amp 1\amp 3\amp 1\\4\amp 2\amp 4\amp 6\amp 10 \end{array} \right] \xrightarrow[\text{  rref  }] \quad   \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp 2\amp 2\\0\amp 1\amp 0\amp -1\amp 1 \end{array} \right]
+          \left[\begin{array}{ccccc} 1\amp -1\amp 1\amp 3\amp 1\\4\amp 2\amp 4\amp 6\amp 10 \end{array} \right] \rrefarrow   \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp 2\amp 2\\0\amp 1\amp 0\amp -1\amp 1 \end{array} \right]
         </me>
         <md>
           <mrow>x_1\amp =2-x_3-2x_4</mrow>
@@ -884,7 +884,7 @@
         To solve the system,
         we put the associated augmented matrix into reduced row echelon form and interpret the results.
         <me>
-          \left[\begin{array}{ccccccc} 1\amp 2\amp -3\amp 2\amp 7\amp 2\\3\amp 4\amp 5\amp 2\amp 3\amp -4 \end{array} \right] \xrightarrow[\text{  rref  }] \quad  \left[\begin{array}{ccccccc} 1\amp 0\amp 11\amp -2\amp -11\amp -8\\0\amp 1\amp -7\amp 2\amp 9\amp 5 \end{array} \right]
+          \left[\begin{array}{ccccccc} 1\amp 2\amp -3\amp 2\amp 7\amp 2\\3\amp 4\amp 5\amp 2\amp 3\amp -4 \end{array} \right] \rrefarrow  \left[\begin{array}{ccccccc} 1\amp 0\amp 11\amp -2\amp -11\amp -8\\0\amp 1\amp -7\amp 2\amp 9\amp 5 \end{array} \right]
         </me>
         <md>
           <mrow>x_1\amp =-8-11x_3+2x_4+11x_5</mrow>
@@ -974,7 +974,7 @@
       <p>
         We go through the familiar work of finding the reduced row echelon form of the appropriate augmented matrix and interpreting the solution.
         <me>
-          \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6 \end{array} \right] \xrightarrow[\text{  rref  }] \quad  \left[\begin{array}{ccc} 1\amp 0\amp -1\\0\amp 1\amp 2 \end{array} \right]
+          \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6 \end{array} \right] \rrefarrow  \left[\begin{array}{ccc} 1\amp 0\amp -1\\0\amp 1\amp 2 \end{array} \right]
         </me>
         <md>
           <mrow>x_1 \amp = -1</mrow>
@@ -1025,7 +1025,7 @@
         To solve <m>A \vec{x} = \vec{b}</m>,
         we put the appropriate augmented matrix into reduced row echelon form and interpret the results.
         <me>
-          \left[\begin{array}{ccc} 1\amp 1\amp 1\\2\amp 2\amp 1 \end{array} \right] \xrightarrow[\text{  rref  }] \quad  \left[\begin{array}{ccc} 1\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]
+          \left[\begin{array}{ccc} 1\amp 1\amp 1\\2\amp 2\amp 1 \end{array} \right] \rrefarrow  \left[\begin{array}{ccc} 1\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]
         </me>
       </p>
       <p>
@@ -1039,7 +1039,7 @@
       <p>
         To find the solution to <m>A\vec{x} = \vec{0}</m>, we interpret the reduced row echelon form of the appropriate augmented matrix.
         <me>
-          \left[\begin{array}{ccc} 1\amp 1\amp 0\\2\amp 2\amp 0 \end{array} \right] \xrightarrow[\text{  rref  }] \quad  \left[\begin{array}{ccc} 1\amp 1\amp 0\\0\amp 0\amp 0 \end{array} \right]
+          \left[\begin{array}{ccc} 1\amp 1\amp 0\\2\amp 2\amp 0 \end{array} \right] \rrefarrow  \left[\begin{array}{ccc} 1\amp 1\amp 0\\0\amp 0\amp 0 \end{array} \right]
         </me>
         <md>
           <mrow>x_1 \amp =-x_2</mrow>

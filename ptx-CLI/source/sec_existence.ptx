@@ -248,7 +248,7 @@
         Create the corresponding augmented matrix,
         and then put the matrix into reduced row echelon form.
         <me>
-          \left[\begin{array}{ccc}  1\amp 1\amp 1\\2\amp 2\amp 2 \end{array} \right] \xrightarrow[\mathrm{rref}] \qquad \left[\begin{array}{ccc}  1\amp 1\amp 1\\0\amp 0\amp 0 \end{array} \right]
+          \left[\begin{array}{ccc}  1\amp 1\amp 1\\2\amp 2\amp 2 \end{array} \right] \rrefarrow \left[\begin{array}{ccc}  1\amp 1\amp 1\\0\amp 0\amp 0 \end{array} \right]
         </me>
       </p>
       <p>
@@ -298,7 +298,7 @@
         To find the solution,
         put the corresponding matrix into reduced row echelon form.
         <me>
-          \left[\begin{array}{cccc}  0\amp 1\amp -1\amp 3\\ 1\amp 0\amp 2\amp 2\\ 0\amp -3\amp 3\amp -9 \end{array} \right] \xrightarrow[\mathrm{rref}] \qquad \left[\begin{array}{cccc} 1\amp 0\amp 2\amp 2\\ 0\amp 1\amp -1\amp 3\\ 0\amp 0\amp 0\amp 0 \end{array} \right]
+          \left[\begin{array}{cccc}  0\amp 1\amp -1\amp 3\\ 1\amp 0\amp 2\amp 2\\ 0\amp -3\amp 3\amp -9 \end{array} \right] \rrefarrow \left[\begin{array}{cccc} 1\amp 0\amp 2\amp 2\\ 0\amp 1\amp -1\amp 3\\ 0\amp 0\amp 0\amp 0 \end{array} \right]
         </me>
       </p>
       <p>
@@ -455,7 +455,7 @@
       <p>
         We start by putting the corresponding matrix into reduced row echelon form.
         <me>
-          \left[\begin{array}{cccc}  1\amp 1\amp 1\amp 1\\1\amp 2\amp 1\amp 2\\ 2\amp 3\amp 2\amp 0\\ \end{array} \right] \xrightarrow[\mathrm{rref}] \qquad \left[\begin{array}{cccc}  1\amp 0\amp 1\amp 0\\ 0\amp 1\amp 0\amp 0\\ 0\amp 0\amp 0\amp 1\\ \end{array} \right]
+          \left[\begin{array}{cccc}  1\amp 1\amp 1\amp 1\\1\amp 2\amp 1\amp 2\\ 2\amp 3\amp 2\amp 0\\ \end{array} \right] \rrefarrow \left[\begin{array}{cccc}  1\amp 0\amp 1\amp 0\\ 0\amp 1\amp 0\amp 0\\ 0\amp 0\amp 0\amp 1\\ \end{array} \right]
         </me>
       </p>
       <p>
@@ -750,7 +750,7 @@
       <p>
         The corresponding augmented matrix and its reduced row echelon form are given below
         <me>
-          \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 5\\1\amp -1\amp 1\amp 3\\ \end{array} \right] \xrightarrow[\mathrm{rref}] \qquad \left[\begin{array}{cccc} 1\amp 0\amp 1\amp 4\\0\amp 1\amp 0\amp 1\\ \end{array} \right]
+          \left[\begin{array}{cccc} 1\amp 1\amp 1\amp 5\\1\amp -1\amp 1\amp 3\\ \end{array} \right] \rrefarrow \left[\begin{array}{cccc} 1\amp 0\amp 1\amp 4\\0\amp 1\amp 0\amp 1\\ \end{array} \right]
         </me>
       </p>
       <p>
@@ -820,7 +820,7 @@
         We answer this question by forming the augmented matrix and starting the process of putting it into reduced row echelon form.
         Below we see the augmented matrix and one elementary row operation that starts the Gaussian elimination process.
         <me>
-          \left[\begin{array}{ccc}  1\amp 2\amp 3\\3\amp k\amp 9 \end{array} \right] \quad \xrightarrow{-3R_1+R_2\rightarrow R_2} \quad \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp k-6\amp 0 \end{array} \right]
+          \left[\begin{array}{ccc}  1\amp 2\amp 3\\3\amp k\amp 9 \end{array} \right] \xrightarrow{-3R_1+R_2\rightarrow R_2} \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp k-6\amp 0 \end{array} \right]
         </me>
       </p>
       <p>
@@ -847,7 +847,7 @@
     As an extension of the previous example,
     consider the similar augmented matrix where the constant <m>9</m> is replaced with a <m>10</m>. Performing the same elementary row operation gives
     <me>
-      \left[\begin{array}{ccc}  1\amp 2\amp 3\\3\amp k\amp 10 \end{array} \right] \quad \xrightarrow{-3R_1+R_2\rightarrow R_2} \quad \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp k-6\amp 1 \end{array} \right]
+      \left[\begin{array}{ccc}  1\amp 2\amp 3\\3\amp k\amp 10 \end{array} \right] \xrightarrow{-3R_1+R_2\rightarrow R_2} \left[\begin{array}{ccc}  1\amp 2\amp 3\\0\amp k-6\amp 1 \end{array} \right]
     </me>
   </p>
   <p>

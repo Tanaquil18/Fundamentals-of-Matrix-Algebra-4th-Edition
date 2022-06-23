@@ -94,7 +94,7 @@
         we form the proper augmented matrix,
         put it into reduced row echelon form and interpret the results.
         <me>
-          \left[\begin{array}{cccc} 2\amp 1\amp 1\amp 0\\1\amp 1\amp 0\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad  \left[\begin{array}{cccc} 1\amp 0\amp 1\amp -1\\0\amp 1\amp -1\amp 2 \end{array} \right]
+          \left[\begin{array}{cccc} 2\amp 1\amp 1\amp 0\\1\amp 1\amp 0\amp 1 \end{array} \right]  \rrefarrow \left[\begin{array}{cccc} 1\amp 0\amp 1\amp -1\\0\amp 1\amp -1\amp 2 \end{array} \right]
         </me>
       </p>
       <p>
@@ -266,7 +266,7 @@
         By solving the equation <m>A X =  I</m> for <m>X</m> will give us the inverse of <m>A</m>.
         Forming the appropriate augmented matrix and finding its reduced row echelon form gives us
         <me>
-          \left[\begin{array}{cccc} 1\amp 2\amp 1\amp 0\\2\amp 4\amp 0\amp 1 \end{array} \right] \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 1/2\\0\amp 0\amp 1\amp -1/2 \end{array} \right]
+          \left[\begin{array}{cccc} 1\amp 2\amp 1\amp 0\\2\amp 4\amp 0\amp 1 \end{array} \right] \rrefarrow \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 1/2\\0\amp 0\amp 1\amp -1/2 \end{array} \right]
         </me>
       </p>
       <p>
@@ -329,7 +329,7 @@
       <p>
         We'll try to solve <m>A X =  I</m> for <m>X</m> and see what happens.
         <me>
-          \left[\begin{array}{cccccc} 1\amp 1\amp -1\amp 1\amp 0\amp 0\\1\amp -1\amp 1\amp 0\amp 1\amp 0\\1\amp 2\amp 3\amp 0\amp 0\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cccccc} 1\amp 0\amp 0\amp 0.5\amp 0.5\amp 0\\0\amp 1\amp 0\amp 0.2\amp -0.4\amp 0.2\\0\amp 0\amp 1\amp -0.3\amp 0.1\amp 0.2 \end{array} \right]
+          \left[\begin{array}{cccccc} 1\amp 1\amp -1\amp 1\amp 0\amp 0\\1\amp -1\amp 1\amp 0\amp 1\amp 0\\1\amp 2\amp 3\amp 0\amp 0\amp 1 \end{array} \right]  \rrefarrow \left[\begin{array}{cccccc} 1\amp 0\amp 0\amp 0.5\amp 0.5\amp 0\\0\amp 1\amp 0\amp 0.2\amp -0.4\amp 0.2\\0\amp 0\amp 1\amp -0.3\amp 0.1\amp 0.2 \end{array} \right]
         </me>
       </p>
       <p>

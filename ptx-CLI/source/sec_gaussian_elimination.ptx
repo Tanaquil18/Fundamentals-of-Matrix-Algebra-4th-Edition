@@ -151,10 +151,10 @@
     We'll explore the topic of understanding what the reduced row echelon form of a matrix tells us in the following sections;
     in this section we focus on finding it.
   </p>
-  <p>
-        <idx><h>reduced echelon form</h></idx>
-  </p>
-  <definition xml:id="def_rref"> <title>Reduced Row Echelon Form</title>
+  <definition xml:id="def_rref">
+      <title>Reduced Row Echelon Form</title>
+      <idx><h>reduced row echelon form</h></idx>
+      <idx><h>row echelon form</h></idx>
     <statement>
       <p>
         A matrix is in <term>reduced row echelon form</term>
@@ -190,11 +190,8 @@
       </p>
     </statement>
   </definition>
-  <p>
-        <idx><h>reduced row echelon form</h></idx>
-        <idx><h>row echelon form</h></idx>
-  </p>
-  <example xml:id="ex_rref"> <title>In RREF or not?</title>
+  <example xml:id="ex_rref">
+      <title>In RREF or not?</title>
     <statement>
       <p>
         Which of the following matrices is in reduced row echelon form?
@@ -206,27 +203,32 @@
           <p>b) <m>\left[\begin{array}{ccc}  1\amp 0\amp 1\\0\amp 1\amp 2
             \end{array} \right]</m></p>
         </sidebyside>
-          
         <sidebyside>
-          <p>c) <m>\left[\begin{array}{cc} 0\amp 0\\0\amp 0
-            \end{array} \right]</m></p>
-          
-          <p>d) <m>\left[\begin{array}{ccc}  1\amp 1\amp 0\\0\amp 0\amp 1
+          <p>
+              c) <m>\left[\begin{array}{cc} 0\amp 0\\0\amp 0
+            \end{array} \right]</m>
+          </p>
+          <p>
+              d) <m>\left[\begin{array}{ccc}  1\amp 1\amp 0\\0\amp 0\amp 1
             \end{array} \right]</m></p>
         </sidebyside>
-        
         <sidebyside>
-          <p>e) <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 0\amp 0\amp 0\\0\amp 0\amp 1\amp 3
-            \end{array} \right]</m></p>
-          
-          <p>f) <m>\left[\begin{array}{cccc} 1\amp 2\amp 0\amp 0 \\0\amp 0\amp 3\amp 0\\0\amp 0\amp 0\amp 4
-            \end{array} \right]</m></p>
+          <p>
+              e) <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 1\\0\amp 0\amp 0\amp 0\\0\amp 0\amp 1\amp 3
+            \end{array} \right]</m>
+            </p>
+          <p>
+              f) <m>\left[\begin{array}{cccc} 1\amp 2\amp 0\amp 0 \\0\amp 0\amp 3\amp 0\\0\amp 0\amp 0\amp 4
+            \end{array} \right]</m>
+          </p>
         </sidebyside>
-        
         <sidebyside>
-          <p>g) <m>\left[\begin{array}{cccccc} 0\amp 1\amp 2\amp 3\amp 0\amp 4\\ 0\amp 0\amp 0\amp 0\amp 1\amp 5\\0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array} \right]</m></p>
-          
-          <p>h) <m>\left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]</m></p>
+          <p>
+              g) <m>\left[\begin{array}{cccccc} 0\amp 1\amp 2\amp 3\amp 0\amp 4\\ 0\amp 0\amp 0\amp 0\amp 1\amp 5\\0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array} \right]</m>
+          </p>
+          <p>
+              h) <m>\left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 0\\0\amp 0\amp 1 \end{array} \right]</m>
+            </p>
         </sidebyside>
       </sbsgroup>
     </statement>
@@ -277,18 +279,18 @@
     it is one of those things that is easier understood by watching it being used than explained as a series of steps.
     With this in mind, we will go through one more example highlighting important steps and then we'll explain the procedure in detail.
   </p>
-  <example xml:id="ex_gaussian_elimination"> <title>Gaussian Elimination Demonstrated</title>
+  <example xml:id="ex_gaussian_elimination">
+      <title>Gaussian Elimination Demonstrated</title>
       <p>
         Put the augmented matrix of the following system of linear equations into reduced row echelon form.
         <me>
           \begin{array}{ccccccc} -3x_1\amp -\amp 3x_2\amp +\amp 9x_3\amp =\amp 12\\ 2x_1\amp +\amp 2x_2\amp -\amp 4x_3\amp =\amp -2\\ \amp \amp -2x_2\amp -\amp 4x_3\amp =\amp -8 \end{array}
         </me>
       </p>
-      
       <p>
         We start by converting the linear system into an augmented matrix.
         <me>
-          \left[\begin{array}{cccc} \fbox{\(-3\)}\amp -3\amp 9\amp 12\\ 2\amp 2\amp -4\amp -2\\0\amp -2\amp -4\amp -8 \end{array} \right]
+          \left[\begin{array}{cccc} \fbox{-3}\amp -3\amp 9\amp 12\\ 2\amp 2\amp -4\amp -2\\0\amp -2\amp -4\amp -8 \end{array} \right]
         </me>
       </p>
       <p>
@@ -299,31 +301,26 @@
         <p>
             <m>-\frac13R_1\rightarrow R_1</m>
         </p>
-          
         <p>
             <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\ 2\amp 2\amp -4\amp -2\\0\amp -2\amp -4\amp -8
             \end{array} \right]</m>
         </p>
       </sidebyside>
-      
       <p>
         We have now created a <em>leading <m>1</m></em>;
         that is, the first entry in the first row is a <m>1</m>.
         Our next step is to put zeros under this <m>1</m>.
         To do this, we'll use the elementary row operation given below.
       </p>
-      
       <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
         <p>
             <m>-2R_1+R_2\rightarrow R_2</m>
           </p>
-          
           <p>
               <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\ 0\amp \fbox{0}\amp 2\amp 6\\0\amp -2\amp -4\amp -8
             \end{array} \right]</m>
           </p>
       </sidebyside>
-      
       <p>
         Once this is accomplished,
         we shift our focus from the leading one down one row,
@@ -333,29 +330,24 @@
         but <alert>we need to restrict ourselves to using only the second row and any rows below it.</alert>
         Probably the simplest thing we can do is interchange rows <m>2</m> and <m>3</m>, and then scale the new second row so that there is a <m>1</m> in the desired position.
       </p>
-      
       <sidebyside widths="16% 50%" margins="34% 0%" valign="middle">
           <p>
             <m>R_2\leftrightarrow R_3</m>
           </p>
-            
           <p>
              <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp \fbox{-2}\amp -4\amp -8 \\0\amp 0\amp 2\amp 6
             \end{array} \right]</m>
           </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
             <p>
                 <m>-\frac12R_2\rightarrow R_2</m>
             </p>
-            
             <p>
                 <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp 1\amp 2\amp 4 \\0\amp 0\amp \fbox{2}\amp 6
             \end{array} \right]</m>
             </p>
         </sidebyside>
-
       <p>
         We have now created another leading <m>1</m>, this time in the second row.
         Our next desire is to put <m>0</m>'s underneath it,
@@ -369,8 +361,8 @@
         <p>
           <m>\frac12R_3\rightarrow R_3</m>
         </p>
-          
-        <p><m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp 1\amp 2\amp 4 \\0\amp 0\amp 1\amp 3
+        <p>
+            <m>\left[\begin{array}{cccc} 1\amp 1\amp -3\amp -4\\0\amp 1\amp 2\amp 4 \\0\amp 0\amp 1\amp 3
             \end{array} \right]</m>
         </p>
       </sidebyside>
@@ -387,18 +379,15 @@
               <mrow>3R_3+R_1\rightarrow R_1 </mrow>
           </md>
         </p>
-          
         <p>
           <m>\left[\begin{array}{cccc} 1\amp 1\amp 0\amp 5\\0\amp 1\amp 0\amp -2 \\0\amp 0\amp 1\amp 3
             \end{array} \right]</m>
         </p>
       </sidebyside>
-       
       <sidebyside widths="20% 50%" margins="25% 0%" valign="middle">
           <p>
               <m>-R_2+R_1\rightarrow R_1</m>
           </p>
-          
           <p>
               <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 7\\0\amp 1\amp 0\amp -2 \\0\amp 0\amp 1\amp 3
             \end{array} \right]</m>
@@ -502,7 +491,9 @@
     This method is very efficient, so it gets its own name
     (which we've already been using).
   </p>
-  <definition xml:id="def_gaussian_elimination"> <title>Gaussian Elimination</title>
+  <definition xml:id="def_gaussian_elimination">
+      <title>Gaussian Elimination</title>
+      <idx><h>Gaussian elimination</h></idx>
     <statement>
       <p>
         <term>Gaussian elimination</term>
@@ -534,12 +525,10 @@
     </statement>
   </definition>
   <p>
-        <idx><h>Gaussian elimination</h></idx>
-  </p>
-  <p>
     Let's practice some more.
   </p>
-  <example xml:id="ex_rref_2"> <title>Another Gaussian Elimination</title>
+  <example xml:id="ex_rref_2">
+      <title>Another Gaussian Elimination</title>
     <statement>
       <p>
         Use Gaussian elimination to put the matrix <m>A</m> into reduced row echelon form, where
@@ -557,7 +546,6 @@
         <p>
             <m>-\frac12R_1\rightarrow R_1</m>
         </p>
-          
         <p>
             <m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\2\amp 4\amp 1\amp 9\amp -2\\3\amp 6\amp 1\amp 13\amp -4
             \end{array} \right]</m>
@@ -573,7 +561,6 @@
               <mrow>-3R_1+R_3\rightarrow R_3</mrow>
           </md>
         </p>
-          
         <p>
           <m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp \fbox{0}\amp -1\amp -1\amp -2\\0\amp 0\amp -2\amp -2\amp -4
             \end{array} \right]
@@ -596,18 +583,15 @@
         <p>
           <m>-R_2\rightarrow R_2</m>
         </p>
-        
         <p>
             <m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp -2\amp -2\amp -4
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
         <p>
           <m>2R_2+R_3\rightarrow R_3</m>
         </p>
-          
         <p>
             <m>\left[\begin{array}{ccccc} 1\amp 2\amp 1\amp 5\amp 0\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp 0\amp \fbox{0}\amp 0
             \end{array} \right]</m>
@@ -627,7 +611,6 @@
         <p>
           <m>-R_2+R_1\rightarrow R_1</m>
         </p>
-          
         <p>
             <m>\left[\begin{array}{ccccc} 1\amp 2\amp 0\amp 4\amp -2\\0\amp 0\amp 1\amp 1\amp 2\\0\amp 0\amp 0\amp 0\amp 0
             \end{array} \right]</m>
@@ -638,7 +621,8 @@
       </p>
     </solution>
   </example>
-  <example xml:id="ex_rref_3"> <title>Gaussian Elimination Again, this time with fewer words</title>
+  <example xml:id="ex_rref_3">
+      <title>Gaussian Elimination Again, this time with fewer words</title>
     <statement>
       <p>
         Put the matrix
@@ -664,12 +648,10 @@
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
         <p>
             <m>-\frac13R_2\rightarrow R_2</m>
         </p>
-          
         <p>
             <m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp -3\amp -1\amp -8
             \end{array} \right]</m>
@@ -679,23 +661,20 @@
         <p>
           <m>3R_2+R_3\rightarrow R_3</m>
         </p>
-          
         <p>
           <m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp 0\amp 0\amp -3
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
         <p>
           <m>-\frac13R_3\rightarrow R_3</m>
         </p>
-          
-        <p><m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp 0\amp 0\amp 1
+        <p>
+            <m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 3\\0\amp 1\amp 1/3\amp 5/3\\0\amp 0\amp 0\amp 1
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
         <p>
           <md>
@@ -703,18 +682,15 @@
               <mrow>-\frac53R_3+R_2\rightarrow R_2</mrow>
           </md>
         </p>
-          
         <p>
           <m>\left[\begin{array}{cccc}  1\amp 2\amp 1\amp 0\\0\amp 1\amp 1/3\amp 0\\0\amp 0\amp 0\amp 1
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
         <p>
           <m>-2R_2+R_1\rightarrow R_1</m>
         </p>
-          
         <p>
             <m>\left[\begin{array}{cccc}  1\amp 0\amp 1/3\amp 0\\0\amp 1\amp 1/3\amp 0\\0\amp 0\amp 0\amp 1
             \end{array} \right]</m>
@@ -729,7 +705,8 @@
     What does it mean to have a leading one in the last column?
     We'll figure this out in the next section.
   </p>
-  <example xml:id="ex_back_substitution"> <title>Gaussian Elimination with Demonstration of Back Substitution</title>
+  <example xml:id="ex_back_substitution">
+      <title>Gaussian Elimination with Demonstration of Back Substitution</title>
     <statement>
       <p>
         Put the matrix <m>A</m> into reduced row echelon form, where
@@ -747,55 +724,45 @@
         <p>
           <m>\frac12R_1\rightarrow R_1</m>
         </p>
-            
         <p>
             <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\1\amp -1\amp 2\amp 12\\2\amp 2\amp -1\amp 9\\
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
         <p>
             <md>
                 <mrow>-R_1+R_2\rightarrow R_2</mrow>
                 <mrow>-2R_1+R_3\rightarrow R_3</mrow>
             </md>
-          
         </p>
-          
         <p>
           <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp -3/2\amp 5/2\amp 10\\0\amp 1\amp 0\amp 5\\
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
         <p>
           <m>-\frac23R_2\rightarrow R_2</m>
         </p>
-          
         <p>
           <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 1\amp 0\amp 5\\
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="24% 0%" valign="middle">
         <p>
           <m>-R_2+R_3\rightarrow R_3</m>
         </p>
-          
         <p>
           <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 0\amp 5/3\amp 35/3\\
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="20% 50%" margins="30% 0%" valign="middle">
         <p>
           <m>\frac35R_3\rightarrow R_3</m>
         </p>
-          
         <p>
           <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp -5/3\amp -20/3\\0\amp 0\amp 1\amp 7\\
             \end{array} \right]</m>
@@ -829,26 +796,22 @@
         This process is essentially what happens when we perform the backward steps of Gaussian elimination.
         We make note of this below as we finish out finding the reduced row echelon form of our matrix.
       </p>
-        
       <sidebyside widths="35% 50%" margins="10% 0%" valign="middle">
         <p>
             <line><m>\frac53R_3+R_2\rightarrow R_2</m></line>
           <line>(knowing <m>x_3=7</m> allows us to find <m>x_2 = 5</m>)</line>
         </p>
-          
         <p>
           <m>\left[\begin{array}{cccc} 1\amp 1/2\amp -1/2\amp 2\\0\amp 1\amp 0\amp 5\\0\amp 0\amp 1\amp 7\\
             \end{array} \right]</m>
         </p>
       </sidebyside>
-        
       <sidebyside widths="35% 50%" margins="10% 0%" valign="middle">
         <p>
            <line><m>\frac12R_3+R_1\rightarrow R_1</m></line>
            <line><m>-\frac12R_2+R_1\rightarrow R_1</m></line>
            <line>(knowing <m>x_2=5</m> and <m>x_3=7</m> allows us to find <m>x_1 = 3</m>)</line>
         </p>
-        
         <p>
           <m>\left[\begin{array}{cccc} 1\amp 0\amp 0\amp 3\\0\amp 1\amp 0\amp 5\\0\amp 0\amp 1\amp 7\\
             \end{array} \right]</m>
@@ -871,9 +834,8 @@
     Could we have systems without a solution?
     These are some of the questions we'll address in the next section.
   </p>
-    
 <exercises>
-<exercisegroup>
+ <exercisegroup>
     <introduction>
         <p>
             In the following exercises,
@@ -1082,7 +1044,6 @@
     </answer>
   </exercise>
 </exercisegroup>
-  
 <exercisegroup>
     <introduction>
         <p>

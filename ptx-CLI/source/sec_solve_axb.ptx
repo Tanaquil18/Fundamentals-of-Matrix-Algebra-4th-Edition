@@ -38,7 +38,7 @@
     We know how to solve this;
     put the appropriate matrix into reduced row echelon form and interpret the result.
     <me>
-      \left[\begin{array}{ccc} 1\amp 1\amp 0\\2\amp 1\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp -1 \end{array} \right]
+      \left[\begin{array}{ccc} 1\amp 1\amp 0\\2\amp 1\amp 1 \end{array} \right]  \rrefarrow \left[\begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp -1 \end{array} \right]
     </me>
   </p>
   <p>
@@ -55,7 +55,7 @@
     </me>
     and interpreting its reduced row echelon form:
     <me>
-      \left[\begin{array}{cc}  A \amp  \vec{b} \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cc}  I \amp  \vec{x} \end{array} \right]
+      \left[\begin{array}{cc}  A \amp  \vec{b} \end{array} \right]  \rrefarrow \left[\begin{array}{cc}  I \amp  \vec{x} \end{array} \right]
     </me>
   </p>
   <p>
@@ -69,7 +69,7 @@
     </me>.
     Putting this matrix into reduced row echelon form will give us <m>X</m>, much like we found <m>\vec{x}</m> before.
     <me>
-      \left[\begin{array}{cc}  A\amp  B \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cc}  I \amp   X \end{array} \right]
+      \left[\begin{array}{cc}  A\amp  B \end{array} \right]  \rrefarrow \left[\begin{array}{cc}  I \amp   X \end{array} \right]
     </me>
   </p>
   <p>
@@ -95,7 +95,7 @@
         To solve <m>A X= B</m> for <m>X</m>, we form the proper augmented matrix,
         put it into reduced row echelon form, and interpret the result.
         <me>
-          \left[\begin{array}{ccccc} 1\amp -1\amp -8\amp -13\amp 1\\5\amp 3\amp 32\amp -17\amp 21 \end{array} \right] \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp -7\amp 3\\0\amp 1\amp 9\amp 6\amp 2 \end{array} \right]
+          \left[\begin{array}{ccccc} 1\amp -1\amp -8\amp -13\amp 1\\5\amp 3\amp 32\amp -17\amp 21 \end{array} \right] \rrefarrow \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp -7\amp 3\\0\amp 1\amp 9\amp 6\amp 2 \end{array} \right]
         </me>
       </p>
       <p>
@@ -124,7 +124,7 @@
         </me>,
         put it into reduced row echelon form, and interpret the result.
         <me>
-          \left[\begin{array}{ccccc} 1\amp 0\amp 2\amp -1\amp 2\\0\amp -1\amp -2\amp 2\amp -6\\2\amp -1\amp 0\amp 2\amp -4 \end{array} \right] \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccccc} 1\amp 0\amp 0\amp 1\amp 0\\0\amp 1\amp 0\amp 0\amp 4\\0\amp 0\amp 1\amp -1\amp 1 \end{array} \right]
+          \left[\begin{array}{ccccc} 1\amp 0\amp 2\amp -1\amp 2\\0\amp -1\amp -2\amp 2\amp -6\\2\amp -1\amp 0\amp 2\amp -4 \end{array} \right] \rrefarrow \left[\begin{array}{ccccc} 1\amp 0\amp 0\amp 1\amp 0\\0\amp 1\amp 0\amp 0\amp 4\\0\amp 0\amp 1\amp -1\amp 1 \end{array} \right]
         </me>
       </p>
       <p>
@@ -283,7 +283,7 @@
   <p>
     To find <m>\vec{v}_1</m>, we form the proper augmented matrix and put it into reduced row echelon form and interpret the results.
     <me>
-      \left[\begin{array}{ccc} 1\amp 2\amp 3\\3\amp 4\amp 7 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp 1 \end{array} \right]
+      \left[\begin{array}{ccc} 1\amp 2\amp 3\\3\amp 4\amp 7 \end{array} \right] \rrefarrow \left[\begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp 1 \end{array} \right]
     </me>
   </p>
   <p>
@@ -295,7 +295,7 @@
   <p>
     To find <m>\vec{v}_2</m>, we again form an augmented matrix and interpret its reduced row echelon form.
     <me>
-      \left[\begin{array}{ccc} 1\amp 2\amp 1\\3\amp 4\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccc} 1\amp 0\amp -1\\0\amp 1\amp 1 \end{array} \right]
+      \left[\begin{array}{ccc} 1\amp 2\amp 1\\3\amp 4\amp 1 \end{array} \right] \rrefarrow \left[\begin{array}{ccc} 1\amp 0\amp -1\\0\amp 1\amp 1 \end{array} \right]
     </me>
   </p>
   <p>
@@ -341,7 +341,7 @@
     </me>
     into reduced row echelon form.
     <me>
-      \left[\begin{array}{ccccc} 1\amp 2\amp 3\amp 1\amp 17\\3\amp 4\amp 7\amp 1\amp 39 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp -1\amp 5\\0\amp 1\amp 1\amp 1\amp 6 \end{array} \right]
+      \left[\begin{array}{ccccc} 1\amp 2\amp 3\amp 1\amp 17\\3\amp 4\amp 7\amp 1\amp 39 \end{array} \right] \rrefarrow \left[\begin{array}{ccccc} 1\amp 0\amp 1\amp -1\amp 5\\0\amp 1\amp 1\amp 1\amp 6 \end{array} \right]
     </me>
   </p>
   <p>
