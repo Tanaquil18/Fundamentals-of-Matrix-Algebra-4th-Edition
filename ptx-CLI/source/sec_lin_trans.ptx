@@ -25,7 +25,7 @@
   </p>
   <figure xml:id="fig_translation">
     <caption>Translating the unit square one unit to the right.</caption>
-    <image>
+    <image xml:id="lin_trans-translate-unit-square">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{2.5}{1,2};
 \drawylines{-1}{2.5}{1,2};
@@ -41,8 +41,8 @@
   <p>
     Our work from the previous section allows us to find the matrix quickly.
     By looking at the picture,
-    it is easy to see that  is moved to
-    <m>\left[\begin{array}{c}  2\\0 \end{array} \right]</m> and  is moved to <m>\left[\begin{array}{c} 1\\1 \end{array} \right]</m>.
+    it is easy to see that <m>\vec{e}_1</m> is moved to
+    <m>\left[\begin{array}{c}  2\\0 \end{array} \right]</m> and <m>\vec{e}_2</m> is moved to <m>\left[\begin{array}{c} 1\\1 \end{array} \right]</m>.
     Therefore, the transformation matrix should be
     <me>
       A = \left[\begin{array}{cc}  2\amp 1\\0\amp 1 \end{array} \right]
@@ -57,7 +57,7 @@
   </p>
   <figure xml:id="fig_translation2">
     <caption>Actual transformation of the unit square by matrix <m>A</m>.</caption>
-    <image>
+    <image xml:id="lin_trans-matrix-mult-unit-square">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{2.5}{1,2};
 \drawylines{-1}{2.5}{1,2};
