@@ -55,7 +55,7 @@
         Let <m>A</m> be an <m>n\times n</m> matrix.
         The following statements are equivalent.
       </p>
-        <ol label="(a)">
+        <ol marker="(a)">
           <li>
             <p> 
                 <m>A</m> is invertible.
@@ -474,7 +474,7 @@
       <p>
         We'll find <m>A^{-1}</m> using <xref ref="idea_finding_inverses">Key Idea</xref>.
         <me>
-          \left[\begin{array}{cccccc}  2\amp 0\amp 0\amp 1\amp 0\amp 0\\0\amp 3\amp 0\amp 0\amp 1\amp 0\\0\amp 0\amp -7\amp 0\amp 0\amp 1 \end{array} \right]  \xrightarrow[\text{ rref }] \quad \left[\begin{array}{cccccc}  1\amp 0\amp 0\amp 1/2\amp 0\amp 0\\0\amp 1\amp 0\amp 0\amp 1/3\amp 0\\0\amp 0\amp 1\amp 0\amp 0\amp -1/7 \end{array} \right]
+          \left[\begin{array}{cccccc}  2\amp 0\amp 0\amp 1\amp 0\amp 0\\0\amp 3\amp 0\amp 0\amp 1\amp 0\\0\amp 0\amp -7\amp 0\amp 0\amp 1 \end{array} \right]  \rrefarrow \left[\begin{array}{cccccc}  1\amp 0\amp 0\amp 1/2\amp 0\amp 0\\0\amp 1\amp 0\amp 0\amp 1/3\amp 0\\0\amp 0\amp 1\amp 0\amp 0\amp -1/7 \end{array} \right]
         </me>
       </p>
       <p>

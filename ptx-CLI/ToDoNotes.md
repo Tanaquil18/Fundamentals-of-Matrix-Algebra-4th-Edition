@@ -7,13 +7,13 @@
   - "Exercise Group" words appear now, and I'm not sure I like that
   - [x] get rid of periods after titles of subsections, other things? (feature, not a bug)
 
-[ ] have no generated pictures anywhere yet
+[x] have no generated pictures anywhere yet
 
 [ ] sec_matrices: center or right-justify within a side by side?
 
 [ ] sec_gaussian_elimination: center or right-justify within a side by side?
 
-[ ] sec_solving_systems... can't get spacing right on \xrightarrow[\mathrm{rref}] between matrices. 
+[x] sec_solving_systems... can't get spacing right on \xrightarrow[\mathrm{rref}] between matrices. 
 
 [x] sec_matrix_multiplication... Example with Row and Column Multiplication... why no arrow over u in the last part of the question?  It's in the ptx file.  something to do with the 3 columns but only 5 problems? (must have been my html viewer... looks fine now!)
 
@@ -23,23 +23,29 @@
 
 [ ] added subsections to sec_geom_1... any unintended consequences of that?
 
-[ ] sec_geom_1... fix/split figure 2.3.22.  Need part for the example, and part (or whole thing again) for the solution.
+[x] sec_geom_1... fix/split figure 2.3.22.  Need part for the example, and part (or whole thing again) for the solution.
+
+[ ] sec_geom_1... some pictures are gigantic.  fix individually, or as a group?  exercises, knowls, etc?
 
 [ ] sec_geom_1... key insights have titles, not term (changed).  Add to index or glossary?
 
-[ ] changed to \xrightarrow[\text{  rref  }] \quad in sec_vector_solutions and sec_solving_systems, need to change it in all previous sections.  search for qquad and replace.
+[x] changed to \xrightarrow[\text{  rref  }] \quad in sec_vector_solutions and sec_solving_systems, need to change it in all previous sections.  search for qquad and replace. (removed the \quad and added a macro instead.  couldn't get brackets to work for going under the arrow, so I went with braces for going above the arrow. )
+
+[ ] does the above mean I don't need to load mathtools anymore?
 
 [ ] sec_vector_solutions, Examples with 2 free variables, 3 free variables, and unique solution, underbrace text is not centered.  tried mathclap like in sec_matrix_multiplication, but it doesn't seem to change it.  overleaf looks even worse.  Maybe because it's part of the aligned math?  \underbrace{\vec{x_p}}_{\text{particular solution}}+ \underbrace{x_3\vec{u}+x_4\vec{v}+x_5\vec{w}}_{\text{solution to homogeneous equations } A\vec{x}=\vec{0}}
 
 [ ] sec_solve_axb I have a sbsgroup where I've set the width to 20% and that seems to align them horizontally.  Not sure that's right, or how it will look on different size screens or print.  
 
-[ ] sec_inverses The \xrightarrow[\text{ rref }] \quad all don't look right in this section, even though I copy-pasted from sec_solve_axb, where it looks fine.  
+[x] sec_inverses The \xrightarrow[\text{ rref }] \quad all don't look right in this section, even though I copy-pasted from sec_solve_axb, where it looks fine.  
 
-[ ] sec_inverse_prop has the same \xrightarrow[\text{ rref }] \quad problem as last section. 
+[x] Use a macro \rref in main.ptx and change it once.  Then change every section to use \rref.  See Rob's email.  
 
-[ ] sec_inverse_prop and sec_existence I added sage cells but know what to do about <output>, how to format it, so I didn't include any. 
+[x] sec_inverse_prop has the same \xrightarrow[\text{ rref }] \quad problem as last section. 
 
-[ ] sec_inverse_prop I couldn't get the labels on the Invertible Matrix Theorem to be alphabetical using marker, but label worked.  I didn't get a warning using CLI like I did before with xsltproc, so I just left it as label.  marker worked in other instances, including one other time this section, so is it different because it's inside a theorem?
+[ ] sec_inverse_prop and sec_existence I added sage cells but don't know what to do about <output>, how to format it, so I didn't include any. 
+
+[x] sec_inverse_prop I couldn't get the labels on the Invertible Matrix Theorem to be alphabetical using marker, but label worked.  I didn't get a warning using CLI like I did before with xsltproc, so I just left it as label.  marker worked in other instances, including one other time this section, so is it different because it's inside a theorem? (now it works... not sure what changed)
 
 [x] Have gone over every section in the first two chapters making fixes!
   

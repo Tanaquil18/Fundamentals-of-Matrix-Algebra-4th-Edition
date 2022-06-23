@@ -535,33 +535,38 @@
         Let <m>\vec{x}</m> and <m>\vec{y}</m> be as in <xref ref="fig_subtract_quick_2">Figure</xref>.
         Draw <m>\vec{x}-\vec{y}</m>.
       </p>
+      <figure xml:id="fig_subtract_quick_2">
+        <caption>Vectors <m>\vec{x}</m>, <m>\vec{y}</m> in <xref ref="ex_subtract_quick">Example</xref></caption>
+        <image xml:id="geom_1-draw-subtract-vector-quick_2">
+<latex-image>
+<![CDATA[\begin{tikzpicture}
+\draw (-.5,0)--(1.5,0);
+\draw (0,-1.5)--(0,1.5);
+\draw[->, thick] (0,0)--(1,1) node[above] {$\vec{y}$};
+\draw[->, thick] (0,0)--(1,-1) node[below] {$\vec{x}$};
+\end{tikzpicture}]]>
+</latex-image>
+        </image>
+      </figure>
     </statement>
     <solution>
       <p>
         We simply apply <xref ref="idea_vector_subtract">Key Idea</xref>:
         we draw an arrow from <m>\vec{y}</m> to <m>\vec{x}</m>.
-        We do so in <xref ref="fig_subtract_quick_2">Figure</xref>;
+        We do so in <xref ref="fig_subtract_quick_3">Figure</xref>;
         <m>\vec{x}-\vec{y}</m> is dashed.
       </p>
-      <figure xml:id="fig_subtract_quick_2">
+      <figure xml:id="fig_subtract_quick_3">
         <caption>Vectors <m>\vec{x}</m>, <m>\vec{y}</m> and <m>\vec{x} -  \vec{y}</m> in <xref ref="ex_subtract_quick">Example</xref></caption>
-        <image xml:id="geom_1-draw-subtract-vector-quick_2">
+        <image xml:id="geom_1-draw-subtract-vector-quick_3">
 <latex-image>
-<![CDATA[\begin{tikzpicture}\begin{scope}
-\draw (-.5,0)--(1.5,0);
-\draw (0,-1.5)--(0,1.5);
-\draw[->, thick] (0,0)--(1,1) node[above] {$\vec{y}$};
-\draw[->, thick] (0,0)--(1,-1) node[below] {$\vec{x}$};
-\draw (0.5,-2) node [below] {(a)};
-\end{scope}
-\begin{scope}[shift={(5,0)}]
+<![CDATA[\begin{tikzpicture}
 \draw (-.5,0)--(1.5,0);
 \draw (0,-1.5)--(0,1.5);
 \draw[->, thick] (0,0)--(1,1) node[above] {$\vec{y}$};
 \draw[->, thick] (0,0)--(1,-1) node[below] {$\vec{x}$};
 \draw[->, thick, dashed] (1,1)--(1,-1) node[pos=.8,right,black] {$\vec{x}-\vec{y}$} ;
-\draw (0.5,-2) node [below] {(b)};
-\end{scope}\end{tikzpicture}]]>
+\end{tikzpicture}]]>
 </latex-image>
         </image>
       </figure>
