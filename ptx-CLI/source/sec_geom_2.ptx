@@ -34,7 +34,7 @@
   </p>
   <figure xml:id="fig_empty_3D">
     <caption>The 3D coordinate system</caption>
-    <image>
+    <image width="60%" xml:id="geom_2-coordinate-system">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
 \draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
@@ -102,7 +102,7 @@
       </p>
       <figure xml:id="fig_draw_3D_vx">
         <caption>Stages of sketching the vector <m>\vec{v}</m>  for <xref ref="ex_draw_3D_1">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-sketch3Dvector">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -199,7 +199,7 @@
       </p>
       <figure xml:id="fig_draw_3D_vx_vy">
         <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_1">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-sketchmore3Dvectors">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
 \draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
@@ -262,7 +262,7 @@
       </p>
       <figure xml:id="fig_draw_3D_2">
         <caption>Vector <m>\vec{v}</m> in <xref ref="ex_draw_3D_2">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-sketch3Dvectors_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [->] (-3,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -318,7 +318,7 @@
       </p>
       <figure xml:id="fig_draw_3D_3">
         <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_3">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-sketchmore3Dvectors_3">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -401,7 +401,7 @@
   </p>
   <figure xml:id="fig_viewpoint_1">
     <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> in <xref ref="ex_draw_3D_3">Example</xref> with a different viewpoint (a) and <m>x</m> axis scale (b).</caption>
-    <image>
+    <image width="60%" xml:id="geom_2-3Dvectors-viewpoint">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
 \draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
@@ -423,7 +423,7 @@
 </latex-image>
     </image>
     <m></m>
-    <image>
+    <image width="60%" xml:id="geom_2-3Dvectors-viewpoint_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
 \draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
@@ -481,7 +481,7 @@
       </p>
       <figure xml:id="fig_add_3D">
         <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, and <m>\vec{v} + \vec{u}</m> <xref ref="ex_add_3D">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-add-3Dvectors">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [->] (0,0,0)--(3.5,0,0) node [below left] {\(x\)};
@@ -560,7 +560,7 @@
       </p>
       <figure xml:id="fig_draw_3D_4">
         <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, and <m>\vec{v} - \vec{u}</m> from <xref ref="ex_draw_3D_4">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-subtract-3Dvectors">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -620,7 +620,7 @@
       </p>
       <figure xml:id="fig_draw_3D_5a">
         <caption>Vectors <m>\vec{v}</m> and <m>\vec{u}</m> for <xref ref="ex_draw_3D_5">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-add-and-subtract-3Dvectors_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(2,0,0) node [below left] {\(x\)};
 \draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
@@ -634,8 +634,8 @@
 \foreach \z in {1,...,2}
 {\draw  (0,-.1,\z)--(0,.1,\z);
 };
-\draw[thick,->] (0,0,0) -- (0,-2,1) node [above] {\vec{v}};
-\draw[thick,->] (0,0,0) -- (2,2,2)  node [above] {\vec{u}};\end{tikzpicture}]]>
+\draw[thick,->] (0,0,0) -- (0,-2,1) node [above] {$\vec{v}$};
+\draw[thick,->] (0,0,0) -- (2,2,2)  node [above] {$\vec{u}$};\end{tikzpicture}]]>
 </latex-image>
         </image>
       </figure>
@@ -652,7 +652,7 @@
       </p>
       <figure xml:id="fig_draw_3D_5b">
         <caption>Vectors <m>\vec{v}</m>, <m>\vec{u}</m>, <m>\vec{v} + \vec{u}</m> and <m>\vec{v} - \vec{u}</m> for <xref ref="ex_draw_3D_5">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-add-and-subtract-3Dvectors_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(2,0,0) node [below left] {\(x\)};
 \draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
@@ -680,9 +680,9 @@
     <em><em>Scalar Multiplication</em></em>
   </p>
   <p>
-    Given a vector <m>\vec{v}</m> in 3D, what does the vector 2<m>\vec{v}</m> look like?
+    Given a vector <m>\vec{v}</m> in 3D, what does the vector <m>2\vec{v}</m> look like?
     How about <m>-\vec{v}</m>?
-    After learning about vector addition and subtraction in 3D, we are probably gaining confidence in working in 3D and are tempted to say that 2<m>\vec{v}</m> is a vector twice as long as <m>\vec{v}</m>,
+    After learning about vector addition and subtraction in 3D, we are probably gaining confidence in working in 3D and are tempted to say that <m>2\vec{v}</m> is a vector twice as long as <m>\vec{v}</m>,
     pointing in the same direction,
     and <m>-\vec{v}</m> is a vector of the same length as <m>\vec{v}</m>,
     pointing in the opposite direction.
@@ -692,7 +692,7 @@
   <example xml:id="ex_3D_scalar_1">
     <statement>
       <p>
-        Sketch <m>\vec{v}</m>, 2<m>\vec{v}</m>,
+        Sketch <m>\vec{v}</m>, <m>2\vec{v}</m>,
         and <m>-\vec{v}</m>, where
         <me>
           \vec{v} = \left[\begin{array}{c}  1\\2\\3 \end{array} \right]
@@ -702,7 +702,7 @@
     <solution>
       <figure xml:id="fig_3D_scalar_1">
         <caption>Sketching scalar multiples of <m>\vec{v}</m> in <xref ref="ex_3D_scalar_1">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_2-scalar-mult-3Dvectors_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
 \draw [->] (0,0,0)--(0,3,0) node [right] {\(y\)};
@@ -735,7 +735,7 @@
         with all the dashed and dotted lines.
         They are useful though.
         Use them to see how each vector was formed,
-        and note that 2<m>\vec{v}</m> at least looks twice as long as <m>\vec{v}</m>,
+        and note that <m>2\vec{v}</m> at least looks twice as long as <m>\vec{v}</m>,
         and it looks like <m>-\vec{v}</m> points in the opposite direction.<fn>
         Our previous work showed that looks can be deceiving,
         but it is indeed true in this case.
@@ -760,7 +760,7 @@
   </p>
   <figure xml:id="fig_3D_vect_length">
     <caption>Computing the length of <m>\vec{v}</m></caption>
-    <image>
+    <image width="60%" xml:id="geom_2-length-3Dvectors_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [->] (0,0,0)--(3,0,0) node [below left] {\(x\)};
@@ -924,13 +924,13 @@
       <p>
         Sketches will vary slightly depending on orientation.
       </p>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{-1}{3}{1}{2};
 \drawyaxis{-2}{2}{-1}{1};
 \drawzaxis{0}{2.5}{1}{2};
-\drawvect{2}{3}{4}{dotted}{->,thick}{above right}{\vec{y}};
-\drawvect{1}{-1}{2}{dotted}{->,thick}{above left}{\vec{x}};
+\drawvect{2}{3}{4}{dotted}{->,thick}{above right}{$\vec{y}$};
+\drawvect{1}{-1}{2}{dotted}{->,thick}{above left}{$\vec{x}$};
 \drawvect{3}{2}{4}{dotted}{->,thick}{left}{\(\vec{x}+\vec{y}\)};
 \drawvect{-1}{-4}{0}{dotted}{->,thick}{below left}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
 </latex-image>
@@ -952,13 +952,13 @@
       <p>
         Sketches will vary slightly depending on orientation.
       </p>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{-1}{3}{1}{2};
 \drawyaxis{-3}{4}{-2}{3};
 \drawzaxis{-2}{1}{-1}{-1};
-\drawvect{2}{4}{-1}{dotted}{->,thick}{below right}{\vec{x}};
-\drawvect{-1}{-3}{-1}{dotted}{->,thick}{below left}{\vec{y}};
+\drawvect{2}{4}{-1}{dotted}{->,thick}{below right}{$\vec{x}$};
+\drawvect{-1}{-3}{-1}{dotted}{->,thick}{below left}{$\vec{y}$};
 \drawvect{1}{1}{-2}{dotted}{->,thick}{below}{\(\vec{x}+\vec{y}\)};
 \drawvect{3}{7}{0}{dotted}{->,thick}{below }{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
 </latex-image>
@@ -980,13 +980,13 @@
       <p>
         Sketches will vary slightly depending on orientation.
       </p>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_3">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{-2}{4}{-1}{3};
 \drawyaxis{-2}{2.5}{-1}{2};
 \drawzaxis{-2}{4}{-1}{3};
-\drawvect{1}{1}{2}{dotted}{->,thick}{right}{\vec{x}};
-\drawvect{3}{3}{6}{dotted}{->,thick}{left}{\vec{y}};
+\drawvect{1}{1}{2}{dotted}{->,thick}{right}{$\vec{x}$};
+\drawvect{3}{3}{6}{dotted}{->,thick}{left}{$\vec{y}$};
 \drawvect{4}{4}{8}{dotted}{->,thick}{right}{\(\vec{x}+\vec{y}\)};
 \drawvect{-2}{-2}{-4}{dotted}{->,thick}{left}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
 </latex-image>
@@ -1008,13 +1008,13 @@
       <p>
         Sketches may vary slightly.
       </p>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_4">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{-1}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawvect{0}{1}{1}{dotted}{->,thick}{above right}{\vec{x}};
-\drawvect{0}{-1}{1}{dotted}{->,thick}{above left}{\vec{y}};
+\drawvect{0}{1}{1}{dotted}{->,thick}{above right}{$\vec{x}$};
+\drawvect{0}{-1}{1}{dotted}{->,thick}{above left}{$\vec{y}$};
 \drawvect{0}{0}{2}{dotted}{->,thick}{right}{\(\vec{x}+\vec{y}\)};
 \drawvect{0}{2}{0}{dotted}{->,thick}{below}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
 </latex-image>
@@ -1030,13 +1030,13 @@
   </p>
   <exercise>
     <statement>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_5">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{0}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawjustvect{0}{2}{3}{}{->,thick}{above}{\vec{x}};
-\drawjustvect{2}{-1}{1}{}{->,thick}{above}{\vec{y}};\end{tikzpicture}]]>
+\drawjustvect{0}{2}{3}{}{->,thick}{above}{$\vec{x}$};
+\drawjustvect{2}{-1}{1}{}{->,thick}{above}{$\vec{y}$};\end{tikzpicture}]]>
 </latex-image>
       </image>
     </statement>
@@ -1044,13 +1044,13 @@
       <p>
         Sketches may vary slightly.
       </p>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_6">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{0}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawjustvect{0}{4}{6}{}{->,thick}{above}{2\vec{x}};
-\drawjustvect{-2}{1}{-1}{}{->,thick}{above}{-\vec{y}};
+\drawjustvect{0}{4}{6}{}{->,thick}{above}{$2\vec{x}$};
+\drawjustvect{-2}{1}{-1}{}{->,thick}{above}{$-\vec{y}$};
 \drawjustvect{2}{1}{4}{}{->,thick}{above}{\(\vec{x}+\vec{y}\)};
 \drawjustvect{-2}{3}{2}{}{->,thick}{above}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
 </latex-image>
@@ -1059,13 +1059,13 @@
   </exercise>
   <exercise>
     <statement>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_7">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{0}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawjustvect{1}{2}{-1}{}{->,thick}{below}{\vec{x}};
-\drawjustvect{0}{3}{2}{}{->,thick}{above}{\vec{y}};\end{tikzpicture}]]>
+\drawjustvect{1}{2}{-1}{}{->,thick}{below}{$\vec{x}$};
+\drawjustvect{0}{3}{2}{}{->,thick}{above}{$\vec{y}$};\end{tikzpicture}]]>
 </latex-image>
       </image>
     </statement>
@@ -1073,13 +1073,13 @@
       <p>
         Sketches may vary slightly.
       </p>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_8">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{0}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawjustvect{2}{4}{-2}{}{->,thick}{below}{2\vec{x}};
-\drawjustvect{0}{-3}{-2}{}{->,thick}{above}{-\vec{y}};
+\drawjustvect{2}{4}{-2}{}{->,thick}{below}{$2\vec{x}$};
+\drawjustvect{0}{-3}{-2}{}{->,thick}{above}{$-\vec{y}$};
 \drawjustvect{1}{5}{1}{}{->,thick}{above}{\(\vec{x}+\vec{y}\)};
 \drawjustvect{1}{-1}{-3}{}{->,thick}{below}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
 </latex-image>
@@ -1088,13 +1088,13 @@
   </exercise>
   <exercise>
     <statement>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_9">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{0}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawjustvect{2}{2}{0}{}{->,thick}{below}{\vec{x}};
-\drawjustvect{2}{0}{2}{}{->,thick}{above}{\vec{y}};\end{tikzpicture}]]>
+\drawjustvect{2}{2}{0}{}{->,thick}{below}{$\vec{x}$};
+\drawjustvect{2}{0}{2}{}{->,thick}{above}{$\vec{y}$};\end{tikzpicture}]]>
 </latex-image>
       </image>
     </statement>
@@ -1102,13 +1102,13 @@
       <p>
         Sketches may vary slightly.
       </p>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_10">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{0}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawjustvect{4}{4}{0}{}{->,thick}{below}{2\vec{x}};
-\drawjustvect{-2}{0}{-2}{}{->,thick}{above}{-\vec{y}};
+\drawjustvect{4}{4}{0}{}{->,thick}{below}{$2\vec{x}$};
+\drawjustvect{-2}{0}{-2}{}{->,thick}{above}{$-\vec{y}$};
 \drawjustvect{4}{2}{2}{}{->,thick}{above}{\(\vec{x}+\vec{y}\)};
 \drawjustvect{0}{2}{-2}{}{->,thick}{right}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
 </latex-image>
@@ -1117,13 +1117,13 @@
   </exercise>
   <exercise>
     <statement>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_11">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{0}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawjustvect{0}{1.5}{0}{}{->,thick}{above}{\vec{x}};
-\drawjustvect{0}{0}{1.5}{}{->,thick}{right}{\vec{y}};\end{tikzpicture}]]>
+\drawjustvect{0}{1.5}{0}{}{->,thick}{above}{$\vec{x}$};
+\drawjustvect{0}{0}{1.5}{}{->,thick}{right}{$\vec{y}$};\end{tikzpicture}]]>
 </latex-image>
       </image>
     </statement>
@@ -1131,13 +1131,13 @@
       <p>
         Sketches may vary slightly.
       </p>
-      <image>
+      <image width="60%" xml:id="geom_2-exercise-3Dvectors_12">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxaxis{0}{2}{1}{1};
 \drawyaxis{0}{2}{1}{1};
 \drawzaxis{0}{2}{1}{1};
-\drawjustvect{0}{3}{0}{}{->,thick}{above}{2\vec{x}};
-\drawjustvect{0}{0}{-1.5}{}{->,thick}{below}{-\vec{y}};
+\drawjustvect{0}{3}{0}{}{->,thick}{above}{$2\vec{x}$};
+\drawjustvect{0}{0}{-1.5}{}{->,thick}{below}{$-\vec{y}$};
 \drawjustvect{0}{1.5}{1.5}{}{->,thick}{above}{\(\vec{x}+\vec{y}\)};
 \drawjustvect{0}{1.5}{-1.5}{}{->,thick}{below}{\(\vec{x}-\vec{y}\)};\end{tikzpicture}]]>
 </latex-image>

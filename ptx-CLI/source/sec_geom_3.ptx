@@ -110,7 +110,7 @@
       </p>
       <figure xml:id="fig_mv_3">
         <caption>Transforming the unit square by matrix multiplication in <xref ref="ex_mv_3">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_3-transform-unit-square_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \drawxlines{-1}{5}{0,...,4};
@@ -131,7 +131,7 @@
       </figure>
       <figure xml:id="fig_mv_3b">
         <caption>Emphasizing straight lines going to straight lines in <xref ref="ex_mv_3">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_3-transform-unit-square_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \drawxlines{-1}{5}{0,...,4};
@@ -199,7 +199,7 @@
       </p>
       <figure xml:id="fig_mv_4">
         <caption>Transforming the unit square by matrix multiplication in <xref ref="ex_mv_4">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_3-transform-unit-square_3">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \drawxlines{-1.5}{1.5}{-1,1};
@@ -318,7 +318,7 @@
   </p>
   <p>
     Let's now take the time to understand these four points.
-    The first point should be clear; \vec{0}<nbsp/>will always be transformed to \vec{0}<nbsp/>via matrix multiplication.
+      The first point should be clear; <m>\vec{0}</m><nbsp/>will always be transformed to <m>\vec{0}</m><nbsp/>via matrix multiplication.
     (Hence the hint in the middle of <xref ref="ex_mv_3">Example</xref>,
     where we are told that we can ignore entering in the column of zeros in the matrix B.)
   </p>
@@ -397,7 +397,7 @@
       </p>
       <figure xml:id="fig_transf_1">
         <caption>Transforming the Cartesian plane in <xref ref="ex_transf_1">Example</xref></caption>
-        <image>
+        <image width="60%" xml:id="geom_3-transform-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [ultra thin,gray,step=.75cm] (-3,-3) grid (3,3);
@@ -435,7 +435,7 @@
   </p>
   <figure xml:id="fig_trans">
     <caption>The unit square under an unknown transformation.</caption>
-    <image>
+    <image width="60%" xml:id="geom_3-transform-square_5">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-2}{2}{-1,1};
 \drawylines{-1}{3.5}{1,2,3};
@@ -484,7 +484,7 @@
   </p>
   <figure xml:id="fig_trans2">
     <caption>Finding the new location of the point <m>(2,3)</m>.</caption>
-    <image>
+    <image width="60%" xml:id="geom_3-transform-plane_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-2}{2}{-1,1};
 \drawylines{-1}{8.5}{1,...,8};
@@ -543,7 +543,7 @@
       </p>
       <figure xml:id="fig_transf_2_1">
         <caption>Understanding the transformation in <xref ref="ex_transf_2">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_3-transform-plane_3">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{3.5}{-1,1,2,3};
 \drawylines{-1.5}{1.5}{-1,1};
@@ -555,7 +555,7 @@
       </figure>
       <figure xml:id="fig_transf_2_2">
         <caption>Transforming the Cartesian plane in <xref ref="ex_transf_2">Example</xref></caption>
-        <image>
+        <image width="60%" xml:id="geom_3-transform-plane_4">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [ultra thin,gray,step=.75cm] (-3,-3) grid (3,3);
@@ -610,7 +610,7 @@
       \left[\begin{array}{cc} k\amp 0\\0\amp 1
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-horiz-stretch-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{2.5}{1,2};
 \drawylines{-1}{2.5}{1,2};
@@ -629,7 +629,7 @@
       \left[\begin{array}{cc} 1\amp 0\\0\amp k
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-vert-stretch-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{2.5}{1,2};
 \drawylines{-1}{2.5}{1,2};
@@ -648,7 +648,7 @@
       \left[\begin{array}{cc} 1\amp k\\0\amp 1
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-horiz-shear-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{2.5}{1,2};
 \drawylines{-1}{2.5}{1,2};
@@ -667,7 +667,7 @@
       \left[\begin{array}{cc} 1\amp 0\\k\amp 1
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-vert-stretch-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{2.5}{1,2};
 \drawylines{-1}{2.5}{1,2};
@@ -686,7 +686,7 @@
       \left[\begin{array}{cc} -1\amp 0\\0\amp 1
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-horiz-reflect-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{1.5}{1,-1};
 \drawylines{-1.5}{1.5}{1,-1};
@@ -704,7 +704,7 @@
       \left[\begin{array}{cc} 1\amp 0\\0\amp -1
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-vert-reflect-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{1.5}{1,-1};
 \drawylines{-1.5}{1.5}{1,-1};
@@ -722,7 +722,7 @@
       \left[\begin{array}{cc} 0\amp 1\\1\amp 0
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-diagonal-reflect-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{1.5}{1,-1};
 \drawylines{-1.5}{1.5}{1,-1};
@@ -741,7 +741,7 @@
       \left[\begin{array}{cc} \cos \theta \amp  -\sin \theta \\ \sin \theta \amp  \cos \theta
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-rotate-angle-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{1.5}{1,-1};
 \drawylines{-.5}{2.5}{1,2};
@@ -764,7 +764,7 @@
       \left[\begin{array}{cc} 1\amp 0\\0\amp 0
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-project-xaxis-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{1.5}{1,-1};
 \drawylines{-1.5}{1.5}{1,-1};
@@ -785,7 +785,7 @@
       \left[\begin{array}{cc} 0\amp 0\\0\amp 1
       \end{array} \right]
     </me>
-    <image>
+    <image xml:id="geom_3-project-yaxis-plane_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{1.5}{1,-1};
 \drawylines{-1.5}{1.5}{1,-1};
@@ -912,7 +912,7 @@
       </p>
       <figure xml:id="fig_trans_3_1">
         <caption>The transformed unit square in <xref ref="ex_transf_3">Example</xref>.</caption>
-        <image>
+        <image width="60%" xml:id="geom_3-transform-square_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-.5}{2.5}{1,2};
 \drawylines{-1.5}{1.5}{-1,1};
@@ -921,9 +921,9 @@
 </latex-image>
         </image>
       </figure>
-      <figure xml:id="fig_trans_3_2">
+      <figure width="60%" xml:id="fig_trans_3_2">
         <caption>A transformed shape in <xref ref="ex_transf_3">Example</xref>.</caption>
-        <image>
+        <image xml:id="geom_3-transform-shape_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\begin{scope}
 \draw [ultra thin,gray,step=.75cm] (-3,-3) grid (3,3);
@@ -972,7 +972,7 @@
   </p>
   <exercise>
     <statement>
-      <image>
+      <image width="60%" xml:id="geom_3-exercise-transform-square_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1}{3.5}{1,2,3};
 \drawylines{-1}{7.5}{1,...,7};
@@ -990,7 +990,7 @@
   </exercise>
   <exercise>
     <statement>
-      <image>
+      <image width="60%" xml:id="geom_3-exercise-transform-square_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{2.5}{1,2};
 \drawylines{-1}{3.5}{1,...,3};
@@ -1008,7 +1008,7 @@
   </exercise>
   <exercise>
     <statement>
-      <image>
+      <image width="60%" xml:id="geom_3-exercise-transform-square_3">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{2.5}{1,2};
 \drawylines{-1}{3.5}{1,...,3};
@@ -1026,7 +1026,7 @@
   </exercise>
   <exercise>
     <statement>
-      <image>
+      <image width="60%" xml:id="geom_3-exercise-transform-square_4">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-1.5}{2.5}{-1,1,2};
 \drawylines{-1}{1.5}{1};

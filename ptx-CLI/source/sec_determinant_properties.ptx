@@ -706,7 +706,7 @@
     <q>upper right to lower left</q>
     diagonals, as shown below with the arrows.
   </p>
-  <image>
+  <image width="60%" xml:id="determininant_properties-diagonals-of-matrix_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\node at (0,0) {\(\begin{array}{ccccc} 1\amp 2\amp 3\amp 1\amp 2 \\ 4 \amp  5 \amp  6\amp 4\amp 5\\7\amp 8\amp 9\amp 7\amp 8
 \end{array} \)};
@@ -768,7 +768,7 @@
         Rewriting the first 2 columns,
         drawing the proper diagonals, and multiplying, we get:
       </p>
-      <image>
+      <image width="60%" xml:id="determininant_properties-diagonals-of-matrix_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\node at (0,0) {\(\begin{array}{ccccc} 1\amp 3\amp 9\amp 1\amp 3 \\ -2\amp 3\amp 4\amp -2\amp 3\\-5\amp 7\amp 2\amp -5\amp 7
 \end{array} \)};
