@@ -25,7 +25,9 @@
 
 [x] sec_geom_1... fix/split figure 2.3.22.  Need part for the example, and part (or whole thing again) for the solution.
 
-[ ] sec_geom_1... some pictures are gigantic.  fix individually, or as a group?  exercises, knowls, etc?
+[x] sec_geom_1... some pictures are gigantic.  fix individually, or as a group?  exercises, knowls, etc? (fixed in lin_trans, geom_1, existence, and vector_solutions... still need to fix in later sections)
+
+[ ] pictures in later sections, need xml:id's with sensible names, and width="60%"
 
 [ ] sec_geom_1... key insights have titles, not term (changed).  Add to index or glossary?
 

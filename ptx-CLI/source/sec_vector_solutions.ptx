@@ -288,12 +288,12 @@
       </p>
       <figure xml:id="fig_vect_sol_101">
         <caption>The solution, as a line, to <m>A\vec{x}=\vec{0}</m> in <xref ref="ex_vector_solution_101">Example</xref>.</caption>
-        <image xml:id="vector_solutions-homogenous-solution_1">
+        <image width="60%" xml:id="vector_solutions-homogenous-solution_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
 \drawylines{-3.5}{3.5}{-3,...,3};
 \draw [<->](-4,2)--(4,-2);
-\draw [->,thick] (0,0)--(-2,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
+\draw [->,ultra thick] (0,0)--(-2,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
 </latex-image>
         </image>
       </figure>
@@ -374,12 +374,12 @@
       </p>
       <figure xml:id="fig_vect_sol_102">
         <caption>The solution, as a line, to <m>A\vec{x}=\vec{0}</m> in <xref ref="ex_vect_sol_102">Example</xref>.</caption>
-        <image xml:id="vector_solutions-homogenous-solution_2">
+        <image width="60%" xml:id="vector_solutions-homogenous-solution_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-3.5}{6.5}{-3,...,6};
 \drawylines{-2.5}{4.5}{-2,...,4};
 \draw [<->](-3,-2)--(6,4);
-\draw [->,thick] (0,0)--(1.5,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
+\draw [->,ultra thick] (0,0)--(1.5,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
 </latex-image>
         </image>
       </figure>
@@ -484,13 +484,13 @@
       </p>
       <figure xml:id="fig_vect_sol_103">
         <caption>The solution, as a line, to <m>A\vec{x}=\vec{b}</m> in <xref ref="ex_vect_sol_103">Example</xref>.</caption>
-        <image xml:id="vector_solutions-vector-solution_1">
+        <image width="60%" xml:id="vector_solutions-vector-solution_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-5.5}{5.5}{-5,...,5};
 \drawylines{-2.5}{5.5}{-2,...,5};
 \draw [<->](5,-1)--(-5,4);
-\draw [->,thick] (0,0)--(3,0) node [below] {$\vec{x}_p$};
-\draw [->,thick] (3,0) -- (1,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
+\draw [->,ultra thick] (0,0)--(3,0) node [below] {$\vec{x}_p$};
+\draw [->,ultra thick] (3,0) -- (1,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
 </latex-image>
         </image>
       </figure>
@@ -1652,12 +1652,12 @@
       <p>
         <m>\vec{x} = x_2\left[\begin{array}{c} -2\\1 \end{array} \right] = x_2\vec{v}</m>
       </p>
-      <image xml:id="vector_solutions-exercise-vector-solution_1">
+      <image width="60%" xml:id="vector_solutions-exercise-vector-solution_1">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
 \drawylines{-2.5}{2.5}{-2,...,2};
 \draw [<->](-4,2)--(4,-2);
-\draw [->,thick] (0,0)--(-2,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
+\draw [->,ultra thick] (0,0)--(-2,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
 </latex-image>
       </image>
     </answer>
@@ -1673,13 +1673,13 @@
       <p>
         <m>\vec{x} = \left[\begin{array}{c} -3\\0 \end{array} \right] + x_2\left[\begin{array}{c} -2\\1 \end{array} \right] = \vec{x}_p + x_2\vec{v}</m>
       </p>
-      <image xml:id="vector_solutions-exercise-vector-solution_2">
+      <image width="60%" xml:id="vector_solutions-exercise-vector-solution_2">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
 \drawylines{-4.5}{2.5}{-4,...,2};
 \draw [<->](-4,.5)--(4,-3.5);
-\draw [->,thick] (0,0)--(-3,0) node [below] {$\vec{x}_p$};
-\draw [->,thick] (-3,0)--(-5,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
+\draw [->,ultra thick] (0,0)--(-3,0) node [below] {$\vec{x}_p$};
+\draw [->,ultra thick] (-3,0)--(-5,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
 </latex-image>
       </image>
     </answer>
@@ -1695,13 +1695,13 @@
       <p>
         <m>\vec{x} = \left[\begin{array}{c} 0.5\\0 \end{array} \right] + x_2\left[\begin{array}{c} 2.5\\1 \end{array} \right] = \vec{x}_p + x_2\vec{v}</m>
       </p>
-      <image xml:id="vector_solutions-exercise-vector-solution_3">
+      <image width="60%" xml:id="vector_solutions-exercise-vector-solution_3">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
 \drawylines{-2.5}{2.5}{-2,...,2};
 \draw [<->](-4,-1.8)--(4,1.4);
-\draw [->,thick] (0,0)--(0.5,0) node [below] {$\vec{x}_p$};
-\draw [->,thick] (0.5,0)--(3,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
+\draw [->,ultra thick] (0,0)--(0.5,0) node [below] {$\vec{x}_p$};
+\draw [->,ultra thick] (0.5,0)--(3,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
 </latex-image>
       </image>
     </answer>
@@ -1717,12 +1717,12 @@
       <p>
         <m>\vec{x} = x_2\left[\begin{array}{c} 2.5\\1 \end{array} \right] = x_2\vec{v}</m>
       </p>
-      <image xml:id="vector_solutions-exercise-vector-solution_4">
+      <image width="60%" xml:id="vector_solutions-exercise-vector-solution_4">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\drawxlines{-4.5}{4.5}{-4,...,4};
 \drawylines{-2.5}{2.5}{-2,...,2};
 \draw [<->](-4,-1.6)--(4,1.6);
-\draw [->,thick] (0,0)--(2.5,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
+\draw [->,ultra thick] (0,0)--(2.5,1) node [above] {$\vec{v}$};\end{tikzpicture}]]>
 </latex-image>
       </image>
     </answer>

@@ -89,7 +89,7 @@
   </p>
   <figure xml:id="fig_visual_solution">
     <caption>The three possibilities for two linear equations with two unknowns.</caption>
-    <image xml:id="existence-three-possibilities-visual-solution">
+    <image width="60%" xml:id="existence-three-possibilities-visual-solution">
 <latex-image>
 <![CDATA[\begin{tikzpicture}\draw[gray, very thin] (0,-.5) -- (0,3);
 \draw[gray, very thin] (-1,0) -- (2,0);
