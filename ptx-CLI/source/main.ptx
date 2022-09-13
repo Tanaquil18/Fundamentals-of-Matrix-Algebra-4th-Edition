@@ -7,12 +7,37 @@
 -->
     <rename element="insight" xml:lang="en-US">Key Idea</rename>
     <rename element="objectives" xml:lang="en-US">As You Read...</rename>
-<latex-preamble>
-    <package>mathtools</package>
-</latex-preamble>
-<macros>
-\newcommand{\lambd}{\lambda}
-</macros>
+    <latex-preamble>
+        <package>mathtools</package>
+    </latex-preamble>
+    <latex-image-preamble>
+        \usepackage{tikz}
+        \usetikzlibrary{calc}
+        <![CDATA[\newcommand{\unitsquare}[1][]
+            {\begin{scope}
+                \draw [#1] (0,0) node (A) {} -- (1,0) node (B) {} -- (1,1) node (C) {} -- (0,1) node (D) {} -- cycle;
+                \draw [->,>=latex,#1,ultra thin] (0,.25)--(1,.25);
+                \draw [->,>=latex,#1,ultra thin] (0,.5)--(1,.5);
+                \draw [->,>=latex,#1,ultra thin] (0,.75)--(1,.75);
+                \filldraw [black]  (A) circle (2pt);%black
+                \draw [#1,ultra thick]  (B) ++(-2pt,-2pt) rectangle ++(4pt,4pt);%red
+                \draw [ultra thick]  (C) circle (2pt);%blue
+                \draw [#1,ultra thick]  (D) ++(-2.5pt,-2.5pt) -- ++(5pt,0pt) -- ++(-2.5pt,5pt) -- cycle;%green
+            \end{scope}}
+        \newcommand{\drawxlines}[3]
+            {\draw[<->] (#1,0) -- (#2,0) node [right] {$x$};
+                \foreach \x in {#3}
+            {\draw  (\x,-.1)--(\x,.1);};}
+        \newcommand{\drawylines}[3]
+            {\draw[<->] (0,#1) -- (0,#2) node [above] {$y$};
+                \foreach \x in {#3}
+            {\draw  (-.1,\x)--(.1,\x);};}]]>
+    </latex-image-preamble>
+    <macros>
+        \newcommand{\lambd}{\lambda}
+        \newcommand{\rrefarrow}{\xrightarrow{\mathrm{rref}}}
+        \newcommand{\tr}[1]{\mathrm{tr}#1}
+    </macros>
   </docinfo>
   <book>
     <title>Fundamentals of Matrix Algebra
@@ -24,10 +49,10 @@
         </author>
       </titlepage>
     </frontmatter>
-    <xi:include href="./chapter_linear.ptx"/>
-    <xi:include href="./chapter_arithmetic.ptx"/>
+    <!-- <xi:include href="./chapter_linear.ptx"/> -->
+    <!-- <xi:include href="./chapter_arithmetic.ptx"/> -->
     <xi:include href="./chapter_ops.ptx"/>
-    <xi:include href="./chapter_eigen.ptx"/>
+    <!--<xi:include href="./chapter_eigen.ptx"/>
     <xi:include href="./chapter_graph.ptx"/>
     <backmatter>
       <xi:include href="./bibliography.ptx"/>
@@ -35,6 +60,6 @@
         <title>Index</title>
         <index-list/>
       </index>
-    </backmatter>
+    </backmatter> -->
   </book>
 </pretext>

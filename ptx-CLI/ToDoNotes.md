@@ -49,7 +49,7 @@
 
 [x] sec_inverse_prop I couldn't get the labels on the Invertible Matrix Theorem to be alphabetical using marker, but label worked.  I didn't get a warning using CLI like I did before with xsltproc, so I just left it as label.  marker worked in other instances, including one other time this section, so is it different because it's inside a theorem? (now it works... not sure what changed)
 
-[x] Have gone over every section in the first two chapters making fixes!
+[x] Have gone over every section in the first two chapters making fixes!  Also first two sections of Chapter 3, sec_transpose and sec_trace.
   
 [x] Starting statements of definitions, theorems, examples, etc, on a new line instead of right after the title?  Relatedly, placement of the idx markers? (checked sample article... followed its conventions)
   
