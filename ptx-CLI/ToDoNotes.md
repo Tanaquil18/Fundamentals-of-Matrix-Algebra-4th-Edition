@@ -37,6 +37,8 @@
 
 [ ] sec_vector_solutions, Examples with 2 free variables, 3 free variables, and unique solution, underbrace text is not centered.  tried mathclap like in sec_matrix_multiplication, but it doesn't seem to change it.  overleaf looks even worse.  Maybe because it's part of the aligned math?  \underbrace{\vec{x_p}}_{\text{particular solution}}+ \underbrace{x_3\vec{u}+x_4\vec{v}+x_5\vec{w}}_{\text{solution to homogeneous equations } A\vec{x}=\vec{0}}
 
+[ ] sec_determinant_1 similar to above, have underbraces with text not centered.  also part of aligned math.  mathjax website looked better... maybe just a cocalc problem?
+
 [ ] sec_solve_axb I have a sbsgroup where I've set the width to 20% and that seems to align them horizontally.  Not sure that's right, or how it will look on different size screens or print.  
 
 [x] sec_inverses The \xrightarrow[\text{ rref }] \quad all don't look right in this section, even though I copy-pasted from sec_solve_axb, where it looks fine.  
@@ -49,7 +51,7 @@
 
 [x] sec_inverse_prop I couldn't get the labels on the Invertible Matrix Theorem to be alphabetical using marker, but label worked.  I didn't get a warning using CLI like I did before with xsltproc, so I just left it as label.  marker worked in other instances, including one other time this section, so is it different because it's inside a theorem? (now it works... not sure what changed)
 
-[x] Have gone over every section in the first two chapters making fixes!  Also first two sections of Chapter 3, sec_transpose and sec_trace.
+[x] Have gone over every section in the first two chapters making fixes!  Also first three sections of Chapter 3, sec_transpose, sec_trace and sec_determinant
   
 [x] Starting statements of definitions, theorems, examples, etc, on a new line instead of right after the title?  Relatedly, placement of the idx markers? (checked sample article... followed its conventions)
   

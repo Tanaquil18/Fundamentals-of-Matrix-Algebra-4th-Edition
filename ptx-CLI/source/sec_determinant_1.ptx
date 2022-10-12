@@ -10,12 +10,12 @@
       <li>
         <p>
           T/F: To compute the determinant of a <m>3\times 3</m> matrix,
-          one needs to compute the determinants of 3 <m>2\times 2</m> matrices.
+          one needs to compute the determinants of three <m>2\times 2</m> matrices.
         </p>
       </li>
       <li>
         <p>
-          Give an example of a <m>2\times 2</m> matrix with a determinant of 3.
+          Give an example of a <m>2\times 2</m> matrix with a determinant of <m>3</m>.
         </p>
       </li>
     </ol>
@@ -32,7 +32,7 @@
   <p>
     The <em>determinant</em> of an
     <m>n\times n</m> matrix <m>A</m> is a number,
-    denoted det , that is determined by <m>A</m>.
+    denoted <m>\det(A)</m>, that is determined by <m>A</m>.
   </p>
   <p>
     That definition isn't meant to explain everything;
@@ -46,12 +46,11 @@
     </fn> We start simply;
     we define the determinant for <m>2 \times 2</m> matrices.
   </p>
-  <definition xml:id="def_determinant_1">
+  <definition xml:id="def_determinant_1"><title>Determinant of <m>2\times 2</m> Matrices</title>
     <statement>
       <p>
             <idx><h>determinant</h><h>of <m>2\times 2</m> matrices</h></idx>
             <idx><h>matrix</h><h>determinant</h></idx>
-        <term>Determinant of <m>2\times 2</m> Matrices</term>
       </p>
       <p>
         Let
@@ -60,7 +59,7 @@
         </me>.
         The <term>determinant of A</term>, denoted by
         <me>
-          \det{ A} \ \text{ or } \ \left| \begin{array}{cc} a\amp b\\c\amp d \end{array}  \right|
+          \det(A) \ \text{ or } \ \left| \begin{array}{cc} a\amp b\\c\amp d \end{array}  \right|
         </me>,
         is <m>ad-bc</m>.
       </p>
@@ -75,9 +74,9 @@
     </me>
     as long as <m>ad-bc\neq 0</m>;
     otherwise, the inverse does not exist.
-    We can rephrase the above statement now: If det( A)<m>\neq 0</m>, then
+    We can rephrase the above statement now: If <m>\det(A)\neq 0</m>, then
     <me>
-      A^{-1} = \frac{1}{\det{ A}}\left[\begin{array}{cc} d\amp -b\\-c\amp a \end{array} \right]
+      A^{-1} = \frac{1}{\det(A)}\left[\begin{array}{cc} d\amp -b\\-c\amp a \end{array} \right]
     </me>
   </p>
   <p>
@@ -92,15 +91,15 @@
     Just as the absolute value of a number measures its size
     (and ignores its sign),
     the determinant of a matrix is a measurement of the size of the matrix. (Be careful, though:
-    det can be negative!)
+    <m>\det(A)</m> can be negative!)
   </p>
   <p>
     Let's practice.
   </p>
-  <example xml:id="ex_determinant_1">
+  <example xml:id="ex_determinant_1"><title>Calculating the determinants of some <m>2\times 2</m> matrices</title>
     <statement>
       <p>
-        Find the determinant of <m>A</m>, B<nbsp/>and C<nbsp/>where
+        Find the determinant of <m>A</m>, <m>B</m> and <m>C</m> where
         <me>
           A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right], \  B = \left[\begin{array}{cc} 3\amp -1\\2\amp 7 \end{array} \right]\ \text{ and } \  C = \left[\begin{array}{cc} 1\amp -3\\-2\amp 6 \end{array} \right]
         </me>
@@ -108,9 +107,9 @@
     </statement>
     <solution>
       <p>
-        Finding the determinant of A:
+        Finding the determinant of <m>A</m>:
         <md>
-          <mrow>\det{ A} \amp = \left| \begin{array}{cc} 1\amp 2</mrow>
+          <mrow>\det(A) \amp = \left| \begin{array}{cc} 1\amp 2</mrow>
           <mrow>3\amp 4\end{array} \right|</mrow>
           <mrow>\amp = 1(4) - 2(3)</mrow>
           <mrow>\amp = -2</mrow>
@@ -118,7 +117,7 @@
       </p>
       <p>
         Similar computations show that
-        <m>\det{ B} = 3(7)- (-1)(2) = 23</m> and <m>\det{ C} = 1(6) - (-3)(-2) = 0</m>.
+        <m>\det(B) = 3(7)- (-1)(2) = 23</m> and <m>\det(C) = 1(6) - (-3)(-2) = 0</m>.
       </p>
     </solution>
   </example>
@@ -132,22 +131,21 @@
     although slight variations exist.
     </fn>
   </p>
-  <definition xml:id="def_minor_cofactor">
+  <definition xml:id="def_minor_cofactor"><title>Matrix Minor, Cofactor</title>
     <statement>
       <p>
             <idx><h>matrix</h><h>minor</h></idx>
             <idx><h>matrix</h><h>cofactor</h></idx>
             <idx><h>minor</h></idx>
             <idx><h>cofactor</h></idx>
-        <term>Matrix Minor, Cofactor</term>
       </p>
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix.
-        The <term><m>i,j</m> minor of A</term>, denoted <m>A_{i,j}</m>,
+        The <term><m>i,j</m> minor of <m>A</m></term>, denoted <m>A_{i,j}</m>,
         is the determinant of the <m>(n-1)\times(n-1)</m> matrix formed by deleting the <m>i^{th}</m> row and <m>j^{th}</m> column of <m>A</m>.
       </p>
       <p>
-        The <term><m>i,j</m>-cofactor of A</term> is the number
+        The <term><m>i,j</m>-cofactor of <m>A</m></term> is the number
         <me>
           C_{ij}=(-1)^{i+j}A_{i,j}
         </me>
@@ -171,7 +169,7 @@
           A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]\ \text{ and } \  B = \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 8\\-3\amp 5\amp 7\amp 2\\-1\amp 9\amp -4\amp 6\\1\amp 1\amp 1\amp 1 \end{array} \right]
         </me>.
         Find <m>A_{1,3}</m>, <m>A_{3,2}</m>,
-        <m>\ttb_{2,1}</m>, <m>\ttb_{4,3}</m> and their respective cofactors.
+        <m>B_{2,1}</m>, <m>B_{4,3}</m> and their respective cofactors.
       </p>
     </statement>
     <solution>
@@ -179,7 +177,7 @@
         To compute the minor <m>A_{1,3}</m>,
         we remove the first row and third column of <m>A</m> then take the determinant.
         <me>
-          A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]\Rightarrow\left[\begin{array}{ccc} \textbf{\sout{1}}\amp \textbf{\sout{2}}\amp \textbf{\sout{3}}\\4\amp 5\amp \textbf{\sout{6}}\\7\amp 8\amp \textbf{\sout{9}} \end{array} \right]\Rightarrow\left[\begin{array}{cc} 4\amp 5\\7\amp 8 \end{array} \right]
+          A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]\Rightarrow\left[\begin{array}{ccc} \ \xcancel{1}\amp \xcancel{2}\amp \xcancel{3}\\4\amp 5\amp \xcancel{6}\\7\amp 8\amp \xcancel{9} \end{array} \right]\Rightarrow\left[\begin{array}{cc} 4\amp 5\\7\amp 8 \end{array} \right]
         </me>
         <me>
           A_{1,3} = \left| \begin{array}{cc} 4\amp 5\\7\amp 8 \end{array}  \right| = 32-35 = -3
@@ -194,7 +192,7 @@
       <p>
         The minor <m>A_{3,2}</m> is found by removing the third row and second column of <m>A</m> then taking the determinant.
         <me>
-          A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]\Rightarrow\left[\begin{array}{ccc} 1\amp \textbf{\sout{2}}\amp 3\\4\amp \textbf{\sout{5}}\amp 6\\ \textbf{\sout{7}}\amp \textbf{\sout{8}}\amp \textbf{\sout{9}} \end{array} \right]\Rightarrow \left[\begin{array}{cc} 1\amp 3\\4\amp 6 \end{array} \right]
+          A = \left[\begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]\Rightarrow\left[\begin{array}{ccc} 1\amp \xcancel{2}\amp 3\\4\amp \xcancel{5}\amp 6\\ \xcancel{7}\amp \xcancel{8}\amp \xcancel{9} \end{array} \right]\Rightarrow \left[\begin{array}{cc} 1\amp 3\\4\amp 6 \end{array} \right]
         </me>
         <me>
           A_{3,2} = \left| \begin{array}{cc} 1\amp 3\\4\amp 6 \end{array}  \right| = 6-12 = -6
@@ -205,12 +203,12 @@
         </me>
       </p>
       <p>
-        The minor <m>\ttb_{2,1}</m> is found by removing the second row and first column of B<nbsp/>then taking the determinant.
+        The minor <m>B_{2,1}</m> is found by removing the second row and first column of <m>B</m> then taking the determinant.
         <me>
-          B = \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 8\\-3\amp 5\amp 7\amp 2\\-1\amp 9\amp -4\amp 6\\1\amp 1\amp 1\amp 1 \end{array} \right] \Rightarrow \left[\begin{array}{cccc} \textbf{\sout{1}}\amp 2\amp 0\amp 8\\ \textbf{\sout{-3}}\amp \textbf{\sout{5}}\amp \textbf{\sout{7}}\amp \textbf{\sout{2}}\\ \textbf{\sout{-1}}\amp 9\amp -4\amp 6\\ \textbf{\sout{1}}\amp 1\amp 1\amp 1 \end{array} \right] \Rightarrow \left[\begin{array}{ccc} 2\amp 0\amp 8\\9\amp -4\amp 6\\1\amp 1\amp 1 \end{array} \right]
+          B = \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 8\\-3\amp 5\amp 7\amp 2\\-1\amp 9\amp -4\amp 6\\1\amp 1\amp 1\amp 1 \end{array} \right] \Rightarrow \left[\begin{array}{cccc} \xcancel{1}\amp 2\amp 0\amp 8\\ \xcancel{-3}\amp \xcancel{5}\amp \xcancel{7}\amp \xcancel{2}\\ \xcancel{-1}\amp 9\amp -4\amp 6\\ \xcancel{1}\amp 1\amp 1\amp 1 \end{array} \right] \Rightarrow \left[\begin{array}{ccc} 2\amp 0\amp 8\\9\amp -4\amp 6\\1\amp 1\amp 1 \end{array} \right]
         </me>
         <me>
-          \ttb_{2,1} = \left| \begin{array}{ccc} 2\amp 0\amp 8\\9\amp -4\amp 6\\1\amp 1\amp 1 \end{array}  \right| \stackrel{!}{=} \ ?
+          B_{2,1} = \left| \begin{array}{ccc} 2\amp 0\amp 8\\9\amp -4\amp 6\\1\amp 1\amp 1 \end{array}  \right| \stackrel{!}{=} \ ?
         </me>
       </p>
       <p>
@@ -219,17 +217,17 @@
         We'll come back to this later.
         The corresponding cofactor is
         <me>
-          C_{2,1} = (-1)^{2+1}\ttb_{2,1} = -\ttb_{2,1}
+          C_{2,1} = (-1)^{2+1}B_{2,1} = -B_{2,1}
         </me>,
         whatever this number happens to be.
       </p>
       <p>
-        The minor <m>\ttb_{4,3}</m> is found by removing the fourth row and third column of B<nbsp/>then taking the determinant.
+        The minor <m>B_{4,3}</m> is found by removing the fourth row and third column of <m>B</m> then taking the determinant.
         <me>
-          B = \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 8\\-3\amp 5\amp 7\amp 2\\-1\amp 9\amp -4\amp 6\\1\amp 1\amp 1\amp 1 \end{array} \right] \Rightarrow \left[\begin{array}{cccc} 1\amp 2\amp \textbf{\sout{0}}\amp 8\\-3\amp 5\amp \textbf{\sout{7}}\amp 2\\-1\amp 9\amp \textbf{\sout{-4}}\amp 6\\ \textbf{\sout{1}}\amp \textbf{\sout{1}}\amp \textbf{\sout{1}}\amp \textbf{\sout{1}} \end{array} \right] \Rightarrow \left[\begin{array}{ccc} 1\amp 2\amp 8\\-3\amp 5\amp 2\\-1\amp 9\amp 6 \end{array} \right]
+          B = \left[\begin{array}{cccc} 1\amp 2\amp 0\amp 8\\-3\amp 5\amp 7\amp 2\\-1\amp 9\amp -4\amp 6\\1\amp 1\amp 1\amp 1 \end{array} \right] \Rightarrow \left[\begin{array}{cccc} 1\amp 2\amp \xcancel{0}\amp 8\\-3\amp 5\amp \xcancel{7}\amp 2\\-1\amp 9\amp \xcancel{-4}\amp 6\\ \xcancel{1}\amp \xcancel{1}\amp \xcancel{1}\amp \xcancel{1} \end{array} \right] \Rightarrow \left[\begin{array}{ccc} 1\amp 2\amp 8\\-3\amp 5\amp 2\\-1\amp 9\amp 6 \end{array} \right]
         </me>
         <me>
-          \ttb_{4,3} = \left| \begin{array}{ccc} 1\amp 2\amp 8\\-3\amp 5\amp 2\\-1\amp 9\amp 6 \end{array}  \right| \stackrel{!}{=}\ ?
+          B_{4,3} = \left| \begin{array}{ccc} 1\amp 2\amp 8\\-3\amp 5\amp 2\\-1\amp 9\amp 6 \end{array}  \right| \stackrel{!}{=}\ ?
         </me>
       </p>
       <p>
@@ -237,7 +235,7 @@
         We won't be able to fully compute <m>C_{4,3}</m>;
         all we know so far is that
         <me>
-          C_{4,3} = (-1)^{4+3}\ttb_{4,3} = (-1)\ttb_{4,3}
+          C_{4,3} = (-1)^{4+3}B_{4,3} = (-1)B_{4,3}
         </me>.
         Once we learn how to compute determinants for matrices larger than
         <m>2\times 2</m> we can come back and finish this exercise.
@@ -257,11 +255,10 @@
     We are almost ready to define the determinant for any square matrix;
     we need one last definition.
   </p>
-  <definition xml:id="def_cofactor">
+  <definition xml:id="def_cofactor"><title>Cofactor Expansion</title>
     <statement>
       <p>
             <idx><h>cofactor</h><h>expansion</h></idx>
-        <term>Cofactor Expansion</term>
       </p>
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix.
@@ -284,7 +281,7 @@
     The notation of this definition might be a little intimidating,
     so let's look at an example.
   </p>
-  <example xml:id="ex_cofactor">
+  <example xml:id="ex_cofactor"><title>Two Cofactor Expansions of a <m>3\times 3</m> matrix</title>
     <statement>
       <p>
         Let
@@ -310,15 +307,32 @@
       </p>
       <p>
         We'll find each cofactor and then compute the sum.
-        <me>
-          C_{2,1} = (-1)^{2+1}\left| \begin{array}{cc} 2\amp 3\\8\amp 9 \end{array}  \right|  = (-1)(-6) = 6  \left(\scriptsize we removed the second row and first column of $A$ to compute the minor\right)
-        </me>
-        <me>
-          C_{2,2} = (-1)^{2+2}\left| \begin{array}{cc} 1\amp 3\\7\amp 9 \end{array}  \right| = (1)(-12) = -12  \left(\scriptsize we removed the second row and second column of $A$ to compute the minor\right)
-        </me>
-        <me>
-          C_{2,3} = (-1)^{2+3}\left| \begin{array}{cc} 1\amp 2\\7\amp 8 \end{array}  \right| = (-1)(-6) = 6  \left(\scriptsize we removed  the second row and third column of $A$ to compute the minor\right)
-        </me>
+        <sbsgroup widths="60% 38%" margins="auto" valign="middle">
+         <sidebyside>
+         <p>
+           <m> C_{2,1} = (-1)^{2+1}\left| \begin{array}{cc} 2\amp 3\\8\amp 9 \end{array}  \right|  = (-1)(-6) = 6 </m>
+        </p>
+        <p>
+            (we removed the second row and first column of <m>A</m> to compute the minor)
+        </p>
+        </sidebyside>
+        <sidebyside>
+         <p>
+           <m> C_{2,2} = (-1)^{2+2}\left| \begin{array}{cc} 1\amp 3\\7\amp 9 \end{array}  \right| = (1)(-12) = -12 </m>
+        </p>
+        <p>
+            (we removed the second row and second column of <m>A</m> to compute the minor)
+        </p>
+        </sidebyside>
+        <sidebyside>
+         <p>
+           <m> C_{2,3} = (-1)^{2+3}\left| \begin{array}{cc} 1\amp 2\\7\amp 8 \end{array}  \right| = (-1)(-6) = 6 </m>
+        </p>
+        <p>
+            (we removed  the second row and third column of <m>A</m> to compute the minor)
+        </p>
+        </sidebyside>
+        </sbsgroup>
       </p>
       <p>
         Thus the cofactor expansion along the second row is
@@ -347,15 +361,32 @@
       </p>
       <p>
         We find each cofactor:
-        <me>
-          C_{1,1} = (-1)^{1+1}\left| \begin{array}{cc} 5\amp 6\\8\amp 9 \end{array}  \right| = (1)(-3) = -3  \left(\scriptsize we removed  the first row and first column of $A$ to compute the minor\right)
-        </me>
-        <me>
-          C_{2,1} = (-1)^{2+1}\left| \begin{array}{cc} 2\amp 3\\8\amp 9 \end{array}  \right|  = (-1)(-6) = 6  \left(\scriptsize we computed this cofactor above\right)
-        </me>
-        <me>
-          C_{3,1} = (-1)^{3+1}\left| \begin{array}{cc} 2\amp 3\\5\amp 6 \end{array}  \right| = (1)(-3) = -3  \left(\scriptsize we removed  the third row and first column of $A$ to compute the minor\right)
-        </me>
+        <sbsgroup widths="60% 38%" margins="auto" valign="middle">
+         <sidebyside>
+         <p>
+           <m> C_{1,1} = (-1)^{1+1}\left| \begin{array}{cc} 5\amp 6\\8\amp 9 \end{array}  \right| = (1)(-3) = -3 </m>
+        </p>
+        <p>
+            (we removed the first row and first column of <m>A</m> to compute the minor)
+        </p>
+        </sidebyside>
+        <sidebyside>
+         <p>
+           <m> C_{2,1} = (-1)^{2+1}\left| \begin{array}{cc} 2\amp 3\\8\amp 9 \end{array}  \right|  = (-1)(-6) = 6  </m>
+        </p>
+        <p>
+            (we computed this cofactor above)
+        </p>
+        </sidebyside>
+        <sidebyside>
+         <p>
+           <m> C_{3,1} = (-1)^{3+1}\left| \begin{array}{cc} 2\amp 3\\5\amp 6 \end{array}  \right| = (1)(-3) = -3 </m>
+        </p>
+        <p>
+            (we removed the third row and first column of <m>A</m> to compute the minor)
+        </p>
+        </sidebyside>
+        </sbsgroup>
       </p>
       <p>
         The cofactor expansion down the first column is
@@ -377,22 +408,21 @@
     yet we don't know how to compute it yet except for <m>2\times 2</m> matrices.
     We finally define it now.
   </p>
-  <definition xml:id="def_determinant">
+  <definition xml:id="def_determinant"><title>The Determinant</title>
     <statement>
       <p>
             <idx><h>matrix</h><h>determinant</h></idx>
             <idx><h>determinant</h><h>definition</h></idx>
-        <term>The Determinant</term>
       </p>
       <p>
         The <term>determinant</term> of an <m>n\times n</m> matrix <m>A</m>,
-        denoted  det  or <m>| A|</m>,
+        denoted <m>\det(A)</m> or <m>|A|</m>,
         is a number given by the following:
         <ul>
           <li>
             <p>
               if <m>A</m> is a <m>1\times 1</m> matrix <m>A = [a]</m>,
-              then <m>\det{ A} = a</m>.
+              then <m>\det(A) = a</m>.
             </p>
           </li>
           <li>
@@ -401,16 +431,16 @@
               <me>
                 A = \left[\begin{array}{cc}  a\amp b\\c\amp d \end{array} \right]
               </me>,
-              then <m>\det{ A} = ad-bc</m>.
+              then <m>\det(A) = ad-bc</m>.
             </p>
           </li>
           <li>
             <p>
               if <m>A</m> is an <m>n\times n</m> matrix, where <m>n\geq 2</m>,
-              then  det <nbsp/>is the number found by taking the cofactor expansion along the first row of <m>A</m>.
+              then <m>\det(A)</m> is the number found by taking the cofactor expansion along the first row of <m>A</m>.
               That is,
               <me>
-                \det{ A} = a_{1,1}C_{1,1} + a_{1,2}C_{1,2} + \cdots + a_{1,n}C_{1,n}
+                \det(A) = a_{1,1}C_{1,1} + a_{1,2}C_{1,2} + \cdots + a_{1,n}C_{1,n}
               </me>.
             </p>
           </li>
@@ -425,7 +455,7 @@
     We'll later learn how to shorten some of this.
     First, let's practice.
   </p>
-  <example xml:id="ex_determinant_2">
+  <example xml:id="ex_determinant_2"><title>Calculating the Determinant of a <m>3\times 3</m> Matrix</title>
     <statement>
       <p>
         Find the determinant of
@@ -439,20 +469,21 @@
         Notice that this is the matrix from <xref ref="ex_cofactor">Example</xref>.
         The cofactor expansion along the first row is
         <me>
-          \det{ A} = a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3}
+          \det(A) = a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3}
         </me>.
         We'll compute each cofactor first then take the appropriate sum.
       </p>
-      <md>
+    <sidebyside widths="30% 30% 30%" margins="auto" valign="top">
+      <p>
+       <md>
         <mrow>C_{1,1} \amp = (-1)^{1+1}A_{1,1}</mrow>
         <mrow>\amp = 1\cdot\left| \begin{array}{cc} 5\amp 6</mrow>
         <mrow>8\amp 9\end{array} \right|</mrow>
         <mrow>\amp = 45-48</mrow>
         <mrow>\amp =-3</mrow>
       </md>
-      <p>
-        \vline
-      </p>
+     </p>
+     <p>
       <md>
         <mrow>C_{1,2} \amp = (-1)^{1+2}A_{1,2}</mrow>
         <mrow>\amp = (-1)\cdot\left| \begin{array}{cc}  4\amp 6</mrow>
@@ -460,9 +491,8 @@
         <mrow>\amp = (-1)(36-42)</mrow>
         <mrow>\amp = 6</mrow>
       </md>
-      <p>
-        \vline
-      </p>
+        </p>
+        <p>
       <md>
         <mrow>C_{1,3} \amp = (-1)^{1+3}A_{1,3}</mrow>
         <mrow>\amp = 1\cdot\left| \begin{array}{cc} 4\amp 5</mrow>
@@ -470,18 +500,17 @@
         <mrow>\amp = 32-35</mrow>
         <mrow>\amp = -3</mrow>
       </md>
-      <p>
-        \vskip .2in
-      </p>
+        </p>
+    </sidebyside>
       <p>
         Therefore the determinant of <m>A</m> is
         <me>
-          \det{ A} = 1(-3) + 2(6)+3(-3) = 0
+          \det(A) = 1(-3) + 2(6)+3(-3) = 0
         </me>
       </p>
     </solution>
   </example>
-  <example xml:id="ex_determinant_3">
+  <example xml:id="ex_determinant_3"><title>Another <m>3\times 3</m> Determinant</title>
     <statement>
       <p>
         Find the determinant of
@@ -494,6 +523,8 @@
       <p>
         We'll compute each cofactor first then find the determinant.
       </p>
+     <sidebyside widths="30% 30% 30%" margins="auto" valign="top">
+         <p>
       <md>
         <mrow>C_{1,1} \amp = (-1)^{1+1}A_{1,1}</mrow>
         <mrow>\amp = 1\cdot\left| \begin{array}{cc} 2\amp -1</mrow>
@@ -501,9 +532,8 @@
         <mrow>\amp = 2-1</mrow>
         <mrow>\amp =1</mrow>
       </md>
-      <p>
-        \vline
-      </p>
+         </p>
+         <p>
       <md>
         <mrow>C_{1,2} \amp = (-1)^{1+2}A_{1,2}</mrow>
         <mrow>\amp = (-1)\cdot\left| \begin{array}{cc}  0\amp -1</mrow>
@@ -511,9 +541,8 @@
         <mrow>\amp = (-1)(0+3)</mrow>
         <mrow>\amp = -3</mrow>
       </md>
-      <p>
-        \vline
-      </p>
+         </p>
+         <p>
       <md>
         <mrow>C_{1,3} \amp = (-1)^{1+3}A_{1,3}</mrow>
         <mrow>\amp = 1\cdot\left| \begin{array}{cc} 0\amp 2</mrow>
@@ -521,18 +550,17 @@
         <mrow>\amp = 0-6</mrow>
         <mrow>\amp = -6</mrow>
       </md>
-      <p>
-        \vskip .2in
-      </p>
+         </p>
+        </sidebyside>
       <p>
         Thus the determinant is
         <me>
-          \det{ A} = 3(1)+6(-3)+7(-6) = -57
+          \det(A) = 3(1)+6(-3)+7(-6) = -57
         </me>
       </p>
     </solution>
   </example>
-  <example xml:id="ex_determinant_4">
+  <example xml:id="ex_determinant_4"><title>Calculating the Determinant of a <m>4\times 4</m> Matrix</title>
     <statement>
       <p>
         Find the determinant of
@@ -556,11 +584,11 @@
           <mrow>C_{1,1} \amp = (-1)^{1+1}A_{1,1}</mrow>
           <mrow>\amp = 1\cdot\left| \begin{array}{ccc} 2\amp 3\amp 4</mrow>
           <mrow>5\amp -3\amp 1</mrow>
-          <mrow>9\amp -6\amp 3\end{array} \right|  \left(\scriptsize we must compute the determinant of this $3\times 3$ matrix\right)</mrow>
-          <mrow>\amp = 2\cdot(-1)^{1+1}\left| \begin{array}{cc} -3\amp 1</mrow>
+            <mrow>9\amp -6\amp 3\end{array} \right|  \left(\text{we must compute the determinant of this } 3\times 3 \text{ matrix}\right)</mrow>
+          <mrow>\amp = 2\cdot\underbrace{\left[(-1)^{1+1}\left| \begin{array}{cc} -3\amp 1</mrow>
           <mrow>-6\amp 3\end{array} \right| + 3\cdot(-1)^{1+2}\left| \begin{array}{cc} 5\amp 1</mrow>
           <mrow>9\amp 3\end{array} \right| + 4\cdot(-1)^{1+3}\left| \begin{array}{cc} 5\amp -3</mrow>
-          <mrow>9\amp -6\end{array} \right|</mrow>
+          <mrow>9\amp -6\end{array} \right| \right]}_{\text{the determinant of the } 3 \times 3 \text{ matrix} }</mrow>
           <mrow>\amp = 2(-3) + 3(-6) + 4(-3)</mrow>
           <mrow>\amp = -36</mrow>
         </md>
@@ -568,11 +596,11 @@
           <mrow>C_{1,2} \amp = (-1)^{1+2}A_{1,2}</mrow>
           <mrow>\amp = (-1)\cdot\left| \begin{array}{ccc} -1\amp 3\amp 4</mrow>
           <mrow>8\amp -3\amp 1</mrow>
-          <mrow>5\amp -6\amp 3\end{array} \right|  \left(\scriptsize we must compute the determinant of this $3\times 3$ matrix\right)</mrow>
+          <mrow>5\amp -6\amp 3\end{array} \right|  \left(\text{we must compute the determinant of this } 3\times 3 \text{ matrix}\right)</mrow>
           <mrow>\amp = (-1)\underbrace{\left[(-1)\cdot(-1)^{1+1}\left| \begin{array}{cc} -3\amp 1</mrow>
           <mrow>-6\amp 3\end{array} \right| + 3\cdot(-1)^{1+2}\left| \begin{array}{cc} 8\amp 1</mrow>
           <mrow>5\amp 3\end{array} \right| + 4\cdot(-1)^{1+3}\left| \begin{array}{cc} 8\amp -3</mrow>
-          <mrow>5\amp -6\end{array} \right| \right]}_{\scriptsize the determinant of the $3 \times 3$ matrix}</mrow>
+            <mrow>5\amp -6\end{array} \right| \right]}_{\text{the determinant of the } 3 \times 3 \text{ matrix}}</mrow>
           <mrow>\amp = (-1)\left[(-1)(-3)+3(-19)+4(-33) \right]</mrow>
           <mrow>\amp = 186</mrow>
         </md>
@@ -580,11 +608,11 @@
           <mrow>C_{1,3} \amp = (-1)^{1+3}A_{1,3}</mrow>
           <mrow>\amp = 1\cdot\left| \begin{array}{ccc} -1\amp 2\amp 4</mrow>
           <mrow>8\amp 5\amp 1</mrow>
-          <mrow>5\amp 9\amp 3\end{array} \right|  \left(\scriptsize we must compute the determinant of this $3\times 3$ matrix\right)</mrow>
-          <mrow>\amp = (-1)\cdot(-1)^{1+1}\left| \begin{array}{cc} 5\amp 1</mrow>
+          <mrow>5\amp 9\amp 3\end{array} \right| \left(\text{we must compute the determinant of this } 3\times 3 \text{ matrix}\right)</mrow>
+          <mrow>\amp = (-1)\underbrace{\left[(-1)^{1+1}\left| \begin{array}{cc} 5\amp 1</mrow>
           <mrow>9\amp 3\end{array} \right| + 2\cdot(-1)^{1+2}\left| \begin{array}{cc} 8\amp 1</mrow>
           <mrow>5\amp 3\end{array} \right| + 4\cdot(-1)^{1+3}\left| \begin{array}{cc} 8\amp 5</mrow>
-          <mrow>5\amp 9\end{array} \right|</mrow>
+          <mrow>5\amp 9\end{array} \right|\right]}_{\text{the determinant of the } 3 \times 3 \text{ matrix} }</mrow>
           <mrow>\amp = (-1)(6)+2(-19)+4(47)</mrow>
           <mrow>\amp = 144</mrow>
         </md>
@@ -592,11 +620,11 @@
           <mrow>C_{1,4} \amp = (-1)^{1+4}A_{1,4}</mrow>
           <mrow>\amp = (-1)\cdot\left| \begin{array}{ccc} -1\amp 2\amp 3</mrow>
           <mrow>8\amp 5\amp -3</mrow>
-          <mrow>5\amp 9\amp -6\end{array} \right|  \left(\scriptsize we must compute the determinant of this $3\times 3$ matrix\right)</mrow>
+          <mrow>5\amp 9\amp -6\end{array} \right|  \left(\text{we must compute the determinant of this } 3\times 3 \text{ matrix}\right)</mrow>
           <mrow>\amp = (-1)\underbrace{\left[(-1)\cdot(-1)^{1+1}\left| \begin{array}{cc} 5\amp -3</mrow>
           <mrow>9\amp -6\end{array} \right| + 2\cdot(-1)^{1+2}\left| \begin{array}{cc} 8\amp -3</mrow>
           <mrow>5\amp -6\end{array} \right| + 3\cdot(-1)^{1+3}\left| \begin{array}{cc} 8\amp 5</mrow>
-          <mrow>5\amp 9\end{array} \right|\right]}_{\scriptsize the determinant of the $3 \times 3$ matrix}</mrow>
+          <mrow>5\amp 9\end{array} \right|\right]}_{\text{the determinant of the } 3 \times 3 \text{ matrix} }</mrow>
           <mrow>\amp = (-1)\left[(-1)(-3)+2(33)+3(47)\right]</mrow>
           <mrow>\amp = -210</mrow>
         </md>
@@ -616,15 +644,15 @@
           <mrow>\det{ A} \amp = a_{1,1}C_{1,1}+a_{1,2}C_{1,2}+a_{1,3}C_{1,3}+a_{1,4}C_{1,4}</mrow>
           <mrow>\amp =  1(-1)^2\underbrace{\left| \begin{array}{ccc} 2\amp 3\amp 4</mrow>
           <mrow>5\amp -3\amp 1</mrow>
-          <mrow>9\amp -6\amp 3\end{array} \right|}_{\scriptsize $=-36$}\ +\  2(-1)^3\underbrace{\left| \begin{array}{ccc} -1\amp 3\amp 4</mrow>
+          <mrow>9\amp -6\amp 3\end{array} \right|}_{=-36}\ +\  2(-1)^3\underbrace{\left| \begin{array}{ccc} -1\amp 3\amp 4</mrow>
           <mrow>8\amp -3\amp 1</mrow>
-          <mrow>5\amp -6\amp 3\end{array} \right|}_{\scriptsize $=-186$}</mrow>
+          <mrow>5\amp -6\amp 3\end{array} \right|}_{=-186}</mrow>
           <mrow>\amp +</mrow>
           <mrow>\amp  1(-1)^4\underbrace{\left| \begin{array}{ccc} -1\amp 2\amp 4</mrow>
           <mrow>8\amp 5\amp 1</mrow>
-          <mrow>5\amp 9\amp 3\end{array} \right|}_{\scriptsize $=144$}\ +\  2(-1)^5\underbrace{\left| \begin{array}{ccc} -1\amp 2\amp 3</mrow>
+          <mrow>5\amp 9\amp 3\end{array} \right|}_{=144}\ +\  2(-1)^5\underbrace{\left| \begin{array}{ccc} -1\amp 2\amp 3</mrow>
           <mrow>8\amp 5\amp -3</mrow>
-          <mrow>5\amp 9\amp -6\end{array} \right|}_{\scriptsize $=210$}</mrow>
+          <mrow>5\amp 9\amp -6\end{array} \right|}_{=210}</mrow>
           <mrow>\amp = 60</mrow>
         </md>
       </p>
@@ -632,11 +660,11 @@
   </example>
   <p>
     That certainly took a while;
-    it required more than 50 multiplications
+    it required more than <m>50</m> multiplications
     (we didn't count the additions).
     To compute the determinant of a <m>5\times5</m> matrix,
     we'll need to compute the determinants of five <m>4\times 4</m> matrices,
-    meaning that we'll need over 250 multiplications!
+    meaning that we'll need over <m>250</m> multiplications!
     Not only is this a lot of work,
     but there are just too many ways to make silly mistakes.<fn>
     The author made three when the above example was originally typed.
@@ -674,10 +702,14 @@
       </li>
     </ol>
   </p>
+<exercises>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises,
     find the determinant of the <m>2\times 2</m> matrix.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -774,12 +806,25 @@
       </p>
     </answer>
   </exercise>
+    </exercisegroup>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises, a matrix <m>A</m> is given.
-    <ul>
-      {(\alph{enumi})}\usecounter{enumi} \item Construct the submatrices used to compute the minors <m>A_{1,1}</m>, <m>A_{1,2}</m> and <m>A_{1,3}</m>. \item Find the cofactors <m>C_{1,1}</m>, <m>C_{1,2}</m>, and <m>C_{1,3}</m>.
-    </ul>
+    <ol>
+        <li>
+            <p>
+                Construct the submatrices used to compute the minors <m>A_{1,1}</m>, <m>A_{1,2}</m> and <m>A_{1,3}</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Find the cofactors <m>C_{1,1}</m>, <m>C_{1,2}</m>, and <m>C_{1,3}</m>.
+            </p>
+        </li>
+    </ol>
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -862,7 +907,7 @@
       <ol>
         <li>
           <p>
-            The submatrices are <m>\left[\begin{array}{ccc} -6\amp -4\amp 6\\ -8\amp 0\amp 0 \\ -10\amp 8\amp -1 \end{array} \right]</m>,
+            The submatrices are <m>\left[\begin{array}{cc} 0\amp 0 \\ 8\amp -1 \end{array} \right]</m>,
             <m>\left[\begin{array}{cc} -8\amp 0\\ -10\amp -1 \end{array} \right]</m>,
             and <m>\left[\begin{array}{cc} -8\amp 0\\ -10\amp 8 \end{array} \right]</m>,
             respectively.
@@ -876,10 +921,14 @@
       </ol>
     </answer>
   </exercise>
+  </exercisegroup>
+  <exercisegroup>
+   <introduction>
   <p>
     In the following exercises,
     find the determinant of the given matrix using cofactor expansion along the first row.
   </p>
+      </introduction>
   <exercise>
     <statement>
       <p>
@@ -1024,6 +1073,7 @@
       </p>
     </answer>
   </exercise>
+    </exercisegroup>
   <exercise>
     <statement>
       <p>
@@ -1031,13 +1081,14 @@
         <me>
           A = \left[\begin{array}{cc} a\amp b\\c\amp d \end{array} \right]
         </me>.
-        Show why det<m>( A)=ad-bc</m> by computing the cofactor expansion of <m>A</m> along the first row.
+        Show why <m>\det(A)=ad-bc</m> by computing the cofactor expansion of <m>A</m> along the first row.
       </p>
     </statement>
-    <answer>
+    <hint>
       <p>
-        Hint: <m>C_{1,1} = d</m>.
+        Note that <m>C_{1,1} = d</m>.
       </p>
-    </answer>
+    </hint>
   </exercise>
+ </exercises>
 </section>

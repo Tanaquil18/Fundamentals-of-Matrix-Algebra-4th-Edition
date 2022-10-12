@@ -9,6 +9,7 @@
     <rename element="objectives" xml:lang="en-US">As You Read...</rename>
     <latex-preamble>
         <package>mathtools</package>
+        <package>cancel</package>
     </latex-preamble>
     <latex-image-preamble>
         \usepackage{tikz}
@@ -37,6 +38,7 @@
         \newcommand{\lambd}{\lambda}
         \newcommand{\rrefarrow}{\xrightarrow{\mathrm{rref}}}
         \newcommand{\tr}[1]{\mathrm{tr}#1}
+        \newcommand{\det}[1]{\mathrm{det}#1}
     </macros>
   </docinfo>
   <book>
