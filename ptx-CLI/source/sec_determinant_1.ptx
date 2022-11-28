@@ -633,7 +633,7 @@
         We've computed our four cofactors.
         All that is left is to compute the cofactor expansion.
         <me>
-          \det{ A} = 1(-36) + 2(186)+1(144)+2(-210) = 60
+          \det(A) = 1(-36) + 2(186)+1(144)+2(-210) = 60
         </me>
       </p>
       <p>

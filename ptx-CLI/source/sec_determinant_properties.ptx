@@ -34,11 +34,10 @@
   <p>
     We start with a theorem that gives us more freedom when computing determinants.
   </p>
-  <theorem xml:id="thm_cofactor_choice">
+  <theorem xml:id="thm_cofactor_choice"><title>Cofactor Expansion Along Any Row or Column</title>
     <statement>
       <p>
             <idx><h>cofactor</h><h>expansion</h></idx>
-        <em>Cofactor Expansion Along Any Row or Column</em>
       </p>
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix.
@@ -50,7 +49,7 @@
     We alluded to this fact way back after <xref ref="ex_cofactor">Example</xref>.
     We had just learned what cofactor expansion was and we practiced along the second row and down the third column.
     Later, we found the determinant of this matrix by computing the cofactor expansion along the first row.
-    In all three cases, we got the number 0.
+    In all three cases, we got the number <m>0</m>.
     This wasn't a coincidence.
     The above theorem states that all three expansions were actually computing the determinant.
   </p>
@@ -63,7 +62,7 @@
     <q>it has lots of zeros.</q>
     We demonstrate this principle below.
   </p>
-  <example xml:id="ex_determinant_5">
+  <example xml:id="ex_determinant_5"><title>Look for <m>0</m>'s </title>
     <statement>
       <p>
         Find the determinant of
@@ -82,20 +81,20 @@
         it has lots of zeros in it.
         The cofactor expansion along this column is
         <md>
-          <mrow>\det{ A} \amp  = a_{1,3}C_{1,3} + a_{2,3}C_{2,3} + a_{3,3}C_{3,3}+a_{4,3}C_{4,3}</mrow>
+          <mrow>\det(A) \amp  = a_{1,3}C_{1,3} + a_{2,3}C_{2,3} + a_{3,3}C_{3,3}+a_{4,3}C_{4,3}</mrow>
           <mrow>\amp = 0\cdot C_{1,3} + 0\cdot C_{2,3} + 3\cdot C_{3,3} + 0\cdot C_{4,3}</mrow>
         </md>
       </p>
       <p>
-        The wonderful thing here is that three of our cofactors are multiplied by 0.
+        The wonderful thing here is that three of our cofactors are multiplied by <m>0</m>.
         We won't bother computing them since they will not contribute to the determinant.
         Thus
         <md>
-          <mrow>\det{ A} \amp  = 3\cdot C_{3,3}</mrow>
+          <mrow>\det(A) \amp  = 3\cdot C_{3,3}</mrow>
           <mrow>\amp  = 3\cdot (-1)^{3+3}\cdot \left| \begin{array}{ccc} 1\amp 2\amp 9</mrow>
           <mrow>2\amp -3\amp 5</mrow>
           <mrow>-4\amp 1\amp 2\end{array} \right|</mrow>
-          <mrow>\amp = 3\cdot(-147)  \left(\scriptsize we computed the determinant of the $3\times 3$ matrix without showing our work; it is $-147$\right)</mrow>
+            <mrow>\amp = 3\cdot(-147)</mrow> <fn>We computed the determinant of the <m>3\times 3</m> matrix without showing our work; it is <m>-147</m></fn>
           <mrow>\amp = -447</mrow>
         </md>
       </p>
@@ -107,7 +106,7 @@
     Of course, in that example,
     we didn't really have any shortcuts that we could have employed.
   </p>
-  <example xml:id="ex_determinant_6">
+    <example xml:id="ex_determinant_6"><title>Pick a Good Row or Column</title>
     <statement>
       <p>
         Find the determinant of
@@ -136,7 +135,7 @@
         </fn> We omit most of the cofactor expansion,
         since most of it is just 0:
         <me>
-          \det{ A} = 1\cdot (-1)^{1+1}\cdot\left| \begin{array}{cccc} 6\amp 7\amp 8\amp 9\\0\amp 10\amp 11\amp 12\\0\amp 0\amp 13\amp 14\\0\amp 0\amp 0\amp 15 \end{array}  \right|
+          \det(A) = 1\cdot (-1)^{1+1}\cdot\left| \begin{array}{cccc} 6\amp 7\amp 8\amp 9\\0\amp 10\amp 11\amp 12\\0\amp 0\amp 13\amp 14\\0\amp 0\amp 0\amp 15 \end{array}  \right|
         </me>
       </p>
       <p>
@@ -147,14 +146,14 @@
         we are going to drop the <m>(-1)^{1+1}</m> terms from here on out in this example
         (it will show up a lot...).
         <me>
-          \det{ A} = 1\cdot 6\cdot\left| \begin{array}{ccc} 10\amp 11\amp 12\\0\amp 13\amp 14\\0\amp 0\amp 15 \end{array}  \right|
+          \det(A)= 1\cdot 6\cdot\left| \begin{array}{ccc} 10\amp 11\amp 12\\0\amp 13\amp 14\\0\amp 0\amp 15 \end{array}  \right|
         </me>
       </p>
       <p>
         You can probably can see a trend.
         We'll finish out the steps without explaining each one.
         <md>
-          <mrow>\det{ A} \amp = 1\cdot6\cdot10\cdot\left| \begin{array}{cc} 13\amp 14</mrow>
+          <mrow>\det(A) \amp = 1\cdot6\cdot10\cdot\left| \begin{array}{cc} 13\amp 14</mrow>
           <mrow>0\amp 15\end{array} \right|</mrow>
           <mrow>\amp = 1\cdot6\cdot10\cdot13\cdot15</mrow>
           <mrow>\amp = 11700</mrow>
@@ -169,11 +168,10 @@
     it works for diagonal matrices as well).
     This is an important enough idea that we'll put it into a box.
   </p>
-  <insight xml:id="idea_determinant_triangular">
+  <insight xml:id="idea_determinant_triangular"><title>The Determinant of Triangular Matrices</title>
     <p>
           <idx><h>determinant</h><h>of triangular matrices</h></idx>
           <idx><h>triangular matrix</h><h>determinant</h></idx>
-      <term>The Determinant of Triangular Matrices</term>
     </p>
     <p>
       The determinant of a triangular matrix is the product of its diagonal elements.
@@ -185,7 +183,7 @@
     <q>How does this relate to things I already know?</q>
     So now we ask,
     <q>If we change a matrix in some way,
-    how is it's determinant changed?</q>
+    how is its determinant changed?</q>
   </p>
   <p>
     The standard way that we change matrices is through elementary row operations.
@@ -195,14 +193,14 @@
   <p>
     Let's experiment first and then we'll officially state what happens.
   </p>
-  <example xml:id="ex_determinant_row_ops">
+  <example xml:id="ex_determinant_row_ops"><title>Row Operations and the Determinant Example</title>
     <statement>
       <p>
         Let
         <me>
           A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right]
         </me>.
-        Let B<nbsp/>be formed from <m>A</m> by doing one of the following elementary row operations:
+        Let <m>B</m> be formed from <m>A</m> by doing one of the following elementary row operations:
         <ol>
           <li>
             <p>
@@ -222,37 +220,35 @@
         </ol>
       </p>
       <p>
-        Find det <nbsp/>as well as det <nbsp/>for each of the row operations above.
+        Find <m>\det(A)</m> as well as <m>\det(B)</m> for each of the row operations above.
       </p>
     </statement>
     <solution>
       <p>
-        It is straightforward to compute <m>\det{ A} = -2</m>.
+        It is straightforward to compute <m>\det(A) = -2</m>.
       </p>
       <p>
-        Let B<nbsp/>be formed by performing the row operation in 1) on A; thus
+        Let <m>B</m> be formed by performing the row operation in 1) on <m>A</m>; thus
         <me>
           B = \left[\begin{array}{cc}  1\amp 2\\5\amp 8 \end{array} \right]
         </me>.
-        It is clear that <m>\det{ B} = -2</m>, the same as  det .
+        It is clear that <m>\det(B) = -2</m>, the same as <m>\det(A)</m>.
       </p>
       <p>
-        Now let B<nbsp/>be formed by performing the elementary row operation in 2) on A; that is,
+        Now let <m>B</m> be formed by performing the elementary row operation in 2) on <m>A</m>; that is,
         <me>
           B = \left[\begin{array}{cc} 5\amp 10\\3\amp 4 \end{array} \right]
         </me>.
-        We can see that <m>\det{ B} = -10</m>,
-        which is <m>5\cdot\det{ A}</m>.
+        We can see that <m>\det(B) = -10</m>, which is <m>5\cdot\det(A)</m>.
       </p>
       <p>
-        Finally, let B<nbsp/>be formed by the third row operation given;
+        Finally, let <m>B</m> be formed by the third row operation given;
         swap the two rows of <m>A</m>.
         We see that
         <me>
           B = \left[\begin{array}{cc} 3\amp 4\\1\amp 2 \end{array} \right]
         </me>
-        and that <m>\det{ B} = 2</m>,
-        which is <m>(-1)\cdot\det{ A}</m>.
+        and that <m>\det(B) = 2</m>, which is <m>(-1)\cdot\det(A)</m>.
       </p>
     </solution>
   </example>
@@ -264,32 +260,31 @@
     and we have not proved anything yet.
     Regardless, the following theorem is true.
   </p>
-  <theorem xml:id="thm_determinant_row_operations">
+  <theorem xml:id="thm_determinant_row_operations"><title>The Determinant and Elementary Row Operations</title>
     <statement>
       <p>
             <idx><h>elementary row operations</h><h>and determinants</h></idx>
             <idx><h>determinant</h><h>and elementary row operations</h></idx>
-        <em>The Determinant and Elementary Row Operations</em>
       </p>
       <p>
-        Let <m>A</m> be an <m>n\times n</m> matrix and let B<nbsp/>be formed by performing one elementary row operation on <m>A</m>.
+        Let <m>A</m> be an <m>n\times n</m> matrix and let <m>B</m> be formed by performing one elementary row operation on <m>A</m>.
         <ol>
           <li>
             <p>
-              If B<nbsp/>is formed from <m>A</m> by adding a scalar multiple of one row to another,
-              then <m>\det{ B}=\det{ A}</m>.
+              If <m>B</m> is formed from <m>A</m> by adding a scalar multiple of one row to another,
+              then <m>\det(B)=\det(A)</m>.
             </p>
           </li>
           <li>
             <p>
-              If B<nbsp/>is formed from <m>A</m> by multiplying one row of <m>A</m> by a scalar <m>k</m>,
-              then <m>\det{ B} = k\cdot\det{ A}</m>.
+              If <m>B</m> is formed from <m>A</m> by multiplying one row of <m>A</m> by a scalar <m>k</m>,
+              then <m>\det(B) = k\cdot\det(A)</m>.
             </p>
           </li>
           <li>
             <p>
-              If B<nbsp/>is formed from <m>A</m> by interchanging two rows of <m>A</m>,
-              then <m>\det{ B} = -\det{ A}</m>.
+              If <m>B</m> is formed from <m>A</m> by interchanging two rows of <m>A</m>,
+              then <m>\det(B) = -\det(A)</m>.
             </p>
           </li>
         </ol>
@@ -299,41 +294,50 @@
   <p>
     Let's put this theorem to use in an example.
   </p>
-  <example xml:id="ex_determinant_7">
+  <example xml:id="ex_determinant_7"><title>Calculate a Determinant From a Related Matrix</title>
     <statement>
       <p>
         Let
         <me>
-          A = \left[\begin{array}{ccc} 1\amp 2\amp 1\\0\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]
-        </me>.
-        Compute  det , then find the determinants of the following matrices by inspection using <xref ref="thm_determinant_row_operations">Theorem</xref>.
-        <me>
-          B = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 2\amp 1\\0\amp 1\amp 1 \end{array} \right]  C = \left[\begin{array}{ccc} 1\amp 2\amp 1\\0\amp 1\amp 1\\7\amp 7\amp 7 \end{array} \right]  = \left[\begin{array}{ccc} 1\amp -1\amp -2\\0\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]
+          A = \left[\begin{array}{ccc} 1\amp 2\amp 1\\0\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right].
         </me>
-      </p>
+        Compute  <m>\det(A)</m>, then find the determinants of the following matrices by inspection using <xref ref="thm_determinant_row_operations">Theorem</xref>.
+        </p>
+        <sidebyside>
+            <p>
+            <m>
+                B = \left[\begin{array}{ccc} 1\amp 1\amp 1\\1\amp 2\amp 1\\0\amp 1\amp 1 \end{array} \right], </m>
+            </p>
+            <p>
+          <m>C = \left[\begin{array}{ccc} 1\amp 2\amp 1\\0\amp 1\amp 1\\7\amp 7\amp 7 \end{array} \right],</m>
+            </p>
+            <p>
+              <m>D= \left[\begin{array}{ccc} 1\amp -1\amp -2\\0\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]</m>
+            </p>
+          </sidebyside>
     </statement>
     <solution>
       <p>
-        Computing det <nbsp/>by cofactor expansion down the first column or along the second row seems like the best choice,
+        Computing <m>\det(A)</m> by cofactor expansion down the first column or along the second row seems like the best choice,
         utilizing the one zero in the matrix.
-        We can quickly confirm that <m>\det{ A} = 1</m>.
+        We can quickly confirm that <m>\det(A) = 1</m>.
       </p>
       <p>
-        To compute det , notice that the rows of <m>A</m> were rearranged to form B. There are different ways to describe what happened;
+        To compute <m>\det(B)</m>, notice that the rows of <m>A</m> were rearranged to form <m>B</m>. There are different ways to describe what happened;
         saying <m>R_1\leftrightarrow R_2</m> was followed by
-        <m>R_1\leftrightarrow R_3</m> produces B<nbsp/>from <m>A</m>.
+        <m>R_1\leftrightarrow R_3</m> produces <m>B</m> from <m>A</m>.
         Since there were <em>two</em> row swaps,
-        <m>\det{ B} = (-1)(-1)\det{ A} = \det{ A} = 1</m>.
+        <m>\det(B) = (-1)(-1)\det(A) = \det(A) = 1</m>.
       </p>
       <p>
-        Notice that C<nbsp/>is formed from <m>A</m> by multiplying the third row by 7.
-        Thus <m>\det{ C} = 7\cdot\det{ A} = 7</m>.
+        Notice that <m>C</m> is formed from <m>A</m> by multiplying the third row by <m>7</m>.
+        Thus <m>\det(C) = 7\cdot\det(A) = 7</m>.
       </p>
       <p>
         It takes a little thought,
-        but we can form from <m>A</m> by the operation <m>-3R_2+R_1\rightarrow R_1</m>.
+        but we can form <m>D</m> from <m>A</m> by the operation <m>-3R_2+R_1\rightarrow R_1</m>.
         This type of elementary row operation does not change determinants,
-        so <m>\det{} = \det{ A}</m>.
+        so <m>\det(D) = \det(A)</m>.
       </p>
     </solution>
   </example>
@@ -368,7 +372,7 @@
     and then adjust that number by recalling what elementary operations we performed.
     Let's practice this.
   </p>
-  <example xml:id="ex_det_elem_row_ops_1">
+  <example xml:id="ex_det_elem_row_ops_1"><title>Calculate a Determinant Using Row Operations</title>
     <statement>
       <p>
         Find the determinant of <m>A</m> by first putting <m>A</m> into a triangular form, where
@@ -384,57 +388,58 @@
         but it does tend to make our life easier as we work out a problem by hand.
         So let's scale the first row by <m>1/2</m>:
       </p>
-      <tabular>
-        <row>
-          <cell><m>\frac 12R_1 \rightarrow R_1</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{ccc} 1\amp 2\amp -1\\-1\amp -2\amp 5\\3\amp 2\amp 1
-            \end{array} \right]</m>.</cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 40%" valign="middle">
+          <p>
+              <m>\frac 12R_1 \rightarrow R_1</m>
+          </p>
+          <p>
+              <m>\left[\begin{array}{ccc} 1\amp 2\amp -1\\-1\amp -2\amp 5\\3\amp 2\amp 1
+            \end{array} \right]</m>.
+          </p>
+      </sidebyside>
       <p>
-        Now let's get 0s below this leading 1:
+        Now let's get <m>0</m>s below this leading <m>1</m>:
       </p>
-      <tabular>
-        <row>
-          <cell><m>R_1 + R_2 \rightarrow R_2</m>
-            <m>-3R_1+R_3\rightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{ccc}  1\amp 2\amp -1\\0\amp 0\amp 4\\0\amp -4\amp 4
-            \end{array} \right]</m>.</cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 40%" valign="middle">
+          <p>
+              <md>
+                  <mrow>R_1 + R_2 \rightarrow R_2</mrow>
+                  <mrow>-3R_1+R_3\rightarrow R_3</mrow>
+              </md>
+          </p>
+          <p>
+              <m>\left[\begin{array}{ccc}  1\amp 2\amp -1\\0\amp 0\amp 4\\0\amp -4\amp 4
+            \end{array} \right]</m>.
+          </p>
+      </sidebyside>
       <p>
         We can finish in one step;
         by interchanging rows 2 and 3 we'll have our matrix in triangular form.
       </p>
-      <tabular>
-        <row>
-          <cell><m>R_2  \leftrightarrow R_3</m></cell>
-          <cell><m></m></cell>
-          <cell><m>\left[\begin{array}{ccc}  1\amp 2\amp -1\\0\amp -4\amp 4\\0\amp 0\amp 4
-            \end{array} \right]</m>.</cell>
-        </row>
-      </tabular>
+      <sidebyside widths="20% 40%" valign="middle">
+          <p>
+              <m>R_2  \leftrightarrow R_3</m>
+          </p>
+          <p>
+              <m>\left[\begin{array}{ccc}  1\amp 2\amp -1\\0\amp -4\amp 4\\0\amp 0\amp 4
+            \end{array} \right]</m>.
+          </p>
+      </sidebyside>
       <p>
-        Let's name this last matrix B. The determinant of B<nbsp/>is easy to compute as it is triangular;
+        Let's name this last matrix <m>B</m>. The determinant of <m>B</m> is easy to compute as it is triangular;
         <m>\det B = -16</m>.
-        We can use this to find \det<m>A</m>.
+        We can use this to find <m>\det(A)</m>.
       </p>
       <p>
-        Recall the steps we used to transform <m>A</m> into B. They are:
+        Recall the steps we used to transform <m>A</m> into <m>B</m>. They are:
       </p>
       <p>
-        <m>\frac 12R_1 \rightarrow R_1</m>
-      </p>
-      <p>
-        <m>R_1 + R_2 \rightarrow R_2</m>
-      </p>
-      <p>
-        <m>-3R_1+R_3\rightarrow R_3</m>
-      </p>
-      <p>
-        <m>R_2 \leftrightarrow R_3</m>
+        <md>
+        <mrow>\frac 12R_1 \rightarrow R_1</mrow>
+        <mrow>R_1 + R_2 \rightarrow R_2</mrow>
+        <mrow>-3R_1+R_3\rightarrow R_3</mrow>
+        <mrow>R_2 \leftrightarrow R_3</mrow>
+        </md>
       </p>
       <p>
         The first operation multiplied a row of <m>A</m> by <m>\frac 12</m>.
@@ -445,11 +450,11 @@
         The last operation, the row swap, changed the sign.
         Combining these effects, we know that
         <me>
-          -16 = \det B= (-1)\frac12\det A
+          -16 = \det(B)= (-1)\frac12\det(A)
         </me>
       </p>
       <p>
-        Solving for <m>\det A</m> we have that <m>\det A=32</m>.
+        Solving for <m>\det(A)</m> we have that <m>\det(A)=32</m>.
       </p>
     </solution>
   </example>
@@ -468,22 +473,28 @@
   <p>
     Let's practice this again.
   </p>
-  <example xml:id="ex_det_elem_row_ops_2">
+  <example xml:id="ex_det_elem_row_ops_2"><title>Calculate Another Determinant using Row Operations</title>
     <statement>
       <p>
-        The matrix B<nbsp/>was formed from <m>A</m> using the following elementary row operations,
+        The matrix <m>B</m> was formed from <m>A</m> using the following elementary row operations,
         though not necessarily in this order.
-        Find det .
+        Find <m>\det(A)</m>.
       </p>
       <sidebyside>
-        <me>
+          <p>
+              <me>
           B = \left[\begin{array}{ccc} 1\amp 2\amp 3\\0\amp 4\amp 5\\0\amp 0\amp 6
           \end{array} \right]
         </me>
-        <m>2R_1\rightarrow R_1</m>
-        <m>\frac 13 R_3\rightarrow R_3</m>
-        <m>R_1 \leftrightarrow R_2</m>
-        <m>6R_1+R_2 \rightarrow R_2</m>
+          </p>
+          <p>
+              <md>
+              <mrow>2R_1\rightarrow R_1</mrow>
+              <mrow>\frac 13 R_3\rightarrow R_3</mrow>
+              <mrow>R_1 \leftrightarrow R_2</mrow>
+              <mrow>6R_1+R_2 \rightarrow R_2</mrow>
+              </md>
+          </p>
       </sidebyside>
     </statement>
     <solution>
@@ -493,11 +504,11 @@
         we see that only the first three have an effect on the determinant.
         Therefore
         <me>
-          24 = \det{ B} = 2\cdot \frac13  \cdot (-1)\cdot \det{ A}
+          24 = \det(B) = 2\cdot \frac13  \cdot (-1)\cdot \det(A)
         </me>
         and hence
         <me>
-          \det{ A} = -36
+          \det(A) = -36
         </me>
       </p>
     </solution>
@@ -519,24 +530,23 @@
     We'll again do an example to get an idea of what is going on,
     then give a theorem to state what is true.
   </p>
-  <example xml:id="ex_determinant_8">
+  <example xml:id="ex_determinant_8"><title>Other Matrix Operations and the Determinant</title>
     <statement>
       <p>
         Let
         <me>
           A = \left[\begin{array}{cc} 1\amp 2\\3\amp 4 \end{array} \right] \ \text{ and }  \  B = \left[\begin{array}{cc}  2\amp 1\\ 3\amp 5 \end{array} \right]
         </me>.
-        Find the determinants of the matrices <m>A</m>, B, <m>A+ B</m>,
-        <m>3 A</m>, A B, A^T, <m>A^{-1}</m>,
-        and compare the determinant of these matrices to their trace.
+        Find the determinants of the matrices <m>A</m>, <m>B</m>, <m>A-B</m>,
+        <m>3 A</m>, <m>AB</m>, <m>A^T</m>, and <m>A^{-1}</m>.  Try to find a pattern or connection between the original determinants and the determinants of the matrices calculated from <m>A</m> and <m>B</m>.  Finally, see if you can find a relationship between the determinant and the trace of any of these matrices.
       </p>
     </statement>
     <solution>
       <p>
         We can quickly compute that
-        <m>\det{ A} = -2</m> and that <m>\det{ B} = 7</m>.
+        <m>\det(A) = -2</m> and that <m>\det(B) = 7</m>.
         <md>
-          <mrow>\det{ A- B} \amp = \det{\left[\begin{array}{cc} 1\amp 2</mrow>
+          <mrow>\det(A-B) \amp = \det{\left[\begin{array}{cc} 1\amp 2</mrow>
           <mrow>3\amp 4\end{array}\right]-\left[\begin{array}{cc}  2\amp 1</mrow>
           <mrow>3\amp 5\end{array}\right]}</mrow>
           <mrow>\amp = \left| \begin{array}{cc} -1\amp 1</mrow>
@@ -545,22 +555,22 @@
         </md>
       </p>
       <p>
-        It's tough to find a connection between  det ,  det <nbsp/>and  det .
+        It's tough to find a connection between <m>\det(A)</m>, <m>\det(B)</m> and <m>\det(A-B)</m>.  Let's try the next one.
         <md>
-          <mrow>\det{3 A} \amp = \left| \begin{array}{cc} 3\amp 6</mrow>
+          <mrow>\det(3 A) \amp = \left| \begin{array}{cc} 3\amp 6</mrow>
           <mrow>9\amp 12\end{array} \right|</mrow>
           <mrow>\amp = -18</mrow>
         </md>
       </p>
       <p>
         We can figure this one out;
-        multiplying one row of <m>A</m> by 3 increases the determinant by a factor of 3;
+        multiplying one row of <m>A</m> by <m>3</m> increases the determinant by a factor of <m>3</m>;
         doing it again
-        (and hence multiplying both rows by 3)
-        increases the determinant again by a factor of 3.
-        Therefore <m>\det{3 A} = 3\cdot3\cdot\det{ A}</m>, or <m>3^2\cdot{ A}</m>.
+        (and hence multiplying both rows by <m>3</m>)
+        increases the determinant again by a factor of <m>3</m>.
+        Therefore <m>\det(3 A) = 3\cdot3\cdot\det(A)</m>, or <m>3^2\cdot \det(A)</m>.
         <md>
-          <mrow>\det{ A B} \amp = \det{\left[\begin{array}{cc} 1\amp 2</mrow>
+          <mrow>\det(A B) \amp = \det{\left[\begin{array}{cc} 1\amp 2</mrow>
           <mrow>3\amp 4\end{array}\right]\left[\begin{array}{cc}  2\amp 1</mrow>
           <mrow>3\amp 5\end{array}\right]}</mrow>
           <mrow>\amp =  \left| \begin{array}{cc} 8\amp 11</mrow>
@@ -569,7 +579,7 @@
         </md>
       </p>
       <p>
-        This one seems clear; <m>\det{ A B} = \det{ A}\det{ B}</m>.
+        This one seems clear; <m>\det(A B) = \det(A)\det(B)</m>.
         <md>
           <mrow>\det{ A^T} \amp  = \left| \begin{array}{cc}  1\amp 3</mrow>
           <mrow>2\amp 4\end{array} \right|</mrow>
@@ -577,18 +587,18 @@
         </md>
       </p>
       <p>
-        Obviously <m>\det{ A^T} = \det{ A}</m>;
+        Obviously <m>\det(A^T) = \det(A)</m>;
         is this always going to be the case?
         If we think about it,
         we can see that the cofactor expansion along the first <em>row</em>
         of <m>A</m> will give us the same result as the cofactor expansion along the first
         <em>column</em> of A^T.<fn>
         This can be a bit tricky to think out in your head.
-        Try it with a 3<m>\times 3</m> matrix <m>A</m> and see how it works.
-        All the <m>2\times 2</m> submatrices that are created in  A^T<nbsp/>are the transpose of those found in  A; this doesn't matter since it is easy to see that the determinant isn't affected by the transpose in a <m>2\times 2</m> matrix.
+        Try it with a <m>3\times 3</m> matrix <m>A</m> and see how it works.
+        All the <m>2\times 2</m> submatrices that are created in <m>\det(A^T</m> are the transpose of those found in <m>\det(A)</m>; this doesn't matter since it is easy to see that the determinant isn't affected by the transpose in a <m>2\times 2</m> matrix.
         </fn>
         <md>
-          <mrow>\det{ A^{-1}} \amp  = \left| \begin{array}{cc}  -2\amp  1</mrow>
+          <mrow>\det(A^{-1}) \amp  = \left| \begin{array}{cc}  -2\amp  1</mrow>
           <mrow>3/2 \amp  -1/2\end{array} \right|</mrow>
           <mrow>\amp =  1-3/2</mrow>
           <mrow>\amp =-1/2</mrow>
@@ -597,7 +607,7 @@
       <p>
         It seems as though
         <me>
-          \det{ A^{-1}} = \frac{1}{\det{ A}}
+          \det(A^{-1}) = \frac{1}{\det(A)}
         </me>
       </p>
       <p>
@@ -609,43 +619,42 @@
   <p>
     We now state a theorem which will confirm our conjectures from the previous example.
   </p>
-  <theorem xml:id="thm_determinant_properties">
+  <theorem xml:id="thm_determinant_properties"><title>Determinant Properties</title>
     <statement>
       <p>
             <idx><h>determinant</h><h>properties</h></idx>
-        <em>Determinant Properties</em>
       </p>
       <p>
-        Let <m>A</m> and B<nbsp/>be
+        Let <m>A</m> and <m>B</m> be
         <m>n\times n</m> matrices and let <m>k</m> be a scalar.
         The following are true:
         <ol>
           <li>
             <p>
-              <m>\det{k A} = k^n\cdot\det{ A}</m>
+              <m>\det(k A) = k^n\cdot\det(A)</m>
             </p>
           </li>
           <li>
             <p>
-              <m>\det{ A^T} = \det{ A}</m>
+              <m>\det(A^T) = \det(A)</m>
             </p>
           </li>
           <li>
             <p>
-              <m>\det{ A B} = \det{ A}\det{ B}</m>
+              <m>\det(A B) = \det(A)\det(B)</m>
             </p>
           </li>
           <li>
             <p>
               If <m>A</m> is invertible, then
               <me>
-                \det{ A^{-1}} = \frac{1}{\det{ A}}
+                \det(A^{-1}) = \frac{1}{\det(A)}
               </me>.
             </p>
           </li>
           <li>
             <p>
-              A matrix <m>A</m> is invertible if and only if <m>\det{ A}\neq 0</m>.
+              A matrix <m>A</m> is invertible if and only if <m>\det(A)\neq 0</m>.
             </p>
           </li>
         </ol>
@@ -654,27 +663,31 @@
   </theorem>
   <p>
     This last statement of the above theorem is significant:
-    what happens if <m>\det{ A} = 0</m>?
-    It seems that <m>\det{ A^{-1}} =</m>
+    what happens if <m>\det(A) = 0</m>?
+    It seems that <m>\det(A^{-1}) = \frac{1}{\det(A)}=</m>
     <q><m>1/0</m></q>, which is undefined.
     There actually isn't a problem here;
-    it turns out that if <m>\det{ A}=0</m>,
+    it turns out that if <m>\det(A)=0</m>,
     then <m>A</m> is not invertible
     (hence part 5 of <xref ref="thm_determinant_properties">Theorem</xref>).
     This allows us to add on to our Invertible Matrix Theorem.
   </p>
-  <theorem xml:id="thm_IMT_det">
+  <theorem xml:id="thm_IMT_det"><title>Invertible Matrix Theorem</title>
     <statement>
       <p>
             <idx><h>Invertible Matrix Theorem</h></idx>
-        <em>Invertible Matrix Theorem</em>
       </p>
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix.
         The following statements are equivalent.
-        <ul>
-          {(\alph{IMTcount})}\usecounter{IMTcount} \item <m>A</m> is invertible. \item <m>\det{ A}\neq 0</m>.
-        </ul>
+        <dl>
+          <li><title>(a)</title>
+              <m>A</m> is invertible.
+          </li> 
+            <li><title>(g)</title>
+            <m>\det(A)\neq 0</m>.
+            </li>
+        </dl>
       </p>
     </statement>
   </theorem>
@@ -685,7 +698,7 @@
   <p>
     We end this section with a shortcut for computing the determinants of <m>3\times 3</m> matrices.
         <idx><h>determinant</h><h><m>3\times 3</m> shortcut</h></idx>
-    Consider the matrix A:
+    Consider the matrix <m>A</m>:
     <me>
       \left[\begin{array}{ccc}  1\amp 2\amp 3 \\ 4 \amp  5 \amp  6\\7\amp 8\amp 9 \end{array} \right]
     </me>.
@@ -721,40 +734,44 @@
   <p>
     The numbers that appear at the ends of each of the arrows are computed by multiplying the numbers found along the arrows.
     For instance,
-    the 105 comes from multiplying <m>3\cdot5\cdot7=105</m>.
+    the <m>105</m> comes from multiplying <m>3\cdot 5\cdot 7=105</m>.
     The determinant is found by adding the numbers on the right,
     and subtracting the sum of the numbers on the left.
     That is,
     <me>
-      \det{ A} = (45+84+96) - (105+48+72) = 0
+      \det(A) = (45+84+96) - (105+48+72) = 0
     </me>
   </p>
   <p>
     To help remind ourselves of this shortcut,
     we'll make it into a Key Idea.
   </p>
-  <insight xml:id="idea_3by3shortcut">
-    <p>
-      <term>3 <times/> 3 Determinant Shortcut</term>
-    </p>
+    <insight xml:id="idea_3by3shortcut"><title><m>3 \times 3</m> Determinant Shortcut</title>
     <p>
       Let <m>A</m> be a <m>3\times 3</m> matrix.
-      Create a <m>3\times 5</m> array by repeating the first 2 columns and consider the products of the 3
+      Create a <m>3\times 5</m> array by repeating the first <m>2</m> columns and consider the products of the <m>3</m>
       <q>right hand</q>
-      diagonals and 3
+      diagonals and <m>3</m>
       <q>left hand</q>
       diagonals as shown previously.
       Then
-      <md>
-        <mrow>\det{ A} \amp = \text{ ``(the sum of the right hand numbers) }</mrow>
-        <mrow>\amp - \text{ (the sum of the left hand numbers)'' } </mrow>
-      </md>.
+        <sidebyside widths="10% 5% 85%" valign="middle">
+            <p>
+                <m>\det(A)</m>
+            </p>
+            <p>
+                <m>=</m>
+            </p>
+            <p>
+                <q>(the sum of the right hand numbers) - (the sum of the left hand numbers)</q>
+            </p>
+        </sidebyside>
     </p>
   </insight>
   <p>
     We'll practice once more in the context of an example.
   </p>
-  <example xml:id="ex_det_shortcut">
+    <example xml:id="ex_det_shortcut"><title>Using the <m>3\times 3</m> Determinant Shortcut</title>
     <statement>
       <p>
         Find the determinant of <m>A</m> using the previously described shortcut, where
@@ -783,7 +800,7 @@
       <p>
         Summing the numbers on the right and subtracting the sum of the numbers on the left, we get
         <me>
-          \det{ A}  = (6-60-126) - ( -135+28-12) = -61
+          \det(A)  = (6-60-126) - ( -135+28-12) = -61
         </me>
       </p>
     </solution>
@@ -791,10 +808,14 @@
   <p>
     In the next section we'll see how the determinant can be used to solve systems of linear equations.
   </p>
+<exercises>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises,
     find the determinant of the given matrix using cofactor expansion along any row or column you choose.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -963,19 +984,23 @@
       </p>
     </answer>
   </exercise>
+ </exercisegroup>
+ <exercisegroup>
+  <introduction>
   <p>
-    In the following exercises, a matrix and det() are given.
-    Matrices <m>A</m>, B<nbsp/>and C<nbsp/>are formed by performing operations on . Determine the determinants of <m>A</m>, B<nbsp/>and C<nbsp/>using <xref ref="thm_determinant_row_operations">Theorems</xref>
+    In the following exercises, a matrix <m>M</m>and <m>\det(M)</m> are given.
+    Matrices <m>A</m>, <m>B</m> and <m>C</m> are formed by performing operations on <m>M</m>. Determine the determinants of <m>A</m>, <m>B</m> and <m>C</m> using <xref ref="thm_determinant_row_operations">Theorems</xref>
     and <xref ref="thm_determinant_properties"></xref>,
-    and indicate the operations used to form <m>A</m>, B<nbsp/>and C.
+    and indicate the operations used to form <m>A</m>, <m>B</m> and <m>C</m>.
   </p>
+ </introduction>
   <exercise>
     <statement>
       <p>
-        <m>=\left[\begin{array}{ccc} 0\amp 3\amp 5\\ 3\amp 1\amp 0 \\ -2\amp -4\amp -1 \end{array} \right]</m>,
+        <m>M=\left[\begin{array}{ccc} 0\amp 3\amp 5\\ 3\amp 1\amp 0 \\ -2\amp -4\amp -1 \end{array} \right]</m>,
       </p>
       <p>
-        det<m>()=-41</m>.
+        <m>\det(M)=-41</m>.
         <ol>
           <li>
             <p>
@@ -999,17 +1024,17 @@
       <ol>
         <li>
           <p>
-            det<m>( A) = 41</m>; <m>R_2\leftrightarrow R_3</m>
+            <m>\det(A) = 41</m>; <m>R_2\leftrightarrow R_3</m>
           </p>
         </li>
         <li>
           <p>
-            det<m>( B) = 164</m>; <m>-4R_3\rightarrow R_3</m>
+            <m>\det( B) = 164</m>; <m>-4R_3\rightarrow R_3</m>
           </p>
         </li>
         <li>
           <p>
-            det<m>( C) = -41</m>; <m>R_2+R_1\rightarrow R_1</m>
+            <m>\det( C) = -41</m>; <m>R_2+R_1\rightarrow R_1</m>
           </p>
         </li>
       </ol>
@@ -1018,10 +1043,10 @@
   <exercise>
     <statement>
       <p>
-        <m>=\left[\begin{array}{ccc} 9\amp 7\amp 8\\ 1\amp 3\amp 7 \\ 6\amp 3\amp 3 \end{array} \right]</m>,
+        <m>M=\left[\begin{array}{ccc} 9\amp 7\amp 8\\ 1\amp 3\amp 7 \\ 6\amp 3\amp 3 \end{array} \right]</m>,
       </p>
       <p>
-        det<m>()=45</m>.
+        <m>\det(M)=45</m>.
         <ol>
           <li>
             <p>
@@ -1045,17 +1070,17 @@
       <ol>
         <li>
           <p>
-            det<m>( A) = 90</m>; <m>2R_1\rightarrow R_1</m>
+            <m>\det( A) = 90</m>; <m>2R_1\rightarrow R_1</m>
           </p>
         </li>
         <li>
           <p>
-            det<m>( B) = 45</m>; <m>10R_1+R_3\rightarrow R_3</m>
+            <m>\det( B) = 45</m>; <m>10R_1+R_3\rightarrow R_3</m>
           </p>
         </li>
         <li>
           <p>
-            det<m>( C) = 45</m>; <m>C = A^T</m>
+            <m>\det( C) = 45</m>; <m>C = A^T</m>
           </p>
         </li>
       </ol>
@@ -1064,10 +1089,10 @@
   <exercise>
     <statement>
       <p>
-        <m>=\left[\begin{array}{ccc} 5\amp 1\amp 5\\ 4\amp 0\amp 2 \\ 0\amp 0\amp 4 \end{array} \right]</m>,
+        <m>M=\left[\begin{array}{ccc} 5\amp 1\amp 5\\ 4\amp 0\amp 2 \\ 0\amp 0\amp 4 \end{array} \right]</m>,
       </p>
       <p>
-        det<m>()=-16</m>.
+        <m>\det(M)=-16</m>.
         <ol>
           <li>
             <p>
@@ -1091,19 +1116,19 @@
       <ol>
         <li>
           <p>
-            det<m>( A) = -16</m>;
+            <m>\det( A) = -16</m>;
             <m>R_1\leftrightarrow R_2</m> then <m>R_1\leftrightarrow R_3</m>
           </p>
         </li>
         <li>
           <p>
-            det<m>( B) = -16</m>;
+            <m>\det( B) = -16</m>;
             <m>-R_1\rightarrow R_1</m> and <m>-R_2\rightarrow R_2</m>
           </p>
         </li>
         <li>
           <p>
-            det<m>( C) = -432</m>; <m>C = 3*</m>
+            <m>\det( C) = -432</m>; <m>C = 3\cdot M</m>
           </p>
         </li>
       </ol>
@@ -1112,10 +1137,10 @@
   <exercise>
     <statement>
       <p>
-        <m>=\left[\begin{array}{ccc} 5\amp 4\amp 0\\ 7\amp 9\amp 3 \\ 1\amp 3\amp 9 \end{array} \right]</m>,
+        <m>M=\left[\begin{array}{ccc} 5\amp 4\amp 0\\ 7\amp 9\amp 3 \\ 1\amp 3\amp 9 \end{array} \right]</m>,
       </p>
       <p>
-        det<m>()=120</m>.
+        <m>\det(M)=120</m>.
         <ol>
           <li>
             <p>
@@ -1139,29 +1164,33 @@
       <ol>
         <li>
           <p>
-            det<m>( A) = -120</m>; <m>R_1\leftrightarrow R_2</m> then
+            <m>\det( A) = -120</m>; <m>R_1\leftrightarrow R_2</m> then
             <m>R_1\leftrightarrow R_3</m> then <m>R_2\leftrightarrow R_3</m>
           </p>
         </li>
         <li>
           <p>
-            det<m>( B) = 720</m>;
+            <m>\det( B) = 720</m>;
             <m>2R_2\rightarrow R_2</m> and <m>3R_3\rightarrow R_3</m>
           </p>
         </li>
         <li>
           <p>
-            det<m>( C) = -120</m>; <m>C = -</m>
+            <m>\det( C) = -120</m>; <m>C = -M</m>
           </p>
         </li>
       </ol>
     </answer>
   </exercise>
+ </exercisegroup>
+ <exercisegroup>
+ <introduction>
   <p>
-    In the following exercises, matrices <m>A</m> and B<nbsp/>are given.
+    In the following exercises, matrices <m>A</m> and <m>B</m> are given.
     Verify part 3 of <xref ref="thm_determinant_properties">Theorem</xref>
-    by computing det( A), det( B) and det( A B).
+      by computing <m>\det( A), \det( B)</m> and <m>\det( A B)</m>.
   </p>
+ </introduction>
   <exercise>
     <statement>
       <p>
@@ -1173,7 +1202,7 @@
     </statement>
     <answer>
       <p>
-        det<m>( A)=4</m>, det<m>( B)=4</m>, det<m>( A B)=16</m>
+        <m>\det( A)=4</m>, <m>\det( B)=4</m>, <m>\det( A B)=16</m>
       </p>
     </answer>
   </exercise>
@@ -1188,7 +1217,7 @@
     </statement>
     <answer>
       <p>
-        det<m>( A)=7</m>, det<m>( B)=-17</m>, det<m>( A B)=-119</m>
+        <m>\det( A)=7</m>, <m>\det( B)=-17</m>, <m>\det( A B)=-119</m>
       </p>
     </answer>
   </exercise>
@@ -1203,7 +1232,7 @@
     </statement>
     <answer>
       <p>
-        det<m>( A)=-12</m>, det<m>( B)=29</m>, det<m>( A B)=-348</m>
+        <m>\det( A)=-12</m>, <m>\det( B)=29</m>, <m>\det( A B)=-348</m>
       </p>
     </answer>
   </exercise>
@@ -1218,14 +1247,18 @@
     </statement>
     <answer>
       <p>
-        det<m>( A)=11</m>, det<m>( B)=0</m>, det<m>( A B)=0</m>
+        <m>\det( A)=11</m>, <m>\det( B)=0</m>, <m>\det( A B)=0</m>
       </p>
     </answer>
   </exercise>
+  </exercisegroup>
+ <exercisegroup>
+  <introduction>
   <p>
     In the following exercises,
     find the determinant of the given matrix using <xref ref="idea_3by3shortcut">Key Idea</xref>.
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -1322,4 +1355,6 @@
       </p>
     </answer>
   </exercise>
+  </exercisegroup>
+  </exercises>
 </section>

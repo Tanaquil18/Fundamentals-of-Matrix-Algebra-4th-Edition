@@ -38,7 +38,6 @@
         \newcommand{\lambd}{\lambda}
         \newcommand{\rrefarrow}{\xrightarrow{\mathrm{rref}}}
         \newcommand{\tr}[1]{\mathrm{tr}#1}
-        \newcommand{\det}[1]{\mathrm{det}#1}
     </macros>
   </docinfo>
   <book>
