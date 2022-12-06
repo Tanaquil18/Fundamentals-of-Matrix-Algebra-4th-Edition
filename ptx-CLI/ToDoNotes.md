@@ -55,7 +55,7 @@
   
 [ ] sec_determinant_properties Key Idea xml:id="idea_3by3shortcut" not sure I like the spacing and how that looks.
 
-[x] Have gone over every section in the first two chapters making fixes!  Also first four sections of Chapter 3, sec_transpose, sec_trace, sec_determinant, and sec_determinant_properties
+[x] Have gone over every section in the first three chapters making fixes!
   
 [x] Starting statements of definitions, theorems, examples, etc, on a new line instead of right after the title?  Relatedly, placement of the idx markers? (checked sample article... followed its conventions)
   

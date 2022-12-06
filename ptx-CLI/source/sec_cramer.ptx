@@ -23,38 +23,37 @@
     In the previous sections we have learned about the determinant,
     but we haven't given a really good reason <em>why</em>
     we would want to compute it.<fn>
-    The closest we came to motivation is that if <m>\det{ A} =0</m>,
+    The closest we came to motivation is that if <m>\det{A} =0</m>,
     then we know that <m>A</m> is not invertible.
     But it seems that there may be easier ways to check.
     </fn> This section shows one application of the determinant:
     solving systems of linear equations.
     We introduce this idea in terms of a theorem, then we will practice.
   </p>
-  <theorem xml:id="thm_cramers_rule">
+  <theorem xml:id="thm_cramers_rule"><title>Cramer's Rule</title>
     <statement>
       <p>
             <idx><h>Cramer's Rule</h></idx>
-        <em>Cramer's Rule</em>
       </p>
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix with
-        <m>\det{ A}\neq 0</m> and let \vec{b}<nbsp/>be an <m>n\times 1</m> column vector.
+          <m>\det(A)\neq 0</m> and let <m>\vec{b}</m> be an <m>n\times 1</m> column vector.
         Then the linear system <m>A \vec{x} = \vec{b}</m> has solution
         <me>
-          x_i = \frac{\det{A_i(\vec{b})}}{\det{ A}}
+          x_i = \frac{\det(A_i(\vec{b}))}{\det(A)}
         </me>,
         where <m>A_i(\vec{b})</m> is the matrix formed by replacing the
-        <m>i^\text{ th }</m> column of <m>A</m> with \vec{b}.
+        <m>i^\text{ th }</m> column of <m>A</m> with <m>\vec{b}</m>.
       </p>
     </statement>
   </theorem>
   <p>
     Let's do an example.
   </p>
-  <example xml:id="ex_cramer_1">
+  <example xml:id="ex_cramer_1"><title>Using Cramer's Rule with a <m>3</m> variable system</title>
     <statement>
       <p>
-        Use Cramer's Rule to solve the linear system <m>A \vec{x} = \vec{b}</m><nbsp/>where
+        Use Cramer's Rule to solve the linear system <m>A \vec{x} = \vec{b}</m> where
         <me>
           A = \left[\begin{array}{ccc} 1\amp 5\amp -3\\1\amp 4\amp 2\\2\amp -1\amp 0 \end{array} \right] \ \text{ and } \ \vec{b} = \left[\begin{array}{c} -36\\-11\\7 \end{array} \right]
         </me>
@@ -64,30 +63,30 @@
       <p>
         We first compute the determinant of <m>A</m> to see if we can apply Cramer's Rule.
         <me>
-          \det{ A} = \left| \begin{array}{ccc} 1\amp 5\amp -3\\1\amp 4\amp 2\\2\amp -1\amp 0 \end{array}  \right| = 49
+          \det(A) = \left| \begin{array}{ccc} 1\amp 5\amp -3\\1\amp 4\amp 2\\2\amp -1\amp 0 \end{array}  \right| = 49
         </me>
       </p>
       <p>
-        Since <m>\det{ A}\neq 0</m>, we can apply Cramer's Rule.
+        Since <m>\det(A)\neq 0</m>, we can apply Cramer's Rule.
         Following <xref ref="thm_cramers_rule">Theorem</xref>,
-        we compute  det ,  det  and  det .
+        we compute <m>\det(A_1(\vec{b}))</m>, <m>\det(A_2(\vec{b}))</m> and <m>\det(A_3(\vec{b}))</m>.
         <me>
-          \det{A_1(\vec{b})} = \left| \begin{array}{ccc}  \textbf{-36}\amp 5\amp -3\\\textbf{-11}\amp 4\amp 2\\\textbf{7}\amp -1\amp 0 \end{array}  \right| = 49
+          \det(A_1(\vec{b})) = \left| \begin{array}{ccc}  \textbf{-36}\amp 5\amp -3\\\textbf{-11}\amp 4\amp 2\\\textbf{7}\amp -1\amp 0 \end{array}  \right| = 49
         </me>.
-        (We used a bold font to show where \vec{b}<nbsp/>replaced the first column of <m>A</m>.)
+        (We used a bold font to show where <m>\vec{b}</m> replaced the first column of <m>A</m>.)
         <me>
-          \det{A_2(\vec{b})} = \left| \begin{array}{ccc}  1\amp \textbf{-36}\amp -3\\1\amp \textbf{-11}\amp 2\\2\amp \textbf{7}\amp 0 \end{array}  \right| = -245
+          \det(A_2(\vec{b})) = \left| \begin{array}{ccc}  1\amp \textbf{-36}\amp -3\\1\amp \textbf{-11}\amp 2\\2\amp \textbf{7}\amp 0 \end{array}  \right| = -245
         </me>
         <me>
-          \det{A_3(\vec{b})} = \left| \begin{array}{ccc}   1\amp 5\amp \textbf{-36}\\1\amp 4\amp \textbf{-11}\\2\amp -1\amp \textbf{7} \end{array}  \right| = 196
+          \det(A_3(\vec{b})) = \left| \begin{array}{ccc}   1\amp 5\amp \textbf{-36}\\1\amp 4\amp \textbf{-11}\\2\amp -1\amp \textbf{7} \end{array}  \right| = 196
         </me>
       </p>
       <p>
-        Therefore we can compute \vec{x}:
+        Therefore we can compute <m>\vec{x}</m>:
         <md>
-          <mrow>x_1 \amp = \frac{\det{A_1(\vec{b})}}{\det{ A}} = \frac{49}{49} = 1</mrow>
-          <mrow>x_2 \amp = \frac{\det{A_2(\vec{b})}}{\det{ A}} = \frac{-245}{49} = -5</mrow>
-          <mrow>x_3 \amp = \frac{\det{A_3(\vec{b})}}{\det{ A}} = \frac{196}{49} = 4</mrow>
+          <mrow>x_1 \amp = \frac{\det(A_1(\vec{b}))}{\det(A)} = \frac{49}{49} = 1</mrow>
+          <mrow>x_2 \amp = \frac{\det(A_2(\vec{b}))}{\det(A)} = \frac{-245}{49} = -5</mrow>
+          <mrow>x_3 \amp = \frac{\det(A_3(\vec{b}))}{\det(A)} = \frac{196}{49} = 4</mrow>
         </md>
       </p>
       <p>
@@ -101,10 +100,10 @@
   <p>
     Let's do another example.
   </p>
-  <example xml:id="ex_cramer_2">
+  <example xml:id="ex_cramer_2"><title>Using Cramer's Rule in a system with <m>2</m> variables</title>
     <statement>
       <p>
-        Use Cramer's Rule to solve the linear system <m>A \vec{x} = \vec{b}</m><nbsp/>where
+        Use Cramer's Rule to solve the linear system <m>A \vec{x} = \vec{b}</m> where
         <me>
           A = \left[\begin{array}{cc}  1\amp 2\\3\amp 4 \end{array} \right] \ \text{ and }  \ \vec{b} = \left[\begin{array}{c}  -1\\1 \end{array} \right]
         </me>
@@ -115,17 +114,17 @@
         The determinant of <m>A</m> is <m>-2</m>,
         so we can apply Cramer's Rule.
         <me>
-          \det{A_1(\vec{b})} = \left| \begin{array}{cc}  \textbf{-1} \amp  2\\ \textbf{1} \amp  4 \end{array}  \right| = -6
+          \det(A_1(\vec{b})) = \left| \begin{array}{cc}  \textbf{-1} \amp  2\\ \textbf{1} \amp  4 \end{array}  \right| = -6
         </me>
         <me>
-          \det{A_2(\vec{b})} = \left| \begin{array}{cc}  1 \amp  \textbf{-1}\\ 3 \amp  \textbf{1} \end{array}  \right| = 4
+          \det(A_2(\vec{b})) = \left| \begin{array}{cc}  1 \amp  \textbf{-1}\\ 3 \amp  \textbf{1} \end{array}  \right| = 4
         </me>
       </p>
       <p>
         Therefore
         <md>
-          <mrow>x_1 \amp = \frac{\det{A_1(\vec{b})}}{\det{ A}} = \frac{-6}{-2} = 3</mrow>
-          <mrow>x_2 \amp = \frac{\det{A_2(\vec{b})}}{\det{ A}} = \frac{4}{-2} = -2</mrow>
+          <mrow>x_1 \amp = \frac{\det(A_1(\vec{b}))}{\det(A)} = \frac{-6}{-2} = 3</mrow>
+          <mrow>x_2 \amp = \frac{\det(A_2(\vec{b}))}{\det(A)} = \frac{4}{-2} = -2</mrow>
         </md>
         and
         <me>
@@ -137,28 +136,28 @@
   <p>
     We learned in <xref ref="sec_determinant_properties">Section</xref>
     that when considering a linear system
-    <m>A \vec{x} = \vec{b}</m><nbsp/>where <m>A</m> is square,
-    if <m>\det{ A}\neq 0</m> then <m>A</m> is invertible and
-    <m>A \vec{x} = \vec{b}</m><nbsp/>has exactly one solution.
-    We also stated in <xref ref="idea_solutions_invert">Key Idea</xref> that if <m>\det{ A} = 0</m>,
+    <m>A \vec{x} = \vec{b}</m> where <m>A</m> is square,
+    if <m>\det(A)\neq 0</m> then <m>A</m> is invertible and
+    <m>A \vec{x} = \vec{b}</m> has exactly one solution.
+    We also stated in <xref ref="idea_solutions_invert">Key Idea</xref> that if <m>\det(A) = 0</m>,
     then <m>A</m> is not invertible and so therefore either
-    <m>A \vec{x} = \vec{b}</m><nbsp/>has no solution or infinite solutions.
+    <m>A \vec{x} = \vec{b}</m> has no solution or infinite solutions.
     Our method of figuring out which of these cases applied was to form the augmented matrix <m>\left[\begin{array}{cc} A \amp \vec{b} \end{array} \right]</m>,
     put it into reduced row echelon form,
     and then interpret the results.
   </p>
   <p>
-    Cramer's Rule specifies that <m>\det{ A}\neq 0</m>
+    Cramer's Rule specifies that <m>\det(A)\neq 0</m>
     (so we are guaranteed a solution).
-    When <m>\det{ A}=0</m> we are not able to discern whether infinite solutions or no solution exists for a given vector \vec{b}. Cramer's Rule is only applicable to the case when exactly one solution exists.
+      When <m>\det(A)=0</m> we are not able to discern whether infinite solutions or no solution exists for a given vector <m>\vec{b}</m>. Cramer's Rule is only applicable to the case when exactly one solution exists.
   </p>
   <p>
     We end this section with a practical consideration.
     We have mentioned before that finding determinants is a computationally intensive operation.
-    To solve a linear system with 3 equations and 3 unknowns,
-    we need to compute 4 determinants.
-    Just think: with 10 equations and 10 unknowns,
-    we'd need to compute 11 really hard determinants of <m>10\times 10</m> matrices!
+    To solve a linear system with <m>3</m> equations and <m>3</m> unknowns,
+    we need to compute <m>4</m> determinants.
+    Just think: with <m>10</m> equations and <m>10</m> unknowns,
+    we'd need to compute <m>11</m> really hard determinants of <m>10\times 10</m> matrices!
     That is a lot of work!
   </p>
   <p>
@@ -188,12 +187,25 @@
     Mathematicians see these connections and describe them as
     <q>beautiful.</q>
   </p>
+<exercises>
+ <exercisegroup>
+  <introduction>
   <p>
-    In the following exercises, matrices <m>A</m> and \vec{b}<nbsp/>are given.
-    <ul>
-      {(\alph{enumi})}\usecounter{enumi} \item Give \det{ A} and \det{A_i} for all <m>i</m>. \item Use Cramer's Rule to solve <m>A \vec{x} = \vec{b}</m>. If Cramer's Rule cannot be used to find the solution, then state whether or not a solution exists.
-    </ul>
+    In the following exercises, matrices <m>A</m> and <m>\vec{b}</m> are given.
+    <ol>
+       <li>
+           <p>
+           Give <m>\det(A)</m> and <m>\det(A_i(\vec{b}))</m> for all <m>i</m>.
+           </p>
+        </li>
+        <li>
+            <p>
+            Use Cramer's Rule to solve <m>A \vec{x} = \vec{b}</m>. If Cramer's Rule cannot be used to find the solution, then state whether or not a solution exists.
+            </p>
+        </li>
+    </ol>
   </p>
+  </introduction>
   <exercise>
     <statement>
       <p>
@@ -205,7 +217,7 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 14</m>, <m>\det{A_1} = 70</m>, <m>\det{A_2} = 14</m>
+            <m>\det(A) = 14</m>, <m>\det(A_1(\vec{b})) = 70</m>, <m>\det(A_2(\vec{b})) = 14</m>
           </p>
         </li>
         <li>
@@ -227,7 +239,7 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = -43</m>, <m>\det{A_1} = 215</m>, <m>\det{A_2} = 0</m>
+            <m>\det(A) = -43</m>, <m>\det(A_1(\vec{b})) = 215</m>, <m>\det(A_2(\vec{b})) = 0</m>
           </p>
         </li>
         <li>
@@ -249,7 +261,7 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 0</m>, <m>\det{A_1} = 0</m>, <m>\det{A_2} = 0</m>
+            <m>\det(A) = 0</m>, <m>\det(A_1(\vec{b})) = 0</m>, <m>\det(A_2(\vec{b})) = 0</m>
           </p>
         </li>
         <li>
@@ -271,7 +283,7 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 54</m>, <m>\det{A_1} = -162</m>, <m>\det{A_2} = -54</m>
+            <m>\det(A) = 54</m>, <m>\det(A_1(\vec{b})) = -162</m>, <m>\det(A_2(\vec{b})) = -54</m>
           </p>
         </li>
         <li>
@@ -293,7 +305,7 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 16</m>, <m>\det{A_1} = -64</m>, <m>\det{A_2} = 80</m>
+            <m>\det(A) = 16</m>, <m>\det(A_1(\vec{b})) = -64</m>, <m>\det(A_2(\vec{b})) = 80</m>
           </p>
         </li>
         <li>
@@ -315,7 +327,7 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 0</m>, <m>\det{A_1} = -52</m>, <m>\det{A_2} = 26</m>
+            <m>\det(A) = 0</m>, <m>\det(A_1(\vec{b})) = -52</m>, <m>\det(A_2(\vec{b})) = 26</m>
           </p>
         </li>
         <li>
@@ -337,8 +349,8 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = -123</m>, <m>\det{A_1} = -492</m>,
-            <m>\det{A_2} = 123</m>, <m>\det{A_3} = 492</m>
+            <m>\det(A) = -123</m>, <m>\det(A_1(\vec{b})) = -492</m>,
+            <m>\det(A_2(\vec{b})) = 123</m>, <m>\det(A_3(\vec{b})) = 492</m>
           </p>
         </li>
         <li>
@@ -362,8 +374,8 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 0</m>, <m>\det{A_1} = 0</m>,
-            <m>\det{A_2} = 0</m>, <m>\det{A_3} = 0</m>
+            <m>\det(A) = 0</m>, <m>\det(A_1(\vec{b})) = 0</m>,
+            <m>\det(A_2(\vec{b})) = 0</m>, <m>\det(A_3(\vec{b})) = 0</m>
           </p>
         </li>
         <li>
@@ -385,8 +397,8 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 56</m>, <m>\det{A_1} = 224</m>,
-            <m>\det{A_2} = 0</m>, <m>\det{A_3} = -112</m>
+            <m>\det(A) = 56</m>, <m>\det(A_1(\vec{b})) = 224</m>,
+            <m>\det(A_2(\vec{b})) = 0</m>, <m>\det(A_3(\vec{b})) = -112</m>
           </p>
         </li>
         <li>
@@ -410,8 +422,8 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 96</m>, <m>\det{A_1} = -960</m>,
-            <m>\det{A_2} = 768</m>, <m>\det{A_3} = 288</m>
+            <m>\det(A) = 96</m>, <m>\det(A_1(\vec{b})) = -960</m>,
+            <m>\det(A_2(\vec{b})) = 768</m>, <m>\det(A_3(\vec{b})) = 288</m>
           </p>
         </li>
         <li>
@@ -435,8 +447,8 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 0</m>, <m>\det{A_1} = 147</m>,
-            <m>\det{A_2} = -49</m>, <m>\det{A_3} = -49</m>
+            <m>\det(A) = 0</m>, <m>\det(A_1(\vec{b})) = 147</m>,
+            <m>\det(A_2(\vec{b})) = -49</m>, <m>\det(A_3(\vec{b})) = -49</m>
           </p>
         </li>
         <li>
@@ -460,8 +472,8 @@
       <ol>
         <li>
           <p>
-            <m>\det{ A} = 77</m>, <m>\det{A_1} = -385</m>,
-            <m>\det{A_2} = -154</m>, <m>\det{A_3} = -154</m>
+            <m>\det(A) = 77</m>, <m>\det(A_1(\vec{b})) = -385</m>,
+            <m>\det(A_2(\vec{b})) = -154</m>, <m>\det(A_3(\vec{b})) = -154</m>
           </p>
         </li>
         <li>
@@ -472,4 +484,6 @@
       </ol>
     </answer>
   </exercise>
+    </exercisegroup>
+    </exercises>
 </section>
