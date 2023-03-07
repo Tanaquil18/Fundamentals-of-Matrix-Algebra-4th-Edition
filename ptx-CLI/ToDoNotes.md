@@ -43,7 +43,7 @@
 
 [x] sec_inverses The \xrightarrow[\text{ rref }] \quad all don't look right in this section, even though I copy-pasted from sec_solve_axb, where it looks fine.  
 
-[x] Use a macro \rref in main.ptx and change it once.  Then change every section to use \rref.  See Rob's email.  
+[x] Use a macro \rrefarrow in main.ptx and change it once.  Then change every section to use \rrefarrow.  See Rob's email.  
 
 [x] sec_inverse_prop has the same \xrightarrow[\text{ rref }] \quad problem as last section. 
 
@@ -58,5 +58,11 @@
 [x] Have gone over every section in the first three chapters making fixes!
   
 [x] Starting statements of definitions, theorems, examples, etc, on a new line instead of right after the title?  Relatedly, placement of the idx markers? (checked sample article... followed its conventions)
+
+[ ] Have I been checking and fixing the chapter.ptx files or just the section files? I think just the section files. Do first three chapter files.
+
+[ ] Just fixed chapter_eigen.ptx and part of sec_eigen.ptx down to the first example.  
+
+[ ]  Codespaces, every exercises division gets an xml-id.  Go back and add to every section before sec_eigen.ptx.
   
 [ ] Not PreTeXt related, but sec_transpose calls non-square matrices triangular... change this or add a note that some authors don't do this?

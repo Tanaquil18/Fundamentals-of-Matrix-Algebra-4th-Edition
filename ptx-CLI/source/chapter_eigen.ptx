@@ -6,24 +6,24 @@
       Adding two numbers, <m>x+y</m>,
       led us to adding vectors <m>\vec{x}+\vec{y}</m> and adding matrices <m>A+ B</m>.
       We explored multiplication,
-      which then led us to solving the matrix equation A \vec{x} = \vec{b}, which was reminiscent of solving the algebra equation <m>ax=b</m>.
+      which then led us to solving the matrix equation <m> A \vec{x} = \vec{b}</m> which was reminiscent of solving the algebra equation <m>ax=b</m>.
     </p>
     <p>
       This chapter is motivated by another analogy.
-      Consider: when we multiply an unknown number <m>x</m> by another number such as 5, what do we know about the result?
+      Consider: when we multiply an unknown number <m>x</m> by another number such as <m>5</m>, what do we know about the result?
       Unless, <m>x=0</m>, we know that in some sense <m>5x</m> will be
-      <q>5 times bigger than <m>x</m>.</q>
+      <q><m>5</m> times bigger than <m>x</m>.</q>
       Applying this to vectors,
       we would readily agree that
       <m>5\vec{x}</m> gives a vector that is
-      <q>5 times bigger than <m>\vec{x}</m>.</q>
-      Each entry in <m>\vec{x}</m> is multiplied by 5.
+      <q><m>5</m> times bigger than <m>\vec{x}</m>.</q>
+      Each entry in <m>\vec{x}</m> is multiplied by <m>5</m>.
     </p>
     <p>
       Within the matrix algebra context, though,
       we have two types of multiplication:
       scalar and matrix multiplication.
-      What happens to <m>\vec{x}</m> when we multiply it by a matrix A? Our first response is likely along the lines of
+      What happens to <m>\vec{x}</m> when we multiply it by a matrix <m>A</m>? Our first response is likely along the lines of
       <q>You just get another vector.
       There is no definable relationship.</q>
       We might wonder if there is ever the case where a matrix <mdash/> vector multiplication is very similar to a scalar <mdash/> vector multiplication.
