@@ -77,11 +77,10 @@
     Therefore we put off solving this for just a moment to state a definition and make a few comments.
   </p>
   <definition xml:id="def_eigen"><title>Eigenvalues and Eigenvectors</title>
-  
+    <idx><h>eigenvalue</h><h>definition</h></idx>
+    <idx><h>eigenvector</h><h>|see{eigenvalue}</h></idx>
   
     <statement>
-        <idx><h>eigenvalue</h><h>definition</h></idx>
-            <idx><h>eigenvector</h><h>|see{eigenvalue}</h></idx>
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix,
         <m>\vec{x}</m> a nonzero <m>n\times 1</m> column vector and <m>\lambda</m> a scalar.
@@ -158,8 +157,9 @@
   <p>
     Back to our math.
     Given a square matrix <m>A</m>,
-    we want to find a nonzero vector <m>\vec{x}</m> and a scalar <m>\lambda</m> such that <m>A\vec{x} = \lambd\vec{x}</m>.
+    we want to find a nonzero vector <m>\vec{x}</m> and a scalar <m>\lambda</m> such that <m>A\vec{x} = \lambda\vec{x}</m>.
     We will solve this using the skills we developed in <xref ref="chapter_arithmetic">Chapter</xref>.
+  </p>
     <sbsgroup widths="25% 35%" margins="17% 17%" valign="middle">
       <sidebyside>
         <p>
@@ -186,7 +186,6 @@
         </p>
       </sidebyside>
     </sbsgroup>
-  </p>
   <p>
     Think about this last factorization.
     We are likely tempted to say

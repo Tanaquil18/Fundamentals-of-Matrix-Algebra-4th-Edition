@@ -63,6 +63,8 @@
 
 - [x] Just fixed chapter_eigen.ptx and sec_eigen.ptx  
 
+- [ ] sec_eigen_prop would like to skip letters in the Invertible Matrix Theorem.  If not, need to add the missing equivalent items.
+
 - [ ]  Codespaces, every exercises division gets an xml-id.  Go back and add to every section before sec_eigen.ptx.
   
 - [ ] Not PreTeXt related, but sec_transpose calls non-square matrices triangular... change this or add a note that some authors don't do this?
