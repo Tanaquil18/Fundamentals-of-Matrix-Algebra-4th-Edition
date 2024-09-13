@@ -1,0 +1,23 @@
+<diagram dimensions="(300,300)" margins="5">
+    <definition>f(x) = x </definition>
+    <definition>g(x) = -.5*x+4 </definition>
+    <definition>a = 8/3 </definition>
+    <coordinates bbox="[-2,-1,5,6]">
+        <axes at="axes" decorations="no"/>
+        <graph at="line1" function='f' stroke="black" />
+        <graph at="line2" function='g' stroke="black" />
+        <point at="point" p="(a,f(a))" stroke="none" fill="none" size="5"/>
+    </coordinates>
+
+    <annotations>
+    <annotation ref="figure"
+                text="The two-dimensional plane with axes, a pair of intersecting lines, and their point of intersection">
+        <annotation ref="axes" text="The coordinate axes" />
+        <annotation ref="intersecting-lines" text="A pair of intersecting lines and their point of intersection">
+          <annotation ref="line1" text="First of the two lines"/>
+          <annotation ref="line2" text="Second of the two lines"/>
+          <annotation ref="point" text="Point of intersection of the two lines"/>
+        </annotation>
+      </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,20 @@
+<diagram dimensions="(300,300)" margins="5">
+    <definition>f(x) = -3/4*x+2 </definition>
+    <definition>g(x) = -3/4*x+2 </definition>
+    <coordinates bbox="[-2,-1,5,6]">
+        <axes at="axes" decorations="no"/>
+        <graph at="line1" function='f' stroke="black" thickness="5"/>
+        <graph at="line2" function='g' stroke="black" thickness="5"/>
+    </coordinates>
+
+    <annotations>
+    <annotation ref="figure"
+                text="The two-dimensional plane with axes and two lines that are actually the same line">
+        <annotation ref="axes" text="The coordinate axes" />
+        <annotation ref="overlapping-lines" text="A pair of fully overlapping lines">
+          <annotation ref="line1" text="First of the two lines"/>
+          <annotation ref="line2" text="Second of the two lines"/>
+        </annotation>
+      </annotation>
+  </annotations>
+</diagram>
